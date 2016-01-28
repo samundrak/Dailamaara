@@ -7,5 +7,5 @@ public class Context {
 
     public static final String GAME_NAME = "DailMaara";
     public static final int    WIDTH = 800,
-                        HEIGHT = 550;
+                                HEIGHT = 550;
 }
