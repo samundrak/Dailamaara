@@ -127,34 +127,46 @@ public class Form extends ScreenRules {
 
     private void selectCardForDistrubutor() {
 //        Stack stacks = new Stack();
-        Group stacks = new Group();
-        int x = 3, y = x, gap = x;
+        final Group stacks = new Group();
+        final int[] x = {3};
+        final int[] y = {3};
+        final int[] gap = {3};
         stacks.setSize(50, 70);
-        stacks.setPosition(gap, gap);
+        stacks.setPosition(gap[0],  (50) );
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
             stacks.addActor(new FormCtrl.BackCover(i));
-            stacks.getChildren().get(i).setPosition(gap,gap);
-            if(x >=  (Context.WIDTH - 50)){
-                y +=  stacks.getChildren().get(i).getHeight() +gap;
-                x = gap;
-            }
-            stacks.getChildren().get(i).addAction(Actions.sequence(Animation.simpleAnimation(x,y)));
+            stacks.getChildren().get(i).setPosition(gap[0],gap[0]);
+//            if(x[0] >=  (Context.WIDTH - 50)){
+//                y[0] +=  stacks.getChildren().get(i).getHeight() +gap[0];
+//                x[0] = gap[0];
+//            }
+//            stacks.getChildren().get(i).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0])));
 
 //            stacks.getChildren().get(i).addAction(Actions.sequence(Animation.simpleAnimation(x,y) ,Animation.repeatAction(Actions.sequence(Animation.sizeActionPlus(52,72,5),Animation.sizeActionPlus(50,70,5)))));
             stacks.getChildren().get(i).addListener(formCtrl.cardsListener(i,stacks.getChildren().get(i)));
-            x+= stacks.getChildren().get(i).getWidth() + gap;
+//            x[0] += stacks.getChildren().get(i).getWidth() + gap[0];
         }
         final int[] i = {0};
-        Timer timer =  new Timer();
+        final Timer timer =  new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                System.out.println(i[0]);
+                if (i[0] == Const.TOTAL_NUMBER_OF_CARDS) {
+                    timer.cancel();
+                    return;
+                }
+                if (x[0] >= (Context.WIDTH - 50)) {
+                    y[0] += stacks.getChildren().get(i[0]).getHeight() + gap[0];
+                    x[0] = gap[0];
+                }
+                stacks.getChildren().get(i[0]).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0]),Actions.sequence(Animation.sizeActionPlus(60,80,0.2f),Animation.sizeActionPlus(50,70,0.2f))));
+//                stacks.getChildren().get(i[0]).addAction(Animation.rotate360());
+                x[0] += stacks.getChildren().get(i[0]).getWidth() + gap[0];
                 i[0]++;
             }
-        }, 1000,1000);
+        }, 100, 100);
         System.out.println("Lets se m i async");
-        stacks.setPosition(gap, (Context.HEIGHT / 2) - ((y + 50) / 2));
+//        stacks.setPosition(gap[0], (Context.HEIGHT / 2) - ((y[0] + 50) / 2));
         stage.addActor(stacks);
     }
 }
