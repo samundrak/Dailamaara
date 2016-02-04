@@ -52,10 +52,9 @@ public class Game extends Utils implements GameProcess {
      * We will make group of player each group has 2 players no more then 2
      * player can be add as per now
      */
-    @Override
-    public void createGroups() {
-        Player me = new Player(super.getStringInput("Enter your name.."));
-        Group myGroup = new Group(super.getStringInput("Enter your group name.."));
+    public void createGroups(String playername,String groupname) {
+        Player me = new Player(playername);
+        Group myGroup = new Group(groupname);
         Group computerGroup = new Group("Computer");
         myGroup.addPlayer(me);
         this.players.clear();

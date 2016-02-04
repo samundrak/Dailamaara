@@ -15,10 +15,7 @@ public class PlayScreen extends ScreenRules {
 
     @Override
     public void render(float delta) {
-        this.game.clearView();
-        canvas.begin();
-        canvas.draw(new Texture("bird.png"), 0, 0);
-        canvas.end();
+
         if (Gdx.input.justTouched()){
             game.setScreen(new MenuScreen(game));
         }  }

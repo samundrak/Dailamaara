@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 interface GameProcess {
     public   void createCards();
-    public   void createGroups();
+    public   void createGroups(String name,String group);
     public   void assignCardsToPlayers();
     public   void startGame();
     public   void endGame();
