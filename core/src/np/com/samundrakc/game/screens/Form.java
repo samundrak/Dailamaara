@@ -126,28 +126,19 @@ public class Form extends ScreenRules {
     }
 
     private void selectCardForDistrubutor() {
-//        Stack stacks = new Stack();
         final Group stacks = new Group();
         final int[] x = {3};
         final int[] y = {3};
         final int[] gap = {3};
         stacks.setSize(50, 70);
-        stacks.setPosition(gap[0],  (50) );
+        stacks.setPosition(gap[0], (50));
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
             stacks.addActor(new FormCtrl.BackCover(i));
-            stacks.getChildren().get(i).setPosition(gap[0],gap[0]);
-//            if(x[0] >=  (Context.WIDTH - 50)){
-//                y[0] +=  stacks.getChildren().get(i).getHeight() +gap[0];
-//                x[0] = gap[0];
-//            }
-//            stacks.getChildren().get(i).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0])));
-
-//            stacks.getChildren().get(i).addAction(Actions.sequence(Animation.simpleAnimation(x,y) ,Animation.repeatAction(Actions.sequence(Animation.sizeActionPlus(52,72,5),Animation.sizeActionPlus(50,70,5)))));
-            stacks.getChildren().get(i).addListener(formCtrl.cardsListener(i,stacks.getChildren().get(i)));
-//            x[0] += stacks.getChildren().get(i).getWidth() + gap[0];
+            stacks.getChildren().get(i).setPosition(gap[0], gap[0]);
+            stacks.getChildren().get(i).addListener(formCtrl.cardsListener(i, stacks.getChildren().get(i)));
         }
         final int[] i = {0};
-        final Timer timer =  new Timer();
+        final Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -159,14 +150,11 @@ public class Form extends ScreenRules {
                     y[0] += stacks.getChildren().get(i[0]).getHeight() + gap[0];
                     x[0] = gap[0];
                 }
-                stacks.getChildren().get(i[0]).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0]),Actions.sequence(Animation.sizeActionPlus(60,80,0.2f),Animation.sizeActionPlus(50,70,0.2f))));
-//                stacks.getChildren().get(i[0]).addAction(Animation.rotate360());
+                stacks.getChildren().get(i[0]).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0]), Actions.sequence(Animation.sizeActionPlus(60, 80, 0.2f), Animation.sizeActionPlus(50, 70, 0.2f))));
                 x[0] += stacks.getChildren().get(i[0]).getWidth() + gap[0];
                 i[0]++;
             }
         }, 100, 100);
-        System.out.println("Lets se m i async");
-//        stacks.setPosition(gap[0], (Context.HEIGHT / 2) - ((y[0] + 50) / 2));
         stage.addActor(stacks);
     }
 }
