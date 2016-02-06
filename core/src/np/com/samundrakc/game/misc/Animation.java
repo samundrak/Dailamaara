@@ -25,6 +25,13 @@ public static boolean state =  false;
         return actionMove;
     }
 
+    public static Action moveBy(float x, float y, float duration){
+        MoveByAction  actionMove = Actions.action(MoveByAction.class);
+        actionMove.setAmount(x,y);
+        actionMove.setDuration(duration);
+//        actionMove.setInterpolation(Interpolation.elasticOut);
+        return actionMove;
+    }
     public static Action shakeAction(){
         MoveToAction move =  Actions.action(MoveToAction.class);
         move.setX(5);

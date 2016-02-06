@@ -132,7 +132,6 @@ public class Form extends ScreenRules {
     }
 
     final Group stacks = new Group();
-
     private void selectCardForDistrubutor() {
         final int[] gap = {3};
         Game game = new Game();
@@ -146,7 +145,7 @@ public class Form extends ScreenRules {
             stacks.getChildren().get(i).addListener(formCtrl.cardsListener(i, stacks.getChildren().get(i)));
         }
         stacks.setPosition(Context.WIDTH + selectPlayerTable.getWidth() + stacks.getWidth(), 3);
-        stacks.setTouchable(Touchable.enabled);
+        stacks.setTouchable(Touchable.disabled);
         stage.addActor(stacks);
     }
 }

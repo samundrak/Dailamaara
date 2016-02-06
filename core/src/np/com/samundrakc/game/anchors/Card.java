@@ -7,6 +7,7 @@ package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 /**
@@ -57,8 +58,9 @@ public class Card {
     public void setId(int id) {
         this.id = id;
     }
+    private Image image;
 
-    public Image getActor(float x, float y) {
+    public void setActor( ) {
         String name = "red_joker";
         switch (this.number){
             case 1:
@@ -79,7 +81,11 @@ public class Card {
         }
         Image image = new Image(new Texture("cards/"+name+".png"));
         image.setSize(50,70);
+        this.image = image;
+    }
+
+    public Image getActor(float x, float y) {
         image.setPosition(x,y);
-        return image;
+        return this.image;
     }
 }

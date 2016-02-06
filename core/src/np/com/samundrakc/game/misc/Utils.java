@@ -2,6 +2,11 @@ package np.com.samundrakc.game.misc;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import java.util.ArrayList;
+import java.util.Random;
+
+import np.com.samundrakc.game.anchors.Const;
+
 /**
  * Created by samundra on 1/28/2016.
  */
@@ -22,5 +27,16 @@ public class Utils {
         if (value.equals(" ")) return !false;
         if (value.equals("")) return !false;
         return !true;
+    }
+
+    public static int getRandom(int max,ArrayList<Integer> al){
+         Random r = new Random();
+        int random = r.nextInt(max - 1);
+        if(al != null){
+            while(al.contains(random)){
+                random = r.nextInt(max - 1);
+            }
+        }
+        return  random;
     }
 }

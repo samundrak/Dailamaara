@@ -12,8 +12,10 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SizeToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -65,8 +67,8 @@ public class FormCtrl {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 view.getSelectPlayerTable().addAction(Animation.simpleAnimation(-(Context.WIDTH + 500), 0));
-                view.getStacks().addAction(Animation.simpleAnimation(3,(Context.HEIGHT -(Context.HEIGHT-50))));
-                if(isCardSelected) return  true;
+                view.getStacks().addAction(Animation.simpleAnimation(3, (Context.HEIGHT - (Context.HEIGHT - 50))));
+                if (isCardSelected) return true;
                 final int[] xx = {3};
                 final int[] yy = {3};
                 final int[] gap = {3};
@@ -78,8 +80,8 @@ public class FormCtrl {
                         if (i[0] == Const.TOTAL_NUMBER_OF_CARDS) {
                             timer.cancel();
                             view.getStacks().setTouchable(Touchable.enabled);
-                            Button button = new TextButton("Back",Context.skin);
-                            button.setPosition((Context.WIDTH/2 - button.getWidth()),-button.getHeight());
+                            Button button = new TextButton("Back", Context.skin);
+                            button.setPosition((Context.WIDTH / 2 - button.getWidth()), -button.getHeight());
                             button.addListener(new InputListener() {
                                 @Override
                                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -88,7 +90,7 @@ public class FormCtrl {
                                     return super.touchDown(event, x, y, pointer, button);
                                 }
                             });
-                             view.getStacks().addActor(button);
+                            view.getStacks().addActor(button);
                             return;
                         }
                         if (xx[0] >= (Context.WIDTH - 50)) {
@@ -115,7 +117,10 @@ public class FormCtrl {
             }
         };
     }
+
     private boolean isCardSelected = false;
+    private ArrayList<Actor> selectedCards = new ArrayList<Actor>();
+
     public EventListener cardsListener(final int i, final Actor actor) {
         return new InputListener() {
             @Override
@@ -126,14 +131,73 @@ public class FormCtrl {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(isCardSelected) return  true;
-                actor.setSize(50,70);
-                Image image = Game.cards.get(i).getActor(actor.getX(),actor.getY());
-                view.getStacks().addActor(image);
+//                if(isCardSelected) return  true;
+                if (selectedCards.size() == Const.TOTAL_NUMBER_OF_PLAYERS) return true;
+                System.out.println(i);
+                final Timer timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        if (selectedCards.size() == Const.TOTAL_NUMBER_OF_PLAYERS) {
+                            timer.cancel();
+                            return;
+                        }
+                        if (selectedCards.size() >= 1) {
+                            int random = Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+                            Actor actor1 = view.getStacks().getChildren().get(random);
+                            cardSelectionProcess(actor1, random);
+                        }
+                    }
+                }, 2000, 1000);
+                cardSelectionProcess(actor, i);
                 isCardSelected = true;
                 return super.touchDown(event, x, y, pointer, button);
             }
         };
+    }
+
+
+    private Action captionsLabelsOfSelectedCards(final String name, final Actor image) {
+        return new Action() {
+            @Override
+            public boolean act(float delta) {
+                TextButton label = new TextButton(name, Context.skin);
+                label.setPosition(image.getX() + ((image.getWidth() / 2) - (label.getWidth() / 2)), 60);
+                label.addAction(Actions.sequence(Actions.fadeOut(0.5f), Actions.fadeIn(1f)));
+                view.getStacks().addActor(label);
+                return false;
+            }
+        };
+    }
+
+    private ArrayList<Integer> selectedCardsIndex = new ArrayList<Integer>();
+
+    private void cardSelectionProcess(Actor actor, int index) {
+        actor.remove();
+        final Image image = Game.cards.get(index).getActor(actor.getX(), actor.getY());
+        image.addAction(Actions.sequence(Animation.sizeActionPlus(150, 200, 0.5f)));
+        selectedCards.add(image);
+        selectedCardsIndex.add(index);
+        if (selectedCards.size() < 2) {
+            image.addAction(Actions.sequence(Animation.moveBy(getXDiffToPin(50, actor.getX()), getXDiffToPin(300, actor.getY()) - 200, 0.5f), captionsLabelsOfSelectedCards("Player", image)));
+        } else {
+            image.addAction(Actions.sequence(Animation.moveBy(getXDiffToPin(selectedCards.get(selectedCards.size() - 2).getX() + 160, actor.getX()), getXDiffToPin(300, actor.getY()) - 200, 0.5f), captionsLabelsOfSelectedCards("Computer " + (selectedCards.size() - 1), image)));
+        }
+        view.getStacks().addAction(Actions.sequence(new Action() {
+            @Override
+            public boolean act(float delta) {
+                return false;
+            }
+        }));
+        view.getStacks().addActor(image);
+    }
+
+    private float getXDiffToPin(float xA, float xB) {
+        if (xB > xA) {
+            return -(xB - xA);
+        } else {
+            return (xA - xB);
+        }
     }
 
     public static class BackCover extends Image {

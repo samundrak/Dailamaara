@@ -43,6 +43,7 @@ public class Game extends Utils implements GameProcess {
                 Card card = new Card(Const.COLORS_NAME[i]);
                 card.setId(i);
                 card.setNumber((j+1));
+                card.setActor();
                 Game.cards.add(card);
             }
         }
