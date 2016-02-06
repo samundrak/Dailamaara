@@ -42,7 +42,7 @@ public class Game extends Utils implements GameProcess {
             for (int j = 0; j < Const.TOTAL_NUMBER_OF_CARDS_IN_COLORS; j++) {
                 Card card = new Card(Const.COLORS_NAME[i]);
                 card.setId(i);
-                card.setNumber(j);
+                card.setNumber((j+1));
                 Game.cards.add(card);
             }
         }

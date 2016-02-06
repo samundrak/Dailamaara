@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
@@ -26,6 +27,7 @@ import java.util.TimerTask;
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.anchors.Const;
+import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.FormCtrl;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -125,11 +127,17 @@ public class Form extends ScreenRules {
         selectPlayerTable.setPosition(Context.WIDTH + selectPlayerTable.getWidth(), 0);
     }
 
+    public Group getStacks() {
+        return stacks;
+    }
+
+    final Group stacks = new Group();
+
     private void selectCardForDistrubutor() {
-        final Group stacks = new Group();
-        final int[] x = {3};
-        final int[] y = {3};
         final int[] gap = {3};
+        Game game = new Game();
+        game.createCards();
+        game.shuffleCardsOFGame(Game.cards);
         stacks.setSize(50, 70);
         stacks.setPosition(gap[0], (50));
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
@@ -137,24 +145,8 @@ public class Form extends ScreenRules {
             stacks.getChildren().get(i).setPosition(gap[0], gap[0]);
             stacks.getChildren().get(i).addListener(formCtrl.cardsListener(i, stacks.getChildren().get(i)));
         }
-        final int[] i = {0};
-        final Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (i[0] == Const.TOTAL_NUMBER_OF_CARDS) {
-                    timer.cancel();
-                    return;
-                }
-                if (x[0] >= (Context.WIDTH - 50)) {
-                    y[0] += stacks.getChildren().get(i[0]).getHeight() + gap[0];
-                    x[0] = gap[0];
-                }
-                stacks.getChildren().get(i[0]).addAction(Actions.sequence(Animation.simpleAnimation(x[0], y[0]), Actions.sequence(Animation.sizeActionPlus(60, 80, 0.2f), Animation.sizeActionPlus(50, 70, 0.2f))));
-                x[0] += stacks.getChildren().get(i[0]).getWidth() + gap[0];
-                i[0]++;
-            }
-        }, 100, 100);
+        stacks.setPosition(Context.WIDTH + selectPlayerTable.getWidth() + stacks.getWidth(), 3);
+        stacks.setTouchable(Touchable.enabled);
         stage.addActor(stacks);
     }
 }

@@ -17,9 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.SizeToAction;
 public class Animation {
 public static boolean state =  false;
     public static  Action simpleAnimation( float x,float y){
-        MoveByAction actionMove = Actions.action(MoveByAction.class);
-        actionMove.setAmountX(x);
-        actionMove.setAmountY(y);
+        MoveToAction  actionMove = Actions.action(MoveToAction.class);
+        actionMove.setX(x);
+        actionMove.setY(y);
         actionMove.setDuration(1);
         actionMove.setInterpolation(Interpolation.elasticOut);
         return actionMove;

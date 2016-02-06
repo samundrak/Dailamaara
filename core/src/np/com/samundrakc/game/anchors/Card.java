@@ -5,6 +5,10 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+
 /**
  *
  * @author samundra
@@ -52,5 +56,30 @@ public class Card {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Image getActor(float x, float y) {
+        String name = "red_joker";
+        switch (this.number){
+            case 1:
+                name = "ace_of_" +  this.type;
+                break;
+            case 11:
+                name = "jack_of_" +  this.type;
+                break;
+            case 12:
+                name = "queen_of_" +  this.type;
+                break;
+            case 13:
+                name = "king_of_" +  this.type;
+                break;
+            default:
+                name = this.number + "_of_" + this.type;
+                break;
+        }
+        Image image = new Image(new Texture("cards/"+name+".png"));
+        image.setSize(50,70);
+        image.setPosition(x,y);
+        return image;
     }
 }

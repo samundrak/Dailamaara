@@ -5,8 +5,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
+import java.awt.Menu;
+
 import np.com.samundrakc.game.DailaMaara;
+import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.screens.Form;
+import np.com.samundrakc.game.screens.MenuScreen;
 
 /**
  * Created by samundra on 1/29/2016.
@@ -14,9 +18,10 @@ import np.com.samundrakc.game.screens.Form;
 public class MenuCtrl {
     public static class PlayButtonController extends InputListener {
         private static DailaMaara game;
-
-        public PlayButtonController(DailaMaara game) {
+        private static MenuScreen view;
+        public PlayButtonController(DailaMaara game,MenuScreen view) {
             this.game = game;
+            this.view =  view;
         }
 
         @Override

@@ -41,7 +41,9 @@ public class ScreenRules extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
-
+        game.clearView();
+        stage.act(delta);
+        stage.draw();
     }
 
     @Override

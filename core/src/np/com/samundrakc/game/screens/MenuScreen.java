@@ -29,6 +29,10 @@ import np.com.samundrakc.game.misc.Context;
  * Created by samundra on 1/28/2016.
  */
 public class MenuScreen extends ScreenRules {
+    public Image getPlayButton() {
+        return playButton;
+    }
+
     private Image playButton;
 
     public MenuScreen(DailaMaara dailaMaara) {
@@ -42,16 +46,11 @@ public class MenuScreen extends ScreenRules {
         playButton.setBounds(0, 0, playButton.getWidth(), playButton.getHeight());
         playButton.setX(Context.WIDTH / 2 - (playButton.getWidth() / 2));
         playButton.setY(Context.HEIGHT / 2);
-        playButton.addListener(new MenuCtrl.PlayButtonController(game));
+        playButton.addListener(new MenuCtrl.PlayButtonController(game, this));
         stage.addActor(playButton);
     }
 
-    @Override
-    public void render(float delta) {
-        game.clearView();
-        stage.act();
-        stage.draw();
-    }
+
 
     @Override
     public void dispose() {
