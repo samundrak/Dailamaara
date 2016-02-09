@@ -1,6 +1,7 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -24,6 +25,7 @@ import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.controllers.MenuCtrl;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.Prefs;
 
 /**
  * Created by samundra on 1/28/2016.
@@ -39,6 +41,11 @@ public class MenuScreen extends ScreenRules {
         super(dailaMaara);
         playButton = new Image(new Texture(Gdx.files.internal("playbtn.png")));
         Gdx.input.setInputProcessor(stage);
+        Prefs pref =  new Prefs("test");
+        if(pref.getString("name",null) == null){
+            pref.setString("name","samundra");
+        }
+        System.out.println(pref.getString("name",null));
     }
 
     @Override

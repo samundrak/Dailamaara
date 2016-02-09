@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -31,12 +32,24 @@ import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.FormCtrl;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.Prefs;
 import np.com.samundrakc.game.misc.Utils;
 
 /**
  * Created by samundra on 2/2/2016.
  */
 public class Form extends ScreenRules {
+    public CheckBox getRemberFriendCheckBox() {
+        return remberFriendCheckBox;
+    }
+
+    private CheckBox remberFriendCheckBox;
+
+    public Prefs getPref() {
+        return pref;
+    }
+
+    private final Prefs pref;
     TextField name;
     private TextButton back;
 
@@ -63,7 +76,8 @@ public class Form extends ScreenRules {
         Game mainGame = new Game();
         mainGame.createCards();
         mainGame.shuffleCardsOFGame(Game.cards);
-        formCtrl = new FormCtrl(this,mainGame);
+        pref = new Prefs("form");
+        formCtrl = new FormCtrl(this, mainGame);
         initWidgets();
         selectPlayerForm();
         selectCardForDistrubutor();
@@ -82,12 +96,21 @@ public class Form extends ScreenRules {
         table.setPosition(Utils.inCenter(table, 'x'), Utils.inCenter(table, 'y'));
         stage.addActor(table);
         stage.addActor(selectPlayerTable);
-
+        if (pref.getString("name", null) != null && pref.getString("group", null) != null) {
+            if (pref.getInt("rememberFriend") == 1) {
+                formCtrl.playButton().touchDown(null, 0, 0, 0, 0);
+                formCtrl.computerCtrl(pref.getInt("friend")).touchDown(null, 0, 0, 0, 0);
+                return;
+            }
+            formCtrl.playButton().touchDown(null, 0, 0, 0, 0);
+        }
     }
 
     private void initWidgets() {
         name = new TextField("", Context.skin);
         group = new TextField("", Context.skin);
+        name.setText(pref.getString("name", ""));
+        group.setText(pref.getString("group", ""));
         Label nameLabel = new Label("Enter your name", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         Label groupLabel = new Label("Enter your group name", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         play = new TextButton("NEXT", Context.skin);
@@ -122,9 +145,15 @@ public class Form extends ScreenRules {
             selectPlayerTable.add(computer[i]).pad(5).expandX();
         }
         selectPlayerTable.row();
+        remberFriendCheckBox = new CheckBox(" Remember My Friend", Context.skin);
+        System.out.println(pref.getInt("rememberFriend"));
+        remberFriendCheckBox.setChecked(pref.getInt("rememberFriend") == 1);
+        remberFriendCheckBox.setBounds(0, 0, remberFriendCheckBox.getWidth(), remberFriendCheckBox.getHeight());
+        remberFriendCheckBox.addListener(formCtrl.remeberFriend());
         back = new TextButton("Back", Context.skin);
         back.setBounds(0, 0, back.getWidth(), back.getHeight());
         back.addListener(formCtrl.backButton());
+        selectPlayerTable.add(remberFriendCheckBox).colspan(5).padTop(10).row();
         selectPlayerTable.add(back).colspan(5).padTop(10);
         selectPlayerTable.center().setFillParent(true);
         selectPlayerTable.setPosition(Context.WIDTH + selectPlayerTable.getWidth(), 0);
@@ -141,6 +170,7 @@ public class Form extends ScreenRules {
     }
 
     final Group stacksChild = new Group();
+
     public void selectCardForDistrubutor() {
         final int[] gap = {3};
 

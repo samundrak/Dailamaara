@@ -37,9 +37,9 @@ public class FormCtrl {
         return game;
     }
 
-    public FormCtrl(Form view,Game game) {
+    public FormCtrl(Form view, Game game) {
         this.view = view;
-        this.game =  game;
+        this.game = game;
     }
 
     public InputListener playButton() {
@@ -47,16 +47,17 @@ public class FormCtrl {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("play button clicked");
-//                if (Utils.isEmpty(view.getName().getText())) {
-//                    return false;
-//                }
-//                if (Utils.isEmpty(view.getGroup().getText())) {
-//                    return false;
-//                }
+                if (Utils.isEmpty(view.getName().getText())) {
+                    return false;
+                }
+                if (Utils.isEmpty(view.getGroup().getText())) {
+                    return false;
+                }
 
                 view.getTable().addAction(Animation.simpleAnimation(-Context.WIDTH, Utils.inCenter(view.getTable(), 'y')));
                 view.getSelectPlayerTable().addAction(Animation.simpleAnimation(0, 0));
-
+                view.getPref().setString("name", view.getName().getText());
+                view.getPref().setString("group", view.getGroup().getText());
                 return super.touchDown(event, x, y, pointer, button);
             }
         };
@@ -71,7 +72,10 @@ public class FormCtrl {
                 view.getStacks().addAction(Animation.simpleAnimation(3, (Context.HEIGHT - (Context.HEIGHT - 50))));
                 view.getStacksChild().addAction(Animation.simpleAnimation(3, (Context.HEIGHT - (Context.HEIGHT - 50))));
 //                game.createGroups(view.getName().getText(), view.getGroup().getText(), i + 1);
-                game.createGroups("samundra", "nepal", i + 1);
+                if (view.getPref().getInt("rememberFriend") == 1) {
+                    view.getPref().setInt("friend", i);
+                }
+                game.createGroups(view.getName().getText(), view.getGroup().getText(), i + 1);
                 if (isCardSelected) return true;
                 cardShareProcess(null);
                 return true;
@@ -79,7 +83,7 @@ public class FormCtrl {
         };
     }
 
-    public void cardShareProcess(final Callback callback){
+    public void cardShareProcess(final Callback callback) {
         final int[] xx = {3};
         final int[] yy = {3};
         final int[] gap = {3};
@@ -104,7 +108,7 @@ public class FormCtrl {
                     });
                     view.getStacks().addActor(button);
                     setIsCardSelected(false);
-                    if(callback != null){
+                    if (callback != null) {
                         callback.run();
                     }
                     return;
@@ -119,6 +123,7 @@ public class FormCtrl {
             }
         }, 100, 100);
     }
+
     public InputListener backButton() {
         return new InputListener() {
             @Override
@@ -150,18 +155,34 @@ public class FormCtrl {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if(isCardSelected) return true;
-                new CardSelection(FormCtrl.this).start(i,actor);
+                if (isCardSelected) return true;
+                new CardSelection(FormCtrl.this).start(i, actor);
                 return true;
             }
         };
     }
+
     private float getXDiffToPin(float xA, float xB) {
         if (xB > xA) {
             return -(xB - xA);
         } else {
             return (xA - xB);
         }
+    }
+
+    public InputListener remeberFriend() {
+        return new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println(view.getRemberFriendCheckBox().isChecked());
+                if (!view.getRemberFriendCheckBox().isChecked()) {
+                    view.getPref().setInt("rememberFriend", 1);
+                } else {
+                    view.getPref().setInt("rememberFriend", 0);
+                }
+                return true;
+            }
+        };
     }
 
     public static class BackCover extends Image {
@@ -181,6 +202,7 @@ public class FormCtrl {
 
         private int index;
         private int width = 50, height = 70;
+
         public BackCover(int index) {
             super(Context.CARDS_BACK_COVER);
             super.setSize(width, height);
@@ -188,7 +210,7 @@ public class FormCtrl {
         }
     }
 
-    public interface  Callback{
+    public interface Callback {
         void run();
     }
 }
