@@ -30,8 +30,8 @@ public class ScreenRules extends ScreenAdapter {
         cam = new OrthographicCamera(Context.WIDTH,Context.HEIGHT);
         vp = new FitViewport(Context.WIDTH,Context.HEIGHT,cam);
         stage = new Stage(vp);
-        Image img = new Image(new Texture("bg.jpg"));
-        stage.addActor(img);
+//        Image img = new Image(new Texture("bg.jpg"));
+//        stage.addActor(img);
     }
 
     @Override

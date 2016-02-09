@@ -21,7 +21,7 @@ public class Context {
     public static final int WIDTH = 700,
             HEIGHT = 400;
     public static final Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-    public static final Image CARDS_BACK_COVER = new Image(new Texture("cards/back.png"));
+    public static final Texture CARDS_BACK_COVER = new Texture("cards/back.png") ;
     public static final Actor toast(String message) {
         Label label = new Label(message, new Label.LabelStyle(new BitmapFont(), Color.RED));
         label.setPosition((Context.WIDTH / 2) - (label.getWidth() / 2), 0);

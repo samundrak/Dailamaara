@@ -88,4 +88,7 @@ public class Card {
         image.setPosition(x,y);
         return this.image;
     }
+    public Image getActor() {
+        return this.image;
+    }
 }

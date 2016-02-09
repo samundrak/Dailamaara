@@ -60,7 +60,10 @@ public class Form extends ScreenRules {
 
     public Form(DailaMaara game) {
         super(game);
-        formCtrl = new FormCtrl(this);
+        Game mainGame = new Game();
+        mainGame.createCards();
+        mainGame.shuffleCardsOFGame(Game.cards);
+        formCtrl = new FormCtrl(this,mainGame);
         initWidgets();
         selectPlayerForm();
         selectCardForDistrubutor();
@@ -115,7 +118,7 @@ public class Form extends ScreenRules {
         for (int i = 0; i < computer.length; i++) {
             computer[i] = new TextButton("Computer " + (i + 1), Context.skin);
             computer[i].setBounds(0, 0, computer[i].getWidth(), computer[i].getHeight());
-            computer[i].addListener(formCtrl.computerCtrl(computer[i], i));
+            computer[i].addListener(formCtrl.computerCtrl(i));
             selectPlayerTable.add(computer[i]).pad(5).expandX();
         }
         selectPlayerTable.row();
@@ -132,11 +135,15 @@ public class Form extends ScreenRules {
     }
 
     final Group stacks = new Group();
-    private void selectCardForDistrubutor() {
+
+    public Group getStacksChild() {
+        return stacksChild;
+    }
+
+    final Group stacksChild = new Group();
+    public void selectCardForDistrubutor() {
         final int[] gap = {3};
-        Game game = new Game();
-        game.createCards();
-        game.shuffleCardsOFGame(Game.cards);
+
         stacks.setSize(50, 70);
         stacks.setPosition(gap[0], (50));
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
@@ -147,5 +154,6 @@ public class Form extends ScreenRules {
         stacks.setPosition(Context.WIDTH + selectPlayerTable.getWidth() + stacks.getWidth(), 3);
         stacks.setTouchable(Touchable.disabled);
         stage.addActor(stacks);
+        stage.addActor(stacksChild);
     }
 }

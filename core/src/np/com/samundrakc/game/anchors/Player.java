@@ -8,7 +8,6 @@ package np.com.samundrakc.game.anchors;
 import java.util.ArrayList;
 
 /**
- *
  * @author samundra
  */
 public class Player {
@@ -17,6 +16,16 @@ public class Player {
     private Group group = null;
     private int id;
     private ArrayList<Card> cards = null;
+
+    public Player getFriend() {
+        return friend;
+    }
+
+    public void setFriend(Player friend) {
+        this.friend = friend;
+    }
+
+    private Player friend;
 
     public Player(String name) {
         this.name = name;

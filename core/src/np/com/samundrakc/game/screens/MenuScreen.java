@@ -37,7 +37,7 @@ public class MenuScreen extends ScreenRules {
 
     public MenuScreen(DailaMaara dailaMaara) {
         super(dailaMaara);
-        playButton = new Image(new Texture("playBtn.png"));
+        playButton = new Image(new Texture(Gdx.files.internal("playbtn.png")));
         Gdx.input.setInputProcessor(stage);
     }
 

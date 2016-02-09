@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 /**
- *
  * @author samundra
  */
 public class Game extends Utils implements GameProcess {
@@ -21,8 +20,8 @@ public class Game extends Utils implements GameProcess {
     public final ArrayList<Player> players;
     final ArrayList<Group> group;
     HashMap<String, Group> winner;
-    static int turn;
-    static int mineId;
+    public static int turn;
+    public static int mineId;
 
     public Game() {
         Game.cards = new ArrayList();
@@ -42,7 +41,7 @@ public class Game extends Utils implements GameProcess {
             for (int j = 0; j < Const.TOTAL_NUMBER_OF_CARDS_IN_COLORS; j++) {
                 Card card = new Card(Const.COLORS_NAME[i]);
                 card.setId(i);
-                card.setNumber((j+1));
+                card.setNumber((j + 1));
                 card.setActor();
                 Game.cards.add(card);
             }
@@ -53,17 +52,17 @@ public class Game extends Utils implements GameProcess {
      * We will make group of player each group has 2 players no more then 2
      * player can be add as per now
      */
-    public void createGroups(String playername,String groupname) {
+    public void createGroups(String playername, String groupname, int frenId) {
         Player me = new Player(playername);
         Group myGroup = new Group(groupname);
         Group computerGroup = new Group("Computer");
         myGroup.addPlayer(me);
         this.players.clear();
         this.players.add(me);
-        this.players.add(new Player("Computer A"));
-        this.players.add(new Player("Computer B"));
-        this.players.add(new Player("Computer C"));
-        Collections.shuffle(this.players);
+        this.players.add(new Player("Computer 1"));
+        this.players.add(new Player("Computer 2"));
+        this.players.add(new Player("Computer 3"));
+
         System.out.println("Enter number to select friend");
         for (int i = 0; i < this.players.size(); i++) {
             if (this.players.get(i) == me) {
@@ -72,38 +71,32 @@ public class Game extends Utils implements GameProcess {
             this.players.get(i).setId(i);
             System.out.println(i + " - " + this.players.get(i).getName());
         }
-        boolean nextStep = true;
-        while (nextStep) {
-            try {
-                int id = Integer.parseInt(super.getStringInput("Enter number..."));
-                if (id == mineId) {
-                    System.out.println("You cant play with yourself...");
-                } else if (id < this.players.size()) {
-                    System.out.println("You selected: " + this.players.get(id).getName());
-                    myGroup.addPlayer(this.players.get(id));
-                    for (int i = 0; i < this.players.size(); i++) {
-                        if (i != mineId && i != id) {
-                            computerGroup.addPlayer(this.players.get(i));
-                        }
-                    }
-                    nextStep = !nextStep;
-                } else {
-                    System.out.println("You selected some who is not in game");
+        int id = frenId;
+        if (id == mineId) {
+            System.out.println("You cant play with yourself...");
+        } else if (id < this.players.size()) {
+            System.out.println("You selected: " + this.players.get(id).getName());
+            this.players.get(mineId).setFriend(this.players.get(id));
+            this.players.get(id).setFriend(this.players.get(mineId));
+            myGroup.addPlayer(this.players.get(id));
+            for (int i = 0; i < this.players.size(); i++) {
+                if (i != mineId && i != id) {
+                    computerGroup.addPlayer(this.players.get(i));
                 }
-
-            } catch (Exception e) {
-                System.out.println("You enter wrong format");
             }
+            this.players.get(computerGroup.getPlayerList().get(0).getId()).setFriend(computerGroup.getPlayerList().get(1));
+            this.players.get(computerGroup.getPlayerList().get(1).getId()).setFriend(computerGroup.getPlayerList().get(0));
+        } else {
+            System.out.println("You selected some who is not in game");
         }
         this.group.add(myGroup);
         this.group.add(computerGroup);
 
 
-
-        for(Group g : group){
+        for (Group g : group) {
             System.out.println("Group is " + g.getName());
 
-            for(Player p : g.getPlayerList()){
+            for (Player p : g.getPlayerList()) {
                 System.out.println("Player is " + p.getName());
 
             }
@@ -141,7 +134,7 @@ public class Game extends Utils implements GameProcess {
         int i = super.getIntInput("Enter any  number from " + 0 + " to " + (Const.TOTAL_NUMBER_OF_CARDS - 1));
         int[] computerSelectedCards = new int[players.size()];
 
-        for(Player e : players){
+        for (Player e : players) {
             if (e.getId() != Game.mineId) {
                 int selected = Game.cards.get(new Random().ints(1, Const.TOTAL_NUMBER_OF_CARDS).findFirst().getAsInt()).getNumber();
                 computerSelectedCards[e.getId()] = selected;

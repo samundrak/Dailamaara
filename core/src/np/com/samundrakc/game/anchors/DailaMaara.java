@@ -18,7 +18,7 @@ public class DailaMaara {
      */
     public static void main(String[] args) {
         Game game = new Game();
-        game.createGroups("sa,","ra");
+//        game.createGroups("sa,","ra");
         game.createCards();
         game.shuffleCardsOFGame(Game.cards);
         game.selectPlayerToThrowCardsFirstTime(game.players);
