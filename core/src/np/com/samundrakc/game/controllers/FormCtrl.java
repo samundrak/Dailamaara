@@ -73,13 +73,13 @@ public class FormCtrl {
 //                game.createGroups(view.getName().getText(), view.getGroup().getText(), i + 1);
                 game.createGroups("samundra", "nepal", i + 1);
                 if (isCardSelected) return true;
-                cardShareProcess();
+                cardShareProcess(null);
                 return true;
             }
         };
     }
 
-    public void cardShareProcess(){
+    public void cardShareProcess(final Callback callback){
         final int[] xx = {3};
         final int[] yy = {3};
         final int[] gap = {3};
@@ -104,6 +104,9 @@ public class FormCtrl {
                     });
                     view.getStacks().addActor(button);
                     setIsCardSelected(false);
+                    if(callback != null){
+                        callback.run();
+                    }
                     return;
                 }
                 if (xx[0] >= (Context.WIDTH - 50)) {
@@ -137,7 +140,7 @@ public class FormCtrl {
 
     private boolean isCardSelected = false;
 
-    public EventListener cardsListener(final int i, final Actor actor) {
+    public InputListener cardsListener(final int i, final Actor actor) {
         return new InputListener() {
             @Override
             public boolean mouseMoved(InputEvent event, float x, float y) {
@@ -149,7 +152,7 @@ public class FormCtrl {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if(isCardSelected) return true;
                 new CardSelection(FormCtrl.this).start(i,actor);
-                return super.touchDown(event, x, y, pointer, button);
+                return true;
             }
         };
     }
@@ -185,4 +188,7 @@ public class FormCtrl {
         }
     }
 
+    public interface  Callback{
+        void run();
+    }
 }
