@@ -1,6 +1,7 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -40,7 +41,7 @@ public class MenuScreen extends ScreenRules {
     public MenuScreen(DailaMaara dailaMaara) {
         super(dailaMaara);
         playButton = new Image(new Texture(Gdx.files.internal("playbtn.png")));
-        Gdx.input.setInputProcessor(stage);
+
         Prefs pref =  new Prefs("test");
         if(pref.getString("name",null) == null){
             pref.setString("name","samundra");

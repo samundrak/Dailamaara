@@ -1,5 +1,6 @@
 package np.com.samundrakc.game.controllers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -20,7 +21,9 @@ import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Utils;
+import np.com.samundrakc.game.screens.DailaMaara;
 
 /**
  * Created by samundra on 2/7/2016.
@@ -42,8 +45,6 @@ public class CardSelection {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                System.err.println(dups.size());
-
                 if (selectedCards.size() == Const.TOTAL_NUMBER_OF_PLAYERS) {
                     dups.clear();
                     timer.cancel();
@@ -55,6 +56,7 @@ public class CardSelection {
                     }
                     int min = selectCardsNumber.indexOf(Collections.min(selectCardsNumber));
 
+                    StringBuilder sb = new StringBuilder();
                     for (CardSelectedPlayer csp : cardSelectedPlayers) {
                         if (csp.getCardNumber() == selectCardsNumber.get(min)) {
                             System.out.println("added" + csp.getPlayer().getName());
@@ -62,54 +64,88 @@ public class CardSelection {
                             if (csp.getPlayer().getId() == Game.mineId) {
                                 playerHasPlayed = false;
                                 form.setIsCardSelected(false);
+                                form.setIsAllCardShareProcessDone(false);
+                                form.setIsCardShareProcessDone(false);
+                                form.autoHideMessage("You have to select card again").autoHide(3, null);
                             }
+                            sb.append(csp.getPlayer().getName() + ", ");
                             System.out.println(csp.getPlayer().getName() + " has lowest number - " + csp.getCardNumber());
                         }
                     }
                     if (dups.size() < 2) {
                         //Lowest card chooser has been choosen
                         System.out.println(dups.get(0).getPlayer().getName() + " will distribute cards");
+                        form.autoHideMessage(dups.get(0).getPlayer().getName() + " will distribute cards").autoHide(3, new MessageBox.OnOkButtonClicked() {
+                            @Override
+                            public void run() {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        for (int i = 0; i < cardSelectedPlayers.size(); i++) {
+                                            form.getView().getStacks().getChildren().get(selectedCardsIndex.get(i)).setVisible(true);
+                                        }
+                                        for (int i = 0; i < form.getView().getStacks().getChildren().size; i++) {
+                                            if (i < Const.TOTAL_NUMBER_OF_CARDS) {
+                                                form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
+                                                form.getView().getStacks().getChildren().get(i).clearListeners();
+                                            } else {
+                                                form.getView().getStacks().getChildren().get(i).remove();
+                                            }
+                                        }
+                                        form.getView().getStacks().clearListeners();
+                                        form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
+                                        form.getView().dispose();
+                                    }
+                                });
+                            }
+                        });
                         form.getGame().turn = dups.get(0).getPlayer().getId();
                         selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 1f)));
                         return;
                     }
 
-                    //Card drawer has to be choosen as two or many player choosed same cards
-                    Const.TOTAL_NUMBER_OF_PLAYERS = dups.size();
-                    for (int i = 0; i < cardSelectedPlayers.size(); i++) {
-                        form.getView().getStacks().getChildren().get(selectedCardsIndex.get(i)).setVisible(true);
-                    }
-                    form.getView().getStacksChild().clearChildren();
-                    for (int i = 0; i < form.getView().getStacks().getChildren().size; i++) {
-                        if (i < Const.TOTAL_NUMBER_OF_CARDS) {
-                            form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
-                        } else {
-                            form.getView().getStacks().getChildren().get(i).remove();
-                        }
-                    }
-
-                    selectedCards.clear();
-                    selectCardsNumber.clear();
-                    selectedCardsIndex.clear();
-                    cardSelectedPlayers.clear();
-                    form.getView().getStacks().setTouchable(Touchable.disabled);
-                    form.cardShareProcess(new FormCtrl.Callback() {
+                    form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(2, new MessageBox.OnOkButtonClicked() {
                         @Override
                         public void run() {
-                            if (playerHasPlayed) {
-                                form.setIsCardSelected(true);
-                                start(i, actor);
+//                            Card drawer has to be choosen as two or many player choosed same cards
+                            Const.TOTAL_NUMBER_OF_PLAYERS = dups.size();
+                            for (int i = 0; i < cardSelectedPlayers.size(); i++) {
+                                form.getView().getStacks().getChildren().get(selectedCardsIndex.get(i)).setVisible(true);
                             }
-                            form.getView().getStacks().setTouchable(Touchable.enabled);
+                            form.getView().getStacksChild().clearChildren();
+                            for (int i = 0; i < form.getView().getStacks().getChildren().size; i++) {
+                                if (i < Const.TOTAL_NUMBER_OF_CARDS) {
+                                    form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
+                                } else {
+                                    form.getView().getStacks().getChildren().get(i).remove();
+                                }
+                            }
+
+                            selectedCards.clear();
+                            selectCardsNumber.clear();
+                            selectedCardsIndex.clear();
+                            cardSelectedPlayers.clear();
+                            form.getView().getStacks().setTouchable(Touchable.disabled);
+                            form.cardShareProcess(new FormCtrl.Callback() {
+                                @Override
+                                public void run() {
+                                    if (playerHasPlayed) {
+                                        form.setIsCardSelected(true);
+                                        start(i, actor);
+                                    }
+                                    form.getView().getStacks().setTouchable(Touchable.enabled);
+                                }
+                            });
+                            return;
                         }
                     });
                     return;
                 }
                 if (playerHasPlayed) {
                     int random = Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-//                    if (selectedCards.size() == 2) {
-//                        random = 14; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-//                    }
+                    if (selectedCards.size() == 2) {
+                        random = 14; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+                    }
 //                    if (selectedCards.size() == 3) {
 //                        random = 1; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
 //                    }

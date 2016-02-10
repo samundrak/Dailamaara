@@ -15,9 +15,10 @@ import com.badlogic.gdx.scenes.scene2d.actions.SizeToAction;
  * Created by samundra on 2/1/2016.
  */
 public class Animation {
-public static boolean state =  false;
-    public static  Action simpleAnimation( float x,float y){
-        MoveToAction  actionMove = Actions.action(MoveToAction.class);
+    public static boolean state = false;
+
+    public static Action simpleAnimation(float x, float y) {
+        MoveToAction actionMove = Actions.action(MoveToAction.class);
         actionMove.setX(x);
         actionMove.setY(y);
         actionMove.setDuration(1);
@@ -25,39 +26,40 @@ public static boolean state =  false;
         return actionMove;
     }
 
-    public static Action moveBy(float x, float y, float duration){
-        MoveByAction  actionMove = Actions.action(MoveByAction.class);
-        actionMove.setAmount(x,y);
+    public static Action moveBy(float x, float y, float duration) {
+        MoveByAction actionMove = Actions.action(MoveByAction.class);
+        actionMove.setAmount(x, y);
         actionMove.setDuration(duration);
 //        actionMove.setInterpolation(Interpolation.elasticOut);
         return actionMove;
     }
-    public static Action shakeAction(){
-        MoveToAction move =  Actions.action(MoveToAction.class);
+
+    public static Action shakeAction() {
+        MoveToAction move = Actions.action(MoveToAction.class);
         move.setX(5);
         move.setDuration((float) 0.5);
         return move;
     }
 
-    public static Action rotate360(){
+    public static Action rotate(float amount, int duration) {
         RotateByAction rotate = Actions.action(RotateByAction.class);
-        rotate.setAmount(360f);
-        rotate.setDuration(2);
+        rotate.setAmount(amount);
+        rotate.setDuration(duration);
         return rotate;
     }
 
-    public static Action sizeActionPlus(int width,int height,float duration){
-        SizeToAction size =  new SizeToAction();
+    public static Action sizeActionPlus(int width, int height, float duration) {
+        SizeToAction size = new SizeToAction();
         size.setWidth(width);
         size.setHeight(height);
         size.setDuration(duration);
         return size;
     }
 
-    public static Action repeatAction(Action action){
-        RepeatAction repeatAction =  new RepeatAction();
+    public static Action repeatAction(Action action) {
+        RepeatAction repeatAction = new RepeatAction();
         repeatAction.setAction(action);
         repeatAction.setCount(RepeatAction.FOREVER);
-        return  repeatAction;
+        return repeatAction;
     }
 }

@@ -1,5 +1,6 @@
 package np.com.samundrakc.game.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -30,6 +31,7 @@ public class ScreenRules extends ScreenAdapter {
         cam = new OrthographicCamera(Context.WIDTH,Context.HEIGHT);
         vp = new FitViewport(Context.WIDTH,Context.HEIGHT,cam);
         stage = new Stage(vp);
+        Gdx.input.setInputProcessor(stage);
         Image img = new Image(new Texture("bg.jpg"));
         stage.addActor(img);
     }

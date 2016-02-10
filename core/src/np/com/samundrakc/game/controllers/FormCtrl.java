@@ -19,6 +19,7 @@ import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Utils;
 import np.com.samundrakc.game.screens.Form;
 
@@ -37,9 +38,12 @@ public class FormCtrl {
         return game;
     }
 
+    MessageBox msg;
+
     public FormCtrl(Form view, Game game) {
         this.view = view;
         this.game = game;
+        msg = new MessageBox(view.getStage(), "Pop up message");
     }
 
     public InputListener playButton() {
@@ -48,9 +52,11 @@ public class FormCtrl {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("play button clicked");
                 if (Utils.isEmpty(view.getName().getText())) {
+                    autoHideMessage("Please enter your name").autoHide(1,null);
                     return false;
                 }
                 if (Utils.isEmpty(view.getGroup().getText())) {
+                    autoHideMessage("Please enter your group name").autoHide(1,null);
                     return false;
                 }
 
@@ -63,6 +69,9 @@ public class FormCtrl {
         };
     }
 
+    public MessageBox autoHideMessage(String message) {
+        return msg.setMessage(message).show();
+    }
 
     public InputListener computerCtrl(final int i) {
         return new InputListener() {
@@ -75,6 +84,7 @@ public class FormCtrl {
                 if (view.getPref().getInt("rememberFriend") == 1) {
                     view.getPref().setInt("friend", i);
                 }
+                game.getGroup().clear();
                 game.createGroups(view.getName().getText(), view.getGroup().getText(), i + 1);
                 if (isCardSelected) return true;
                 cardShareProcess(null);
@@ -83,7 +93,30 @@ public class FormCtrl {
         };
     }
 
+    public boolean isCardShareProcessDone() {
+        return isCardShareProcessDone;
+    }
+
+    public void setIsCardShareProcessDone(boolean isCardShareProcessDone) {
+        this.isCardShareProcessDone = isCardShareProcessDone;
+    }
+
+    public boolean isAllCardShareProcessDone() {
+        return isAllCardShareProcessDone;
+    }
+
+    public void setIsAllCardShareProcessDone(boolean isAllCardShareProcessDone) {
+        this.isAllCardShareProcessDone = isAllCardShareProcessDone;
+    }
+
+    private boolean isCardShareProcessDone = false;
+    private boolean isAllCardShareProcessDone = false;
+
     public void cardShareProcess(final Callback callback) {
+        if (!isCardShareProcessDone) {
+            autoHideMessage("Please wait while card is distributed").autoHide(2,null);
+            isCardShareProcessDone = true;
+        }
         final int[] xx = {3};
         final int[] yy = {3};
         final int[] gap = {3};
@@ -94,6 +127,10 @@ public class FormCtrl {
             public void run() {
                 if (i[0] == Const.TOTAL_NUMBER_OF_CARDS) {
                     timer.cancel();
+                    if (!isAllCardShareProcessDone) {
+                        autoHideMessage("You can select any card now").autoHide(2,null);
+                        isAllCardShareProcessDone = true;
+                    }
                     view.getStacks().setTouchable(Touchable.enabled);
                     Button button = new TextButton("Back", Context.skin);
                     button.setPosition((Context.WIDTH / 2 - button.getWidth()), -button.getHeight());

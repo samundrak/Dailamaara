@@ -17,7 +17,17 @@ import java.util.Random;
 public class Game extends Utils implements GameProcess {
 
     public static ArrayList<Card> cards;
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
     public final ArrayList<Player> players;
+
+    public ArrayList<Group> getGroup() {
+        return group;
+    }
+
     final ArrayList<Group> group;
     HashMap<String, Group> winner;
     public static int turn;
@@ -56,6 +66,7 @@ public class Game extends Utils implements GameProcess {
         Player me = new Player(playername);
         Group myGroup = new Group(groupname);
         Group computerGroup = new Group("Computer");
+        me.setGroup(myGroup);
         myGroup.addPlayer(me);
         this.players.clear();
         this.players.add(me);
@@ -79,9 +90,11 @@ public class Game extends Utils implements GameProcess {
             this.players.get(mineId).setFriend(this.players.get(id));
             this.players.get(id).setFriend(this.players.get(mineId));
             myGroup.addPlayer(this.players.get(id));
+            this.players.get(id).setGroup(myGroup);
             for (int i = 0; i < this.players.size(); i++) {
                 if (i != mineId && i != id) {
                     computerGroup.addPlayer(this.players.get(i));
+                    this.players.get(i).setGroup(computerGroup);
                 }
             }
             this.players.get(computerGroup.getPlayerList().get(0).getId()).setFriend(computerGroup.getPlayerList().get(1));

@@ -9,6 +9,7 @@ import java.awt.Menu;
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.misc.Animation;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.screens.Form;
 import np.com.samundrakc.game.screens.MenuScreen;
 
@@ -27,6 +28,7 @@ public class MenuCtrl {
         @Override
         public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
             game.setScreen(new Form(game));
+
             return super.touchDown(event, x, y, pointer, button);
         }
     }

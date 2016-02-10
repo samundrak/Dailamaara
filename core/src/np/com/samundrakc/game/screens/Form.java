@@ -32,6 +32,7 @@ import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.FormCtrl;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Prefs;
 import np.com.samundrakc.game.misc.Utils;
 
@@ -70,12 +71,23 @@ public class Form extends ScreenRules {
     Table table;
     Button play;
     FormCtrl formCtrl;
+    DailaMaara dailaMaara;
+
+    @Override
+    public void dispose() {
+        super.dispose();
+    }
+
+    public DailaMaara getDailaMaara() {
+        return dailaMaara;
+    }
 
     public Form(DailaMaara game) {
         super(game);
+        this.dailaMaara =  game;
         Game mainGame = new Game();
         mainGame.createCards();
-        mainGame.shuffleCardsOFGame(Game.cards);
+//        mainGame.shuffleCardsOFGame(Game.cards);
         pref = new Prefs("form");
         formCtrl = new FormCtrl(this, mainGame);
         initWidgets();
@@ -111,8 +123,8 @@ public class Form extends ScreenRules {
         group = new TextField("", Context.skin);
         name.setText(pref.getString("name", ""));
         group.setText(pref.getString("group", ""));
-        Label nameLabel = new Label("Enter your name", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        Label groupLabel = new Label("Enter your group name", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        Label nameLabel = new Label("Enter your name",Context.skin);
+        Label groupLabel = new Label("Enter your group name", Context.skin);
         play = new TextButton("NEXT", Context.skin);
         play.setBounds(0, 0, play.getWidth(), play.getHeight());
         play.addListener(formCtrl.playButton());
@@ -136,7 +148,7 @@ public class Form extends ScreenRules {
     private void selectPlayerForm() {
         computer = new Button[3];
         selectPlayerTable = new Table();
-        Label nameLabel = new Label("Select your friend", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        Label nameLabel = new Label("Select your friend", Context.skin);
         selectPlayerTable.add(nameLabel).colspan(5).expandX().padBottom(10).row();
         for (int i = 0; i < computer.length; i++) {
             computer[i] = new TextButton("Computer " + (i + 1), Context.skin);
