@@ -82,7 +82,7 @@ public class MessageBox {
             table.add(button).colspan(5).padTop(10);
             table.setSize(label.getWidth() + 100, label.getHeight() + button.getHeight() + 50);
         }
-        table.setBackground(new NinePatchDrawable(getNinePatch("ng.9.png")));
+        table.setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         table.center();
         table.setY(Context.HEIGHT + table.getHeight());
         table.setX(Context.WIDTH / 2 - (table.getWidth() / 2));
@@ -126,7 +126,7 @@ public class MessageBox {
         return this;
     }
 
-    private NinePatch getNinePatch(String name) {
+    public static NinePatch getNinePatch(String name) {
         final Texture t = new Texture(Gdx.files.internal(name));
         return new NinePatch(new TextureRegion(t, 1, 1, t.getWidth() - 2, t.getHeight() - 2), 10, 10, 10, 10);
     }

@@ -29,14 +29,31 @@ public class Utils {
         return !true;
     }
 
-    public static int getRandom(int max,ArrayList<Integer> al){
-         Random r = new Random();
+    public static int getRandom(int max, ArrayList<Integer> al) {
+        Random r = new Random();
         int random = r.nextInt(max - 1);
-        if(al != null){
-            while(al.contains(random)){
+        if (al != null) {
+            while (al.contains(random)) {
                 random = r.nextInt(max - 1);
             }
         }
-        return  random;
+        return random;
     }
+
+    public static float getXDiffToPin(float xA, float xB) {
+        if (xB > xA) {
+            return -(xB - xA);
+        } else {
+            return (xA - xB);
+        }
+    }
+
+    public static float getDiffPoint(float from, float to) {
+        if (to > from) {
+            return (to - from);
+        } else {
+            return -(from - to);
+        }
+    }
+
 }

@@ -5,6 +5,9 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+
 import java.util.ArrayList;
 
 /**
@@ -17,8 +20,46 @@ public class Player {
     private int id;
     private ArrayList<Card> cards = null;
 
+    public float getLocationX() {
+        return locationX;
+    }
+
+    public void setLocationX(float locationX) {
+        this.locationX = locationX;
+    }
+
+    public float getLocationY() {
+        return locationY;
+    }
+
+    public void setLocationY(float locationY) {
+        this.locationY = locationY;
+    }
+
+    public Const.DIRECTION DIRECTION;
+    private float locationX = 0;
+    private float locationY = 0;
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+
+    private  Actor actor ;
     public Player getFriend() {
         return friend;
+    }
+
+    private ArrayList<Actor> cardsActor = new ArrayList<Actor>();
+
+    public void setCardsActor(Actor a) {
+        this.cardsActor.add(a);
+    }
+
+    public ArrayList<Actor> getCardsActor() {
+        return this.cardsActor;
     }
 
     public void setFriend(Player friend) {

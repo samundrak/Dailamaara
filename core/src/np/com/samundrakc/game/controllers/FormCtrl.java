@@ -158,7 +158,7 @@ public class FormCtrl {
                 xx[0] += view.getStacks().getChildren().get(i[0]).getWidth() + gap[0];
                 i[0]++;
             }
-        }, 100, 100);
+        }, 100, 50);
     }
 
     public InputListener backButton() {

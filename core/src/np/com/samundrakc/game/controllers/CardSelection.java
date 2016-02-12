@@ -92,6 +92,7 @@ public class CardSelection {
                                                 form.getView().getStacks().getChildren().get(i).remove();
                                             }
                                         }
+                                        Const.TOTAL_NUMBER_OF_PLAYERS = 4;
                                         form.getView().getStacks().clearListeners();
                                         form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().dispose();
@@ -143,15 +144,15 @@ public class CardSelection {
                 }
                 if (playerHasPlayed) {
                     int random = Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-                    if (selectedCards.size() == 2) {
-                        random = 14; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+//                    if (selectedCards.size() == 2) {
+//                        random = 14; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+//                    }
+                    if (selectedCards.size() == 3) {
+                        random = 1; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
                     }
-//                    if (selectedCards.size() == 3) {
-//                        random = 1; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-//                    }
-//                    if (selectedCards.size() == 1) {
-//                        random = 27; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-//                    }
+                    if (selectedCards.size() == 1) {
+                        random = 27; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+                    }
                     Actor computerSelectedCard = form.getView().getStacks().getChildren().get(random);
                     cardSelectionProcess(computerSelectedCard, random);
                 }
@@ -192,16 +193,16 @@ public class CardSelection {
         selectedCardsIndex.add(index);
         float x, y;
         if (selectedCards.size() < 2 && !playerHasPlayed) {
-            x = getXDiffToPin(50, actor.getX());
-            y = getXDiffToPin(300, actor.getY()) - 200;
+            x = Utils.getXDiffToPin(50, actor.getX());
+            y = Utils.getXDiffToPin(300, actor.getY()) - 200;
             image.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), captionsLabelsOfSelectedCards(form.getGame().players.get(Game.mineId).getName(), image, x, y)));
         } else {
             String name;
             if (selectedCards.size() < 2) {
-                x = getXDiffToPin(50, actor.getX());
+                x = Utils.getXDiffToPin(50, actor.getX());
                 name = dups.get(selectedCards.size() - 1).getPlayer().getName();
             } else {
-                x = getXDiffToPin(selectedCards.get(selectedCards.size() - 2).getX() + 160, actor.getX());
+                x = Utils.getXDiffToPin(selectedCards.get(selectedCards.size() - 2).getX() + 160, actor.getX());
                 name = form.getGame().players.get(selectedCards.size() - 1).getName();
                 System.out.println(dups.size());
                 if (dups.size() > 0) {
@@ -210,7 +211,7 @@ public class CardSelection {
                 }
                 System.out.println(name);
             }
-            y = getXDiffToPin(300, actor.getY()) - 200;
+            y = Utils.getXDiffToPin(300, actor.getY()) - 200;
             image.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), captionsLabelsOfSelectedCards(name, image, x, y)));
 
         }
@@ -228,13 +229,6 @@ public class CardSelection {
 
     }
 
-    private float getXDiffToPin(float xA, float xB) {
-        if (xB > xA) {
-            return -(xB - xA);
-        } else {
-            return (xA - xB);
-        }
-    }
 
     private class CardSelectedPlayer {
         Player player;

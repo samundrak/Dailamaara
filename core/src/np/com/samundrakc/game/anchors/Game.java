@@ -5,6 +5,10 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,9 +22,18 @@ public class Game extends Utils implements GameProcess {
 
     public static ArrayList<Card> cards;
 
+    public static ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public static void setCards(ArrayList<Card> cards) {
+        Game.cards = cards;
+    }
+
     public ArrayList<Player> getPlayers() {
         return players;
     }
+
 
     public final ArrayList<Player> players;
 
@@ -32,6 +45,7 @@ public class Game extends Utils implements GameProcess {
     HashMap<String, Group> winner;
     public static int turn;
     public static int mineId;
+    public static HashMap<String, Image> COLORS = new HashMap<String, Image>();
 
     public Game() {
         Game.cards = new ArrayList();
@@ -39,6 +53,10 @@ public class Game extends Utils implements GameProcess {
         players = new ArrayList(Const.TOTAL_NUMBER_OF_PLAYERS);
         group = new ArrayList(Const.TOTAL_NUMBER_GROUPS);
         turn = -1;
+        Game.COLORS.put(Const.COLORS_NAME[0], new Image(new Texture("cards/clubs.png")));
+        Game.COLORS.put(Const.COLORS_NAME[2], new Image(new Texture("cards/diamonds.png")));
+        Game.COLORS.put(Const.COLORS_NAME[3], new Image(new Texture("cards/spades.png")));
+        Game.COLORS.put(Const.COLORS_NAME[1], new Image(new Texture("cards/hearts.png")));
     }
 
     /**

@@ -6,7 +6,6 @@
 package np.com.samundrakc.game.anchors;
 
 /**
- *
  * @author samundra
  */
 public class Const {
@@ -15,7 +14,9 @@ public class Const {
     public static final int TOTAL_NUMBER_OF_CARDS = 52;
     public static final int TOTAL_NUMBER_OF_COLORS = 4;
     public static final int TOTAL_NUMBER_OF_CARDS_IN_COLORS = 13;
-    public static   int TOTAL_NUMBER_OF_PLAYERS = 4;
+    public static int TOTAL_NUMBER_OF_PLAYERS = 4;
     public static final String[] COLORS_NAME = {"clubs", "hearts", "diamonds", "spades"};
     static int TOTAL_NUMBER_GROUPS = 2;
+
+    public enum DIRECTION {EAST, WEST, NORTH, SOUTH}
 }
