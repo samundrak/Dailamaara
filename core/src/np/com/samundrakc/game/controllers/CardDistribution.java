@@ -5,9 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
+import com.badlogic.gdx.utils.Timer;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 import np.com.samundrakc.game.anchors.Card;
 import np.com.samundrakc.game.anchors.Const;
@@ -29,121 +28,171 @@ public class CardDistribution {
     }
 
 
-    public void shareProcessFirst() {
+    public CardDistribution shareProcessFirst() {
         game.getCards().setZIndex(1);
         int count = 0;
-        for (int i = 0; i < 52; i++) {
-            if (game.getSortPlayer().get(count).getCards().size() == 13) {
+        for (int i = 0; i < 20; i++) {
+            if (game.getSortPlayer().get(count).getCards().size() == 5) {
                 count++;
             }
-            game.getSortPlayer().get(count).addCards(Game.cards.get(i));
-
+            Player p = game.getSortPlayer().get(count);
+            p.addCards(Game.cards.get(i));
         }
+        return this;
 
-        final Timer timer = new Timer();
-        final int[] finalCount = {0};
-        final int perPlayer[] = {0};
-        final int[] player = {0};
-
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (finalCount[0] >= 52) {
-                    System.out.println("==========");
-                    System.out.println(game.getMainGame().getPlayers().get(Game.turn).getName());
-                    System.out.println(game.getCards().getX());
-                    System.out.println(game.getCards().getY());
-                    System.out.println("==========");
-                    timer.cancel();
-                    return;
-                }
-
-                Actor actor = game.getCards().getChildren().get(finalCount[0]);
-                final Player gamer = game.getSortPlayer().get(player[0]);
-//                switch (game.getMainGame().getPlayers().get(Game.turn).DIRECTION) {
-//                    case EAST:
-//                        break;
-//                    case WEST:
-                switch (gamer.DIRECTION) {
-                    case EAST:
-                        actor.addAction(Animation.moveBy(
-                                gamer.getLocationX() - game.getCards().getX(),
-                                gamer.getActor().getY() - (actor.getHeight()), 0.5f
-                        ));
-                        gamer.setLocationX(gamer.getLocationX() - (actor.getWidth() + 1));
-                        break;
-                    case WEST:
-                        actor.addAction(
-                                Actions.sequence(Animation.moveBy(
-                                        gamer.getLocationX() - game.getCards().getX(),
-                                        -actor.getHeight() / 2, 0.5f
-                                ), new RunnableAction() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            game.getStage().addActor(Game.cards.get(finalCount[0]).getActor(actor.getX(), actor.getY()));
-                                        } catch (Exception e) {
-                                            System.out.println(e.getMessage());
-                                        }
-                                    }
-                                }));
-                        gamer.setLocationX(gamer.getLocationX() - (actor.getWidth() + 1));
-                        break;
-                    case NORTH:
-                        actor.setRotation(90);
-                        System.out.println("norTH" + gamer.getLocationY());
-                        actor.addAction(Animation.moveBy(
-                                gamer.getLocationX() - game.getCards().getX(),
-                                gamer.getLocationY(), 0.5f
-                        ));
-                        gamer.setLocationY(gamer.getLocationY() + (actor.getWidth() + 1));
-                        break;
-                    case SOUTH:
-                        actor.setRotation(90);
-                        System.out.println("SOUTH" + gamer.getLocationX());
-                        actor.addAction(Actions.sequence(Animation.moveBy(
-                                gamer.getLocationX() - game.getCards().getX(),
-                                gamer.getLocationY(), 0.5f
-                        ), new RunnableAction() {
-                            @Override
-                            public void run() {
-                                gamer.setLocationY(gamer.getLocationY() + (actor.getWidth() + 1));
-                            }
-                        }));
-                        break;
-                }
-
-//                        break;
-//                    case NORTH:
-//                        break;
-//                    case SOUTH:
-//                        break;
-//                }
-
-                if (perPlayer[0] >= 13) {
-                    System.out.println(gamer.getName());
-                    System.out.println(gamer.getLocationX());
-                    System.out.println(gamer.getLocationY());
-                    perPlayer[0] = 0;
-                    player[0]++;
-                }
-
-                perPlayer[0]++;
-                finalCount[0]++;
-            }
-        }, 0, 500);
     }
 
-    private float getCoordinates(Player p, char axis) {
-//        switch (p.DIRECTION) {
-//            case EAST:
-        return axis == 'x' ? p.getActor().getX() : p.getActor().getY();
-//            case WEST:
-//                return axis == 'x' ? p.getActor().getX() : p.getActor().getY();
-//            case NORTH:
-//                return axis == 'x' ? p.getActor().getX() : p.getActor().getY();
-//            case SOUTH:
-//                return axis == 'x' ? p.getActor().getX() : p.getActor().getY();
-//        }
+    //0,19,5
+    public final CardDistribution startShare(int from, final int numberOfCardsToThrow, final int sum) {
+        final int[] cardCounter = {from};
+        final int[] player = {0};
+        final Timer timer = new Timer();
+        final boolean[] proceed = {true};
+        System.out.println(from);
+        timer.scheduleTask(new Timer.Task() {
+            @Override
+            public void run() {
+                if (!proceed[0]) return;
+                proceed[0] = false;
+                if (cardCounter[0] == numberOfCardsToThrow) {
+                    Game.THROWN_CARDS = numberOfCardsToThrow;
+                }
+
+
+                final Actor cards = game.getCards().getChildren().get(cardCounter[0]);
+                cards.clearActions();
+                final Player p = game.getSortPlayer().get(player[0]);
+
+                final Player turn = game.getMainGame().getPlayers().get(Game.turn);
+                p.setCardsActor(Game.cards.get(cardCounter[0]).getActor());
+                float x = p.getActor().getX() - (game.getCards().getX());
+                float y = p.getActor().getY() - (game.getCards().getY());
+                float[] cords;
+                switch (turn.DIRECTION) {
+                    case EAST:
+                    case WEST:
+                        cords = ifCardForEastOrWest(p, cards, x, y);
+                        x = cords[0];
+                        y = cords[1];
+                        break;
+                    case NORTH:
+                        cords = ifCardFromNorth(p, cards, x, y);
+                        x = cords[0];
+                        y = cords[1];
+                        break;
+                    case SOUTH:
+                        cords = ifCardFromSouth(p, cards, x, y);
+                        x = cords[0];
+                        y = cords[1];
+                        break;
+                }
+                cards.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), new RunnableAction() {
+                    @Override
+                    public void run() {
+                        proceed[0] = true;
+                    }
+                }));
+                int counter = sum;
+                if (p.getCardsActor().size() >= counter) {
+                    player[0]++;
+                    if (player[0] >= game.getMainGame().players.size()) {
+                        timer.clear();
+                        return;
+                    }
+                }
+                cardCounter[0]++;
+            }
+        }, 0, 0.5f);
+        timer.start();
+        return this;
+    }
+
+    private float[] ifCardForEastOrWest(Player p, Actor cards, float x, float y) {
+        switch (p.DIRECTION) {
+            case EAST:
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = 0;
+                y -= (p.getActor().getHeight() + cards.getHeight() / 2 + 16);
+                break;
+            case WEST:
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = p.getLocationX() - (game.getCards().getX() + cards.getHeight() - 10);
+                p.setLocationX(p.getLocationX() - (cards.getWidth() + 5));
+                break;
+            case NORTH:
+                cards.addAction(Animation.rotate(90, 0.5f));
+                x += p.getActor().getHeight() + cards.getHeight();
+                break;
+            case SOUTH:
+                cards.addAction(Animation.rotate(90, 0.5f));
+                x -= cards.getWidth() / 2 + 5;
+                break;
+        }
+        return new float[]{x, y};
+    }
+
+    private float[] ifCardFromNorth(Player p, Actor cards, float x, float y) {
+        switch (p.DIRECTION) {
+            case EAST:
+                cards.addAction(Animation.rotate(90, 0.5f));
+                x = p.getActor().getY() - (game.getCards().getY() + 7);
+                y = -p.getActor().getX() + (p.getActor().getWidth() / 2 + cards.getWidth() / 2);
+                break;
+            case WEST:
+
+                cards.addAction(Animation.rotate(90, 0.5f));
+                if (p.getCardsActor().size() < 2) {
+                    p.setLocationY(p.getLocationX() - game.getCards().getX());
+                    p.setLocationX(480);
+                    System.out.println(p.getLocationY());
+                }
+                x = p.getActor().getX() - p.getLocationX();
+                y = -p.getLocationY();
+                p.setLocationY(p.getLocationY() - cards.getWidth() - 5);
+                break;
+            case NORTH:
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = 0;
+                y = 15;
+                break;
+            case SOUTH:
+
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = 0;
+                y = -(p.getActor().getX() - (p.getActor().getY() - cards.getHeight() + 10));
+                break;
+        }
+        return new float[]{x, y};
+    }
+
+    private float[] ifCardFromSouth(Player p, Actor cards, float x, float y) {
+        switch (p.DIRECTION) {
+            case EAST:
+                cards.addAction(Animation.rotate(90, 0.5f));
+                x = p.getActor().getY() - (game.getCards().getY() + 7);
+                y = p.getActor().getX() - game.getCards().getY() + cards.getHeight();
+                break;
+            case WEST:
+                cards.addAction(Animation.rotate(90, 0.5f));
+                if (p.getCardsActor().size() < 2) {
+                    p.setLocationX(480);
+                    p.setLocationY(-cards.getHeight());
+                }
+                x = p.getActor().getX() - p.getLocationX();
+                y = p.getLocationY();
+                p.setLocationY(p.getLocationY() + cards.getWidth() + 5);
+                break;
+            case NORTH:
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = 0;
+                y = game.getCards().getX() - (cards.getHeight() + (cards.getHeight() / 2 - 5));
+                break;
+            case SOUTH:
+                cards.addAction(Animation.rotate(360, 0.5f));
+                x = 0;
+                y = -(cards.getHeight() / 2 + 10);
+                break;
+        }
+        return new float[]{x, y};
     }
 }

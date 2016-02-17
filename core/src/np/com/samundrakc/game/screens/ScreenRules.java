@@ -6,9 +6,11 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import np.com.samundrakc.game.DailaMaara;
@@ -20,16 +22,17 @@ import np.com.samundrakc.game.misc.Context;
 public class ScreenRules extends ScreenAdapter {
     protected final DailaMaara game;
     protected Stage stage;
-    FitViewport vp;
+    StretchViewport vp;
     OrthographicCamera cam;
+
     public Stage getStage() {
         return stage;
     }
 
     public ScreenRules(DailaMaara game) {
-        this.game =  game;
-        cam = new OrthographicCamera(Context.WIDTH,Context.HEIGHT);
-        vp = new FitViewport(Context.WIDTH,Context.HEIGHT,cam);
+        this.game = game;
+        cam = new OrthographicCamera(Context.WIDTH, Context.HEIGHT);
+        vp = new StretchViewport(Context.WIDTH, Context.HEIGHT, cam);
         stage = new Stage(vp);
         Gdx.input.setInputProcessor(stage);
         Image img = new Image(new Texture("bg.jpg"));
@@ -50,7 +53,7 @@ public class ScreenRules extends ScreenAdapter {
 
     @Override
     public void resize(int width, int height) {
-        vp.update(width,height,true);
+        vp.update(width, height, true);
     }
 
     @Override

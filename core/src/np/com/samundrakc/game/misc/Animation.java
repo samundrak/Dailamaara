@@ -19,8 +19,7 @@ public class Animation {
 
     public static Action simpleAnimation(float x, float y) {
         MoveToAction actionMove = Actions.action(MoveToAction.class);
-        if (x != 0) actionMove.setX(x);
-        if (x != 0) actionMove.setY(y);
+       actionMove.setPosition(x, y);
         actionMove.setDuration(1);
         actionMove.setInterpolation(Interpolation.elasticOut);
         return actionMove;
@@ -28,11 +27,8 @@ public class Animation {
 
     public static Action moveBy(float x, float y, float duration) {
         MoveByAction actionMove = Actions.action(MoveByAction.class);
-
-        if (x != 0) actionMove.setAmountX(x);
-        if (y != 0) actionMove.setAmountY(y);
+       actionMove.setAmount(x,y);
         actionMove.setDuration(duration);
-//        actionMove.setInterpolation(Interpolation.elasticOut);
         return actionMove;
     }
 
@@ -43,7 +39,7 @@ public class Animation {
         return move;
     }
 
-    public static Action rotate(float amount, int duration) {
+    public static Action rotate(float amount, float duration) {
         RotateByAction rotate = Actions.action(RotateByAction.class);
         rotate.setAmount(amount);
         rotate.setDuration(duration);

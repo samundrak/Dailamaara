@@ -61,7 +61,7 @@ public class FormCtrl {
                 }
 
                 view.getTable().addAction(Animation.simpleAnimation(-Context.WIDTH, Utils.inCenter(view.getTable(), 'y')));
-                view.getSelectPlayerTable().addAction(Animation.simpleAnimation(0, 0));
+                view.getSelectPlayerTable().addAction(Animation.simpleAnimation(1, 1));
                 view.getPref().setString("name", view.getName().getText());
                 view.getPref().setString("group", view.getGroup().getText());
                 return super.touchDown(event, x, y, pointer, button);

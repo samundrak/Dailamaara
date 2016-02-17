@@ -120,7 +120,7 @@ public class DailaMaara extends ScreenRules {
                 my.getFriend().DIRECTION = Const.DIRECTION.EAST;
                 stage.addActor(me);
                 stage.addActor(friend);
-                my.setLocationX(645);
+                my.setLocationX(Context.WIDTH);
                 my.setLocationY(0);
                 my.getFriend().setLocationX(570);
                 my.getFriend().setLocationY(390);
@@ -128,7 +128,9 @@ public class DailaMaara extends ScreenRules {
                 temp[2] = my.getFriend();
                 if (Game.turn == my.getId()) {
                     cards.setPosition(Context.WIDTH / 2, me.getHeight() + 10);
+                    my.setMyCardPosition(cards.getX(), cards.getY());
                 } else if (Game.turn == my.getFriend().getId()) {
+                    my.getFriend().setMyCardPosition(cards.getX(), cards.getY());
                     cards.setPosition(Context.WIDTH / 2, Context.HEIGHT - (friend.getHeight() + cards.getHeight() + 10));
                 }
                 stage.addActor(cards);
@@ -164,8 +166,10 @@ public class DailaMaara extends ScreenRules {
                 temp[1] = c2;
                 if (Game.turn == c1.getId()) {
                     cards.setPosition(g1.getX() + leftPlayer.getHeight() + cards.getHeight(), g1.getY());
+                    c1.setMyCardPosition(cards.getX(), cards.getY());
                 } else if (Game.turn == c2.getId()) {
                     cards.setPosition(g2.getX() - cards.getHeight(), g2.getY());
+                    c2.setMyCardPosition(cards.getX(), cards.getY());
                 }
                 stage.addActor(cards);
             }
@@ -269,17 +273,10 @@ public class DailaMaara extends ScreenRules {
                 break;
             }
         }
-        new CardDistribution(this).shareProcessFirst();
-        for (Player p : sortPlayer) {
-            System.out.println("==========");
-            System.out.println(p.getName() + " : " + p.DIRECTION + " : " + p.getCardsActor().size());
-            for (Card c : p.getCards()) {
-                System.out.print(c.getId() + ": " + c.getNumber() + "(" + c.getType() + ")" + " - ");
-            }
-            System.out.println("==========");
-        }
-        System.out.println(Game.cards.size());
-        System.out.println(this.getCards().getChildren().size);
+        Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
+        Game.PLAYER = mainGame.getPlayers().get(Game.turn);
+        Game.TALK_TURN = sortPlayer.get(0);
+        new CardDistribution(this).shareProcessFirst().startShare(0,51,13);
     }
 
     private int inIndex(ArrayList<Player> playerOnSide, int index) {

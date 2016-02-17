@@ -88,6 +88,8 @@ public class CardSelection {
                                             if (i < Const.TOTAL_NUMBER_OF_CARDS) {
                                                 form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
                                                 form.getView().getStacks().getChildren().get(i).clearListeners();
+                                                Game.getCards().get(i).getActor().setVisible(true);
+                                                Game.getCards().get(i).getActor().setSize(50, 70);
                                             } else {
                                                 form.getView().getStacks().getChildren().get(i).remove();
                                             }
@@ -96,6 +98,7 @@ public class CardSelection {
                                         form.getView().getStacks().clearListeners();
                                         form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().dispose();
+                                        form.getView().getStage().dispose();
                                     }
                                 });
                             }
@@ -147,12 +150,12 @@ public class CardSelection {
 //                    if (selectedCards.size() == 2) {
 //                        random = 14; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
 //                    }
-                    if (selectedCards.size() == 3) {
-                        random = 1; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-                    }
-                    if (selectedCards.size() == 1) {
-                        random = 27; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
-                    }
+//                    if (selectedCards.size() == 3) {
+//                        random = 1; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+//                    }
+//                    if (selectedCards.size() == 1) {
+//                        random = 27; //Utils.getRandom(Const.TOTAL_NUMBER_OF_CARDS, selectedCardsIndex);
+//                    }
                     Actor computerSelectedCard = form.getView().getStacks().getChildren().get(random);
                     cardSelectionProcess(computerSelectedCard, random);
                 }

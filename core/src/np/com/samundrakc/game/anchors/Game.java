@@ -20,6 +20,7 @@ import java.util.Random;
  */
 public class Game extends Utils implements GameProcess {
 
+    public static int THROWN_CARDS = 0;
     public static ArrayList<Card> cards;
 
     public static ArrayList<Card> getCards() {
@@ -46,6 +47,10 @@ public class Game extends Utils implements GameProcess {
     public static int turn;
     public static int mineId;
     public static HashMap<String, Image> COLORS = new HashMap<String, Image>();
+    public static Player TALK_TURN = null;
+    public static Player CURRENT_TURN = null;
+    public static Player PLAYER = null;
+    public static Card TURUP = null;
 
     public Game() {
         Game.cards = new ArrayList();

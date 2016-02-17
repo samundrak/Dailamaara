@@ -39,6 +39,7 @@ public class Player {
     public Const.DIRECTION DIRECTION;
     private float locationX = 0;
     private float locationY = 0;
+
     public Actor getActor() {
         return actor;
     }
@@ -47,7 +48,8 @@ public class Player {
         this.actor = actor;
     }
 
-    private  Actor actor ;
+    private Actor actor;
+
     public Player getFriend() {
         return friend;
     }
@@ -56,6 +58,30 @@ public class Player {
 
     public void setCardsActor(Actor a) {
         this.cardsActor.add(a);
+    }
+
+    private float myCardsPositionX = 0;
+    private float myCardsPositionY = 0;
+
+    public float getMyCardsPositionX() {
+        return myCardsPositionX;
+    }
+
+    public void setMyCardsPositionX(float myCardsPositionX) {
+        this.myCardsPositionX = myCardsPositionX;
+    }
+
+    public float getMyCardsPositionY() {
+        return myCardsPositionY;
+    }
+
+    public void setMyCardsPositionY(float myCardsPositionY) {
+        this.myCardsPositionY = myCardsPositionY;
+    }
+
+    public void setMyCardPosition(float x, float y) {
+        this.myCardsPositionX = x;
+        this.myCardsPositionY = y;
     }
 
     public ArrayList<Actor> getCardsActor() {
