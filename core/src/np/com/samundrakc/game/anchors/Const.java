@@ -17,6 +17,7 @@ public class Const {
     public static int TOTAL_NUMBER_OF_PLAYERS = 4;
     public static final String[] COLORS_NAME = {"clubs", "hearts", "diamonds", "spades"};
     static int TOTAL_NUMBER_GROUPS = 2;
+    public static final int PLAYER_CARD_DISTANCE = 1;
 
     public enum DIRECTION {EAST, WEST, NORTH, SOUTH}
 }

@@ -87,7 +87,7 @@ public class Form extends ScreenRules {
         this.dailaMaara =  game;
         Game mainGame = new Game();
         mainGame.createCards();
-//        mainGame.shuffleCardsOFGame(Game.cards);
+        mainGame.shuffleCardsOFGame(Game.cards);
         pref = new Prefs("form");
         formCtrl = new FormCtrl(this, mainGame);
         initWidgets();

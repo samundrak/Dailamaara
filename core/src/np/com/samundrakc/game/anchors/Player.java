@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author samundra
@@ -119,6 +120,17 @@ public class Player {
 
     public int getId() {
         return id;
+    }
+
+    public void showMeMyCards() {
+        Iterator<Card> c = this.cards.iterator();
+        while (c.hasNext()) {
+            System.out.println("=================");
+            System.out.println(c.next().getId());
+            System.out.println(c.next().getNumber());
+            System.out.println(c.next().getType());
+            System.out.println("=================");
+        }
     }
 
     public void setId(int id) {
