@@ -19,6 +19,15 @@ public class Player {
     private Group group = null;
     private int id;
     private ArrayList<Card> cards = null;
+    private ArrayList<Actor> backCards = new ArrayList<Actor>();
+
+    public ArrayList<Actor> getBackCards() {
+        return backCards;
+    }
+
+    public void setBackCards(Actor backCards) {
+        this.backCards.add(backCards);
+    }
 
     public float getLocationX() {
         return locationX;

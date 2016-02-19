@@ -35,7 +35,7 @@ public class ScreenRules extends ScreenAdapter {
         vp = new StretchViewport(Context.WIDTH, Context.HEIGHT, cam);
         stage = new Stage(vp);
         Gdx.input.setInputProcessor(stage);
-        Image img = new Image(new Texture("bg.jpg"));
+        Image img = new Image(new Texture("bg.png"));
         stage.addActor(img);
     }
 

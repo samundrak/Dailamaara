@@ -274,7 +274,7 @@ public class DailaMaara extends ScreenRules {
             }
         }
         Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
-        Game.PLAYER = mainGame.getPlayers().get(Game.turn);
+        Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
         new CardDistribution(this).shareProcessFirst().startShare(0,51,13);
     }
