@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="gdx-backend-gwt-1.8.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.8.0/9c3507341f41e60354df59e107bc66b3d4cfb71f/gdx-backend-gwt-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.8.0/c6ca9ed1445b83b8dae44239036188a2fee7960/gdx-backend-gwt-1.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

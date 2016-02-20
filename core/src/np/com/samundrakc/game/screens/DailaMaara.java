@@ -29,10 +29,22 @@ import np.com.samundrakc.game.misc.MessageBox;
 public class DailaMaara extends ScreenRules {
     Game mainGame;
     private com.badlogic.gdx.scenes.scene2d.Group cards;
+    MessageBox msg;
+
+    public Image getNonTururp() {
+        return nonTururp;
+    }
+
+    public void setNonTururp(Image nonTururp) {
+        this.nonTururp = nonTururp;
+    }
+
+    private Image nonTururp;
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game);
         this.mainGame = mainGame;
+        msg = new MessageBox(stage, "Pop up message");
     }
 
     @Override
@@ -41,6 +53,10 @@ public class DailaMaara extends ScreenRules {
         playerSeats();
         setPositionOfCards();
 
+    }
+
+    public MessageBox autoHideMessage(String message) {
+        return msg.setMessage(message).show();
     }
 
     public com.badlogic.gdx.scenes.scene2d.Group getCardsGroup() {
@@ -62,6 +78,15 @@ public class DailaMaara extends ScreenRules {
     Table hudTable;
     HashMap<String, Label> groupWonStatusLabel = new HashMap<String, Label>();
     HashMap<String, Label> groupCoatStatusLabel = new HashMap<String, Label>();
+    Table turupTable;
+
+    public Table getTurupTable() {
+        return turupTable;
+    }
+
+    public void setTurupTable(Table turupTable) {
+        this.turupTable = turupTable;
+    }
 
     public Game getMainGame() {
         return mainGame;
@@ -75,7 +100,7 @@ public class DailaMaara extends ScreenRules {
         Label won_lb = new Label("Won", Context.skin);
         Label coat_lb = new Label("Coat", Context.skin);
         Label turup_lb = new Label("Turup", Context.skin);
-        Image nonTururp = new Image(Context.CARDS_BACK_COVER);
+        nonTururp = new Image(Context.CARDS_BACK_COVER);
         nonTururp.setSize(70, 100);
         hudTable.add(group_lb);
         hudTable.add(won_lb);
@@ -98,7 +123,7 @@ public class DailaMaara extends ScreenRules {
         hudTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         ;
         hudTable.setPosition(0, Context.HEIGHT - hudTable.getHeight());
-        Table turupTable = new Table();
+        turupTable = new Table();
         turupTable.add(turup_lb);
         turupTable.row();
         turupTable.add(nonTururp);
@@ -289,7 +314,7 @@ public class DailaMaara extends ScreenRules {
         Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
         Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
-        new CardDistribution(this).shareProcessFirst().startShare(0, 19, 5);
+        new CardDistribution(this).shareProcessFirst().startShare(0,51, 13);
     }
 
     private int inIndex(ArrayList<Player> playerOnSide, int index) {

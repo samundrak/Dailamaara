@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
 
@@ -46,15 +47,19 @@ public class CardDistribution {
     }
 
     //0,19,5
-    public final CardDistribution startShare(int from, final int numberOfCardsToThrow, final int sum) {
+    public CardDistribution startShare(int from, final int numberOfCardsToThrow, final int sum) {
         final int[] cardCounter = {from};
         final int[] player = {0};
         final Timer timer = new Timer();
         final boolean[] proceed = {true};
-        System.out.println(from);
         timer.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
+                if (Game.TALK_TURN.getCardsActor().size() >= 5) {
+                    if (Game.TURUP == null) {
+                        return;
+                    }
+                }
                 if (!cardShareDone) return;
                 if (!proceed[0]) return;
                 proceed[0] = false;
@@ -105,6 +110,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
+                                p.getCards().get(0).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
                                 index = p.getCardsActor().size() - 1;
@@ -113,6 +119,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().clearListeners();
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
+                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             }
                             cards.setVisible(false);
@@ -121,10 +128,26 @@ public class CardDistribution {
                     }
                 }));
                 int counter = sum;
-                if (p.getCardsActor().size() >= counter) {
+                if (p.getCardsActor().size() == 5) {
                     if (Game.TURUP == null) {
-
+                        if (p.getId() == Game.TALK_TURN.getId()) {
+                            if (p.getId() == Game.PLAYER.getId()) {
+                                //Player will himself select
+                                game.autoHideMessage("Please select turup from your cards").autoHide(5, null);
+                            } else {
+                                Turup turup = new Turup(Game.TALK_TURN);
+                                turup.sortFromFewCards();
+                                turup.viewMax();
+                                Game.TURUP_STRING = turup.getTurupString();
+                                Game.TURUP = turup.getTurup();
+                                game.autoHideMessage(p.getName() + " has selected " + Game.TURUP_STRING + " as Turup").autoHide(5, null);
+                            }
+                            turupMove();
+                        }
                     }
+                }
+                if (p.getCardsActor().size() >= counter) {
+
                     if (p.getId() != Game.PLAYER.getId()) {
                         Iterator<Actor> a = p.getBackCards().iterator();
                         int valueOfRotation = 90;
@@ -134,10 +157,7 @@ public class CardDistribution {
                         }
                     }
                     if (p.getId() == Game.PLAYER.getId()) {
-                        Turup turup =  new Turup(Game.PLAYER);
-                        turup.sortFromFewCards();
-                        turup.viewMax();
-                        System.out.println(Game.TURUP_STRING);
+
 //                        Iterator<Actor> a = p.getCardsActor().iterator();
 //                        while (a.hasNext()) {
 //                            a.next().addAction(Animation.simpleAnimation(0, 0));
@@ -145,7 +165,6 @@ public class CardDistribution {
                     }
                     player[0]++;
                     if (player[0] >= game.getMainGame().players.size()) {
-
                         timer.clear();
                         return;
                     }
@@ -271,5 +290,24 @@ public class CardDistribution {
                 break;
         }
         return new float[]{x, y};
+    }
+
+    public void turupMove() {
+        if (Game.TURUP == null) return;
+        Image turup = Game.COLORS.get(Game.TURUP);
+        turup.setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
+        turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),
+                Animation.simpleAnimation(game.getTurupTable().getX() + 10, game.getTurupTable().getY() + 8),
+                new RunnableAction() {
+                    /**
+                     * Called to run the runnable.
+                     */
+                    @Override
+                    public void run() {
+                        game.getNonTururp().remove();
+
+                    }
+                }));
+        game.getStage().addActor(turup);
     }
 }

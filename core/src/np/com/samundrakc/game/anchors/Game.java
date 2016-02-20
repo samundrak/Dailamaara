@@ -46,7 +46,7 @@ public class Game extends Utils implements GameProcess {
     HashMap<String, Group> winner;
     public static int turn;
     public static int mineId;
-    public static HashMap<String, Image> COLORS = new HashMap<String, Image>();
+    public static HashMap<Const.CARDS, Image> COLORS = new HashMap<Const.CARDS, Image>();
     public static Player TALK_TURN = null;
     public static Player CURRENT_TURN = null;
     public static Player PLAYER = null;
@@ -59,10 +59,10 @@ public class Game extends Utils implements GameProcess {
         players = new ArrayList(Const.TOTAL_NUMBER_OF_PLAYERS);
         group = new ArrayList(Const.TOTAL_NUMBER_GROUPS);
         turn = -1;
-        Game.COLORS.put(Const.COLORS_NAME[0], new Image(new Texture("cards/clubs.png")));
-        Game.COLORS.put(Const.COLORS_NAME[2], new Image(new Texture("cards/diamonds.png")));
-        Game.COLORS.put(Const.COLORS_NAME[3], new Image(new Texture("cards/spades.png")));
-        Game.COLORS.put(Const.COLORS_NAME[1], new Image(new Texture("cards/hearts.png")));
+        Game.COLORS.put(Const.CARDS.CLUBS, new Image(new Texture("cards/clubs.png")));
+        Game.COLORS.put(Const.CARDS.DIAMONDS, new Image(new Texture("cards/diamonds.png")));
+        Game.COLORS.put(Const.CARDS.SPADES, new Image(new Texture("cards/spades.png")));
+        Game.COLORS.put(Const.CARDS.HEARTS, new Image(new Texture("cards/hearts.png")));
     }
 
     /**

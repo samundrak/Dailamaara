@@ -20,13 +20,22 @@ public class Turup {
     private Player player;
     private Const.CARDS turup = null;
 
+    public String getTurupString() {
+        return turupString;
+    }
+
+    public void setTurupString(String turupString) {
+        this.turupString = turupString;
+    }
+
+    private String turupString = null;
+
     public Const.CARDS getTurup() {
         return turup;
     }
 
     public void setTurup(Const.CARDS turup) {
         this.turup = turup;
-        Game.TURUP = this.turup;
     }
 
     public int getSortNumber() {
@@ -70,11 +79,6 @@ public class Turup {
 
     public void viewMax() {
         ArrayList<Integer> index = new ArrayList<Integer>();
-        System.out.println("Clubs: " + hisCards.get(Const.CARDS.CLUBS).size());
-        System.out.println("Diamonds: " + hisCards.get(Const.CARDS.DIAMONDS).size());
-        System.out.println("Spades: " + hisCards.get(Const.CARDS.SPADES).size());
-        System.out.println("Hearts" + hisCards.get(Const.CARDS.HEARTS).size());
-        System.out.println("end");
         index.add(hisCards.get(Const.CARDS.CLUBS).size());
         index.add(hisCards.get(Const.CARDS.HEARTS).size());
         index.add(hisCards.get(Const.CARDS.DIAMONDS).size());
@@ -96,21 +100,9 @@ public class Turup {
             }
         }
 
-//        if (allHaveEqual) {
-//            int random = 0;
-//            try {
-//                random = new Random().nextInt(index.size() - 1);
-//            } catch (Exception e) {
-//                random = 0;
-//            } finally {
-//                setTurup(Const.COLORS_NAME_TYPE[dups.get(random)]);
-//                Game.TURUP_STRING = Const.COLORS_NAME[dups.get(random)];
-//                return;
-//            }
-//        }
         if (dups.size() < 2 && !allHaveEqual) {
             setTurup(Const.COLORS_NAME_TYPE[dups.get(0)]);
-            Game.TURUP_STRING = Const.COLORS_NAME[dups.get(0)];
+            setTurupString(Const.COLORS_NAME[dups.get(0)]);
             return;
         }
 
@@ -125,22 +117,27 @@ public class Turup {
         max = Collections.max(sum);
         int highIndex = 0;
         try {
-            highIndex = dups.get(sum.indexOf(max));
-        } catch (Exception e) {
-            highIndex = 0;
-        } finally {
-            if (highIndex >= dups.size()) {
-                if (dups.size() < 1) {
-                    setTurup(Const.COLORS_NAME_TYPE[0]);
-                    Game.TURUP_STRING = Const.COLORS_NAME[0];
-                } else {
-                    setTurup(Const.COLORS_NAME_TYPE[dups.size() - 1]);
-                    Game.TURUP_STRING = Const.COLORS_NAME[dups.size() - 1];
+            try {
+                highIndex = dups.get(sum.indexOf(max));
+            } catch (Exception e) {
+                highIndex = 0;
+            } finally {
+                if (highIndex >= dups.size()) {
+                    if (dups.size() < 1) {
+                        setTurup(Const.COLORS_NAME_TYPE[0]);
+                        setTurupString(Const.COLORS_NAME[0]);
+                    } else {
+                        setTurup(Const.COLORS_NAME_TYPE[dups.size() - 1]);
+                        setTurupString(Const.COLORS_NAME[dups.size() - 1]);
+                    }
+                    return;
                 }
-                return;
+                setTurup(Const.COLORS_NAME_TYPE[dups.get(highIndex)]);
+                setTurupString(Const.COLORS_NAME[dups.get(highIndex)]);
             }
-            setTurup(Const.COLORS_NAME_TYPE[dups.get(highIndex)]);
-            Game.TURUP_STRING = Const.COLORS_NAME[dups.get(highIndex)];
+        } catch (Exception e) {
+            setTurup(Const.COLORS_NAME_TYPE[0]);
+            setTurupString(Const.COLORS_NAME[0]);
         }
     }
 }
