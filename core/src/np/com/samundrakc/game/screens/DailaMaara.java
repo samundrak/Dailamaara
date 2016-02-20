@@ -3,6 +3,7 @@ package np.com.samundrakc.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -73,10 +74,13 @@ public class DailaMaara extends ScreenRules {
         Label group_lb = new Label("Group", Context.skin);
         Label won_lb = new Label("Won", Context.skin);
         Label coat_lb = new Label("Coat", Context.skin);
-        width += group_lb.getWidth() + won_lb.getWidth() + coat_lb.getWidth();
+        Label turup_lb = new Label("Turup", Context.skin);
+        Image nonTururp = new Image(Context.CARDS_BACK_COVER);
+        nonTururp.setSize(70, 100);
         hudTable.add(group_lb);
         hudTable.add(won_lb);
         hudTable.add(coat_lb);
+        hudTable.add(turup_lb);
         hudTable.row();
         height += group_lb.getHeight();
         for (Group g : mainGame.getGroup()) {
@@ -94,7 +98,16 @@ public class DailaMaara extends ScreenRules {
         hudTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         ;
         hudTable.setPosition(0, Context.HEIGHT - hudTable.getHeight());
+        Table turupTable = new Table();
+        turupTable.add(turup_lb);
+        turupTable.row();
+        turupTable.add(nonTururp);
+        turupTable.setWidth(70);
+        turupTable.setHeight(nonTururp.getHeight());
+        turupTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
+        turupTable.setPosition(Context.WIDTH - turupTable.getWidth(), Context.HEIGHT - (turupTable.getHeight() - 10));
         stage.addActor(hudTable);
+        stage.addActor(turupTable);
     }
 
     HashMap<Player, Actor> playerPosition = new HashMap<Player, Actor>();
@@ -276,7 +289,7 @@ public class DailaMaara extends ScreenRules {
         Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
         Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
-        new CardDistribution(this).shareProcessFirst().startShare(0,19,5);
+        new CardDistribution(this).shareProcessFirst().startShare(0, 19, 5);
     }
 
     private int inIndex(ArrayList<Player> playerOnSide, int index) {

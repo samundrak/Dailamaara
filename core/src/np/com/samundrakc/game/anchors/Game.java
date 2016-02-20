@@ -50,7 +50,8 @@ public class Game extends Utils implements GameProcess {
     public static Player TALK_TURN = null;
     public static Player CURRENT_TURN = null;
     public static Player PLAYER = null;
-    public static Card TURUP = null;
+    public static Const.CARDS TURUP = null;
+    public static String TURUP_STRING = null;
 
     public Game() {
         Game.cards = new ArrayList();
@@ -72,9 +73,21 @@ public class Game extends Utils implements GameProcess {
     public void createCards() {
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_COLORS; i++) {
             for (int j = 0; j < Const.TOTAL_NUMBER_OF_CARDS_IN_COLORS; j++) {
-                Card card = new Card(Const.COLORS_NAME[i]);
-                card.setId(i);
-                card.setNumber((j + 1));
+                Card card = new Card(Const.COLORS_NAME[i], i, (j + 1));
+                switch (i) {
+                    case 0:
+                        card.setCardType(Const.CARDS.CLUBS);
+                        break;
+                    case 1:
+                        card.setCardType(Const.CARDS.HEARTS);
+                        break;
+                    case 2:
+                        card.setCardType(Const.CARDS.DIAMONDS);
+                        break;
+                    case 3:
+                        card.setCardType(Const.CARDS.SPADES);
+                        break;
+                }
                 card.setActor();
                 Game.cards.add(card);
             }

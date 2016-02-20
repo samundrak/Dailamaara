@@ -11,17 +11,26 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 /**
- *
  * @author samundra
  */
 public class Card {
 
     private String type;
+
+    public Const.CARDS getCardType() {
+        return cardType;
+    }
+
+    public void setCardType(Const.CARDS cardType) {
+        this.cardType = cardType;
+    }
+
+    private Const.CARDS cardType;
     private int id;
-    private int number;
+    private int number = 0;
 
     public int getNumber() {
-        return number;
+        return this.number;
     }
 
     public void setNumber(int number) {
@@ -58,36 +67,38 @@ public class Card {
     public void setId(int id) {
         this.id = id;
     }
+
     private Image image;
 
-    public void setActor( ) {
+    public void setActor() {
         String name = "red_joker";
-        switch (this.number){
+        switch (this.number) {
             case 1:
-                name = "ace_of_" +  this.type;
+                name = "ace_of_" + this.type;
                 break;
             case 11:
-                name = "jack_of_" +  this.type;
+                name = "jack_of_" + this.type;
                 break;
             case 12:
-                name = "queen_of_" +  this.type;
+                name = "queen_of_" + this.type;
                 break;
             case 13:
-                name = "king_of_" +  this.type;
+                name = "king_of_" + this.type;
                 break;
             default:
                 name = this.number + "_of_" + this.type;
                 break;
         }
-        Image image = new Image(new Texture("cards/"+name+".png"));
-        image.setSize(50,70);
+        Image image = new Image(new Texture("cards/" + name + ".png"));
+        image.setSize(50, 70);
         this.image = image;
     }
 
     public Image getActor(float x, float y) {
-        image.setPosition(x,y);
+        image.setPosition(x, y);
         return this.image;
     }
+
     public Image getActor() {
         return this.image;
     }

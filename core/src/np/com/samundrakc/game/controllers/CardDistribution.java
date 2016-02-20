@@ -24,6 +24,7 @@ import np.com.samundrakc.game.screens.DailaMaara;
  */
 public class CardDistribution {
     private final DailaMaara game;
+    private boolean cardShareDone = false;
 
     public CardDistribution(DailaMaara game) {
         this.game = game;
@@ -35,10 +36,12 @@ public class CardDistribution {
         int count = 0;
         for (int i = 0; i < 52; i++) {
             Card c = Game.cards.get(i);
-            for (int j = 0; j < Const.TOTAL_NUMBER_OF_PLAYERS; j++) {
-
+            if (game.getSortPlayer().get(count).getCards().size() == 13) {
+                count++;
             }
+            game.getSortPlayer().get(count).addCards(c);
         }
+        cardShareDone = true;
         return this;
     }
 
@@ -52,6 +55,7 @@ public class CardDistribution {
         timer.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
+                if (!cardShareDone) return;
                 if (!proceed[0]) return;
                 proceed[0] = false;
                 if (cardCounter[0] == numberOfCardsToThrow) {
@@ -64,9 +68,6 @@ public class CardDistribution {
                 final Player p = game.getSortPlayer().get(player[0]);
                 final Player turn = game.getMainGame().getPlayers().get(Game.turn);
                 p.setBackCards(cards);
-//                System.out.println();
-                p.addCards(Game.cards.get(cardCounter[0]));
-
                 p.setCardsActor(Game.cards.get(cardCounter[0]).getActor());
                 float x = p.getActor().getX() - (game.getCards().getX());
                 float y = p.getActor().getY() - (game.getCards().getY());
@@ -97,16 +98,16 @@ public class CardDistribution {
                     @Override
                     public void run() {
                         if (p.DIRECTION == Const.DIRECTION.WEST) {
-
+                            int index = 0;
                             if (p.getCardsActor().size() < 2) {
-                                p.getCards().get(0).getActor().clearActions();
-                                p.getCards().get(0).getActor().clearListeners();
-                                p.getCards().get(0).getActor().setVisible(true);
-                                p.getCards().get(0).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
-                                p.getCards().get(0).getActor().setPosition(0, 0);
-                                game.getStage().addActor(p.getCards().get(0).getActor());
+                                p.getCards().get(index).getActor().clearActions();
+                                p.getCards().get(index).getActor().clearListeners();
+                                p.getCards().get(index).getActor().setVisible(true);
+                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                                p.getCards().get(index).getActor().setPosition(0, 0);
+                                game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
-                                int index = p.getCardsActor().size() - 1;
+                                index = p.getCardsActor().size() - 1;
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().clearActions();
                                 p.getCards().get(index).getActor().clearListeners();
@@ -121,6 +122,9 @@ public class CardDistribution {
                 }));
                 int counter = sum;
                 if (p.getCardsActor().size() >= counter) {
+                    if (Game.TURUP == null) {
+
+                    }
                     if (p.getId() != Game.PLAYER.getId()) {
                         Iterator<Actor> a = p.getBackCards().iterator();
                         int valueOfRotation = 90;
@@ -130,7 +134,10 @@ public class CardDistribution {
                         }
                     }
                     if (p.getId() == Game.PLAYER.getId()) {
-                        p.showMeMyCards();
+                        Turup turup =  new Turup(Game.PLAYER);
+                        turup.sortFromFewCards();
+                        turup.viewMax();
+                        System.out.println(Game.TURUP_STRING);
 //                        Iterator<Actor> a = p.getCardsActor().iterator();
 //                        while (a.hasNext()) {
 //                            a.next().addAction(Animation.simpleAnimation(0, 0));
@@ -138,6 +145,7 @@ public class CardDistribution {
                     }
                     player[0]++;
                     if (player[0] >= game.getMainGame().players.size()) {
+
                         timer.clear();
                         return;
                     }

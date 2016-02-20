@@ -99,8 +99,8 @@ public class Form extends ScreenRules {
     @Override
     public void render(float delta) {
         game.clearView();
-        stage.act();
-        stage.draw();
+        stage.act(delta);
+        stage.draw( );
     }
 
     @Override
