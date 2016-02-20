@@ -120,7 +120,7 @@ public class DailaMaara extends ScreenRules {
                 my.getFriend().DIRECTION = Const.DIRECTION.EAST;
                 stage.addActor(me);
                 stage.addActor(friend);
-                my.setLocationX(Context.WIDTH);
+                my.setLocationX(0);
                 my.setLocationY(0);
                 my.getFriend().setLocationX(570);
                 my.getFriend().setLocationY(390);
@@ -276,7 +276,7 @@ public class DailaMaara extends ScreenRules {
         Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
         Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
-        new CardDistribution(this).shareProcessFirst().startShare(0,51,13);
+        new CardDistribution(this).shareProcessFirst().startShare(0,19,5);
     }
 
     private int inIndex(ArrayList<Player> playerOnSide, int index) {

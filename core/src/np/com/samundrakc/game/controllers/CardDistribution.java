@@ -32,6 +32,13 @@ public class CardDistribution {
 
     public CardDistribution shareProcessFirst() {
         game.getCards().setZIndex(1);
+        int count = 0;
+        for (int i = 0; i < 52; i++) {
+            Card c = Game.cards.get(i);
+            for (int j = 0; j < Const.TOTAL_NUMBER_OF_PLAYERS; j++) {
+
+            }
+        }
         return this;
     }
 
@@ -57,7 +64,9 @@ public class CardDistribution {
                 final Player p = game.getSortPlayer().get(player[0]);
                 final Player turn = game.getMainGame().getPlayers().get(Game.turn);
                 p.setBackCards(cards);
+//                System.out.println();
                 p.addCards(Game.cards.get(cardCounter[0]));
+
                 p.setCardsActor(Game.cards.get(cardCounter[0]).getActor());
                 float x = p.getActor().getX() - (game.getCards().getX());
                 float y = p.getActor().getY() - (game.getCards().getY());
@@ -90,16 +99,20 @@ public class CardDistribution {
                         if (p.DIRECTION == Const.DIRECTION.WEST) {
 
                             if (p.getCardsActor().size() < 2) {
-                                p.getCardsActor().get(0).addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
-                                p.getCardsActor().get(0).setPosition(Context.WIDTH - 100, 0);
-                                game.getStage().addActor(p.getCardsActor().get(0));
-                                p.getCardsActor().get(0).setZIndex(1000);
+                                p.getCards().get(0).getActor().clearActions();
+                                p.getCards().get(0).getActor().clearListeners();
+                                p.getCards().get(0).getActor().setVisible(true);
+                                p.getCards().get(0).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                                p.getCards().get(0).getActor().setPosition(0, 0);
+                                game.getStage().addActor(p.getCards().get(0).getActor());
                             } else {
                                 int index = p.getCardsActor().size() - 1;
-                                p.getCardsActor().get(index).addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
-                                p.getCardsActor().get(index).setPosition(p.getCardsActor().get(index - 1).getX() - 50, 0);
-                                game.getStage().addActor(p.getCardsActor().get(index));
-                                p.getCardsActor().get(index).setZIndex(1000 - index);
+                                p.getCards().get(index).getActor().setVisible(true);
+                                p.getCards().get(index).getActor().clearActions();
+                                p.getCards().get(index).getActor().clearListeners();
+                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                                p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
+                                game.getStage().addActor(p.getCards().get(index).getActor());
                             }
                             cards.setVisible(false);
                         }
@@ -145,8 +158,8 @@ public class CardDistribution {
                 break;
             case WEST:
                 cards.addAction(Animation.rotate(360, 0.5f));
-                x = p.getLocationX() - (game.getCards().getX() + cards.getHeight() - 10);
-                p.setLocationX(p.getLocationX() - (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
+                x = p.getLocationX() - game.getCards().getX();
+                p.setLocationX(p.getLocationX() + (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
                 break;
             case NORTH:
                 cards.addAction(Animation.rotate(270, 0.5f));
@@ -170,8 +183,8 @@ public class CardDistribution {
                 break;
             case WEST:
                 cards.addAction(Animation.rotate(360, 0.5f));
-                x = p.getLocationX() - (game.getCards().getX() + cards.getHeight() - 10);
-                p.setLocationX(p.getLocationX() - (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
+                x = p.getLocationX() - game.getCards().getX();
+                p.setLocationX(p.getLocationX() + (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
                 break;
             case NORTH:
                 cards.addAction(Animation.rotate(270, 0.5f));
@@ -198,13 +211,13 @@ public class CardDistribution {
 
                 cards.addAction(Animation.rotate(90, 0.5f));
                 if (p.getCardsActor().size() < 2) {
-                    p.setLocationY(p.getLocationX() - game.getCards().getX());
+                    p.setLocationY(-cards.getHeight());
                     p.setLocationX(480);
                     System.out.println(p.getLocationY());
                 }
                 x = p.getActor().getX() - p.getLocationX();
                 y = -p.getLocationY();
-                p.setLocationY(p.getLocationY() - cards.getWidth() - Const.PLAYER_CARD_DISTANCE);
+                p.setLocationY(p.getLocationY() + cards.getWidth() + Const.PLAYER_CARD_DISTANCE);
                 break;
             case NORTH:
                 cards.addAction(Animation.rotate(180, 0.5f));
@@ -232,11 +245,11 @@ public class CardDistribution {
                 cards.addAction(Animation.rotate(90, 0.5f));
                 if (p.getCardsActor().size() < 2) {
                     p.setLocationX(480);
-                    p.setLocationY(-cards.getHeight());
+                    p.setLocationY(game.getCards().getX() - cards.getWidth());
                 }
                 x = p.getActor().getX() - p.getLocationX();
                 y = p.getLocationY();
-                p.setLocationY(p.getLocationY() + cards.getWidth() + Const.PLAYER_CARD_DISTANCE);
+                p.setLocationY(p.getLocationY() - cards.getWidth() + Const.PLAYER_CARD_DISTANCE);
                 break;
             case NORTH:
                 cards.addAction(Animation.rotate(180, 0.5f));

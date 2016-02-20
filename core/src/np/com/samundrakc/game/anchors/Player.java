@@ -19,7 +19,7 @@ public class Player {
     private String name = null;
     private Group group = null;
     private int id;
-    private ArrayList<Card> cards = null;
+    private ArrayList<Card> cards = new ArrayList();;
     private ArrayList<Actor> backCards = new ArrayList<Actor>();
 
     public ArrayList<Actor> getBackCards() {
@@ -73,21 +73,6 @@ public class Player {
     private float myCardsPositionX = 0;
     private float myCardsPositionY = 0;
 
-    public float getMyCardsPositionX() {
-        return myCardsPositionX;
-    }
-
-    public void setMyCardsPositionX(float myCardsPositionX) {
-        this.myCardsPositionX = myCardsPositionX;
-    }
-
-    public float getMyCardsPositionY() {
-        return myCardsPositionY;
-    }
-
-    public void setMyCardsPositionY(float myCardsPositionY) {
-        this.myCardsPositionY = myCardsPositionY;
-    }
 
     public void setMyCardPosition(float x, float y) {
         this.myCardsPositionX = x;
@@ -107,7 +92,7 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.id = -1;
-        cards = new ArrayList();
+
     }
 
     public void addCards(Card c) {
@@ -123,14 +108,7 @@ public class Player {
     }
 
     public void showMeMyCards() {
-        Iterator<Card> c = this.cards.iterator();
-        while (c.hasNext()) {
-            System.out.println("=================");
-            System.out.println(c.next().getId());
-            System.out.println(c.next().getNumber());
-            System.out.println(c.next().getType());
-            System.out.println("=================");
-        }
+
     }
 
     public void setId(int id) {
