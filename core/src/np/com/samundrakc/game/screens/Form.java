@@ -128,7 +128,6 @@ public class Form extends ScreenRules {
         play = new TextButton("NEXT", Context.skin);
         play.setBounds(0, 0, play.getWidth(), play.getHeight());
         play.addListener(formCtrl.playButton());
-        nameLabel.setFontScale(5);
         table = new Table();
         table.add(nameLabel).padTop(5).row();
         table.add(name).padTop(5).row();

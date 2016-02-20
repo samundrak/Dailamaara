@@ -110,7 +110,8 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
-                                p.getCards().get(0).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index)));
+                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
                                 index = p.getCardsActor().size() - 1;
@@ -120,6 +121,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index)));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             }
                             cards.setVisible(false);
@@ -166,6 +168,8 @@ public class CardDistribution {
                     player[0]++;
                     if (player[0] >= game.getMainGame().players.size()) {
                         timer.clear();
+                        game.autoHideMessage("Game is started. Let's Play").autoHide(3, null);
+                        Game.STARTED = true;
                         return;
                     }
                 }

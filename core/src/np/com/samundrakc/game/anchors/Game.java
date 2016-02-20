@@ -22,6 +22,7 @@ public class Game extends Utils implements GameProcess {
 
     public static int THROWN_CARDS = 0;
     public static ArrayList<Card> cards;
+    public static boolean STARTED = false;
 
     public static ArrayList<Card> getCards() {
         return cards;
