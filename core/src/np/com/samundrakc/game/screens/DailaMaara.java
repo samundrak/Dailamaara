@@ -92,6 +92,8 @@ public class DailaMaara extends ScreenRules {
         return mainGame;
     }
 
+    public static Label TURN_LABEL = new Label("None", Context.skin);
+
     private void HUD() {
         hudTable = new Table();
         int width = 0;
@@ -119,10 +121,13 @@ public class DailaMaara extends ScreenRules {
             height += l.getHeight();
         }
         hudTable.setWidth(200);
+        Label turnLabel = new Label("Turn", Context.skin);
+        hudTable.add(turnLabel);
+        hudTable.add(TURN_LABEL).colspan(2).row();
+        height += turnLabel.getHeight();
         hudTable.setHeight(height + 20);
         hudTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
-        ;
-        hudTable.setPosition(0, Context.HEIGHT - hudTable.getHeight());
+        hudTable.setPosition(0, Context.HEIGHT - (hudTable.getHeight() - 10));
         turupTable = new Table();
         turupTable.add(turup_lb);
         turupTable.row();
@@ -194,12 +199,12 @@ public class DailaMaara extends ScreenRules {
                 c1.setLocationX(70);
                 c1.setLocationY(1);
                 c1.setActor(g1);
-                c1.setCardToThrowLocations(new float[]{460, 155});
+                c1.setCardToThrowLocations(new float[]{135, 155});
                 c2.DIRECTION = Const.DIRECTION.SOUTH;
                 c2.setLocationX(700);
                 c2.setLocationY(1);
                 c2.setActor(g2);
-                c2.setCardToThrowLocations(new float[]{135, 155});
+                c2.setCardToThrowLocations(new float[]{460, 155});
                 playerPosition.put(c1, g1);
                 playerPosition.put(c2, g2);
                 stage.addActor(g1);
@@ -320,6 +325,7 @@ public class DailaMaara extends ScreenRules {
         Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
         Game.PLAY_TURN = sortPlayer.get(0);
+        DailaMaara.TURN_LABEL.setText(Game.PLAY_TURN.getName());
         new CardDistribution(this).shareProcessFirst().startShare(0, 51, 13);
     }
 

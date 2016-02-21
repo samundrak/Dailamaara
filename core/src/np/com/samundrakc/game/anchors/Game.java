@@ -9,12 +9,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Timer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
+
+import np.com.samundrakc.game.*;
+import np.com.samundrakc.game.controllers.Callback;
+import np.com.samundrakc.game.screens.*;
+import np.com.samundrakc.game.screens.DailaMaara;
 
 /**
  * @author samundra
@@ -26,6 +32,9 @@ public class Game extends Utils implements GameProcess {
     public static boolean STARTED = false;
     public static boolean OVER = false;
     public static Player PLAY_TURN = null;
+    public static int THROWN = 0;
+    public static Const.STATE STATE = Const.STATE.PLAY;
+    public static ArrayList<ArrayList<Card>> history = new ArrayList<ArrayList<Card>>();
 
     public static ArrayList<Card> getCards() {
         return cards;
@@ -208,5 +217,54 @@ public class Game extends Utils implements GameProcess {
         Arrays.sort(computerSelectedCards);
         System.out.println(Arrays.toString(computerSelectedCards));
         return true;
+    }
+
+    public static void chooseNextPlayerToBePlayed(Player player) {
+        for (int i = 0; i < Game.PLAYER_ORDER.size(); i++) {
+            if (player.getId() == Game.PLAYER_ORDER.get(i).getId()) {
+                int index = i + 1;
+                if (index >= Game.PLAYER_ORDER.size()) {
+                    index = 0;
+                }
+                Game.PLAY_TURN = Game.PLAYER_ORDER.get(index);
+                DailaMaara.TURN_LABEL.setText(Game.PLAY_TURN.getName());
+                break;
+            }
+        }
+    }
+
+    public static void updateThrownCardsStacks(final Player player) {
+        if (Game.THROWN == Const.TOTAL_NUMBER_OF_PLAYERS) {
+            if (Game.history.size() >= 13) {
+                //When game is over work is done in this block
+                Game.STATE = Const.STATE.GAME_OVER;
+            }
+            if (Game.history.size() > 0) {
+                if (Game.history.get(Game.history.size() - 1).size() >= 4) {
+                    Game.STATE = Const.STATE.WAIT;
+                    //Four Cards Per Play has been done
+                    new Timer().scheduleTask(new Timer.Task() {
+                        @Override
+                        public void run() {
+                            //Clearing the screen
+                            for (Card c : Game.history.get(Game.history.size() - 1)) {
+                                c.getActor().setVisible(false);
+                                c.getActor().clear();
+                                c.getActor().remove();
+                            }
+
+                            if (Game.STATE != Const.STATE.GAME_OVER) {
+                                //Game is note over still
+                                if (Game.PLAYER_ORDER.get(Game.PLAYER_ORDER.size() - 1).getId() == player.getId()) {
+                                    Game.THROWN = 0;
+                                    Game.history.add(new ArrayList<Card>());
+                                }
+                                Game.STATE = Const.STATE.PLAY;
+                            }
+                        }
+                    }, 5);
+                }
+            }
+        }
     }
 }

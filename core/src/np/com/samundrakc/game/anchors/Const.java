@@ -17,14 +17,15 @@ public class Const {
     public static int TOTAL_NUMBER_OF_PLAYERS = 4;
     public static final String[] COLORS_NAME = {"clubs", "hearts", "diamonds", "spades"};
     public static final CARDS[] COLORS_NAME_TYPE = {CARDS.CLUBS, CARDS.HEARTS, CARDS.DIAMONDS, CARDS.SPADES};
+
+    public static enum STATE {PLAY, PAUSE, GAME_OVER, STOP,WAIT}
+
     static int TOTAL_NUMBER_GROUPS = 2;
     public static final int PLAYER_CARD_DISTANCE = 1;
 
+    public enum DIRECTION {EAST, WEST, NORTH, SOUTH}
 
-    public enum DIRECTION {EAST, WEST, NORTH, SOUTH;}
-
-
-    public enum CARDS {CLUBS, HEARTS, DIAMONDS, SPADES;}
+    public enum CARDS {CLUBS, HEARTS, DIAMONDS, SPADES}
 
     public static final float CARD_DISTRUBUTION_SECONDS = 0.1f;
     public static final float CARD_ROTATE_ANIMATION = 0.5f;

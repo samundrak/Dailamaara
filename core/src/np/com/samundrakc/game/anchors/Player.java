@@ -5,6 +5,7 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
@@ -12,6 +13,8 @@ import com.badlogic.gdx.utils.Timer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import np.com.samundrakc.game.misc.Animation;
 
 /**
  * @author samundra
@@ -156,28 +159,40 @@ public class Player {
         this.group = group;
     }
 
-    Timer active = new Timer();
+    public Timer active = new Timer();
 
     public void play() {
         active.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
                 if (!Game.STARTED) return;
-                if (Game.OVER) {
+                if (Game.PLAY_TURN == null) return;
+                if (Game.STATE == Const.STATE.GAME_OVER) {
                     active.clear();
+                    return;
+                }
+                if (Game.STATE == Const.STATE.WAIT || Game.STATE == Const.STATE.PAUSE || Game.STATE == Const.STATE.STOP) {
+                    return;
                 }
                 if (Game.PLAY_TURN.getId() == getId()) {
-                    System.out.println(getName() + " will play");
-                    for (int i = 0; i < Game.PLAYER_ORDER.size(); i++) {
-                        if (getId() == Game.PLAYER_ORDER.get(i).getId()) {
-                            int index = i + 1;
-                            if (index >= Game.PLAYER_ORDER.size()) {
-                                index = 0;
-                            }
-                            Game.PLAY_TURN = Game.PLAYER_ORDER.get(index);
-                            break;
-                        }
+                    if (Game.history.size() < 1) {
+                        Game.history.add(new ArrayList<Card>());
                     }
+                    //Do the Playing Task Here
+                    Card c = getCardToThrow();
+                    if (c == null) {
+                        active.clear();
+                        return;
+                    }
+                    c.getActor().setPosition(getActor().getX(), getActor().getY());
+                    c.getActor().addAction(Animation.moveBy(getCardToThrowLocations()[0] - getActor().getX(), getCardToThrowLocations()[1] - getActor().getY(), 0.5f));
+                    c.getActor().setSize(100, 120);
+                    Game.GAME_STAGE.addActor(c.getActor());
+                    Game.history.get(Game.history.size() - 1).add(c);
+                    //End
+                    doExtraStuff();
+                    //Choose next player to be played
+                    Game.chooseNextPlayerToBePlayed(Player.this);
                 }
             }
         }, 0, 5);
@@ -188,5 +203,62 @@ public class Player {
         if (!active.isEmpty()) {
             active.clear();
         }
+    }
+
+    public void updateThrown() {
+        Game.THROWN++;
+    }
+
+
+    public void doExtraStuff() {
+        updateThrown();
+        System.out.println(Game.THROWN);
+        Game.updateThrownCardsStacks(this);
+    }
+
+    public Card getCardToThrow() {
+        //This is just Random
+        if (this.cards.size() > 0) {
+            int index = this.cards.size() - 1;
+            Card c = this.cards.get(index);
+            for (Card cd : sortedCards.get(c.getCardType())) {
+                if (cd.getNumber() == c.getNumber()) {
+                    sortedCards.get(c.getCardType()).remove(cd);
+                }
+            }
+            this.cards.remove(index);
+            if (this.getBackCards().size() > 0) {
+                index = this.getBackCards().size() - 1;
+                Actor a = this.getBackCards().get(index);
+                a.setVisible(false);
+                a.clear();
+                a.remove();
+                this.getBackCards().remove(index);
+            }
+            return c;
+        }
+        return null;
+    }
+
+    public Card removeCardFromMyIndex(Card c) {
+        //Removing Cards From my locations
+        //Providing Cards to Game
+        int indexOf = cards.indexOf(c);
+        for (Card cards : sortedCards.get(c.getCardType())) {
+            if (cards.getNumber() == c.getNumber()) {
+                sortedCards.get(c.getCardType()).remove(c);
+                break;
+            }
+        }
+        if (this.getBackCards().size() > 0) {
+            int index = this.getBackCards().size() - 1;
+            Actor a = this.getBackCards().get(index);
+            a.setVisible(false);
+            a.clear();
+            a.remove();
+            this.getBackCards().remove(index);
+        }
+        this.cards.remove(indexOf);
+        return c;
     }
 }

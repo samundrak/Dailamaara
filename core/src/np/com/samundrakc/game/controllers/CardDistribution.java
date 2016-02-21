@@ -111,7 +111,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
-                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index)));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index),p));
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
@@ -122,7 +122,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this));
-                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index)));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index),p));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             }
                             cards.setVisible(false);
@@ -167,6 +167,7 @@ public class CardDistribution {
                         PlayerCardSort ps = new PlayerCardSort(Game.PLAYER);
                         ps.divideCards();
                         ps.sortCards();
+                        p.setSortedCards(ps.getCards());
                         ps.arrangeCards();
                         p.setCards(ps.getSortedCards());
                         for (int i = 0; i < p.getCards().size(); i++) {
@@ -181,7 +182,7 @@ public class CardDistribution {
                             }
                             p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                             p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this));
-                            p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i)));
+                            p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i),p));
                             game.getStage().addActor(p.getCards().get(i).getActor());
                         }
                     }
