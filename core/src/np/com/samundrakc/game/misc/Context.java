@@ -16,20 +16,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
  * Created by samundra on 1/28/2016.
  */
 public class Context {
-
-    public static final String GAME_NAME = "DailMaara";
-    public static final int WIDTH = 700,
-            HEIGHT = 400;
+    public static final String GAME_NAME = "DailaMaara";
+    public static final int WIDTH = 700, HEIGHT = 400;
     public static final Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-    public static final Texture CARDS_BACK_COVER = new Texture("cards/back.png") ;
-    public static final Actor toast(String message) {
-        Label label = new Label(message, new Label.LabelStyle(new BitmapFont(), Color.RED));
-        label.setPosition((Context.WIDTH / 2) - (label.getWidth() / 2), 0);
-        MoveToAction action = Actions.action(MoveToAction.class);
-        action.setPosition((Context.WIDTH / 2) - (label.getWidth() / 2) , Context.HEIGHT - (Context.HEIGHT + label.getHeight()));
-        action.setInterpolation(Interpolation.bounceOut);
-        action.setDuration(2);
-        label.addAction(action);
-        return label;
+    public static final Texture CARDS_BACK_COVER = new Texture("cards/back.png");
+
+    public static enum RESOLUTION_TYPES {SMALL, MEDIUM, LARGE}
+
+    public static Context.RESOLUTION_TYPES RESOLUTION = RESOLUTION_TYPES.MEDIUM;
+
+    public static void defineResolution() {
+        switch (Context.WIDTH) {
+            case 400:
+                Context.RESOLUTION = RESOLUTION_TYPES.SMALL;
+                break;
+            case 700:
+                Context.RESOLUTION = RESOLUTION_TYPES.MEDIUM;
+                break;
+            case 1000:
+                Context.RESOLUTION = RESOLUTION_TYPES.LARGE;
+                break;
+            default:
+                Context.RESOLUTION = RESOLUTION_TYPES.MEDIUM;
+                break;
+        }
     }
 }
