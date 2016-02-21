@@ -20,6 +20,7 @@ public class PlayerCardCtrl extends InputListener {
     public PlayerCardCtrl(Card card, CardDistribution context) {
         this.card = card;
         this.context = context;
+
     }
 
     /**
@@ -36,6 +37,7 @@ public class PlayerCardCtrl extends InputListener {
      */
     @Override
     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+
         if (Game.TURUP == null) {
             if (Game.TALK_TURN.getId() == Game.PLAYER.getId()) {
                 Game.TURUP = card.getCardType();
@@ -46,7 +48,6 @@ public class PlayerCardCtrl extends InputListener {
         }
 
         if (!Game.STARTED) return false;
-
         System.out.println("youu have touched " + card.getType());
         System.out.println("youu have touched " + card.getCardType().toString());
         System.out.println("youu have touched " + card.getNumber());
@@ -84,18 +85,5 @@ public class PlayerCardCtrl extends InputListener {
         super.enter(event, x, y, pointer, fromActor);
     }
 
-    /**
-     * Called when a mouse button or a finger touch is moved anywhere, but only if touchDown previously returned true for the mouse
-     * button or touch. The touchDragged event is always {@link Event#handle() handled}.
-     *
-     * @param event
-     * @param x
-     * @param y
-     * @param pointer
-     * @see InputEvent
-     */
-    @Override
-    public void touchDragged(InputEvent event, float x, float y, int pointer) {
-        super.touchDragged(event, x, y, pointer);
-    }
+
 }

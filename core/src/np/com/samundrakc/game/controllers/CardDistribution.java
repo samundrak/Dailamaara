@@ -38,6 +38,7 @@ public class CardDistribution {
         for (int i = 0; i < 52; i++) {
             Card c = Game.cards.get(i);
             if (game.getSortPlayer().get(count).getCards().size() == 13) {
+
                 count++;
             }
             game.getSortPlayer().get(count).addCards(c);
@@ -159,11 +160,26 @@ public class CardDistribution {
                         }
                     }
                     if (p.getId() == Game.PLAYER.getId()) {
-
-//                        Iterator<Actor> a = p.getCardsActor().iterator();
-//                        while (a.hasNext()) {
-//                            a.next().addAction(Animation.simpleAnimation(0, 0));
-//                        }
+                        PlayerCardSort ps = new PlayerCardSort(Game.PLAYER);
+                        ps.divideCards();
+                        ps.sortCards();
+                        ps.arrangeCards();
+                        p.setCards(ps.getSortedCards());
+                        for (int i = 0; i < p.getCards().size(); i++) {
+                            p.getCards().get(i).getActor().clearActions();
+                            p.getCards().get(i).getActor().clearListeners();
+                            p.getCards().get(i).getActor().clear();
+                            p.getCards().get(i).getActor().remove();
+                            if (i == 0) {
+                                p.getCards().get(i).getActor().setPosition(0, 0);
+                            } else {
+                                p.getCards().get(i).getActor().setPosition(p.getCards().get(i - 1).getActor().getX() + 50, 0);
+                            }
+                            p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                            p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this));
+                            p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i)));
+                            game.getStage().addActor(p.getCards().get(i).getActor());
+                        }
                     }
                     player[0]++;
                     if (player[0] >= game.getMainGame().players.size()) {

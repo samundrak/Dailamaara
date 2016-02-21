@@ -74,6 +74,12 @@ public class CardSelection {
                     }
                     if (dups.size() < 2) {
                         //Lowest card chooser has been choosen
+//                        Exception in thread "Timer-6" java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+//                        at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+//                        at java.util.ArrayList.get(ArrayList.java:429)
+//                        at np.com.samundrakc.game.controllers.CardSelection$1.run(CardSelection.java:77)
+//                        at java.util.TimerThread.mainLoop(Timer.java:555)
+//                        at java.util.TimerThread.run(Timer.java:505)
                         System.out.println(dups.get(0).getPlayer().getName() + " will distribute cards");
                         form.autoHideMessage(dups.get(0).getPlayer().getName() + " will distribute cards").autoHide(3, new MessageBox.OnOkButtonClicked() {
                             @Override

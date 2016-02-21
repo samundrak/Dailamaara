@@ -23,16 +23,21 @@ public class PlayCardDragListener extends DragListener {
 
     @Override
     public void drag(InputEvent event, float x, float y, int pointer) {
-        if (Game.PLAYER.getCardsActor().size() < 13) return;
+        if (!Game.STARTED) return;
         super.drag(event, x, y, pointer);
+        if (Game.PLAYER.getCardsActor().size() < 13) return;
         card.getActor().moveBy(x - card.getActor().getWidth() / 2, y - card.getActor().getHeight() / 2);
     }
 
     @Override
     public void dragStop(InputEvent event, float x, float y, int pointer) {
-        if (Game.PLAYER.getCardsActor().size() < 13) return;
+        if (!Game.STARTED) return;
         super.dragStop(event, x, y, pointer);
-        if (card.getActor().getY() < 150 || card.getActor().getY() > 300) {
+        if (Game.PLAYER.getCardsActor().size() < 13) return;
+        if (card.getActor().getY() < 150 || card.getActor().getY() > 270) {
+            card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+        }
+        if (card.getActor().getX() < 0 || card.getActor().getX() > Context.WIDTH - card.getActor().getWidth()) {
             card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
         }
     }
