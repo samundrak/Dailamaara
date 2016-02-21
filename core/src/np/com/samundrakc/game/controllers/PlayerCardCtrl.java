@@ -48,9 +48,7 @@ public class PlayerCardCtrl extends InputListener {
         }
 
         if (!Game.STARTED) return false;
-        System.out.println("youu have touched " + card.getType());
-        System.out.println("youu have touched " + card.getCardType().toString());
-        System.out.println("youu have touched " + card.getNumber());
+
         return super.touchDown(event, x, y, pointer, button);
     }
 

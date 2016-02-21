@@ -7,6 +7,7 @@ package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class Game extends Utils implements GameProcess {
     public static int THROWN_CARDS = 0;
     public static ArrayList<Card> cards;
     public static boolean STARTED = false;
+    public static boolean OVER = false;
+    public static Player PLAY_TURN = null;
 
     public static ArrayList<Card> getCards() {
         return cards;
@@ -53,6 +56,9 @@ public class Game extends Utils implements GameProcess {
     public static Player PLAYER = null;
     public static Const.CARDS TURUP = null;
     public static String TURUP_STRING = null;
+    public static Const.CARDS CARD_PLAYED = null;
+    public static ArrayList<Player> PLAYER_ORDER = new ArrayList<Player>();
+    public static Stage GAME_STAGE = null;
 
     public Game() {
         Game.cards = new ArrayList();

@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import np.com.samundrakc.game.DailaMaara;
+import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.misc.Context;
 
 /**
@@ -36,6 +37,7 @@ public class ScreenRules extends ScreenAdapter {
         stage = new Stage(vp);
         Gdx.input.setInputProcessor(stage);
         Image img = new Image(new Texture("bg.png"));
+        Game.GAME_STAGE = stage;
         stage.addActor(img);
     }
 

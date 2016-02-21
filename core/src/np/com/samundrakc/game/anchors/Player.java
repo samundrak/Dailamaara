@@ -7,8 +7,10 @@ package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Timer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -19,8 +21,27 @@ public class Player {
     private String name = null;
     private Group group = null;
     private int id;
-    private ArrayList<Card> cards = new ArrayList();;
+    private ArrayList<Card> cards = new ArrayList();
+
+    public float[] getCardToThrowLocations() {
+        return cardToThrowLocations;
+    }
+
+    public void setCardToThrowLocations(float[] cardToThrowLocations) {
+        this.cardToThrowLocations = cardToThrowLocations;
+    }
+
+    private float[] cardToThrowLocations = new float[2];
     private ArrayList<Actor> backCards = new ArrayList<Actor>();
+    private HashMap<Const.CARDS, ArrayList<Card>> sortedCards = new HashMap<Const.CARDS, ArrayList<Card>>();
+
+    public HashMap<Const.CARDS, ArrayList<Card>> getSortedCards() {
+        return sortedCards;
+    }
+
+    public void setSortedCards(HashMap<Const.CARDS, ArrayList<Card>> sortedCards) {
+        this.sortedCards = sortedCards;
+    }
 
     public ArrayList<Actor> getBackCards() {
         return backCards;
@@ -107,10 +128,6 @@ public class Player {
         return id;
     }
 
-    public void showMeMyCards() {
-
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -139,4 +156,37 @@ public class Player {
         this.group = group;
     }
 
+    Timer active = new Timer();
+
+    public void play() {
+        active.scheduleTask(new Timer.Task() {
+            @Override
+            public void run() {
+                if (!Game.STARTED) return;
+                if (Game.OVER) {
+                    active.clear();
+                }
+                if (Game.PLAY_TURN.getId() == getId()) {
+                    System.out.println(getName() + " will play");
+                    for (int i = 0; i < Game.PLAYER_ORDER.size(); i++) {
+                        if (getId() == Game.PLAYER_ORDER.get(i).getId()) {
+                            int index = i + 1;
+                            if (index >= Game.PLAYER_ORDER.size()) {
+                                index = 0;
+                            }
+                            Game.PLAY_TURN = Game.PLAYER_ORDER.get(index);
+                            break;
+                        }
+                    }
+                }
+            }
+        }, 0, 5);
+        active.start();
+    }
+
+    public void stopPlay() {
+        if (!active.isEmpty()) {
+            active.clear();
+        }
+    }
 }

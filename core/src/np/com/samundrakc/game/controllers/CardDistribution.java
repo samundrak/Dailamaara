@@ -100,7 +100,7 @@ public class CardDistribution {
                         y = cords[1];
                         break;
                 }
-                cards.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), new RunnableAction() {
+                cards.addAction(Actions.sequence(Animation.moveBy(x, y, Const.CARD_DISTRUBUTION_SECONDS_PER_PLAYER), new RunnableAction() {
                     @Override
                     public void run() {
                         if (p.DIRECTION == Const.DIRECTION.WEST) {
@@ -152,6 +152,10 @@ public class CardDistribution {
                 if (p.getCardsActor().size() >= counter) {
 
                     if (p.getId() != Game.PLAYER.getId()) {
+                        PlayerCardSort ps = new PlayerCardSort(Game.PLAYER);
+                        ps.divideCards();
+                        ps.sortCards();
+                        p.setSortedCards(ps.getCards());
                         Iterator<Actor> a = p.getBackCards().iterator();
                         int valueOfRotation = 90;
                         while (a.hasNext()) {
@@ -186,12 +190,16 @@ public class CardDistribution {
                         timer.clear();
                         game.autoHideMessage("Game is started. Let's Play").autoHide(3, null);
                         Game.STARTED = true;
+                        for (Player players : game.getMainGame().getPlayers()) {
+                            if (players.getId() != Game.PLAYER.getId())
+                                players.play();
+                        }
                         return;
                     }
                 }
                 cardCounter[0]++;
             }
-        }, 0, 0.5f);
+        }, 0, Const.CARD_DISTRUBUTION_SECONDS);
         timer.start();
         return this;
     }
@@ -199,22 +207,22 @@ public class CardDistribution {
     private float[] ifCardForEast(Player p, Actor cards, float x, float y) {
         switch (p.DIRECTION) {
             case EAST:
-                cards.addAction(Animation.rotate(180, 0.5f));
+                cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 y = cards.getHeight();
                 break;
             case WEST:
-                cards.addAction(Animation.rotate(360, 0.5f));
+                cards.addAction(Animation.rotate(360, Const.CARD_ROTATE_ANIMATION));
                 x = p.getLocationX() - game.getCards().getX();
                 p.setLocationX(p.getLocationX() + (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
                 break;
             case NORTH:
-                cards.addAction(Animation.rotate(270, 0.5f));
+                cards.addAction(Animation.rotate(270, Const.CARD_ROTATE_ANIMATION));
                 x += p.getActor().getHeight();
                 y = (p.getActor().getY() - p.getActor().getWidth() / 2) - (game.getCards().getY());
                 break;
             case SOUTH:
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x -= cards.getWidth() / 2 + 5;
                 y = (p.getActor().getY() - p.getActor().getWidth() / 2) - game.getCards().getY();
                 break;
@@ -225,21 +233,21 @@ public class CardDistribution {
     private float[] ifCardForWest(Player p, Actor cards, float x, float y) {
         switch (p.DIRECTION) {
             case EAST:
-                cards.addAction(Animation.rotate(180, 0.5f));
+                cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 break;
             case WEST:
-                cards.addAction(Animation.rotate(360, 0.5f));
+                cards.addAction(Animation.rotate(360, Const.CARD_ROTATE_ANIMATION));
                 x = p.getLocationX() - game.getCards().getX();
                 p.setLocationX(p.getLocationX() + (cards.getWidth() + Const.PLAYER_CARD_DISTANCE));
                 break;
             case NORTH:
-                cards.addAction(Animation.rotate(270, 0.5f));
+                cards.addAction(Animation.rotate(270, Const.CARD_ROTATE_ANIMATION));
                 x += p.getActor().getHeight();
                 y = (p.getActor().getY() - p.getActor().getWidth() / 2) - (game.getCards().getY());
                 break;
             case SOUTH:
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x -= cards.getWidth() / 2 + 5;
                 y = (p.getActor().getY() - p.getActor().getWidth() / 2) - game.getCards().getY();
                 break;
@@ -250,13 +258,13 @@ public class CardDistribution {
     private float[] ifCardFromNorth(Player p, Actor cards, float x, float y) {
         switch (p.DIRECTION) {
             case EAST:
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x = p.getActor().getY() - (game.getCards().getY() + 7);
                 y = -p.getActor().getX() + (p.getActor().getWidth() / 2 + cards.getWidth() / 2);
                 break;
             case WEST:
 
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 if (p.getCardsActor().size() < 2) {
                     p.setLocationY(-cards.getHeight());
                     p.setLocationX(480);
@@ -267,13 +275,13 @@ public class CardDistribution {
                 p.setLocationY(p.getLocationY() + cards.getWidth() + Const.PLAYER_CARD_DISTANCE);
                 break;
             case NORTH:
-                cards.addAction(Animation.rotate(180, 0.5f));
+                cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 y = cards.getHeight() + 20;
                 break;
             case SOUTH:
 
-                cards.addAction(Animation.rotate(360, 0.5f));
+                cards.addAction(Animation.rotate(360, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 y = -(p.getActor().getX() - (p.getActor().getY() - cards.getHeight() + 10));
                 break;
@@ -284,12 +292,12 @@ public class CardDistribution {
     private float[] ifCardFromSouth(Player p, Actor cards, float x, float y) {
         switch (p.DIRECTION) {
             case EAST:
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x = p.getActor().getY() - (game.getCards().getY() + 7);
                 y = p.getActor().getX() - game.getCards().getY() + cards.getHeight();
                 break;
             case WEST:
-                cards.addAction(Animation.rotate(90, 0.5f));
+                cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 if (p.getCardsActor().size() < 2) {
                     p.setLocationX(480);
                     p.setLocationY(game.getCards().getX() - cards.getWidth());
@@ -299,12 +307,12 @@ public class CardDistribution {
                 p.setLocationY(p.getLocationY() - cards.getWidth() + Const.PLAYER_CARD_DISTANCE);
                 break;
             case NORTH:
-                cards.addAction(Animation.rotate(180, 0.5f));
+                cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 y = game.getCards().getX() - ((cards.getHeight() / 2 - 5));
                 break;
             case SOUTH:
-                cards.addAction(Animation.rotate(360, 0.5f));
+                cards.addAction(Animation.rotate(360, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
                 y = -(cards.getHeight() / 2 + 10);
                 break;

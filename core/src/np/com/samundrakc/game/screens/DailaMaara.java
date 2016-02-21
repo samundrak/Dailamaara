@@ -156,12 +156,14 @@ public class DailaMaara extends ScreenRules {
                 my.setActor(me);
                 my.getFriend().setActor(friend);
                 my.getFriend().DIRECTION = Const.DIRECTION.EAST;
+                my.setCardToThrowLocations(new float[]{245, 155});
                 stage.addActor(me);
                 stage.addActor(friend);
                 my.setLocationX(0);
                 my.setLocationY(0);
                 my.getFriend().setLocationX(570);
                 my.getFriend().setLocationY(390);
+                my.getFriend().setCardToThrowLocations(new float[]{355, 155});
                 temp[0] = my;
                 temp[2] = my.getFriend();
                 if (Game.turn == my.getId()) {
@@ -192,10 +194,12 @@ public class DailaMaara extends ScreenRules {
                 c1.setLocationX(70);
                 c1.setLocationY(1);
                 c1.setActor(g1);
+                c1.setCardToThrowLocations(new float[]{460, 155});
                 c2.DIRECTION = Const.DIRECTION.SOUTH;
                 c2.setLocationX(700);
                 c2.setLocationY(1);
                 c2.setActor(g2);
+                c2.setCardToThrowLocations(new float[]{135, 155});
                 playerPosition.put(c1, g1);
                 playerPosition.put(c2, g2);
                 stage.addActor(g1);
@@ -311,10 +315,12 @@ public class DailaMaara extends ScreenRules {
                 break;
             }
         }
+        Game.PLAYER_ORDER = sortPlayer;
         Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
         Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
         Game.TALK_TURN = sortPlayer.get(0);
-        new CardDistribution(this).shareProcessFirst().startShare(0,51, 13);
+        Game.PLAY_TURN = sortPlayer.get(0);
+        new CardDistribution(this).shareProcessFirst().startShare(0, 51, 13);
     }
 
     private int inIndex(ArrayList<Player> playerOnSide, int index) {

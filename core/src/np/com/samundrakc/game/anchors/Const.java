@@ -20,7 +20,13 @@ public class Const {
     static int TOTAL_NUMBER_GROUPS = 2;
     public static final int PLAYER_CARD_DISTANCE = 1;
 
-    public enum DIRECTION {EAST, WEST, NORTH, SOUTH}
 
-    public enum CARDS {CLUBS, HEARTS, DIAMONDS, SPADES}
+    public enum DIRECTION {EAST, WEST, NORTH, SOUTH;}
+
+
+    public enum CARDS {CLUBS, HEARTS, DIAMONDS, SPADES;}
+
+    public static final float CARD_DISTRUBUTION_SECONDS = 0.1f;
+    public static final float CARD_ROTATE_ANIMATION = 0.5f;
+    public static final float CARD_DISTRUBUTION_SECONDS_PER_PLAYER = 0.3f;
 }
