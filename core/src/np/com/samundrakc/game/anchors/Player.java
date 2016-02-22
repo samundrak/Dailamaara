@@ -7,6 +7,8 @@ package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
@@ -179,23 +181,29 @@ public class Player {
                         Game.history.add(new ArrayList<Card>());
                     }
                     //Do the Playing Task Here
-                    Card c = getCardToThrow();
+                    final Card c = getCardToThrow();
                     if (c == null) {
                         active.clear();
                         return;
                     }
                     c.getActor().setPosition(getActor().getX(), getActor().getY());
-                    c.getActor().addAction(Animation.moveBy(getCardToThrowLocations()[0] - getActor().getX(), getCardToThrowLocations()[1] - getActor().getY(), 0.5f));
+                    c.getActor().addAction(Actions.sequence(
+                            Animation.moveBy(getCardToThrowLocations()[0] - getActor().getX(), getCardToThrowLocations()[1] - getActor().getY(), 0.3f), new RunnableAction() {
+                                @Override
+                                public void run() {
+                                    Game.history.get(Game.history.size() - 1).add(c);
+                                    //End
+                                    doExtraStuff();
+                                    //Choose next player to be played
+                                    Game.chooseNextPlayerToBePlayed(Player.this);
+                                }
+                            }));
                     c.getActor().setSize(100, 120);
                     Game.GAME_STAGE.addActor(c.getActor());
-                    Game.history.get(Game.history.size() - 1).add(c);
-                    //End
-                    doExtraStuff();
-                    //Choose next player to be played
-                    Game.chooseNextPlayerToBePlayed(Player.this);
+
                 }
             }
-        }, 0, 5);
+        }, 0, 2);
         active.start();
     }
 

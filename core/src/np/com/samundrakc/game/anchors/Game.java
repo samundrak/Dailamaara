@@ -262,7 +262,7 @@ public class Game extends Utils implements GameProcess {
                                 Game.STATE = Const.STATE.PLAY;
                             }
                         }
-                    }, 5);
+                    }, 1);
                 }
             }
         }
