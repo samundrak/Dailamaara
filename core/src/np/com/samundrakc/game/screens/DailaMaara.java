@@ -92,17 +92,17 @@ public class DailaMaara extends ScreenRules {
         return mainGame;
     }
 
-    public static Label TURN_LABEL = new Label("None", Context.skin);
+    public static Label TURN_LABEL = new Label("None", Context.getInstance().getSkin());
 
     private void HUD() {
         hudTable = new Table();
         int width = 0;
         int height = 0;
-        Label group_lb = new Label("Group", Context.skin);
-        Label won_lb = new Label("Won", Context.skin);
-        Label coat_lb = new Label("Coat", Context.skin);
-        Label turup_lb = new Label("Turup", Context.skin);
-        nonTururp = new Image(Context.CARDS_BACK_COVER);
+        Label group_lb = new Label("Group", Context.getInstance().getSkin());
+        Label won_lb = new Label("Won", Context.getInstance().getSkin());
+        Label coat_lb = new Label("Coat", Context.getInstance().getSkin());
+        Label turup_lb = new Label("Turup", Context.getInstance().getSkin());
+        nonTururp = new Image(Context.getInstance().getCARDS_BACK_COVER());
         nonTururp.setSize(70, 100);
         hudTable.add(group_lb);
         hudTable.add(won_lb);
@@ -111,9 +111,9 @@ public class DailaMaara extends ScreenRules {
         hudTable.row();
         height += group_lb.getHeight();
         for (Group g : mainGame.getGroup()) {
-            Label l = new Label(g.getName(), Context.skin);
-            groupWonStatusLabel.put(g.getName(), new Label(g.getWon() + "", Context.skin));
-            groupCoatStatusLabel.put(g.getName(), new Label(g.getCoat() + "", Context.skin));
+            Label l = new Label(g.getName(), Context.getInstance().getSkin());
+            groupWonStatusLabel.put(g.getName(), new Label(g.getWon() + "", Context.getInstance().getSkin()));
+            groupCoatStatusLabel.put(g.getName(), new Label(g.getCoat() + "", Context.getInstance().getSkin()));
             hudTable.add(l).pad(1).expandX();
             hudTable.add(groupWonStatusLabel.get(g.getName())).pad(1).expandX();
             hudTable.add(groupCoatStatusLabel.get(g.getName())).pad(1).expandX();
@@ -121,7 +121,7 @@ public class DailaMaara extends ScreenRules {
             height += l.getHeight();
         }
         hudTable.setWidth(200);
-        Label turnLabel = new Label("Turn", Context.skin);
+        Label turnLabel = new Label("Turn", Context.getInstance().getSkin());
         hudTable.add(turnLabel);
         hudTable.add(TURN_LABEL).colspan(2).row();
         height += turnLabel.getHeight();
@@ -151,10 +151,10 @@ public class DailaMaara extends ScreenRules {
         System.out.println(my.getGroup().getName());
         for (Group g : mainGame.getGroup()) {
             if (g.getName().equals(my.getGroup().getName())) {
-                TextButton me = new TextButton(my.getName(), Context.skin);
+                TextButton me = new TextButton(my.getName(), Context.getInstance().getSkin());
                 me.setPosition(Context.WIDTH / 2, 0);
                 playerPosition.put(my, me);
-                TextButton friend = new TextButton(my.getFriend().getName(), Context.skin);
+                TextButton friend = new TextButton(my.getFriend().getName(), Context.getInstance().getSkin());
                 friend.setPosition(Context.WIDTH / 2, Context.HEIGHT - (friend.getHeight()));
                 playerPosition.put(my.getFriend(), friend);
                 my.DIRECTION = Const.DIRECTION.WEST;
@@ -187,8 +187,8 @@ public class DailaMaara extends ScreenRules {
                 com.badlogic.gdx.scenes.scene2d.Group g2 = new com.badlogic.gdx.scenes.scene2d.Group();
                 Player c1 = g.getPlayerList().get(0);
                 Player c2 = g.getPlayerList().get(1);
-                TextButton leftPlayer = new TextButton(c1.getName(), Context.skin);
-                TextButton rightPlayer = new TextButton(c2.getName(), Context.skin);
+                TextButton leftPlayer = new TextButton(c1.getName(), Context.getInstance().getSkin());
+                TextButton rightPlayer = new TextButton(c2.getName(), Context.getInstance().getSkin());
                 g1.setPosition(leftPlayer.getHeight(), Context.HEIGHT / 2);
                 g2.setPosition(Context.WIDTH, Context.HEIGHT / 2);
                 g1.addActor(leftPlayer);

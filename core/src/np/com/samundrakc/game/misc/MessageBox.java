@@ -37,7 +37,7 @@ public class MessageBox {
     public MessageBox setMessage(String message) {
         this.message = message;
         label.setText(this.message);
-        Label l = new Label(message, Context.skin);
+        Label l = new Label(message, Context.getInstance().getSkin());
         table.setWidth(l.getWidth() + 100);
         table.setHeight(l.getHeight() + 10);
         return this;
@@ -64,12 +64,12 @@ public class MessageBox {
     Label label;
 
     public MessageBox init() {
-        label = new Label(this.message, Context.skin);
+        label = new Label(this.message, Context.getInstance().getSkin());
         table.add(label).pad(30).expandX().row();
         table.setWidth(label.getWidth() + 100);
         table.setHeight(label.getHeight() + 10);
         if (okButtonClicked != null) {
-            TextButton button = new TextButton("OK", Context.skin);
+            TextButton button = new TextButton("OK", Context.getInstance().getSkin());
             button.setBounds(0, 0, button.getWidth(), button.getHeight());
             button.addListener(new InputListener() {
                 @Override

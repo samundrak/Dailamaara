@@ -119,13 +119,13 @@ public class Form extends ScreenRules {
     }
 
     private void initWidgets() {
-        name = new TextField("", Context.skin);
-        group = new TextField("", Context.skin);
+        name = new TextField("", Context.getInstance().getSkin());
+        group = new TextField("",Context.getInstance().getSkin());
         name.setText(pref.getString("name", ""));
         group.setText(pref.getString("group", ""));
-        Label nameLabel = new Label("Enter your name",Context.skin);
-        Label groupLabel = new Label("Enter your group name", Context.skin);
-        play = new TextButton("NEXT", Context.skin);
+        Label nameLabel = new Label("Enter your name",Context.getInstance().getSkin());
+        Label groupLabel = new Label("Enter your group name", Context.getInstance().getSkin());
+        play = new TextButton("NEXT", Context.getInstance().getSkin());
         play.setBounds(0, 0, play.getWidth(), play.getHeight());
         play.addListener(formCtrl.playButton());
         table = new Table();
@@ -149,21 +149,21 @@ public class Form extends ScreenRules {
     private void selectPlayerForm() {
         computer = new Button[3];
         selectPlayerTable = new Table();
-        Label nameLabel = new Label("Select your friend", Context.skin);
+        Label nameLabel = new Label("Select your friend", Context.getInstance().getSkin());
         selectPlayerTable.add(nameLabel).colspan(5).expandX().padBottom(10).row();
         for (int i = 0; i < computer.length; i++) {
-            computer[i] = new TextButton("Computer " + (i + 1), Context.skin);
+            computer[i] = new TextButton("Computer " + (i + 1), Context.getInstance().getSkin());
             computer[i].setBounds(0, 0, computer[i].getWidth(), computer[i].getHeight());
             computer[i].addListener(formCtrl.computerCtrl(i));
             selectPlayerTable.add(computer[i]).pad(5).expandX();
         }
         selectPlayerTable.row();
-        remberFriendCheckBox = new CheckBox(" Remember My Friend", Context.skin);
+        remberFriendCheckBox = new CheckBox(" Remember My Friend", Context.getInstance().getSkin());
         System.out.println(pref.getInt("rememberFriend"));
         remberFriendCheckBox.setChecked(pref.getInt("rememberFriend") == 1);
         remberFriendCheckBox.setBounds(0, 0, remberFriendCheckBox.getWidth(), remberFriendCheckBox.getHeight());
         remberFriendCheckBox.addListener(formCtrl.remeberFriend());
-        back = new TextButton("Back", Context.skin);
+        back = new TextButton("Back", Context.getInstance().getSkin());
         back.setBounds(0, 0, back.getWidth(), back.getHeight());
         back.addListener(formCtrl.backButton());
         selectPlayerTable.add(remberFriendCheckBox).colspan(5).padTop(10).row();

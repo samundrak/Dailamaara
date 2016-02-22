@@ -181,7 +181,7 @@ public class CardSelection {
         return new RunnableAction() {
             @Override
             public void run() {
-                TextButton label = new TextButton(name, Context.skin);
+                TextButton label = new TextButton(name,Context.getInstance().getSkin());
                 label.setPosition(image.getX() + ((image.getWidth() / 2) - (label.getWidth() / 2)), 60);
                 selectedCardsLabel.add(label);
                 form.getView().getStacksChild().addActor(label);

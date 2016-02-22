@@ -18,8 +18,24 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class Context {
     public static final String GAME_NAME = "DailaMaara";
     public static final int WIDTH = 700, HEIGHT = 400;
-    public static final Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-    public static final Texture CARDS_BACK_COVER = new Texture("cards/back.png");
+    private Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+    private Texture CARDS_BACK_COVER = new Texture("cards/back.png");
+    private static Context context = null;
+
+    public Skin getSkin() {
+        return skin;
+    }
+
+    public Texture getCARDS_BACK_COVER() {
+        return CARDS_BACK_COVER;
+    }
+
+    public static Context getInstance() {
+        if (context == null) {
+            context = new Context();
+        }
+        return context;
+    }
 
     public static enum RESOLUTION_TYPES {SMALL, MEDIUM, LARGE}
 

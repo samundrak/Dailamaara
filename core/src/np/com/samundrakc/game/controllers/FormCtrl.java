@@ -132,7 +132,7 @@ public class FormCtrl {
                         isAllCardShareProcessDone = true;
                     }
                     view.getStacks().setTouchable(Touchable.enabled);
-                    Button button = new TextButton("Back", Context.skin);
+                    Button button = new TextButton("Back", Context.getInstance().getSkin());
                     button.setPosition((Context.WIDTH / 2 - button.getWidth()), -button.getHeight());
                     button.addListener(new InputListener() {
                         @Override
@@ -241,7 +241,7 @@ public class FormCtrl {
         private int width = 50, height = 70;
 
         public BackCover(int index) {
-            super(Context.CARDS_BACK_COVER);
+            super(Context.getInstance().getCARDS_BACK_COVER());
             super.setSize(width, height);
             this.index = index;
         }
