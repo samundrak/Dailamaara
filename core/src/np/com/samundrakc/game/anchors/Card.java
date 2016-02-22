@@ -81,6 +81,7 @@ public class Card {
                 break;
             case 12:
                 name = "queen_of_" + this.type;
+                //
                 break;
             case 13:
                 name = "king_of_" + this.type;
