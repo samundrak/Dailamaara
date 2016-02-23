@@ -38,7 +38,7 @@ public class MessageBox {
         this.message = message;
         label.setText(this.message);
         Label l = new Label(message, Context.getInstance().getSkin());
-        table.setWidth(l.getWidth() + 100);
+        table.setWidth(l.getWidth() + 50);
         table.setHeight(l.getHeight() + 10);
         return this;
     }
@@ -102,7 +102,7 @@ public class MessageBox {
     }
 
     public interface OnOkButtonClicked {
-        public void run();
+        void run();
     }
 
 

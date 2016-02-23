@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import np.com.samundrakc.game.controllers.MasterMind;
 import np.com.samundrakc.game.misc.Animation;
+import np.com.samundrakc.game.screens.DailaMaara;
 
 /**
  * @author samundra
@@ -27,6 +29,24 @@ public class Player {
     private Group group = null;
     private int id;
     private ArrayList<Card> cards = new ArrayList();
+    private Game game;
+    private DailaMaara view;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public DailaMaara getView() {
+        return view;
+    }
+
+    public void setView(DailaMaara view) {
+        this.view = view;
+    }
 
     public float[] getCardToThrowLocations() {
         return cardToThrowLocations;
@@ -181,11 +201,14 @@ public class Player {
                         Game.history.add(new ArrayList<Card>());
                     }
                     //Do the Playing Task Here
-                    final Card c = getCardToThrow();
+                    final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
                     if (c == null) {
+                        System.out.println("Problem occured");
+                        Game.STATE = Const.STATE.WAIT;
                         active.clear();
                         return;
                     }
+                    getGame().selectPlayOfTurup(Player.this, c);
                     c.getActor().setPosition(getActor().getX(), getActor().getY());
                     c.getActor().addAction(Actions.sequence(
                             Animation.moveBy(getCardToThrowLocations()[0] - getActor().getX(), getCardToThrowLocations()[1] - getActor().getY(), 0.3f), new RunnableAction() {
@@ -203,7 +226,7 @@ public class Player {
 
                 }
             }
-        }, 0, 2);
+        }, 0, 1);
         active.start();
     }
 
@@ -220,7 +243,6 @@ public class Player {
 
     public void doExtraStuff() {
         updateThrown();
-        System.out.println(Game.THROWN);
         Game.updateThrownCardsStacks(this);
     }
 
@@ -229,20 +251,6 @@ public class Player {
         if (this.cards.size() > 0) {
             int index = this.cards.size() - 1;
             Card c = this.cards.get(index);
-            for (Card cd : sortedCards.get(c.getCardType())) {
-                if (cd.getNumber() == c.getNumber()) {
-                    sortedCards.get(c.getCardType()).remove(cd);
-                }
-            }
-            this.cards.remove(index);
-            if (this.getBackCards().size() > 0) {
-                index = this.getBackCards().size() - 1;
-                Actor a = this.getBackCards().get(index);
-                a.setVisible(false);
-                a.clear();
-                a.remove();
-                this.getBackCards().remove(index);
-            }
             return c;
         }
         return null;
@@ -251,7 +259,14 @@ public class Player {
     public Card removeCardFromMyIndex(Card c) {
         //Removing Cards From my locations
         //Providing Cards to Game
+        if (c == null) return c;
         int indexOf = cards.indexOf(c);
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getCardType() == c.getCardType() && cards.get(i).getNumber() == c.getNumber()) {
+                indexOf = i;
+                break;
+            }
+        }
         for (Card cards : sortedCards.get(c.getCardType())) {
             if (cards.getNumber() == c.getNumber()) {
                 sortedCards.get(c.getCardType()).remove(c);
@@ -269,4 +284,6 @@ public class Player {
         this.cards.remove(indexOf);
         return c;
     }
+
+
 }

@@ -38,13 +38,6 @@ public class Turup {
         this.turup = turup;
     }
 
-    public int getSortNumber() {
-        return sortNumber;
-    }
-
-    public void setSortNumber(int sortNumber) {
-        this.sortNumber = sortNumber;
-    }
 
     private int sortNumber = 5;
     HashMap<Const.CARDS, ArrayList<Integer>> hisCards = new HashMap<Const.CARDS, ArrayList<Integer>>();
@@ -59,7 +52,6 @@ public class Turup {
 
     public void sortFromFewCards() {
         for (int i = 0; i < sortNumber; i++) {
-            System.out.println(this.player.getCards().get(i).getType());
             switch (this.player.getCards().get(i).getCardType()) {
                 case CLUBS:
                     hisCards.get(Const.CARDS.CLUBS).add(this.player.getCards().get(i).getNumber());

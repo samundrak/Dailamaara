@@ -1,11 +1,8 @@
 package np.com.samundrakc.game.controllers;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
 
@@ -16,14 +13,16 @@ import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.misc.Animation;
-import np.com.samundrakc.game.misc.Context;
-import np.com.samundrakc.game.misc.Utils;
 import np.com.samundrakc.game.screens.DailaMaara;
 
 /**
  * Created by samundra on 2/10/2016.
  */
 public class CardDistribution {
+    public DailaMaara getGame() {
+        return game;
+    }
+
     private final DailaMaara game;
     private boolean cardShareDone = false;
 
@@ -111,7 +110,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
-                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index),p));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
@@ -122,7 +121,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this));
-                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index),p));
+                                p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             }
                             cards.setVisible(false);
@@ -145,17 +144,27 @@ public class CardDistribution {
                                 Game.TURUP = turup.getTurup();
                                 game.autoHideMessage(p.getName() + " has selected " + Game.TURUP_STRING + " as Turup").autoHide(5, null);
                             }
-                            turupMove();
+                            game.getMainGame().turupMove();
                         }
                     }
                 }
                 if (p.getCardsActor().size() >= counter) {
-
+                    Sort ps = new Sort(p);
+                    ps.divideCards();
+                    ps.sortCards();
+                    p.setSortedCards(ps.getCards());
+                    ps.arrangeCards();
+                    p.setCards(ps.getSortedCards());
                     if (p.getId() != Game.PLAYER.getId()) {
-                        PlayerCardSort ps = new PlayerCardSort(Game.PLAYER);
-                        ps.divideCards();
-                        ps.sortCards();
-                        p.setSortedCards(ps.getCards());
+                        System.out.println("--------------------");
+                        System.out.println("Player is " + p.getName());
+                        for (int i = 0; i < Const.COLORS_NAME.length; i++) {
+                            System.out.println("card type " + Const.COLORS_NAME[i]);
+                            for (Card c : p.getSortedCards().get(Const.COLORS_NAME_TYPE[i])) {
+                                System.out.println("Card Number " + c.getNumber());
+                            }
+                        }
+                        System.out.println("--------------------");
                         Iterator<Actor> a = p.getBackCards().iterator();
                         int valueOfRotation = 90;
                         while (a.hasNext()) {
@@ -164,12 +173,7 @@ public class CardDistribution {
                         }
                     }
                     if (p.getId() == Game.PLAYER.getId()) {
-                        PlayerCardSort ps = new PlayerCardSort(Game.PLAYER);
-                        ps.divideCards();
-                        ps.sortCards();
-                        p.setSortedCards(ps.getCards());
-                        ps.arrangeCards();
-                        p.setCards(ps.getSortedCards());
+
                         for (int i = 0; i < p.getCards().size(); i++) {
                             p.getCards().get(i).getActor().clearActions();
                             p.getCards().get(i).getActor().clearListeners();
@@ -182,7 +186,7 @@ public class CardDistribution {
                             }
                             p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                             p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this));
-                            p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i),p));
+                            p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i), p));
                             game.getStage().addActor(p.getCards().get(i).getActor());
                         }
                     }
@@ -321,22 +325,5 @@ public class CardDistribution {
         return new float[]{x, y};
     }
 
-    public void turupMove() {
-        if (Game.TURUP == null) return;
-        Image turup = Game.COLORS.get(Game.TURUP);
-        turup.setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
-        turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),
-                Animation.simpleAnimation(game.getTurupTable().getX() + 10, game.getTurupTable().getY() + 8),
-                new RunnableAction() {
-                    /**
-                     * Called to run the runnable.
-                     */
-                    @Override
-                    public void run() {
-                        game.getNonTururp().remove();
 
-                    }
-                }));
-        game.getStage().addActor(turup);
-    }
 }

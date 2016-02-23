@@ -45,6 +45,7 @@ public class DailaMaara extends ScreenRules {
         super(game);
         this.mainGame = mainGame;
         msg = new MessageBox(stage, "Pop up message");
+        mainGame.setView(this);
     }
 
     @Override
@@ -94,6 +95,7 @@ public class DailaMaara extends ScreenRules {
 
     public static Label TURN_LABEL = new Label("None", Context.getInstance().getSkin());
 
+
     private void HUD() {
         hudTable = new Table();
         int width = 0;
@@ -103,6 +105,7 @@ public class DailaMaara extends ScreenRules {
         Label coat_lb = new Label("Coat", Context.getInstance().getSkin());
         Label turup_lb = new Label("Turup", Context.getInstance().getSkin());
         nonTururp = new Image(Context.getInstance().getCARDS_BACK_COVER());
+
         nonTururp.setSize(70, 100);
         hudTable.add(group_lb);
         hudTable.add(won_lb);
@@ -136,8 +139,33 @@ public class DailaMaara extends ScreenRules {
         turupTable.setHeight(nonTururp.getHeight());
         turupTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         turupTable.setPosition(Context.WIDTH - turupTable.getWidth(), Context.HEIGHT - (turupTable.getHeight() - 10));
+
+
         stage.addActor(hudTable);
         stage.addActor(turupTable);
+        stage.addActor(playOfTable());
+    }
+
+
+    public Table getPlayOfTable() {
+        return playOfTable;
+    }
+
+    private Table playOfTable;
+
+    private Actor playOfTable() {
+        Label playOf = new Label("Play Of", Context.getInstance().getSkin());
+        Image playOfActor = new Image(Context.getInstance().getCARDS_BACK_COVER());
+        playOfActor.setSize(70, 100);
+        playOfTable = new Table();
+        playOfTable.add(playOf);
+        playOfTable.row();
+        playOfTable.add(playOfActor);
+        playOfTable.setWidth(70);
+        playOfTable.setHeight(playOfActor.getHeight());
+        playOfTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
+        playOfTable.setPosition(turupTable.getX() - playOfTable.getWidth(), Context.HEIGHT - (playOfTable.getHeight() - 10));
+        return playOfTable;
     }
 
     HashMap<Player, Actor> playerPosition = new HashMap<Player, Actor>();
@@ -166,8 +194,12 @@ public class DailaMaara extends ScreenRules {
                 stage.addActor(friend);
                 my.setLocationX(0);
                 my.setLocationY(0);
+                my.setGame(mainGame);
+                my.setView(this);
                 my.getFriend().setLocationX(570);
                 my.getFriend().setLocationY(390);
+                my.getFriend().setGame(mainGame);
+                my.getFriend().setView(this);
                 my.getFriend().setCardToThrowLocations(new float[]{355, 155});
                 temp[0] = my;
                 temp[2] = my.getFriend();
@@ -199,11 +231,15 @@ public class DailaMaara extends ScreenRules {
                 c1.setLocationX(70);
                 c1.setLocationY(1);
                 c1.setActor(g1);
+                c1.setGame(mainGame);
+                c1.setView(this);
                 c1.setCardToThrowLocations(new float[]{135, 155});
                 c2.DIRECTION = Const.DIRECTION.SOUTH;
                 c2.setLocationX(700);
                 c2.setLocationY(1);
                 c2.setActor(g2);
+                c2.setGame(mainGame);
+                c2.setView(this);
                 c2.setCardToThrowLocations(new float[]{460, 155});
                 playerPosition.put(c1, g1);
                 playerPosition.put(c2, g2);
@@ -272,10 +308,6 @@ public class DailaMaara extends ScreenRules {
 
     public void setGroupCoatStatusLabel(HashMap<String, Label> groupCoatStatusLabel) {
         this.groupCoatStatusLabel = groupCoatStatusLabel;
-    }
-
-    public void setPlayerPosition(HashMap<Player, Actor> playerPosition) {
-        this.playerPosition = playerPosition;
     }
 
     public void setPlayerOnSide(ArrayList<Player> playerOnSide) {

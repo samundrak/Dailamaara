@@ -21,45 +21,5 @@ public class Utils {
         return card;
     }
 
-    public String getStringInput(String message) {
-        if (message != null) {
-            System.out.println(message);
-        }
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        while (name.isEmpty() && name.length() < 1) {
-            System.out.println(message);
-            name = sc.nextLine();
-        }
-        return name;
-    }
 
-    public int getDupliCateCard(int smallId, int[] cardsList) {
-        int v = -1;
-        int repeat = 0;
-        for (int i = 0; i < cardsList.length; i++) {
-            if (smallId == cardsList[i]) {
-                repeat++;
-            }
-        }
-        if (repeat == 2) {
-            return 1;
-        }
-        return v;
-    }
-
-    public int getIntInput(String message) {
-        boolean nextStep = true;
-        int i = -1;
-        while (nextStep) {
-            String in = this.getStringInput(message);
-            try {
-                i = Integer.parseInt(in);
-                nextStep = !nextStep;
-            } catch (Exception e) {
-                System.out.println("You entered wrong format");
-            }
-        }
-        return i;
-    }
 }

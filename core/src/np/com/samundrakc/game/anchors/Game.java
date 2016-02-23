@@ -7,7 +7,10 @@ package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
@@ -19,6 +22,8 @@ import java.util.Random;
 
 import np.com.samundrakc.game.*;
 import np.com.samundrakc.game.controllers.Callback;
+import np.com.samundrakc.game.misc.Animation;
+import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.screens.*;
 import np.com.samundrakc.game.screens.DailaMaara;
 
@@ -30,7 +35,6 @@ public class Game extends Utils implements GameProcess {
     public static int THROWN_CARDS = 0;
     public static ArrayList<Card> cards;
     public static boolean STARTED = false;
-    public static boolean OVER = false;
     public static Player PLAY_TURN = null;
     public static int THROWN = 0;
     public static Const.STATE STATE = Const.STATE.PLAY;
@@ -68,6 +72,15 @@ public class Game extends Utils implements GameProcess {
     public static Const.CARDS CARD_PLAYED = null;
     public static ArrayList<Player> PLAYER_ORDER = new ArrayList<Player>();
     public static Stage GAME_STAGE = null;
+    private DailaMaara view;
+
+    public DailaMaara getView() {
+        return view;
+    }
+
+    public void setView(DailaMaara view) {
+        this.view = view;
+    }
 
     public Game() {
         Game.cards = new ArrayList();
@@ -75,10 +88,10 @@ public class Game extends Utils implements GameProcess {
         players = new ArrayList(Const.TOTAL_NUMBER_OF_PLAYERS);
         group = new ArrayList(Const.TOTAL_NUMBER_GROUPS);
         turn = -1;
-        Game.COLORS.put(Const.CARDS.CLUBS, new Image(new Texture("cards/clubs.png")));
-        Game.COLORS.put(Const.CARDS.DIAMONDS, new Image(new Texture("cards/diamonds.png")));
-        Game.COLORS.put(Const.CARDS.SPADES, new Image(new Texture("cards/spades.png")));
-        Game.COLORS.put(Const.CARDS.HEARTS, new Image(new Texture("cards/hearts.png")));
+        Game.COLORS.put(Const.CARDS.CLUBS, new Image(Const.COLORS_ACTOR.get(Const.CARDS.CLUBS)));
+        Game.COLORS.put(Const.CARDS.DIAMONDS, new Image(Const.COLORS_ACTOR.get(Const.CARDS.DIAMONDS)));
+        Game.COLORS.put(Const.CARDS.SPADES, new Image(Const.COLORS_ACTOR.get(Const.CARDS.SPADES)));
+        Game.COLORS.put(Const.CARDS.HEARTS, new Image(Const.COLORS_ACTOR.get(Const.CARDS.HEARTS)));
     }
 
     /**
@@ -156,67 +169,6 @@ public class Game extends Utils implements GameProcess {
         }
         this.group.add(myGroup);
         this.group.add(computerGroup);
-
-
-        for (Group g : group) {
-            System.out.println("Group is " + g.getName());
-
-            for (Player p : g.getPlayerList()) {
-                System.out.println("Player is " + p.getName());
-
-            }
-        }
-    }
-
-    /**
-     * Simply we will assign to players now each player will get random cards
-     */
-    @Override
-    public void assignCardsToPlayers() {
-
-    }
-
-    /**
-     * We are going too start the game now
-     */
-    @Override
-    public void startGame() {
-
-    }
-
-    /**
-     * Simply end the game
-     */
-    @Override
-    public void endGame() {
-    }
-
-    @Override
-    public boolean selectPlayerToThrowCardsFirstTime(ArrayList<Player> players) {
-        if (Game.turn != -1) {
-            return false;
-        }
-        int i = super.getIntInput("Enter any  number from " + 0 + " to " + (Const.TOTAL_NUMBER_OF_CARDS - 1));
-        int[] computerSelectedCards = new int[players.size()];
-
-        for (Player e : players) {
-            if (e.getId() != Game.mineId) {
-                int selected = Game.cards.get(new Random().ints(1, Const.TOTAL_NUMBER_OF_CARDS).findFirst().getAsInt()).getNumber();
-                computerSelectedCards[e.getId()] = selected;
-                System.out.println(e.getName() + " Selected " + selected);
-            }
-        }
-        if (players.contains(this.players.get(Game.mineId))) {
-            while (i < 0 && i > 52) {
-                i = super.getIntInput("Incorrect number enter again");
-            }
-        }
-
-        computerSelectedCards[Game.mineId] = Game.cards.get(i).getNumber();
-        System.out.println("You selected " + Game.cards.get(i).getNumber());
-        Arrays.sort(computerSelectedCards);
-        System.out.println(Arrays.toString(computerSelectedCards));
-        return true;
     }
 
     public static void chooseNextPlayerToBePlayed(Player player) {
@@ -247,10 +199,17 @@ public class Game extends Utils implements GameProcess {
                         @Override
                         public void run() {
                             //Clearing the screen
-                            for (Card c : Game.history.get(Game.history.size() - 1)) {
-                                c.getActor().setVisible(false);
-                                c.getActor().clear();
-                                c.getActor().remove();
+                            for (final Card c : Game.history.get(Game.history.size() - 1)) {
+                                c.getActor().addAction(Animation.sizeActionPlus(30, 50, 1));
+                                c.getActor().addAction(Actions.sequence(Animation.moveBy(Context.WIDTH / 2 - c.getActor().getX(),
+                                        Context.HEIGHT + 100 - c.getActor().getY(),
+                                        1), new RunnableAction() {
+                                    @Override
+                                    public void run() {
+                                        c.getActor().clear();
+                                        c.getActor().remove();
+                                    }
+                                }));
                             }
 
                             if (Game.STATE != Const.STATE.GAME_OVER) {
@@ -266,5 +225,50 @@ public class Game extends Utils implements GameProcess {
                 }
             }
         }
+    }
+
+    private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
+
+    public void selectPlayOfTurup(Player player, Card card) {
+        if (Game.THROWN == 0) {
+            if (indexOfPlayOfTurups.size() > 0) {
+                for (int i = 0; i < indexOfPlayOfTurups.size(); i++) {
+                    indexOfPlayOfTurups.get(i).clearActions();
+                    indexOfPlayOfTurups.get(i).clearListeners();
+                    indexOfPlayOfTurups.get(i).clear();
+                    indexOfPlayOfTurups.get(i).remove();
+                }
+            } else {
+                if (player.getView().getPlayOfTable().getCells().size > 1) {
+                    player.getView().getPlayOfTable().getCells().get(1).clearActor();
+                }
+            }
+            Actor c = new Image(Const.COLORS_ACTOR.get(card.getCardType()));
+            c.setSize(10, 10);
+            c.setPosition(player.getView().getPlayOfTable().getX() + 10, player.getView().getPlayOfTable().getY() + 8);
+            c.addAction(Animation.sizeActionPlusWithAnime(50, 60, 0.6f));
+            indexOfPlayOfTurups.add(c);
+            Game.CARD_PLAYED = card.getCardType();
+            Game.GAME_STAGE.addActor(c);
+        }
+    }
+
+    public void turupMove() {
+        if (Game.TURUP == null) return;
+        Image turup = Game.COLORS.get(Game.TURUP);
+        turup.setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
+        turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),
+                Animation.simpleAnimation(getView().getTurupTable().getX() + 10, getView().getTurupTable().getY() + 8),
+                new RunnableAction() {
+                    /**
+                     * Called to run the runnable.
+                     */
+                    @Override
+                    public void run() {
+                        getView().getNonTururp().remove();
+
+                    }
+                }));
+        getView().getStage().addActor(turup);
     }
 }

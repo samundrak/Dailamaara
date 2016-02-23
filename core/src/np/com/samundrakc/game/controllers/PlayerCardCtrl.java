@@ -16,11 +16,13 @@ import np.com.samundrakc.game.misc.Context;
 public class PlayerCardCtrl extends InputListener {
     private Card card;
     private CardDistribution context;
+    private float x, y;
 
     public PlayerCardCtrl(Card card, CardDistribution context) {
         this.card = card;
         this.context = context;
-
+        this.x = card.getActor().getX();
+        this.y = card.getActor().getY();
     }
 
     /**
@@ -42,13 +44,13 @@ public class PlayerCardCtrl extends InputListener {
             if (Game.TALK_TURN.getId() == Game.PLAYER.getId()) {
                 Game.TURUP = card.getCardType();
                 Game.TURUP_STRING = card.getType();
-                context.turupMove();
+                context.getGame().getMainGame().turupMove();
             }
             return super.touchDown(event, x, y, pointer, button);
         }
 
         if (!Game.STARTED) return false;
-
+        card.getActor().moveBy(x - card.getActor().getWidth() / 2, y - card.getActor().getHeight() / 2);
         return super.touchDown(event, x, y, pointer, button);
     }
 
@@ -83,5 +85,18 @@ public class PlayerCardCtrl extends InputListener {
         super.enter(event, x, y, pointer, fromActor);
     }
 
+    @Override
+    public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+        super.touchUp(event, x, y, pointer, button);
+        System.out.println("relesed1");
+        if (!Game.STARTED) return;
+        card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+    }
 
+    @Override
+    public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
+        super.exit(event, x, y, pointer, toActor);
+        if (!Game.STARTED) return;
+        card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+    }
 }

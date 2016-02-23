@@ -6,12 +6,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -59,7 +61,7 @@ public class CardSelection {
                     StringBuilder sb = new StringBuilder();
                     for (CardSelectedPlayer csp : cardSelectedPlayers) {
                         if (csp.getCardNumber() == selectCardsNumber.get(min)) {
-                            System.out.println("added" + csp.getPlayer().getName());
+
                             dups.add(csp);
                             if (csp.getPlayer().getId() == Game.mineId) {
                                 playerHasPlayed = false;
@@ -69,7 +71,7 @@ public class CardSelection {
                                 form.autoHideMessage("You have to select card again").autoHide(3, null);
                             }
                             sb.append(csp.getPlayer().getName() + ", ");
-                            System.out.println(csp.getPlayer().getName() + " has lowest number - " + csp.getCardNumber());
+
                         }
                     }
                     if (dups.size() < 2) {
@@ -80,7 +82,7 @@ public class CardSelection {
 //                        at np.com.samundrakc.game.controllers.CardSelection$1.run(CardSelection.java:77)
 //                        at java.util.TimerThread.mainLoop(Timer.java:555)
 //                        at java.util.TimerThread.run(Timer.java:505)
-                        System.out.println(dups.get(0).getPlayer().getName() + " will distribute cards");
+
                         form.autoHideMessage(dups.get(0).getPlayer().getName() + " will distribute cards").autoHide(3, new MessageBox.OnOkButtonClicked() {
                             @Override
                             public void run() {
@@ -91,6 +93,11 @@ public class CardSelection {
                                             form.getView().getStacks().getChildren().get(selectedCardsIndex.get(i)).setVisible(true);
                                         }
                                         for (int i = 0; i < form.getView().getStacks().getChildren().size; i++) {
+                                            if (form.getView().getStacks().getChildren().get(i) instanceof Button) {
+                                                form.getView().getStacks().getChildren().get(i).clear();
+                                                form.getView().getStacks().getChildren().get(i).remove();
+                                               break;
+                                            }
                                             if (i < Const.TOTAL_NUMBER_OF_CARDS) {
                                                 form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
                                                 form.getView().getStacks().getChildren().get(i).clearListeners();
@@ -102,6 +109,7 @@ public class CardSelection {
                                         }
                                         Const.TOTAL_NUMBER_OF_PLAYERS = 4;
                                         form.getView().getStacks().clearListeners();
+                                        System.out.println(form.getView().getStacks().getChildren().size);
                                         form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().dispose();
                                         form.getView().getStage().dispose();
@@ -181,7 +189,7 @@ public class CardSelection {
         return new RunnableAction() {
             @Override
             public void run() {
-                TextButton label = new TextButton(name,Context.getInstance().getSkin());
+                TextButton label = new TextButton(name, Context.getInstance().getSkin());
                 label.setPosition(image.getX() + ((image.getWidth() / 2) - (label.getWidth() / 2)), 60);
                 selectedCardsLabel.add(label);
                 form.getView().getStacksChild().addActor(label);
@@ -213,12 +221,12 @@ public class CardSelection {
             } else {
                 x = Utils.getXDiffToPin(selectedCards.get(selectedCards.size() - 2).getX() + 160, actor.getX());
                 name = form.getGame().players.get(selectedCards.size() - 1).getName();
-                System.out.println(dups.size());
+
                 if (dups.size() > 0) {
                     name = dups.get(selectedCards.size() - 1).getPlayer().getName();
-                    System.out.println(name + "  dups name");
+
                 }
-                System.out.println(name);
+
             }
             y = Utils.getXDiffToPin(300, actor.getY()) - 200;
             image.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), captionsLabelsOfSelectedCards(name, image, x, y)));

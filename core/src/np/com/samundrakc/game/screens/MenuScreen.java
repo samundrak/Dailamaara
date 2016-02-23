@@ -24,6 +24,8 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import java.awt.Color;
 
 import np.com.samundrakc.game.DailaMaara;
+import np.com.samundrakc.game.anchors.Const;
+import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.MenuCtrl;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -43,11 +45,10 @@ public class MenuScreen extends ScreenRules {
         super(dailaMaara);
         playButton = new Image(new Texture(Gdx.files.internal("playbtn.png")));
 
-        Prefs pref =  new Prefs("test");
-        if(pref.getString("name",null) == null){
-            pref.setString("name","samundra");
+        Prefs pref = new Prefs("test");
+        if (pref.getString("name", null) == null) {
+            pref.setString("name", "samundra");
         }
-        System.out.println(pref.getString("name",null));
     }
 
     @Override
@@ -58,7 +59,6 @@ public class MenuScreen extends ScreenRules {
         playButton.addListener(new MenuCtrl.PlayButtonController(game, this));
         stage.addActor(playButton);
     }
-
 
 
     @Override

@@ -84,7 +84,8 @@ public class Form extends ScreenRules {
 
     public Form(DailaMaara game) {
         super(game);
-        this.dailaMaara =  game;
+        this.dailaMaara = game;
+        Const.loadColorsActor();
         Game mainGame = new Game();
         mainGame.createCards();
         mainGame.shuffleCardsOFGame(Game.cards);
@@ -100,7 +101,7 @@ public class Form extends ScreenRules {
     public void render(float delta) {
         game.clearView();
         stage.act(delta);
-        stage.draw( );
+        stage.draw();
     }
 
     @Override
@@ -120,10 +121,10 @@ public class Form extends ScreenRules {
 
     private void initWidgets() {
         name = new TextField("", Context.getInstance().getSkin());
-        group = new TextField("",Context.getInstance().getSkin());
+        group = new TextField("", Context.getInstance().getSkin());
         name.setText(pref.getString("name", ""));
         group.setText(pref.getString("group", ""));
-        Label nameLabel = new Label("Enter your name",Context.getInstance().getSkin());
+        Label nameLabel = new Label("Enter your name", Context.getInstance().getSkin());
         Label groupLabel = new Label("Enter your group name", Context.getInstance().getSkin());
         play = new TextButton("NEXT", Context.getInstance().getSkin());
         play.setBounds(0, 0, play.getWidth(), play.getHeight());

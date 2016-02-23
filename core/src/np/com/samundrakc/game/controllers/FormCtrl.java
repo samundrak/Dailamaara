@@ -29,6 +29,15 @@ import np.com.samundrakc.game.screens.Form;
 public class FormCtrl {
     private Form view;
     private Game game;
+    private boolean isCardDistubuted = false;
+
+    public boolean isCardDistubuted() {
+        return isCardDistubuted;
+    }
+
+    public void setIsCardDistubuted(boolean isCardDistubuted) {
+        this.isCardDistubuted = isCardDistubuted;
+    }
 
     public Form getView() {
         return view;
@@ -52,11 +61,11 @@ public class FormCtrl {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("play button clicked");
                 if (Utils.isEmpty(view.getName().getText())) {
-                    autoHideMessage("Please enter your name").autoHide(1,null);
+                    autoHideMessage("Please enter your name").autoHide(1, null);
                     return false;
                 }
                 if (Utils.isEmpty(view.getGroup().getText())) {
-                    autoHideMessage("Please enter your group name").autoHide(1,null);
+                    autoHideMessage("Please enter your group name").autoHide(1, null);
                     return false;
                 }
 
@@ -87,6 +96,7 @@ public class FormCtrl {
                 game.getGroup().clear();
                 game.createGroups(view.getName().getText(), view.getGroup().getText(), i + 1);
                 if (isCardSelected) return true;
+                if (isAllCardShareProcessDone) return true;
                 cardShareProcess(null);
                 return true;
             }
@@ -114,7 +124,7 @@ public class FormCtrl {
 
     public void cardShareProcess(final Callback callback) {
         if (!isCardShareProcessDone) {
-            autoHideMessage("Please wait while card is distributed").autoHide(2,null);
+            autoHideMessage("Please wait while card is distributed").autoHide(2, null);
             isCardShareProcessDone = true;
         }
         final int[] xx = {3};
@@ -128,7 +138,7 @@ public class FormCtrl {
                 if (i[0] == Const.TOTAL_NUMBER_OF_CARDS) {
                     timer.cancel();
                     if (!isAllCardShareProcessDone) {
-                        autoHideMessage("You can select any card now").autoHide(2,null);
+                        autoHideMessage("You can select any card now").autoHide(2, null);
                         isAllCardShareProcessDone = true;
                     }
                     view.getStacks().setTouchable(Touchable.enabled);
@@ -193,6 +203,7 @@ public class FormCtrl {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (isCardSelected) return true;
+                if (isCardDistubuted) return true;
                 new CardSelection(FormCtrl.this).start(i, actor);
                 return true;
             }

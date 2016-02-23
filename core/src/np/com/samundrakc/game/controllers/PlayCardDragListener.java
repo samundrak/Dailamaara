@@ -57,7 +57,7 @@ public class PlayCardDragListener extends DragListener {
                 return;
         }
         if (player.getCardsActor().size() < 13) return;
-        if (card.getActor().getY() < 100 || card.getActor().getY() > 270) {
+        if (card.getActor().getY() < 70 || card.getActor().getY() > 270) {
             card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
             return;
         }
@@ -66,12 +66,22 @@ public class PlayCardDragListener extends DragListener {
             return;
         }
 
+        if (Game.CARD_PLAYED != null) {
+            if (card.getCardType() != Game.CARD_PLAYED) {
+                Query query = new Query(player);
+                if (query.isThisCardTypeAvailable(Game.CARD_PLAYED)) {
+                    card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+                    return;
+                }
 
+            }
+        }
         if (Game.PLAY_TURN.getId() == player.getId() && (Game.PLAY_TURN != null)) {
             if (Game.history.size() < 1) {
                 Game.history.add(new ArrayList<Card>());
             }
             Game.history.get(Game.history.size() - 1).add(player.removeCardFromMyIndex(card));
+            player.getGame().selectPlayOfTurup(player, card);
             player.doExtraStuff();
             card.getActor().clearListeners();
             card.getActor().addAction(Animation.simpleAnimation(player.getCardToThrowLocations()[0], player.getCardToThrowLocations()[1]));

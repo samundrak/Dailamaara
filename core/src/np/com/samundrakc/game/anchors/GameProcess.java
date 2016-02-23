@@ -12,10 +12,7 @@ import java.util.ArrayList;
  * @author samundra
  */
 interface GameProcess {
-    public   void createCards();
-    public   void createGroups(String name,String group,int frenId);
-    public   void assignCardsToPlayers();
-    public   void startGame();
-    public   void endGame();
-    public boolean selectPlayerToThrowCardsFirstTime(ArrayList<Player> palyers);
+   void createCards();
+    void createGroups(String name,String group,int frenId);
+
 }
