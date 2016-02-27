@@ -76,6 +76,15 @@ public class Form extends ScreenRules {
     @Override
     public void dispose() {
         super.dispose();
+        dailaMaara = null;
+        formCtrl = null;
+        play = null;
+        table = null;
+        remberFriendCheckBox = null;
+        stage = null;
+        name = null;
+        group = null;
+        selectPlayerTable = null;
     }
 
     public DailaMaara getDailaMaara() {
@@ -95,13 +104,6 @@ public class Form extends ScreenRules {
         selectPlayerForm();
         selectCardForDistrubutor();
         Gdx.input.setInputProcessor(stage);
-    }
-
-    @Override
-    public void render(float delta) {
-        game.clearView();
-        stage.act(delta);
-        stage.draw();
     }
 
     @Override
@@ -200,4 +202,6 @@ public class Form extends ScreenRules {
         stage.addActor(stacks);
         stage.addActor(stacksChild);
     }
+
+
 }

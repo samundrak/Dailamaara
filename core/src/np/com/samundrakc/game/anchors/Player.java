@@ -12,10 +12,12 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import np.com.samundrakc.game.controllers.History;
 import np.com.samundrakc.game.controllers.MasterMind;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.screens.DailaMaara;
@@ -31,6 +33,15 @@ public class Player {
     private ArrayList<Card> cards = new ArrayList();
     private Game game;
     private DailaMaara view;
+    private Card thrownCard = null;
+
+    public Card getThrownCard() {
+        return thrownCard;
+    }
+
+    public void setThrownCard(Card thrownCard) {
+        this.thrownCard = thrownCard;
+    }
 
     public Game getGame() {
         return game;
@@ -191,6 +202,7 @@ public class Player {
                 if (Game.PLAY_TURN == null) return;
                 if (Game.STATE == Const.STATE.GAME_OVER) {
                     active.clear();
+                    System.out.println("Player game over state");
                     return;
                 }
                 if (Game.STATE == Const.STATE.WAIT || Game.STATE == Const.STATE.PAUSE || Game.STATE == Const.STATE.STOP) {
@@ -199,15 +211,18 @@ public class Player {
                 if (Game.PLAY_TURN.getId() == getId()) {
                     if (Game.history.size() < 1) {
                         Game.history.add(new ArrayList<Card>());
+                        Game.itihaas.add(new History());
                     }
                     //Do the Playing Task Here
                     final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
                     if (c == null) {
                         System.out.println("Problem occured");
+                        DailaMaara.TURN_LABEL.setText("Game Over");
                         Game.STATE = Const.STATE.WAIT;
                         active.clear();
                         return;
                     }
+                    setThrownCard(c);
                     getGame().selectPlayOfTurup(Player.this, c);
                     c.getActor().setPosition(getActor().getX(), getActor().getY());
                     c.getActor().addAction(Actions.sequence(
@@ -215,6 +230,7 @@ public class Player {
                                 @Override
                                 public void run() {
                                     Game.history.get(Game.history.size() - 1).add(c);
+                                    Game.itihaas.get(Game.itihaas.size() - 1).addPlayerWithCards(new History.PlayerHistory(c, Player.this));
                                     //End
                                     doExtraStuff();
                                     //Choose next player to be played
@@ -242,6 +258,8 @@ public class Player {
 
 
     public void doExtraStuff() {
+        getGroup().setThrown(getGroup().getThrown() + 1);
+        getView().getGroupThrownStatusLabel().get(getGroup().getName()).setText(getGroup().getThrown() + "");
         updateThrown();
         Game.updateThrownCardsStacks(this);
     }

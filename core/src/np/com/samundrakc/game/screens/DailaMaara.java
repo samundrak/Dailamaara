@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,6 +46,7 @@ public class DailaMaara extends ScreenRules {
         super(game);
         this.mainGame = mainGame;
         msg = new MessageBox(stage, "Pop up message");
+        msg.setInMiddle(true);
         mainGame.setView(this);
     }
 
@@ -69,16 +71,12 @@ public class DailaMaara extends ScreenRules {
         return this;
     }
 
-    @Override
-    public void render(float delta) {
-        game.clearView();
-        stage.act();
-        stage.draw();
-    }
-
     Table hudTable;
     HashMap<String, Label> groupWonStatusLabel = new HashMap<String, Label>();
     HashMap<String, Label> groupCoatStatusLabel = new HashMap<String, Label>();
+    HashMap<String, Label> groupThrownStatusLabel = new HashMap<String, Label>();
+    HashMap<String, Label> groupHandsStatusLabel = new HashMap<String, Label>();
+    HashMap<String, Label> groupTensStatusLabel = new HashMap<String, Label>();
     Table turupTable;
 
     public Table getTurupTable() {
@@ -96,6 +94,30 @@ public class DailaMaara extends ScreenRules {
     public static Label TURN_LABEL = new Label("None", Context.getInstance().getSkin());
 
 
+    public HashMap<String, Label> getGroupThrownStatusLabel() {
+        return groupThrownStatusLabel;
+    }
+
+    public void setGroupThrownStatusLabel(HashMap<String, Label> groupThrownStatusLabel) {
+        this.groupThrownStatusLabel = groupThrownStatusLabel;
+    }
+
+    public HashMap<String, Label> getGroupHandsStatusLabel() {
+        return groupHandsStatusLabel;
+    }
+
+    public void setGroupHandsStatusLabel(HashMap<String, Label> groupHandsStatusLabel) {
+        this.groupHandsStatusLabel = groupHandsStatusLabel;
+    }
+
+    public HashMap<String, Label> getGroupTensStatusLabel() {
+        return groupTensStatusLabel;
+    }
+
+    public void setGroupTensStatusLabel(HashMap<String, Label> groupTensStatusLabel) {
+        this.groupTensStatusLabel = groupTensStatusLabel;
+    }
+
     private void HUD() {
         hudTable = new Table();
         int width = 0;
@@ -104,12 +126,18 @@ public class DailaMaara extends ScreenRules {
         Label won_lb = new Label("Won", Context.getInstance().getSkin());
         Label coat_lb = new Label("Coat", Context.getInstance().getSkin());
         Label turup_lb = new Label("Turup", Context.getInstance().getSkin());
+        Label thrown = new Label("Thrown", Context.getInstance().getSkin());
+        Label hands_lb = new Label("Hands", Context.getInstance().getSkin());
+        Label tens_lb = new Label("Ten's", Context.getInstance().getSkin());
         nonTururp = new Image(Context.getInstance().getCARDS_BACK_COVER());
 
         nonTururp.setSize(70, 100);
         hudTable.add(group_lb);
         hudTable.add(won_lb);
         hudTable.add(coat_lb);
+        hudTable.add(thrown);
+        hudTable.add(hands_lb);
+        hudTable.add(tens_lb);
         hudTable.add(turup_lb);
         hudTable.row();
         height += group_lb.getHeight();
@@ -117,13 +145,19 @@ public class DailaMaara extends ScreenRules {
             Label l = new Label(g.getName(), Context.getInstance().getSkin());
             groupWonStatusLabel.put(g.getName(), new Label(g.getWon() + "", Context.getInstance().getSkin()));
             groupCoatStatusLabel.put(g.getName(), new Label(g.getCoat() + "", Context.getInstance().getSkin()));
+            groupThrownStatusLabel.put(g.getName(), new Label(g.getThrown() + "", Context.getInstance().getSkin()));
+            groupHandsStatusLabel.put(g.getName(), new Label(g.getHands() + "", Context.getInstance().getSkin()));
+            groupTensStatusLabel.put(g.getName(), new Label(g.getTens() + "", Context.getInstance().getSkin()));
             hudTable.add(l).pad(1).expandX();
             hudTable.add(groupWonStatusLabel.get(g.getName())).pad(1).expandX();
             hudTable.add(groupCoatStatusLabel.get(g.getName())).pad(1).expandX();
+            hudTable.add(groupThrownStatusLabel.get(g.getName())).pad(1).expandX();
+            hudTable.add(groupHandsStatusLabel.get(g.getName())).pad(1).expandX();
+            hudTable.add(groupTensStatusLabel.get(g.getName())).pad(1).expandX();
             hudTable.row();
             height += l.getHeight();
         }
-        hudTable.setWidth(200);
+        hudTable.setWidth(270);
         Label turnLabel = new Label("Turn", Context.getInstance().getSkin());
         hudTable.add(turnLabel);
         hudTable.add(TURN_LABEL).colspan(2).row();

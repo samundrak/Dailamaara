@@ -79,9 +79,12 @@ public class PlayCardDragListener extends DragListener {
         if (Game.PLAY_TURN.getId() == player.getId() && (Game.PLAY_TURN != null)) {
             if (Game.history.size() < 1) {
                 Game.history.add(new ArrayList<Card>());
+                Game.itihaas.add(new History());
             }
             Game.history.get(Game.history.size() - 1).add(player.removeCardFromMyIndex(card));
+            Game.itihaas.get(Game.itihaas.size() - 1).addPlayerWithCards(new History.PlayerHistory(card, player));
             player.getGame().selectPlayOfTurup(player, card);
+            player.setThrownCard(card);
             player.doExtraStuff();
             card.getActor().clearListeners();
             card.getActor().addAction(Animation.simpleAnimation(player.getCardToThrowLocations()[0], player.getCardToThrowLocations()[1]));

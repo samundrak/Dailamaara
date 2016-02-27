@@ -5,6 +5,7 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,16 @@ public class Group {
     public ArrayList<Player> playerList;
     public final int limit;
     private int won = 0;
+    private int thrown = 0;
+    private int tens = 0;
+
+    public int getThrown() {
+        return thrown;
+    }
+
+    public void setThrown(int thrown) {
+        this.thrown = thrown;
+    }
 
     public int getWon() {
         return won;
@@ -67,5 +78,23 @@ public class Group {
 
     public void setCoat(int coat) {
         this.coat = coat;
+    }
+
+    int hands = 0;
+
+    public int getHands() {
+        return hands;
+    }
+
+    public void setHands(int hands) {
+        this.hands = hands;
+    }
+
+    public int getTens() {
+        return tens;
+    }
+
+    public void setTens(int tens) {
+        this.tens = tens;
     }
 }

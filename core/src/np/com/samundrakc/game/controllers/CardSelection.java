@@ -112,7 +112,6 @@ public class CardSelection {
                                         System.out.println(form.getView().getStacks().getChildren().size);
                                         form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().dispose();
-                                        form.getView().getStage().dispose();
                                     }
                                 });
                             }

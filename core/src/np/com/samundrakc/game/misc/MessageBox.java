@@ -25,6 +25,15 @@ public class MessageBox {
     private final Stage stage;
     private final Table table;
     private String message;
+    private boolean inMiddle = false;
+
+    public boolean isInMiddle() {
+        return inMiddle;
+    }
+
+    public void setInMiddle(boolean inMiddle) {
+        this.inMiddle = inMiddle;
+    }
 
     public Table getTable() {
         return table;
@@ -80,11 +89,14 @@ public class MessageBox {
                 }
             });
             table.add(button).colspan(5).padTop(10);
-            table.setSize(label.getWidth() + 100, label.getHeight() + button.getHeight() + 50);
+            table.setSize(label.getWidth() + 100, label.getHeight() + button.getHeight() + 100);
         }
         table.setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         table.center();
         table.setY(Context.HEIGHT + table.getHeight());
+        if (inMiddle) {
+            table.setY(Context.HEIGHT / 2);
+        }
         table.setX(Context.WIDTH / 2 - (table.getWidth() / 2));
         this.stage.addActor(table);
 
@@ -92,7 +104,10 @@ public class MessageBox {
     }
 
     public MessageBox show() {
-        table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT - (table.getHeight() + 20)));
+        if (inMiddle)
+            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT / 2- (table.getHeight() / 2)));
+        else
+            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT - (table.getHeight() + 20)));
         return this;
     }
 

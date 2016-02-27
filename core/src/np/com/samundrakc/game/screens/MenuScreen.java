@@ -44,11 +44,6 @@ public class MenuScreen extends ScreenRules {
     public MenuScreen(DailaMaara dailaMaara) {
         super(dailaMaara);
         playButton = new Image(new Texture(Gdx.files.internal("playbtn.png")));
-
-        Prefs pref = new Prefs("test");
-        if (pref.getString("name", null) == null) {
-            pref.setString("name", "samundra");
-        }
     }
 
     @Override
@@ -63,7 +58,8 @@ public class MenuScreen extends ScreenRules {
 
     @Override
     public void dispose() {
-        System.out.println("gone");
+        playButton = null;
+        stage = null;
     }
 
 

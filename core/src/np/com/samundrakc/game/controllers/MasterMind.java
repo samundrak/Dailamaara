@@ -1,5 +1,6 @@
 package np.com.samundrakc.game.controllers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import np.com.samundrakc.game.anchors.Card;
 import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Player;
+import np.com.samundrakc.game.anchors.Utils;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 
@@ -51,10 +53,10 @@ public class MasterMind {
                 secondThrower();
                 break;
             case 2:
-                player.getCardToThrow();
+                thridCardThrower();
                 break;
             case 3:
-                player.getCardToThrow();
+                fourthCardThrower();
                 break;
         }
         if (card == null) {
@@ -64,65 +66,165 @@ public class MasterMind {
     }
 
     private void secondThrower() {
-        //we will check if this type of cards exists with us
-        if (query.isThisCardTypeAvailable(Game.CARD_PLAYED)) {
-            //ok we have card greater the first player
-            if (query.greaterThen(Game.history.get(cycle).get(0).getNumber(), Game.CARD_PLAYED)) {
-                setCard(query.getCard());
+
+        //First checking if cards available
+        Utils.log(player.getName(),"First checking if cards available");
+        if (player.getSortedCards().get(Game.CARD_PLAYED).size() > 0) {
+            //if we have only on card of this type then send this
+            if (player.getSortedCards().get(Game.CARD_PLAYED).size() < 2) {
+                setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(0));
                 return;
-            } else {
-                //we dnt have bigger cards so let get minimum value
-                if (query.min(Game.CARD_PLAYED)) {
-                    //is the minimum value we got is 10
-                    if (query.getCard().getNumber() == 10) {
-                        //if value is 10 and we have only 1 card then throw it
-                        if (player.getSortedCards().get(Game.CARD_PLAYED).size() == 1) {
-                            setCard(query.getCard());
-                            return;
-                        } else {
-                            //get cards less then 10
-                            if (query.lessThen(10, Game.CARD_PLAYED)) {
-                                setCard(query.getCard());
-                                return;
-                            } else {
-                                //no less then 10 then get greater 10
-                                if (query.greaterThen(10, Game.CARD_PLAYED)) {
-                                    setCard(query.getCard());
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                    setCard(query.getCard());
-                    return;
-                } else {
-                    query.random(Game.CARD_PLAYED);
-                    setCard(query.getCard());
+            }
+
+            //If We have card greater then thrown card then get it
+            Utils.log(player.getName(),"If We have card greater then thrown card then get it");
+            if (player.getSortedCards().get(Game.CARD_PLAYED).size() == 2) {
+                if (player.getSortedCards().get(Game.CARD_PLAYED).get(0).getNumber() == 10) {
+                    setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(1));
                     return;
                 }
             }
+
+            for (int i = player.getSortedCards().get(Game.CARD_PLAYED).size() - 1; i > -1; i--) {
+                Card c = player.getSortedCards().get(Game.CARD_PLAYED).get(i);
+                if (c.getNumber() != 10) {
+                    setCard(c);
+                    return;
+                }
+            }
+            setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(0));
         } else {
-            //We can use Turup Here
-            if (query.isThisCardTypeAvailable(Game.TURUP)) {
-                query.min(Game.TURUP);
-                setCard(query.getCard());
+            if (player.getSortedCards().get(Game.TURUP).size() > 0) {
+                //We have Turups
+                setCard(player.getSortedCards().get(Game.TURUP).get(0));
                 return;
             } else {
-                if (query.min(query.getLowestCardType())) {
-                    if (query.getCard().getNumber() == 10) {
-                        if (query.lessThen(10, query.getLowestCardType())) {
-                            setCard(query.getCard());
+                if (player.getCards().size() == 1) {
+                    setCard(player.getCards().get(0));
+                    return;
+                }
+                if (player.getCards().size() == 2) {
+                    if (player.getCards().get(0).getNumber() == 10) {
+                        setCard(player.getCards().get(1));
+                        return;
+                    }
+                }
+                for (int i = player.getCards().size() - 1; i > -1; i--) {
+                    if (player.getCards().get(i).getNumber() < 10) {
+                        setCard(player.getCards().get(i));
+                        return;
+                    }
+                }
+            }
+            setCard(player.getCards().get(0));
+        }
+    }
+
+    private void thridCardThrower() {
+        if (player.getSortedCards().get(Game.CARD_PLAYED).size() > 0) {
+            //if we have current played cards
+            Utils.log(player.getName(),"We have this type of cards");
+            if (player.getFriend().getThrownCard().getNumber() == 10) {
+                //if my friend has thrown 10
+                Utils.log(player.getName(),"Friend thrown card 10");
+                int biggerCards = 0;
+                for (Card c : player.getSortedCards().get(Game.CARD_PLAYED)) {
+                    if (c.getNumber() > 10) {
+                        biggerCards++;
+                    }
+                }
+
+                if (biggerCards == 4) {
+                    Utils.log(player.getName(),"We have all bigger cards");
+                    //We have all bigger cards then 10
+                    for (int i = 0; i < player.getSortedCards().get(Game.CARD_PLAYED).size(); i++) {
+                        if (player.getSortedCards().get(Game.CARD_PLAYED).get(i).getNumber() > 10) {
+                            //send big card then 10
+                            setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(i));
                             return;
                         }
                     }
                 }
 
-                query.max(query.getHighestCardType());
-                setCard(query.getCard());
+                Utils.log(player.getName(),"We dont have all biggers cards");
+                //we dont have all biggers cards so throw any bigger Cards
+                for (int i = player.getSortedCards().get(Game.CARD_PLAYED).size() - 1; i > -1; i--) {
+                    setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(i));
+                    return;
+                }
+                setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(0));
                 return;
-                
+            } else {
+                //I have 10 so think about it
+                if (query.isNumberAvailable(Game.CARD_PLAYED, 10)) {
+                    Utils.log(player.getName(),"I have card 10");
+                    //my friend has throw card greater then 10
+                    if (player.getFriend().getThrownCard().getNumber() > 10) {
+                        if (Game.history.get(cycle).get(Game.history.get(cycle).size() - 1).getNumber() > player.getFriend().getThrownCard().getNumber()) {
+                            //Opponent thrown biggers cards then mine friend
+                            Utils.log(player.getName(),"Opponent thrown biggers cards then mine friend");
+                            setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(0));
+                            return;
+                        } else {
+                            //Opponent thrown small cards then mine friend
+                            Utils.log(player.getName(),"Opponent thrown small cards then mine friend");
+                            if (player.getFriend().getThrownCard().getNumber() == 14 && query.isNumberAvailable(Game.CARD_PLAYED, 13)) {
+                                //My friend have 14 and i have 13
+                                Utils.log(player.getName(),"My friend have 14 and i have 13");
+                                query.isNumberAvailable(Game.CARD_PLAYED, 10);
+                                setCard(query.getCard());
+                                return;
+                            }
+
+                            if (player.getFriend().getThrownCard().getNumber() == 13 && query.isNumberAvailable(Game.CARD_PLAYED, 14)) {
+                                //My friend have 13 and i have 15
+                                Utils.log(player.getName(),"My friend have 13 and i have 15");
+                                query.isNumberAvailable(Game.CARD_PLAYED, 10);
+                                setCard(query.getCard());
+                                return;
+                            }
+                            //I have all bigger Cards
+                            Utils.log(player.getName(),"I have all bigger Cards");
+                            if (query.isNumberAvailable(Game.CARD_PLAYED, 14) && query.isNumberAvailable(Game.CARD_PLAYED, 13)
+                                    && query.isNumberAvailable(Game.CARD_PLAYED, 12) && query.isNumberAvailable(Game.CARD_PLAYED, 11)
+                                    ) {
+                                query.isNumberAvailable(Game.CARD_PLAYED, 10);
+                                setCard(query.getCard());
+                                return;
+                            }
+
+                            //if my friend thrown 14
+                            Utils.log(player.getName(),"if my friend thrown 14");
+                            if (player.getFriend().getThrownCard().getNumber() == 14) {
+                                query.isNumberAvailable(Game.CARD_PLAYED, 10);
+                                setCard(query.getCard());
+                                return;
+                            }
+                        }
+                    } else {
+                        Utils.log(player.getName(),"my friend didnt thrown card greater then 10 but i have 10");
+                        //my friend didnt thrown card greater then 10 but i have 10
+                        setCard(player.getSortedCards().get(Game.CARD_PLAYED).get(0));
+                        return;
+                    }
+                } else {
+                    //I dont have Card 10
+                    Utils.log(player.getName(),"I dont have Card 10");
+                    int num = Game.history.get(cycle).get(Game.history.get(cycle).size() - 1).getNumber();
+                    query.isNumberAvailable(Game.CARD_PLAYED, num + 1);
+                    if (query.isNumberAvailable(Game.CARD_PLAYED, num + 1)) {
+                        setCard(query.getCard());
+                        return;
+                    }
+                }
             }
         }
+        Utils.log(player.getName(),"No way now for secondThrower action");
+        secondThrower();
+    }
+
+    private void fourthCardThrower() {
+        thridCardThrower();
     }
 
     private void cardLooper(Const.CARDS type, boolean withTurup) {

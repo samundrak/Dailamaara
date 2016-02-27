@@ -46,15 +46,19 @@ public class Sort {
         for (Card c : this.player.getCards()) {
             switch (c.getCardType()) {
                 case CLUBS:
+                    if (c.getNumber() == 1) c.setNumber(14);
                     cards.get(Const.CARDS.CLUBS).add(c);
                     break;
                 case HEARTS:
+                    if (c.getNumber() == 1) c.setNumber(14);
                     cards.get(Const.CARDS.HEARTS).add(c);
                     break;
                 case DIAMONDS:
+                    if (c.getNumber() == 1) c.setNumber(14);
                     cards.get(Const.CARDS.DIAMONDS).add(c);
                     break;
                 case SPADES:
+                    if (c.getNumber() == 1) c.setNumber(14);
                     cards.get(Const.CARDS.SPADES).add(c);
                     break;
             }
@@ -65,6 +69,10 @@ public class Sort {
         for (Const.CARDS c : Const.COLORS_NAME_TYPE) {
             Collections.sort(cards.get(c), new CardCompare());
         }
+    }
+
+    public void oneToA() {
+
     }
 
     public void arrangeCards() {

@@ -14,23 +14,28 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.rmi.CORBA.Util;
+
 import np.com.samundrakc.game.*;
 import np.com.samundrakc.game.controllers.Callback;
+import np.com.samundrakc.game.controllers.History;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.screens.*;
 import np.com.samundrakc.game.screens.DailaMaara;
 
 /**
  * @author samundra
  */
-public class Game extends Utils implements GameProcess {
+public class Game {
 
     public static int THROWN_CARDS = 0;
     public static ArrayList<Card> cards;
@@ -39,6 +44,8 @@ public class Game extends Utils implements GameProcess {
     public static int THROWN = 0;
     public static Const.STATE STATE = Const.STATE.PLAY;
     public static ArrayList<ArrayList<Card>> history = new ArrayList<ArrayList<Card>>();
+    public static ArrayList<Player> historyOfPlayerWon = new ArrayList<Player>();
+    public static ArrayList<History> itihaas = new ArrayList<History>();
 
     public static ArrayList<Card> getCards() {
         return cards;
@@ -98,7 +105,7 @@ public class Game extends Utils implements GameProcess {
      * This function will help us to create cards and store it in a arraylist of
      * cards
      */
-    @Override
+
     public void createCards() {
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_COLORS; i++) {
             for (int j = 0; j < Const.TOTAL_NUMBER_OF_CARDS_IN_COLORS; j++) {
@@ -172,6 +179,7 @@ public class Game extends Utils implements GameProcess {
     }
 
     public static void chooseNextPlayerToBePlayed(Player player) {
+        if (Game.CARD_PLAYED == null) return;
         for (int i = 0; i < Game.PLAYER_ORDER.size(); i++) {
             if (player.getId() == Game.PLAYER_ORDER.get(i).getId()) {
                 int index = i + 1;
@@ -190,40 +198,119 @@ public class Game extends Utils implements GameProcess {
             if (Game.history.size() >= 13) {
                 //When game is over work is done in this block
                 Game.STATE = Const.STATE.GAME_OVER;
+                System.out.println("Game is over");
+                int won = 0;
+                Group g = null;
+                if (Game.PLAYER.getGroup().getTens() == 2) {
+                    g = Game.PLAYER.getGroup();
+                } else {
+                    for (Group group : Game.PLAYER.getGame().getGroup()) {
+                        if (group.getHands() > won) {
+                            won = group.getWon();
+                            g = group;
+                        }
+                    }
+                }
+                new MessageBox(GAME_STAGE, g.getName() + " won the game! Play Again?", new MessageBox.OnOkButtonClicked() {
+                    @Override
+                    public void run() {
+
+                    }
+                }).show();
             }
-            if (Game.history.size() > 0) {
+            if (Game.history.size() > 0 ) {
                 if (Game.history.get(Game.history.size() - 1).size() >= 4) {
                     Game.STATE = Const.STATE.WAIT;
                     //Four Cards Per Play has been done
                     new Timer().scheduleTask(new Timer.Task() {
                         @Override
                         public void run() {
-                            //Clearing the screen
-                            for (final Card c : Game.history.get(Game.history.size() - 1)) {
-                                c.getActor().addAction(Animation.sizeActionPlus(30, 50, 1));
-                                c.getActor().addAction(Actions.sequence(Animation.moveBy(Context.WIDTH / 2 - c.getActor().getX(),
-                                        Context.HEIGHT + 100 - c.getActor().getY(),
-                                        1), new RunnableAction() {
-                                    @Override
-                                    public void run() {
-                                        c.getActor().clear();
-                                        c.getActor().remove();
-                                    }
-                                }));
-                            }
 
                             if (Game.STATE != Const.STATE.GAME_OVER) {
                                 //Game is note over still
                                 if (Game.PLAYER_ORDER.get(Game.PLAYER_ORDER.size() - 1).getId() == player.getId()) {
-                                    Game.THROWN = 0;
+
+                                    int size = 0;
+                                    int indexOfWinner = 0;
+                                    Player turn = null;
+                                    for (int i = 0; i < PLAYER_ORDER.size(); i++) {
+                                        if (PLAYER_ORDER.get(i).getThrownCard().getNumber() > size) {
+                                            size = PLAYER_ORDER.get(i).getThrownCard().getNumber();
+                                            turn = PLAYER_ORDER.get(i);
+                                            indexOfWinner = i;
+                                        }
+                                    }
+                                    size = 0;
+                                    for (int i = 0; i < PLAYER_ORDER.size(); i++) {
+                                        if (PLAYER_ORDER.get(i).getThrownCard().getCardType() == Game.TURUP) {
+                                            if (PLAYER_ORDER.get(i).getThrownCard().getNumber() > size) {
+                                                size = PLAYER_ORDER.get(i).getThrownCard().getNumber();
+                                                turn = PLAYER_ORDER.get(i);
+                                                indexOfWinner = i;
+                                            }
+                                        }
+                                    }
+
+                                    ArrayList<Player> pl = new ArrayList<Player>();
+                                    pl.add(turn);
+                                    for (int i = indexOfWinner + 1; i < PLAYER_ORDER.size(); i++) {
+                                        pl.add(PLAYER_ORDER.get(i));
+                                    }
+                                    for (int i = 0; i < indexOfWinner; i++) {
+                                        pl.add(PLAYER_ORDER.get(i));
+                                    }
+                                    PLAYER_ORDER.clear();
+                                    PLAYER_ORDER = pl;
+                                    Game.PLAY_TURN = turn;
+                                    DailaMaara.TURN_LABEL.setText(Game.PLAY_TURN.getName());
+                                    historyOfPlayerWon.add(turn);
+                                    turn.getGroup().setHands(turn.getGroup().getHands() + 1);
+                                    Game.itihaas.get(Game.itihaas.size() - 1).setWinner(turn);
+                                    turn.getView().getGroupHandsStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getHands() + "");
+                                    float x = Context.WIDTH / 2, y = Context.HEIGHT + 100;
+                                    switch (turn.DIRECTION) {
+                                        case EAST:
+                                        case WEST:
+                                            x = Context.WIDTH / 2;
+                                            y = Context.HEIGHT + 100;
+                                            break;
+                                        case NORTH:
+                                        case SOUTH:
+                                            x = Context.WIDTH;
+                                            y = Context.HEIGHT / 2;
+                                            break;
+                                    }
+                                    for (final Card c : Game.history.get(Game.history.size() - 1)) {
+                                        if (c.getNumber() == 10) {
+                                            turn.getGroup().setTens(turn.getGroup().getTens() + 1);
+                                            turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getTens() + "");
+                                        }
+                                        c.getActor().addAction(Animation.sizeActionPlus(30, 50, 1));
+                                        c.getActor().addAction(Actions.sequence(Animation.moveBy(
+                                                x - c.getActor().getX(),
+                                                y - c.getActor().getY(),
+                                                1), new RunnableAction() {
+                                            @Override
+                                            public void run() {
+                                                c.getActor().clear();
+                                                c.getActor().remove();
+
+                                            }
+                                        }));
+                                    }
                                     Game.history.add(new ArrayList<Card>());
+                                    Game.itihaas.add(new History());
+                                    Game.THROWN = 0;
+                                    Game.CARD_PLAYED = null;
                                 }
+
                                 Game.STATE = Const.STATE.PLAY;
                             }
                         }
                     }, 1);
                 }
             }
+
         }
     }
 
@@ -250,7 +337,14 @@ public class Game extends Utils implements GameProcess {
             indexOfPlayOfTurups.add(c);
             Game.CARD_PLAYED = card.getCardType();
             Game.GAME_STAGE.addActor(c);
+            Game.itihaas.get(Game.itihaas.size() - 1).setPlayOf(card.getCardType());
         }
+    }
+
+    public ArrayList shuffleCardsOFGame(ArrayList<Card> cards) {
+        ArrayList<Card> card = cards;
+        Collections.shuffle(card);
+        return card;
     }
 
     public void turupMove() {

@@ -10,10 +10,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
+import java.io.Serializable;
+
 /**
  * @author samundra
  */
-public class Card {
+public class Card   {
 
     private String type;
 

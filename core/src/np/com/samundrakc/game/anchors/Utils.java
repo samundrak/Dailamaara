@@ -5,6 +5,8 @@
  */
 package np.com.samundrakc.game.anchors;
 
+import com.badlogic.gdx.Gdx;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -22,4 +24,7 @@ public class Utils {
     }
 
 
+    public static void log(String tag,String message){
+        Gdx.app.log(tag,message);
+    }
 }

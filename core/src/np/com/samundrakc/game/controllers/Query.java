@@ -49,7 +49,7 @@ public class Query {
 
     public boolean inRange(int from, int to, Const.CARDS type) {
         for (Card c : player.getSortedCards().get(type)) {
-            if (from < c.getNumber() && to < c.getNumber()) {
+            if (from < c.getNumber() &&  c.getNumber() < to) {
                 setCard(c);
                 return true;
             }
@@ -59,11 +59,6 @@ public class Query {
 
     public boolean max(Const.CARDS type) {
         if (player.getSortedCards().get(type).size() > 0) {
-            //if the first value is 1 or A then return
-            if (player.getSortedCards().get(type).get(0).getNumber() == 1) {
-                setCard(player.getSortedCards().get(type).get(0));
-                return true;
-            }
             //Return the last index which always bigger
             setCard(player.getSortedCards().get(type).get(player.getSortedCards().get(type).size() - 1));
             return true;
@@ -73,13 +68,6 @@ public class Query {
 
     public boolean min(Const.CARDS type) {
         if (player.getSortedCards().get(type).size() > 0) {
-            //if the first value is 1 or A then dont return
-            if (player.getSortedCards().get(type).get(0).getNumber() == 1) {
-                if (player.getSortedCards().get(type).size() >= 2) {
-                    setCard(player.getSortedCards().get(type).get(1));
-                    return true;
-                }
-            }
             //Return the last index which always smaller
             setCard(player.getSortedCards().get(type).get(0));
             return true;
