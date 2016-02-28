@@ -22,6 +22,7 @@ import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Utils;
 import np.com.samundrakc.game.screens.Form;
+import np.com.samundrakc.game.screens.MenuScreen;
 
 /**
  * Created by samundra on 2/3/2016.
@@ -68,7 +69,7 @@ public class FormCtrl {
                     autoHideMessage("Please enter your group name").autoHide(1, null);
                     return false;
                 }
-
+                Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                 view.getTable().addAction(Animation.simpleAnimation(-Context.WIDTH, Utils.inCenter(view.getTable(), 'y')));
                 view.getSelectPlayerTable().addAction(Animation.simpleAnimation(1, 1));
                 view.getPref().setString("name", view.getName().getText());
@@ -86,6 +87,7 @@ public class FormCtrl {
         return new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                 view.getSelectPlayerTable().addAction(Animation.simpleAnimation(-(Context.WIDTH + 500), 0));
                 view.getStacks().addAction(Animation.simpleAnimation(3, (Context.HEIGHT - (Context.HEIGHT - 50))));
                 view.getStacksChild().addAction(Animation.simpleAnimation(3, (Context.HEIGHT - (Context.HEIGHT - 50))));
@@ -147,6 +149,7 @@ public class FormCtrl {
                     button.addListener(new InputListener() {
                         @Override
                         public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                            Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                             view.getStacks().setPosition((Context.WIDTH + 500), 50);
                             view.getStacksChild().setPosition((Context.WIDTH + 500), 50);
                             view.getSelectPlayerTable().addAction(Animation.simpleAnimation((0), 0));
@@ -164,6 +167,7 @@ public class FormCtrl {
                     yy[0] += 70 + gap[0];
                     xx[0] = gap[0];
                 }
+                Sound.getInstance().play(Sound.AUDIO.CARD_SHARE);
                 view.getStacks().getChildren().get(i[0]).addAction(Actions.sequence(Animation.simpleAnimation(xx[0], yy[0]), Actions.sequence(Animation.sizeActionPlus(60, 80, 0.2f), Animation.sizeActionPlus(50, 70, 0.2f))));
                 xx[0] += view.getStacks().getChildren().get(i[0]).getWidth() + gap[0];
                 i[0]++;
@@ -175,6 +179,7 @@ public class FormCtrl {
         return new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                 view.getTable().addAction(Animation.simpleAnimation(Utils.inCenter(view.getStacks(), 'x'), Utils.inCenter(view.getTable(), 'y')));
                 view.getSelectPlayerTable().addAction(Animation.simpleAnimation((Context.WIDTH), 0));
                 return super.touchDown(event, x, y, pointer, button);
@@ -204,6 +209,7 @@ public class FormCtrl {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (isCardSelected) return true;
                 if (isCardDistubuted) return true;
+                Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
                 new CardSelection(FormCtrl.this).start(i, actor);
                 return true;
             }
@@ -222,13 +228,23 @@ public class FormCtrl {
         return new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println(view.getRemberFriendCheckBox().isChecked());
+                Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                 if (!view.getRemberFriendCheckBox().isChecked()) {
                     view.getPref().setInt("rememberFriend", 1);
                 } else {
                     view.getPref().setInt("rememberFriend", 0);
                 }
                 return true;
+            }
+        };
+    }
+
+    public InputListener menuCtrl() {
+        return new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                view.getDailaMaara().setScreen(new MenuScreen(view.getDailaMaara()));
+                return super.touchDown(event, x, y, pointer, button);
             }
         };
     }

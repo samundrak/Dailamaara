@@ -104,6 +104,7 @@ public class CardDistribution {
                         y = cords[1];
                         break;
                 }
+                Sound.getInstance().play(Sound.AUDIO.CARD_SHARE);
                 cards.addAction(Actions.sequence(Animation.moveBy(x, y, Const.CARD_DISTRUBUTION_SECONDS_PER_PLAYER), new RunnableAction() {
                     @Override
                     public void run() {

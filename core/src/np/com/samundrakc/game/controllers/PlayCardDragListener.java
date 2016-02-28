@@ -58,11 +58,14 @@ public class PlayCardDragListener extends DragListener {
         }
         if (player.getCardsActor().size() < 13) return;
         if (card.getActor().getY() < 70 || card.getActor().getY() > 270) {
+
+            Sound.getInstance().play(Sound.AUDIO.INVALID);
             card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
             return;
         }
         if (card.getActor().getX() < 0 || card.getActor().getX() > Context.WIDTH - card.getActor().getWidth()) {
             card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+            Sound.getInstance().play(Sound.AUDIO.INVALID);
             return;
         }
 
@@ -71,6 +74,7 @@ public class PlayCardDragListener extends DragListener {
                 Query query = new Query(player);
                 if (query.isThisCardTypeAvailable(Game.CARD_PLAYED)) {
                     card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
+                    Sound.getInstance().play(Sound.AUDIO.INVALID);
                     return;
                 }
 
@@ -81,6 +85,8 @@ public class PlayCardDragListener extends DragListener {
                 Game.history.add(new ArrayList<Card>());
                 Game.itihaas.add(new History());
             }
+
+            Sound.getInstance().play(Sound.AUDIO.SELECTED);
             Game.history.get(Game.history.size() - 1).add(player.removeCardFromMyIndex(card));
             Game.itihaas.get(Game.itihaas.size() - 1).addPlayerWithCards(new History.PlayerHistory(card, player));
             player.getGame().selectPlayOfTurup(player, card);
@@ -88,7 +94,7 @@ public class PlayCardDragListener extends DragListener {
             player.doExtraStuff();
             card.getActor().clearListeners();
             card.getActor().addAction(Animation.simpleAnimation(player.getCardToThrowLocations()[0], player.getCardToThrowLocations()[1]));
-            Game.chooseNextPlayerToBePlayed(player);
+            player.getGame().chooseNextPlayerToBePlayed(player);
             return;
         }
         card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));

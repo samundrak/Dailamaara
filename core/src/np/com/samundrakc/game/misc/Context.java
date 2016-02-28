@@ -12,14 +12,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+import java.util.Random;
+
 /**
  * Created by samundra on 1/28/2016.
  */
 public class Context {
     public static final String GAME_NAME = "DailaMaara";
     public static final int WIDTH = 700, HEIGHT = 400;
-    private Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-    private Texture CARDS_BACK_COVER = new Texture("cards/back.png");
+    private Skin skin;
+
+    public void setSkin( ) {
+        this.skin = new Skin(Gdx.files.internal("uiskin.json"));
+    }
+
+    public void setCARDS_BACK_COVER() {
+        try {
+            this.CARDS_BACK_COVER = new Texture("cards/backs/back_" + new Random().nextInt(10) + ".png");
+        } catch (Exception e) {
+            this.CARDS_BACK_COVER = new Texture("cards/backs/back_" + 1 + ".png");
+        }
+    }
+
+    private Texture CARDS_BACK_COVER;
     private static Context context = null;
 
     public Skin getSkin() {

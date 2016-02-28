@@ -31,8 +31,9 @@ public class MessageBox {
         return inMiddle;
     }
 
-    public void setInMiddle(boolean inMiddle) {
+    public MessageBox setInMiddle(boolean inMiddle) {
         this.inMiddle = inMiddle;
+        return this;
     }
 
     public Table getTable() {
@@ -71,6 +72,18 @@ public class MessageBox {
 
 
     Label label;
+    TextButton okButton;
+    private String okButtonText = "Done";
+
+    public String getOkButtonText() {
+        return okButtonText;
+    }
+
+    public MessageBox setOkButtonText(String okButtonText) {
+        this.okButtonText = okButtonText;
+        okButton.setText(okButtonText);
+        return this;
+    }
 
     public MessageBox init() {
         label = new Label(this.message, Context.getInstance().getSkin());
@@ -78,9 +91,9 @@ public class MessageBox {
         table.setWidth(label.getWidth() + 100);
         table.setHeight(label.getHeight() + 10);
         if (okButtonClicked != null) {
-            TextButton button = new TextButton("OK", Context.getInstance().getSkin());
-            button.setBounds(0, 0, button.getWidth(), button.getHeight());
-            button.addListener(new InputListener() {
+            okButton = new TextButton(getOkButtonText(), Context.getInstance().getSkin());
+            okButton.setBounds(0, 0, okButton.getWidth(), okButton.getHeight());
+            okButton.addListener(new InputListener() {
                 @Override
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     okButtonClicked.run();
@@ -88,8 +101,8 @@ public class MessageBox {
                     return true;
                 }
             });
-            table.add(button).colspan(5).padTop(10);
-            table.setSize(label.getWidth() + 100, label.getHeight() + button.getHeight() + 100);
+            table.add(okButton).colspan(5).padTop(10);
+            table.setSize(label.getWidth() + 100, label.getHeight() + okButton.getHeight() + 100);
         }
         table.setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         table.center();
@@ -105,9 +118,9 @@ public class MessageBox {
 
     public MessageBox show() {
         if (inMiddle)
-            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT / 2- (table.getHeight() / 2)));
+            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT / 2 - (table.getHeight() / 2)));
         else
-            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT - (table.getHeight() + 20)));
+            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT  - (table.getHeight() / 2 + 20)));
         return this;
     }
 

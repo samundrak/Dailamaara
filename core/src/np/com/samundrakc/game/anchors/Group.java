@@ -8,6 +8,9 @@ package np.com.samundrakc.game.anchors;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import np.com.samundrakc.game.misc.Prefs;
+import np.com.samundrakc.game.screens.DailaMaara;
+
 /**
  * @author samundra
  */
@@ -19,6 +22,7 @@ public class Group {
     private int won = 0;
     private int thrown = 0;
     private int tens = 0;
+    Prefs prefs;
 
     public int getThrown() {
         return thrown;
@@ -28,18 +32,17 @@ public class Group {
         this.thrown = thrown;
     }
 
-    public int getWon() {
-        return won;
-    }
 
     public void setWon(int won) {
         this.won = won;
+        prefs.setInt("won" + getName(), this.won);
     }
 
     public Group(String name) {
         this.name = name;
         this.playerList = new ArrayList();
         this.limit = Const.TOTAL_PLAYER_IN_GAME;
+        prefs = new Prefs("records");
     }
 
     public void addPlayer(Player p) {
@@ -72,12 +75,23 @@ public class Group {
 
     private int coat = 0;
 
+    public int getWon() {
+        int won = prefs.getInt("won" + getName());
+        won = won == -1 ? 0 : won;
+        this.won = won;
+        return this.won;
+    }
+
     public int getCoat() {
+        int coat = prefs.getInt("coat" + getName());
+        coat = coat == -1 ? 0 : coat;
+        this.coat = coat;
         return this.coat;
     }
 
     public void setCoat(int coat) {
         this.coat = coat;
+        prefs.setInt("coat" + getName(), this.coat);
     }
 
     int hands = 0;

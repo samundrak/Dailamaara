@@ -201,6 +201,7 @@ public class CardSelection {
     private ArrayList<CardSelectedPlayer> cardSelectedPlayers = new ArrayList<CardSelectedPlayer>();
 
     private void cardSelectionProcess(Actor actor, int index) {
+        Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
         actor.setVisible(false);
         final Image image = Game.cards.get(index).getActor(actor.getX(), actor.getY());
         image.addAction(Actions.sequence(Animation.sizeActionPlus(150, 200, 0.5f)));
@@ -223,7 +224,6 @@ public class CardSelection {
 
                 if (dups.size() > 0) {
                     name = dups.get(selectedCards.size() - 1).getPlayer().getName();
-
                 }
 
             }

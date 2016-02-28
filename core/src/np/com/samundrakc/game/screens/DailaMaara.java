@@ -41,9 +41,20 @@ public class DailaMaara extends ScreenRules {
     }
 
     private Image nonTururp;
+    private np.com.samundrakc.game.DailaMaara parentGame;
+
+    public np.com.samundrakc.game.DailaMaara getParentGame() {
+        return parentGame;
+    }
+
+    public void setParentGame(np.com.samundrakc.game.DailaMaara parentGame) {
+        this.parentGame = parentGame;
+    }
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game);
+        parentGame = game;
+
         this.mainGame = mainGame;
         msg = new MessageBox(stage, "Pop up message");
         msg.setInMiddle(true);

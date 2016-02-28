@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 import np.com.samundrakc.game.controllers.History;
 import np.com.samundrakc.game.controllers.MasterMind;
+import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.screens.DailaMaara;
 
@@ -216,12 +217,12 @@ public class Player {
                     //Do the Playing Task Here
                     final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
                     if (c == null) {
-                        System.out.println("Problem occured");
-                        DailaMaara.TURN_LABEL.setText("Game Over");
+
                         Game.STATE = Const.STATE.WAIT;
                         active.clear();
                         return;
                     }
+                    Sound.getInstance().play(Sound.AUDIO.SELECTED);
                     setThrownCard(c);
                     getGame().selectPlayOfTurup(Player.this, c);
                     c.getActor().setPosition(getActor().getX(), getActor().getY());
@@ -234,7 +235,7 @@ public class Player {
                                     //End
                                     doExtraStuff();
                                     //Choose next player to be played
-                                    Game.chooseNextPlayerToBePlayed(Player.this);
+                                    getGame().chooseNextPlayerToBePlayed(Player.this);
                                 }
                             }));
                     c.getActor().setSize(100, 120);
@@ -261,7 +262,7 @@ public class Player {
         getGroup().setThrown(getGroup().getThrown() + 1);
         getView().getGroupThrownStatusLabel().get(getGroup().getName()).setText(getGroup().getThrown() + "");
         updateThrown();
-        Game.updateThrownCardsStacks(this);
+        getGame().updateThrownCardsStacks(this);
     }
 
     public Card getCardToThrow() {
@@ -295,8 +296,8 @@ public class Player {
             int index = this.getBackCards().size() - 1;
             Actor a = this.getBackCards().get(index);
             a.setVisible(false);
-            a.clear();
-            a.remove();
+//            a.clear();
+//            a.remove();
             this.getBackCards().remove(index);
         }
         this.cards.remove(indexOf);

@@ -30,6 +30,7 @@ import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.FormCtrl;
+import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
@@ -93,8 +94,11 @@ public class Form extends ScreenRules {
 
     public Form(DailaMaara game) {
         super(game);
+        System.out.println("lets see");
         this.dailaMaara = game;
         Const.loadColorsActor();
+        Context.getInstance().setCARDS_BACK_COVER();
+        Sound.getInstance().loadAudio();
         Game mainGame = new Game();
         mainGame.createCards();
         mainGame.shuffleCardsOFGame(Game.cards);
@@ -104,6 +108,7 @@ public class Form extends ScreenRules {
         selectPlayerForm();
         selectCardForDistrubutor();
         Gdx.input.setInputProcessor(stage);
+        System.out.println("Loading done");
     }
 
     @Override
@@ -122,6 +127,10 @@ public class Form extends ScreenRules {
     }
 
     private void initWidgets() {
+        TextButton menu = new TextButton("Menu", Context.getInstance().getSkin());
+        menu.setPosition(10, Context.HEIGHT - (menu.getHeight() + 10));
+        menu.addListener(formCtrl.menuCtrl());
+        stage.addActor(menu);
         name = new TextField("", Context.getInstance().getSkin());
         group = new TextField("", Context.getInstance().getSkin());
         name.setText(pref.getString("name", ""));

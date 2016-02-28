@@ -26,6 +26,7 @@ import javax.rmi.CORBA.Util;
 import np.com.samundrakc.game.*;
 import np.com.samundrakc.game.controllers.Callback;
 import np.com.samundrakc.game.controllers.History;
+import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
@@ -178,7 +179,7 @@ public class Game {
         this.group.add(computerGroup);
     }
 
-    public static void chooseNextPlayerToBePlayed(Player player) {
+    public void chooseNextPlayerToBePlayed(Player player) {
         if (Game.CARD_PLAYED == null) return;
         for (int i = 0; i < Game.PLAYER_ORDER.size(); i++) {
             if (player.getId() == Game.PLAYER_ORDER.get(i).getId()) {
@@ -193,32 +194,13 @@ public class Game {
         }
     }
 
-    public static void updateThrownCardsStacks(final Player player) {
+    public void updateThrownCardsStacks(final Player player) {
         if (Game.THROWN == Const.TOTAL_NUMBER_OF_PLAYERS) {
             if (Game.history.size() >= 13) {
                 //When game is over work is done in this block
-                Game.STATE = Const.STATE.GAME_OVER;
-                System.out.println("Game is over");
-                int won = 0;
-                Group g = null;
-                if (Game.PLAYER.getGroup().getTens() == 2) {
-                    g = Game.PLAYER.getGroup();
-                } else {
-                    for (Group group : Game.PLAYER.getGame().getGroup()) {
-                        if (group.getHands() > won) {
-                            won = group.getWon();
-                            g = group;
-                        }
-                    }
-                }
-                new MessageBox(GAME_STAGE, g.getName() + " won the game! Play Again?", new MessageBox.OnOkButtonClicked() {
-                    @Override
-                    public void run() {
-
-                    }
-                }).show();
+                gameOver();
             }
-            if (Game.history.size() > 0 ) {
+            if (Game.history.size() > 0) {
                 if (Game.history.get(Game.history.size() - 1).size() >= 4) {
                     Game.STATE = Const.STATE.WAIT;
                     //Four Cards Per Play has been done
@@ -280,7 +262,13 @@ public class Game {
                                             y = Context.HEIGHT / 2;
                                             break;
                                     }
+                                    int totalTens = 0;
+                                    for (Group group : Game.PLAYER.getGame().group) {
+                                        totalTens += group.getTens();
+                                    }
+
                                     for (final Card c : Game.history.get(Game.history.size() - 1)) {
+                                        Sound.getInstance().play(Sound.AUDIO.COLLAPSED);
                                         if (c.getNumber() == 10) {
                                             turn.getGroup().setTens(turn.getGroup().getTens() + 1);
                                             turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getTens() + "");
@@ -292,11 +280,16 @@ public class Game {
                                                 1), new RunnableAction() {
                                             @Override
                                             public void run() {
-                                                c.getActor().clear();
-                                                c.getActor().remove();
+//                                                c.getActor().clear();
+//                                                c.getActor().remove();
+                                                c.getActor().setVisible(false);
 
                                             }
                                         }));
+                                    }
+                                    if (totalTens == 4) {
+                                        gameOver();
+                                        return;
                                     }
                                     Game.history.add(new ArrayList<Card>());
                                     Game.itihaas.add(new History());
@@ -312,6 +305,41 @@ public class Game {
             }
 
         }
+    }
+
+    public void gameOver() {
+        Game.STATE = Const.STATE.GAME_OVER;
+        DailaMaara.TURN_LABEL.setText("Game Over");
+        int won = 0;
+        Group g = null;
+        if (Game.PLAYER.getGroup().getTens() == 2) {
+            for (Group group : getGroup()) {
+                if (group.getHands() > won) {
+                    won = group.getHands();
+                    g = group;
+                }
+            }
+        } else {
+            won = 0;
+            for (Group group : getGroup()) {
+                if (group.getTens() > won) {
+                    won = group.getTens();
+                    g = group;
+                }
+            }
+        }
+        if (g.getTens() == 4) {
+            g.setCoat(g.getCoat() + 1);
+            getView().getGroupCoatStatusLabel().get(g.getName()).setText(g.getCoat() + "");
+        }
+        g.setWon(g.getWon() + 1);
+        getView().getGroupWonStatusLabel().get(g.getName()).setText(g.getWon() + "");
+        new MessageBox(GAME_STAGE, g.getName() + " won the game! Play Again?", new MessageBox.OnOkButtonClicked() {
+            @Override
+            public void run() {
+                Game.PLAYER.getView().getParentGame().setScreen(new Form(Game.PLAYER.getView().getParentGame()));
+            }
+        }).setInMiddle(true).setOkButtonText("Play Again").show();
     }
 
     private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();

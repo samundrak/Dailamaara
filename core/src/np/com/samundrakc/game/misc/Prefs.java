@@ -10,29 +10,40 @@ public class Prefs {
     Preferences pref;
 
     public Prefs(String name) {
-        pref = Gdx.app.getPreferences(name+".prefs");
+        pref = Gdx.app.getPreferences(name + ".prefs");
 
     }
 
-    public   String getString(String key,String def) {
-        String x = pref.getString(key,def);
+    public String getString(String key, String def) {
+        String x = pref.getString(key, def);
         pref.flush();
         return x;
     }
 
-    public   int getInt(String key) {
-        int x = pref.getInteger(key,-1);
+    public int getInt(String key) {
+        int x = pref.getInteger(key, -1);
         pref.flush();
         return x;
     }
 
-    public  void setString(String key, String value) {
+    public void setString(String key, String value) {
         pref.putString(key, value);
         pref.flush();
     }
 
-    public  void setInt(String key, int value) {
+    public void setInt(String key, int value) {
         pref.putInteger(key, value);
         pref.flush();
+    }
+
+    public void setBoolean(String key, boolean bool) {
+        pref.putBoolean(key, bool);
+        pref.flush();
+    }
+
+    public boolean getBoolean(String key) {
+        boolean value = pref.getBoolean(key);
+        pref.flush();
+        return value;
     }
 }

@@ -42,6 +42,7 @@ public class PlayerCardCtrl extends InputListener {
 
         if (Game.TURUP == null) {
             if (Game.TALK_TURN.getId() == Game.PLAYER.getId()) {
+                Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
                 Game.TURUP = card.getCardType();
                 Game.TURUP_STRING = card.getType();
                 context.getGame().getMainGame().turupMove();
@@ -50,6 +51,7 @@ public class PlayerCardCtrl extends InputListener {
         }
 
         if (!Game.STARTED) return false;
+        Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
         card.getActor().moveBy(x - card.getActor().getWidth() / 2, y - card.getActor().getHeight() / 2);
         return super.touchDown(event, x, y, pointer, button);
     }
