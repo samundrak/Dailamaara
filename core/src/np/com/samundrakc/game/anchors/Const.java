@@ -42,4 +42,6 @@ public class Const {
         Const.COLORS_ACTOR.put(CARDS.SPADES, new Texture("cards/spades.png"));
         Const.COLORS_ACTOR.put(CARDS.HEARTS, new Texture("cards/hearts.png"));
     }
+
+    public static enum MISC {WON}
 }

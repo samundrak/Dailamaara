@@ -270,6 +270,9 @@ public class Game {
                                     for (final Card c : Game.history.get(Game.history.size() - 1)) {
                                         Sound.getInstance().play(Sound.AUDIO.COLLAPSED);
                                         if (c.getNumber() == 10) {
+                                            view.getTensEffects().setPosition(c.getActor().getX() + c.getActor().getWidth() / 2,
+                                                    c.getActor().getY() + c.getActor().getHeight() / 2);
+                                            view.getTensEffects().start();
                                             turn.getGroup().setTens(turn.getGroup().getTens() + 1);
                                             turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getTens() + "");
                                         }
@@ -312,6 +315,11 @@ public class Game {
         DailaMaara.TURN_LABEL.setText("Game Over");
         int won = 0;
         Group g = null;
+        getView().getPfx().getEffectHashMap().get("win").setPosition(Context.WIDTH / 2, 0);
+        getView().getPfx().getEffectHashMap().get("win").start();
+        if (!getView().getGoUp().isVisible()) {
+            getView().setToggle();
+        }
         if (Game.PLAYER.getGroup().getTens() == 2) {
             for (Group group : getGroup()) {
                 if (group.getHands() > won) {
@@ -378,7 +386,9 @@ public class Game {
     public void turupMove() {
         if (Game.TURUP == null) return;
         Image turup = Game.COLORS.get(Game.TURUP);
-        turup.setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
+        turup.setPosition(Context.WIDTH / 2, (Context.HEIGHT / 2) + 50);
+        getView().getPfx().getEffectHashMap().get(Game.TURUP.toString()).setPosition(turup.getX(), turup.getY());
+        getView().getPfx().getEffectHashMap().get(Game.TURUP.toString()).start();
         turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),
                 Animation.simpleAnimation(getView().getTurupTable().getX() + 10, getView().getTurupTable().getY() + 8),
                 new RunnableAction() {

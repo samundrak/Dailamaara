@@ -8,7 +8,6 @@ com.badlogic.gdx.graphics.Color: {
 	grey: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
 },
 com.badlogic.gdx.graphics.g2d.BitmapFont: {
-	font_a_rcena_16pt: { file: font_a_rcena_16pt.fnt },
 	default-font: { file: default.fnt }
 },
 com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
@@ -22,14 +21,14 @@ com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle: {
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 	default: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, b: 1, g: 1, r: 1 },
 		disabledFontColor: { a: 1, b: 0.8, g: 0.8, r: 0.8 },
 		up: default-round,
 		down: default-round-down
 	},
 	toggle: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, b: 1, g: 1, r: 1 },
 		downFontColor: { a: 1, r: 1 },
 		up: default-round,
@@ -48,7 +47,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Touchpad$TouchpadStyle: {
 	default: { background: default-pane, knob: default-round-large }
 },
 com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
-	default: { up: default-round, down: default-round-down },
+	default: { up: button_clicked1, down: button1_hover },
 	toggle: { up: default-round, down: default-round-down, checked: default-round-down }
 },
 com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
@@ -84,19 +83,19 @@ com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
 },
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	optional: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, b: 0.7, g: 0.7, r: 0.7 }
 	},
 	default: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, b: 1, g: 1, r: 1 }
 	},
 	error: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, r: 1 }
 	},
 	title: {
-		font: font_a_rcena_16pt,
+		font: default-font,
 		fontColor: { a: 1, b: 0.8, g: 0.8, r: 0.8 }
 	}
 },

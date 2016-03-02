@@ -19,7 +19,7 @@ public class Animation {
 
     public static Action simpleAnimation(float x, float y) {
         MoveToAction actionMove = Actions.action(MoveToAction.class);
-       actionMove.setPosition(x, y);
+        actionMove.setPosition(x, y);
         actionMove.setDuration(1);
         actionMove.setInterpolation(Interpolation.elasticOut);
         return actionMove;
@@ -27,16 +27,18 @@ public class Animation {
 
     public static Action moveBy(float x, float y, float duration) {
         MoveByAction actionMove = Actions.action(MoveByAction.class);
-       actionMove.setAmount(x, y);
+        actionMove.setAmount(x, y);
         actionMove.setDuration(duration);
         return actionMove;
     }
 
-    public static Action shakeAction() {
-        MoveToAction move = Actions.action(MoveToAction.class);
-        move.setX(5);
-        move.setDuration((float) 0.5);
-        return move;
+
+    public static Action moveByAnime(float x, float y, float duration) {
+        MoveByAction actionMove = Actions.action(MoveByAction.class);
+        actionMove.setAmount(x, y);
+        actionMove.setDuration(duration);
+        actionMove.setInterpolation(Interpolation.elasticOut);
+        return actionMove;
     }
 
     public static Action rotate(float amount, float duration) {
@@ -53,6 +55,7 @@ public class Animation {
         size.setDuration(duration);
         return size;
     }
+
     public static Action sizeActionPlusWithAnime(int width, int height, float duration) {
         SizeToAction size = new SizeToAction();
         size.setWidth(width);
@@ -61,6 +64,7 @@ public class Animation {
         size.setDuration(duration);
         return size;
     }
+
     public static Action repeatAction(Action action) {
         RepeatAction repeatAction = new RepeatAction();
         repeatAction.setAction(action);
@@ -73,5 +77,6 @@ public class Animation {
         rotate.setAmount(amount);
         rotate.setDuration(duration);
         rotate.setInterpolation(Interpolation.elasticOut);
-        return rotate;}
+        return rotate;
+    }
 }

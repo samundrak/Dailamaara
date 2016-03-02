@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import java.util.Timer;
@@ -128,6 +129,7 @@ public class Form extends ScreenRules {
 
     private void initWidgets() {
         TextButton menu = new TextButton("Menu", Context.getInstance().getSkin());
+//        menu.setBackground((Drawable) new Texture("menu.png"));
         menu.setPosition(10, Context.HEIGHT - (menu.getHeight() + 10));
         menu.addListener(formCtrl.menuCtrl());
         stage.addActor(menu);

@@ -2,20 +2,31 @@ package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
+
 import np.com.samundrakc.game.DailaMaara;
+import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.controllers.MenuCtrl;
+import np.com.samundrakc.game.controllers.PFX;
 import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.SpriteAnimation;
 
 /**
  * Created by samundra on 1/28/2016.
  */
 public class MenuScreen extends ScreenRules {
+
+
     public TextButton getPlayButton() {
         return playButton;
     }
@@ -32,12 +43,21 @@ public class MenuScreen extends ScreenRules {
         playButton = new TextButton("Play", Context.getInstance().getSkin());
         settings = new TextButton("Settings", Context.getInstance().getSkin());
         howToPlay = new TextButton("How To Play", Context.getInstance().getSkin());
-
         controller = new MenuCtrl(dailaMaara, this);
+
+    }
+
+    SpriteBatch sb = new SpriteBatch();
+
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+
     }
 
     @Override
     public void show() {
+
         Table table;
         playButton.addListener(new MenuCtrl.PlayButtonController(game, this));
         settings.addListener(controller.settingsController());

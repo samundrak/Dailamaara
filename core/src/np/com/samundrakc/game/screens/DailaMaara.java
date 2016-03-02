@@ -1,9 +1,15 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -20,17 +26,26 @@ import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Group;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.controllers.CardDistribution;
+import np.com.samundrakc.game.controllers.DailamaaraListener;
+import np.com.samundrakc.game.controllers.PFX;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
+import np.com.samundrakc.game.misc.SpriteAnimation;
 
 /**
  * Created by samundra on 2/10/2016.
  */
 public class DailaMaara extends ScreenRules {
+    private final Image goUp;
+    private final Image goDown;
+    private final DailamaaraListener controller;
     Game mainGame;
     private com.badlogic.gdx.scenes.scene2d.Group cards;
     MessageBox msg;
+    PFX pfx;
+    private SpriteAnimation birdAnimation;
+    Rectangle bounds;
 
     public Image getNonTururp() {
         return nonTururp;
@@ -47,18 +62,58 @@ public class DailaMaara extends ScreenRules {
         return parentGame;
     }
 
+    private ParticleEffect tensEffects = new ParticleEffect();
+
     public void setParentGame(np.com.samundrakc.game.DailaMaara parentGame) {
         this.parentGame = parentGame;
+    }
+
+    public ParticleEffect getTensEffects() {
+        return tensEffects;
+    }
+
+    public void setTensEffects(ParticleEffect tensEffects) {
+        this.tensEffects = tensEffects;
+    }
+
+    SpriteBatch sb = new SpriteBatch();
+
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+        sb.begin();
+        tensEffects.draw(sb, delta);
+        pfx.getEffectHashMap().get(Const.CARDS.CLUBS.toString()).draw(sb, delta);
+        pfx.getEffectHashMap().get(Const.CARDS.SPADES.toString()).draw(sb, delta);
+        pfx.getEffectHashMap().get(Const.CARDS.DIAMONDS.toString()).draw(sb, delta);
+        pfx.getEffectHashMap().get(Const.CARDS.HEARTS.toString()).draw(sb, delta);
+        pfx.getEffectHashMap().get("win").draw(sb, delta);
+//        birdAnimation.update(delta);
+//        sb.draw(birdAnimation.getFrame(), 0, 0);
+        sb.end();
+
+    }
+
+    public PFX getPfx() {
+        return pfx;
     }
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game);
         parentGame = game;
-
+        tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         this.mainGame = mainGame;
         msg = new MessageBox(stage, "Pop up message");
         msg.setInMiddle(true);
         mainGame.setView(this);
+        pfx = new PFX();
+        pfx.loadEffects();
+//        Texture texture = new Texture(Gdx.files.internal("texture/turup_anime.png"));
+//        birdAnimation = new SpriteAnimation(new TextureRegion(texture), 4, 0.5f);
+//        bounds = new Rectangle(0, 0, texture.getWidth() / 4, 100);
+        goUp = new Image(new Texture("up.png"));
+        goDown = new Image(new Texture("down.png"));
+        controller = new DailamaaraListener(this);
     }
 
     @Override
@@ -66,7 +121,8 @@ public class DailaMaara extends ScreenRules {
         HUD();
         playerSeats();
         setPositionOfCards();
-
+        stage.addActor(goUp);
+        stage.addActor(goDown);
     }
 
     public MessageBox autoHideMessage(String message) {
@@ -143,13 +199,13 @@ public class DailaMaara extends ScreenRules {
         nonTururp = new Image(Context.getInstance().getCARDS_BACK_COVER());
 
         nonTururp.setSize(70, 100);
-        hudTable.add(group_lb);
-        hudTable.add(won_lb);
-        hudTable.add(coat_lb);
-        hudTable.add(thrown);
-        hudTable.add(hands_lb);
-        hudTable.add(tens_lb);
-        hudTable.add(turup_lb);
+        hudTable.add(group_lb).pad(2);
+        hudTable.add(won_lb).pad(2);
+        hudTable.add(coat_lb).pad(2);
+        hudTable.add(thrown).pad(2);
+        hudTable.add(hands_lb).pad(2);
+        hudTable.add(tens_lb).pad(2);
+        hudTable.add(turup_lb).pad(2);
         hudTable.row();
         height += group_lb.getHeight();
         for (Group g : mainGame.getGroup()) {
@@ -168,14 +224,15 @@ public class DailaMaara extends ScreenRules {
             hudTable.row();
             height += l.getHeight();
         }
-        hudTable.setWidth(270);
+        hudTable.setWidth(350);
         Label turnLabel = new Label("Turn", Context.getInstance().getSkin());
         hudTable.add(turnLabel);
         hudTable.add(TURN_LABEL).colspan(2).row();
         height += turnLabel.getHeight();
         hudTable.setHeight(height + 20);
         hudTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
-        hudTable.setPosition(0, Context.HEIGHT - (hudTable.getHeight() - 10));
+//        hudTable.setPosition(0, Context.HEIGHT - (hudTable.getHeight() - 10));
+        hudTable.setPosition(0, Context.HEIGHT - 30);
         turupTable = new Table();
         turupTable.add(turup_lb);
         turupTable.row();
@@ -184,13 +241,44 @@ public class DailaMaara extends ScreenRules {
         turupTable.setHeight(nonTururp.getHeight());
         turupTable.top().setBackground(new NinePatchDrawable(MessageBox.getNinePatch("ng.9.png")));
         turupTable.setPosition(Context.WIDTH - turupTable.getWidth(), Context.HEIGHT - (turupTable.getHeight() - 10));
-
-
+        TextButton button = new TextButton("<<", Context.getInstance().getSkin());
+        goUp.setPosition(hudTable.getX() + hudTable.getWidth() / 2, hudTable.getY() - (goUp.getHeight() / 2));
+        goDown.setPosition(hudTable.getX() + hudTable.getWidth() / 2, hudTable.getY() - (goUp.getHeight() / 2));
+        goUp.setSize(32, 32);
+        goDown.setSize(32, 32);
+        goUp.setVisible(false);
+        goUp.addListener(controller.upDownToggleButton());
+        goDown.addListener(controller.upDownToggleButton());
         stage.addActor(hudTable);
         stage.addActor(turupTable);
         stage.addActor(playOfTable());
     }
 
+    public Image getGoDown() {
+        return goDown;
+    }
+
+    public Image getGoUp() {
+        return goUp;
+    }
+
+    public void setToggle() {
+        if (goUp.isVisible()) {
+            //Table is open
+            goUp.setVisible(false);
+            goDown.setVisible(true);
+            hudTable.addAction(Animation.moveByAnime(0, hudTable.getHeight() - 40, 0.5f));
+            goDown.addAction(Animation.moveByAnime(0, hudTable.getHeight() - 40, 0.5f));
+            goUp.addAction(Animation.moveByAnime(0, hudTable.getHeight() - 40, 0.5f));
+        } else {
+            //Table is hidden
+            hudTable.addAction(Animation.moveByAnime(0, -(hudTable.getHeight() - 40), 0.5f));
+            goUp.setVisible(true);
+            goDown.setVisible(false);
+            goUp.addAction(Animation.moveByAnime(0, -(hudTable.getHeight() - 40), 0.5f));
+            goDown.addAction(Animation.moveByAnime(0, -(hudTable.getHeight() - 40), 0.5f));
+        }
+    }
 
     public Table getPlayOfTable() {
         return playOfTable;
