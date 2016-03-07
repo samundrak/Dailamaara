@@ -117,10 +117,11 @@ public class CardSelection {
                             }
                         });
                         form.getGame().turn = dups.get(0).getPlayer().getId();
-                        selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 1f)));
+                        Sound.getInstance().play(Audio.AUDIO.SMALL_CARD);
+                        selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 0.5f)));
                         return;
                     }
-
+                    Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
                     form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(2, new MessageBox.OnOkButtonClicked() {
                         @Override
                         public void run() {

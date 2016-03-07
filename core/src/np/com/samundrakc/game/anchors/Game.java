@@ -24,8 +24,10 @@ import java.util.Random;
 import javax.rmi.CORBA.Util;
 
 import np.com.samundrakc.game.*;
+import np.com.samundrakc.game.controllers.Audio;
 import np.com.samundrakc.game.controllers.Callback;
 import np.com.samundrakc.game.controllers.History;
+import np.com.samundrakc.game.controllers.Music;
 import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -196,10 +198,7 @@ public class Game {
 
     public void updateThrownCardsStacks(final Player player) {
         if (Game.THROWN == Const.TOTAL_NUMBER_OF_PLAYERS) {
-            if (Game.history.size() >= 13) {
-                //When game is over work is done in this block
-                gameOver();
-            }
+
             if (Game.history.size() > 0) {
                 if (Game.history.get(Game.history.size() - 1).size() >= 4) {
                     Game.STATE = Const.STATE.WAIT;
@@ -248,6 +247,10 @@ public class Game {
                                     historyOfPlayerWon.add(turn);
                                     turn.getGroup().setHands(turn.getGroup().getHands() + 1);
                                     Game.itihaas.get(Game.itihaas.size() - 1).setWinner(turn);
+                                    turn.getView().getGroupHandsStatusLabel().get(turn.getGroup().getName()).addAction(Actions.sequence(
+                                            Animation.moveBy(5, 0, 0.2f),
+                                            Animation.moveByAnime(-5, 0, 0.5f)
+                                    ));
                                     turn.getView().getGroupHandsStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getHands() + "");
                                     float x = Context.WIDTH / 2, y = Context.HEIGHT + 100;
                                     switch (turn.DIRECTION) {
@@ -266,14 +269,19 @@ public class Game {
                                     for (Group group : Game.PLAYER.getGame().group) {
                                         totalTens += group.getTens();
                                     }
-
+                                    boolean isThereTen = false;
+                                    float tenX = 0, tenY = 0;
                                     for (final Card c : Game.history.get(Game.history.size() - 1)) {
                                         Sound.getInstance().play(Sound.AUDIO.COLLAPSED);
                                         if (c.getNumber() == 10) {
-                                            view.getTensEffects().setPosition(c.getActor().getX() + c.getActor().getWidth() / 2,
-                                                    c.getActor().getY() + c.getActor().getHeight() / 2);
-                                            view.getTensEffects().start();
+                                            isThereTen = true;
+                                            tenY = c.getActor().getY() + c.getActor().getHeight() / 2;
+                                            tenX = c.getActor().getX() + c.getActor().getWidth() / 2;
                                             turn.getGroup().setTens(turn.getGroup().getTens() + 1);
+                                            turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).addAction(Actions.sequence(
+                                                    Animation.moveBy(5, 0, 0.2f),
+                                                    Animation.moveByAnime(-5, 0, 0.5f)
+                                            ));
                                             turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getTens() + "");
                                         }
                                         c.getActor().addAction(Animation.sizeActionPlus(30, 50, 1));
@@ -290,9 +298,31 @@ public class Game {
                                             }
                                         }));
                                     }
+                                    if (isThereTen) {
+                                        if (turn.getGroup().getName() == Game.PLAYER.getGroup().getName()) {
+                                            view.getTensEffects().setPosition(tenX, tenY);
+                                            view.getTensEffects().start();
+                                            Sound.getInstance().play(Audio.AUDIO.SPALSH_TEN);
+                                        } else {
+                                            Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
+                                        }
+                                    }
+                                    if (turn.getGroup().getName() == Game.PLAYER.getGroup().getName()) {
+                                        Sound.getInstance().play(Audio.AUDIO.CARD_WON);
+                                    }
                                     if (totalTens == 4) {
-                                        gameOver();
-                                        return;
+                                        if (Game.PLAYER.getGroup().getTens() != 2) {
+                                            if (Const.STATE.GAME_OVER != Game.STATE) {
+                                                gameOver();
+                                                return;
+                                            }
+                                        }
+                                    }
+                                    if (Game.history.size() >= 13) {
+                                            //When game is over work is done in this block
+                                            if (Const.STATE.GAME_OVER != Game.STATE) {
+                                                gameOver();
+                                            }
                                     }
                                     Game.history.add(new ArrayList<Card>());
                                     Game.itihaas.add(new History());
@@ -315,11 +345,16 @@ public class Game {
         DailaMaara.TURN_LABEL.setText("Game Over");
         int won = 0;
         Group g = null;
-        getView().getPfx().getEffectHashMap().get("win").setPosition(Context.WIDTH / 2, 0);
-        getView().getPfx().getEffectHashMap().get("win").start();
         if (!getView().getGoUp().isVisible()) {
             getView().setToggle();
         }
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_LOST);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        String type = "Hands";
         if (Game.PLAYER.getGroup().getTens() == 2) {
             for (Group group : getGroup()) {
                 if (group.getHands() > won) {
@@ -327,12 +362,14 @@ public class Game {
                     g = group;
                 }
             }
-        } else {
+        }
+        if (g == null) {
             won = 0;
             for (Group group : getGroup()) {
                 if (group.getTens() > won) {
                     won = group.getTens();
                     g = group;
+                    type = "Tens";
                 }
             }
         }
@@ -341,13 +378,34 @@ public class Game {
             getView().getGroupCoatStatusLabel().get(g.getName()).setText(g.getCoat() + "");
         }
         g.setWon(g.getWon() + 1);
+        final com.badlogic.gdx.audio.Sound fw;
+        if (g.getName() == Game.PLAYER.getGroup().getName()) {
+            fw = Sound.getInstance().playWithInstance(Audio.AUDIO.FIRE_WORKS);
+            fw.loop();
+            getView().getPfx().getEffectHashMap().get("win").setPosition(Context.WIDTH / 2, 0);
+            getView().getPfx().getEffectHashMap().get("win").start();
+
+        } else {
+            fw = null;
+        }
         getView().getGroupWonStatusLabel().get(g.getName()).setText(g.getWon() + "");
-        new MessageBox(GAME_STAGE, g.getName() + " won the game! Play Again?", new MessageBox.OnOkButtonClicked() {
+        new MessageBox(GAME_STAGE, g.getName() + " won the game with " + won + " " + type + " ! Play Again?", new MessageBox.OnOkButtonClicked() {
             @Override
             public void run() {
                 Game.PLAYER.getView().getParentGame().setScreen(new Form(Game.PLAYER.getView().getParentGame()));
             }
-        }).setInMiddle(true).setOkButtonText("Play Again").show();
+        }).setInMiddle(true).setOkButtonText("Continue").show();
+        final Timer timer = new Timer();
+        timer.scheduleTask(new Timer.Task() {
+
+            @Override
+            public void run() {
+                if (getView().getPfx().getEffectHashMap().get("win").isComplete()) {
+                    if (fw != null) fw.stop();
+                    timer.clear();
+                }
+            }
+        }, 1, 1);
     }
 
     private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
@@ -387,6 +445,7 @@ public class Game {
         if (Game.TURUP == null) return;
         Image turup = Game.COLORS.get(Game.TURUP);
         turup.setPosition(Context.WIDTH / 2, (Context.HEIGHT / 2) + 50);
+        Sound.getInstance().play(Audio.AUDIO.SPLASH_TURUP);
         getView().getPfx().getEffectHashMap().get(Game.TURUP.toString()).setPosition(turup.getX(), turup.getY());
         getView().getPfx().getEffectHashMap().get(Game.TURUP.toString()).start();
         turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),

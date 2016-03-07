@@ -100,6 +100,7 @@ public class DailaMaara extends ScreenRules {
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
         parentGame = game;
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         this.mainGame = mainGame;

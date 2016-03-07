@@ -56,7 +56,7 @@ public class Animation {
         return size;
     }
 
-    public static Action sizeActionPlusWithAnime(int width, int height, float duration) {
+    public static Action sizeActionPlusWithAnime(float width, float height, float duration) {
         SizeToAction size = new SizeToAction();
         size.setWidth(width);
         size.setHeight(height);

@@ -199,13 +199,13 @@ public class Player {
         active.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
-                if (!Game.STARTED) return;
-                if (Game.PLAY_TURN == null) return;
                 if (Game.STATE == Const.STATE.GAME_OVER) {
                     active.clear();
                     System.out.println("Player game over state");
                     return;
                 }
+                if (!Game.STARTED) return;
+                if (Game.PLAY_TURN == null) return;
                 if (Game.STATE == Const.STATE.WAIT || Game.STATE == Const.STATE.PAUSE || Game.STATE == Const.STATE.STOP) {
                     return;
                 }
@@ -217,8 +217,8 @@ public class Player {
                     //Do the Playing Task Here
                     final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
                     if (c == null) {
-
-                        Game.STATE = Const.STATE.WAIT;
+                        System.out.println("Card not found");
+                        Game.STATE = Const.STATE.GAME_OVER;
                         active.clear();
                         return;
                     }

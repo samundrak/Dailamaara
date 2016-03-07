@@ -17,6 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import np.com.samundrakc.game.controllers.Audio;
+import np.com.samundrakc.game.controllers.Sound;
+
 /**
  * Created by samundra on 2/10/2016.
  */
@@ -117,10 +120,11 @@ public class MessageBox {
     }
 
     public MessageBox show() {
+        Sound.getInstance().play(Audio.AUDIO.NEW_MESSAGE);
         if (inMiddle)
             table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT / 2 - (table.getHeight() / 2)));
         else
-            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT  - (table.getHeight() / 2 + 20)));
+            table.addAction(Animation.simpleAnimation(Context.WIDTH / 2 - (table.getWidth() / 2), Context.HEIGHT - (table.getHeight() / 2 + 20)));
         return this;
     }
 

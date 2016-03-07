@@ -173,10 +173,12 @@ public class CardDistribution {
                         System.out.println("--------------------");
                         Iterator<Actor> a = p.getBackCards().iterator();
                         int valueOfRotation = 90;
+                        Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
                         while (a.hasNext()) {
                             a.next().addAction(Animation.rotateWithAnime(valueOfRotation, 0.5f));
                             valueOfRotation -= 10;
                         }
+
                     }
                     if (p.getId() == Game.PLAYER.getId()) {
 

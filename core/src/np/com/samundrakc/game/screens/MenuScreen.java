@@ -11,14 +11,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.anchors.Const;
+import np.com.samundrakc.game.controllers.Audio;
 import np.com.samundrakc.game.controllers.MenuCtrl;
+import np.com.samundrakc.game.controllers.Music;
 import np.com.samundrakc.game.controllers.PFX;
 import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Context;
+import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.SpriteAnimation;
 
 /**
@@ -35,16 +39,15 @@ public class MenuScreen extends ScreenRules {
     private TextButton settings;
     private TextButton howToPlay;
     private MenuCtrl controller;
-
     public MenuScreen(DailaMaara dailaMaara) {
         super(dailaMaara);
         Context.getInstance().setSkin();
         Sound.getInstance().loadAudio();
+
         playButton = new TextButton("Play", Context.getInstance().getSkin());
         settings = new TextButton("Settings", Context.getInstance().getSkin());
         howToPlay = new TextButton("How To Play", Context.getInstance().getSkin());
         controller = new MenuCtrl(dailaMaara, this);
-
     }
 
     SpriteBatch sb = new SpriteBatch();

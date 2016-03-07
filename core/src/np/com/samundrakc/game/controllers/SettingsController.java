@@ -54,7 +54,18 @@ public class SettingsController {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (!view.getMusic().isChecked()) {
                     prefs.setInt("music", 1);
+                    if (DailaMaara.GAME_MUSIC == null) {
+                        Music.getInstance().loadAudio();
+                        DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+                    }
+                    DailaMaara.GAME_MUSIC.play();
+                    DailaMaara.GAME_MUSIC.setVolume(0.5f);
+                    DailaMaara.GAME_MUSIC.setLooping(true);
                 } else {
+                    if (DailaMaara.GAME_MUSIC != null) {
+                        DailaMaara.GAME_MUSIC.stop();
+                        Music.getInstance().dispose();
+                    }
                     prefs.setInt("music", 0);
                 }
                 return super.touchDown(event, x, y, pointer, button);
