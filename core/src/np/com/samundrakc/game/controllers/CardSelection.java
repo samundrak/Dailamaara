@@ -1,7 +1,6 @@
 package np.com.samundrakc.game.controllers;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -12,8 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,6 +23,7 @@ import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Utils;
 import np.com.samundrakc.game.screens.DailaMaara;
+import np.com.samundrakc.game.screens.LoadingScreen;
 
 /**
  * Created by samundra on 2/7/2016.
@@ -34,7 +32,8 @@ public class CardSelection {
 
     private final FormCtrl form;
     private ArrayList<Actor> selectedCards = new ArrayList<Actor>();
-    static ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+//    static ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
     private boolean playerHasPlayed = false;
 
     public CardSelection(FormCtrl form) {
@@ -109,7 +108,20 @@ public class CardSelection {
                                         }
                                         Const.TOTAL_NUMBER_OF_PLAYERS = 4;
                                         form.getView().getStacks().clearListeners();
-                                        form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
+//                                        form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
+                                        form.getView().getDailaMaara()
+                                                .setScreen(
+                                                        new LoadingScreen(
+                                                                form.getView().getDailaMaara()
+                                                        )
+                                                                .otherScreen(
+                                                                        new DailaMaara(
+                                                                                form.getView().getDailaMaara(),
+                                                                                form.getGame()).setCardsStacks(form.getView().getStacks()
+                                                                        )
+                                                                )
+                                                );
+
                                         form.getView().dispose();
                                     }
                                 });
@@ -121,7 +133,7 @@ public class CardSelection {
                         return;
                     }
                     Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
-                    form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(2, new MessageBox.OnOkButtonClicked() {
+                    form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(0.5f, new MessageBox.OnOkButtonClicked() {
                         @Override
                         public void run() {
 //                            Card drawer has to be choosen as two or many player choosed same cards
@@ -129,6 +141,7 @@ public class CardSelection {
                             for (int i = 0; i < cardSelectedPlayers.size(); i++) {
                                 form.getView().getStacks().getChildren().get(selectedCardsIndex.get(i)).setVisible(true);
                             }
+                            form.getGame().shuffleCardsOFGame(form.getGame().getCards());
                             form.getView().getStacksChild().clearChildren();
                             for (int i = 0; i < form.getView().getStacks().getChildren().size; i++) {
                                 if (i < Const.TOTAL_NUMBER_OF_CARDS) {

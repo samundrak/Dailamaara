@@ -13,10 +13,10 @@ public class Sound extends Audio {
     }
 
     public static Sound getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Sound();
+        if (SingletonHolder.INSTANCE == null) {
+            return SingletonHolder.INSTANCE;
         }
-        return INSTANCE;
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
@@ -26,6 +26,7 @@ public class Sound extends Audio {
     }
 
     public Sound loadAudio() {
+        if (isAssetsLoaded()) return this;
         if (prefs.getInt("sound") == 0) return this;
         sounds.put(AUDIO.BUTTON_TOUCH, Gdx.audio.newSound(Gdx.files.internal("sounds/touched.wav")));
         sounds.put(AUDIO.CARD_TOUCHED, Gdx.audio.newSound(Gdx.files.internal("sounds/card_touched.wav")));
@@ -57,5 +58,9 @@ public class Sound extends Audio {
         if (!assetsLoaded) return 0;
         if (prefs.getInt("sound") == 0) return 0;
         return sounds.get(audio).play();
+    }
+
+    private static class SingletonHolder {
+        private static final Sound INSTANCE = new Sound();
     }
 }

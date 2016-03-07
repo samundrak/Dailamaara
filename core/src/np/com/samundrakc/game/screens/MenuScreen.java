@@ -39,15 +39,33 @@ public class MenuScreen extends ScreenRules {
     private TextButton settings;
     private TextButton howToPlay;
     private MenuCtrl controller;
+    private DailaMaara dailaMaara;
+
     public MenuScreen(DailaMaara dailaMaara) {
         super(dailaMaara);
-        Context.getInstance().setSkin();
-        Sound.getInstance().loadAudio();
+        this.dailaMaara = dailaMaara;
+        setIsScreenReady(false);
+        System.out.println(Music.getInstance().isAssetsLoaded());
+    }
 
+    @Override
+    public void loadAssets() {
+        super.loadAssets();
+        if (DailaMaara.GAME_MUSIC != null) {
+            DailaMaara.GAME_MUSIC.setVolume(0.5f);
+            DailaMaara.GAME_MUSIC.setLooping(true);
+        } else {
+            System.out.println("Played Again");
+            Music.getInstance().loadAudio();
+            DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+            Context.getInstance().setSkin();
+            Sound.getInstance().loadAudio();
+        }
         playButton = new TextButton("Play", Context.getInstance().getSkin());
         settings = new TextButton("Settings", Context.getInstance().getSkin());
         howToPlay = new TextButton("How To Play", Context.getInstance().getSkin());
         controller = new MenuCtrl(dailaMaara, this);
+        setIsScreenReady(true);
     }
 
     SpriteBatch sb = new SpriteBatch();

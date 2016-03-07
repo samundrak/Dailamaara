@@ -79,4 +79,13 @@ public class Settings extends ScreenRules {
     public void setSound(CheckBox sound) {
         this.sound = sound;
     }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        stage = null;
+        music = null;
+        sound = null;
+        prefs = null;
+    }
 }

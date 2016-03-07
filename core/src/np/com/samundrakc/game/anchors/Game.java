@@ -82,6 +82,7 @@ public class Game {
     public ArrayList<Player> PLAYER_ORDER;
     public Stage GAME_STAGE;
     private DailaMaara view;
+    private int name = 1;
 
     public DailaMaara getView() {
         return view;
@@ -101,7 +102,7 @@ public class Game {
         STARTED = false;
         PLAY_TURN = null;
         THROWN = 0;
-       STATE = Const.STATE.PLAY;
+        STATE = Const.STATE.PLAY;
         history = new ArrayList<ArrayList<Card>>();
         historyOfPlayerWon = new ArrayList<Player>();
         itihaas = new ArrayList<History>();
@@ -404,14 +405,26 @@ public class Game {
         } else {
             fw = null;
         }
+        final Timer timer = new Timer();
         getView().getGroupWonStatusLabel().get(g.getName()).setText(g.getWon() + "");
         new MessageBox(GAME_STAGE, g.getName() + " won the game with " + won + " " + type + " ! Play Again?", new MessageBox.OnOkButtonClicked() {
             @Override
             public void run() {
-                continueCurrentGame();
+                try {
+//                    continueCurrentGame();
+                    if (timer != null) timer.clear();
+                    if (fw != null) fw.stop();
+                    getView().getPfx().getEffectHashMap().get("win").dispose();
+
+                } catch (NullPointerException ne) {
+
+                } catch (Exception e) {
+
+                } finally {
+                    continueCurrentGame();
+                }
             }
         }).setInMiddle(true).setOkButtonText("Continue").show();
-        final Timer timer = new Timer();
         timer.scheduleTask(new Timer.Task() {
 
             @Override
@@ -427,13 +440,28 @@ public class Game {
     private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
 
     public void continueCurrentGame() {
+//        getView().getParentGame()
+//                .setScreen(
+//                        new LoadingScreen(
+//                                getView().getParentGame()
+//                        )
+//                                .otherScreen(
+//                                        new DailaMaara(
+//                                                getView().getParentGame(),
+//                                                this).setCardsStacks(getView().getCardsStacks()
+//                                        )
+//                                )
+//                );
+        getView().getParentGame().setScreen(new LoadingScreen(getView().getParentGame()).otherScreen(new Form(getView().getParentGame())));
 //        getView().getParentGame().setScreen(new DailaMaara());
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-//        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        setView(null);
+        setGAME_STAGE(null);
 //        for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
 //            getView().getCardsStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
 //            getView().getCardsStacks().getChildren().get(i).clearListeners();

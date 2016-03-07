@@ -79,4 +79,8 @@ public class Animation {
         rotate.setInterpolation(Interpolation.elasticOut);
         return rotate;
     }
+
+    public static Action fadeIn(float duration) {
+        return null;
+    }
 }

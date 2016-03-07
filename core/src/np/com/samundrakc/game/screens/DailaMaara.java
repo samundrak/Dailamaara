@@ -37,9 +37,9 @@ import np.com.samundrakc.game.misc.SpriteAnimation;
  * Created by samundra on 2/10/2016.
  */
 public class DailaMaara extends ScreenRules {
-    private final Image goUp;
-    private final Image goDown;
-    private final DailamaaraListener controller;
+    private Image goUp;
+    private Image goDown;
+    private DailamaaraListener controller;
     Game mainGame;
     private com.badlogic.gdx.scenes.scene2d.Group cards;
     MessageBox msg;
@@ -100,10 +100,15 @@ public class DailaMaara extends ScreenRules {
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game);
+        this.mainGame = mainGame;
+    }
+
+    @Override
+    public void loadAssets() {
+        super.loadAssets();
         np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
         parentGame = game;
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
-        this.mainGame = mainGame;
         mainGame.setGAME_STAGE(stage);
         msg = new MessageBox(stage, "Pop up message");
         msg.setInMiddle(true);
@@ -116,6 +121,7 @@ public class DailaMaara extends ScreenRules {
         goUp = new Image(new Texture("up.png"));
         goDown = new Image(new Texture("down.png"));
         controller = new DailamaaraListener(this);
+        setIsScreenReady(true);
     }
 
     @Override

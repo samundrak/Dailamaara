@@ -138,7 +138,7 @@ public class MessageBox {
     }
 
 
-    public MessageBox autoHide(final int seconds, final OnOkButtonClicked onOkButtonClicked) {
+    public MessageBox autoHide(final float seconds, final OnOkButtonClicked onOkButtonClicked) {
         final Timer timer = new Timer();
         final int[] count = {0};
         timer.scheduleAtFixedRate(new TimerTask() {

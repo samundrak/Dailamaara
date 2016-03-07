@@ -52,7 +52,7 @@ public class Form extends ScreenRules {
         return pref;
     }
 
-    private final Prefs pref;
+    private Prefs pref;
     TextField name;
     private TextButton back;
 
@@ -96,6 +96,12 @@ public class Form extends ScreenRules {
     public Form(DailaMaara game) {
         super(game);
         this.dailaMaara = game;
+
+    }
+
+    @Override
+    public void loadAssets() {
+        super.loadAssets();
         Const.loadColorsActor();
         Context.getInstance().setCARDS_BACK_COVER();
         Sound.getInstance().loadAudio();
@@ -109,6 +115,7 @@ public class Form extends ScreenRules {
         selectPlayerForm();
         selectCardForDistrubutor();
         Gdx.input.setInputProcessor(stage);
+        setIsScreenReady(true);
     }
 
     @Override
@@ -126,8 +133,10 @@ public class Form extends ScreenRules {
         }
     }
 
+    TextButton menu;
+
     private void initWidgets() {
-        TextButton menu = new TextButton("Menu", Context.getInstance().getSkin());
+        menu = new TextButton("Menu", Context.getInstance().getSkin());
 //        menu.setBackground((Drawable) new Texture("menu.png"));
         menu.setPosition(10, Context.HEIGHT - (menu.getHeight() + 10));
         menu.addListener(formCtrl.menuCtrl());
@@ -213,5 +222,11 @@ public class Form extends ScreenRules {
         stage.addActor(stacksChild);
     }
 
+    public TextButton getMenu() {
+        return menu;
+    }
 
+    public void setMenu(TextButton menu) {
+        this.menu = menu;
+    }
 }

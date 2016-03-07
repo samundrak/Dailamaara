@@ -2,46 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\samundra\.gradle\caches\modules-2\files-2.1\io.socket\engine.io-client\0.6.2\939f90d47c800626d5b0a4e7f89f98b3dde61dc6\engine.io-client-0.6.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="939f90d47c800626d5b0a4e7f89f98b3dde61dc6">
-        <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\engine.io-client-0.6.2_c0598ada1c4df3a37c96ceddbf58fde257506614.jar" />
-    </item>
-    <item
-        jar="C:\Users\samundra\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-ws\2.5.0\e9753b7dcae5deca92e871c5c759067070b07bc\okhttp-ws-2.5.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="0e9753b7dcae5deca92e871c5c759067070b07bc">
-        <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\okhttp-ws-2.5.0_9405665b2463860594cd0e4587cae78a261e1373.jar" />
-    </item>
-    <item
-        jar="C:\Users\samundra\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
-        <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\okhttp-2.5.0_98a6537e38fde3bc1ffbe188bf2d473e46e0ee20.jar" />
-    </item>
-    <item
-        jar="C:\Users\samundra\.gradle\caches\modules-2\files-2.1\io.socket\socket.io-client\0.6.2\31fb4bf50b62daadee5e94f39679812ad8a9ae00\socket.io-client-0.6.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="31fb4bf50b62daadee5e94f39679812ad8a9ae00">
-        <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\socket.io-client-0.6.2_f5e08cda236b074ece75a657dab6eb5ffe513e97.jar" />
-    </item>
-    <item
         jar="C:\Users\samundra\DailaMaara\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="05d1376a82a2974dbe62e67c042b985ad614a184">
+        sha1="d0142bb80f4b4fa95c950c1133b1f1d22d19d6b5">
         <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\core-1.0_697fb0696e41ed70b8de051258e8a009f129301a.jar" />
-    </item>
-    <item
-        jar="C:\Users\samundra\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="C:\Users\samundra\DailaMaara\android\build\intermediates\pre-dexed\debug\okio-1.6.0_cfcbc415de1ad4376d2e041884c9f1d8b71c747b.jar" />
     </item>
 
 </items>

@@ -20,17 +20,28 @@ import np.com.samundrakc.game.misc.Context;
 /**
  * Created by samundra on 1/29/2016.
  */
-public class ScreenRules extends ScreenAdapter {
+public abstract class ScreenRules extends ScreenAdapter {
     protected final DailaMaara game;
     protected Stage stage;
     StretchViewport vp;
     OrthographicCamera cam;
+    public boolean isScreenReady;
 
     public Stage getStage() {
         return stage;
     }
 
+    public boolean isScreenReady() {
+        return isScreenReady;
+    }
+
+    public void setIsScreenReady(boolean isScreenReady) {
+        this.isScreenReady = isScreenReady;
+    }
+
     public ScreenRules(DailaMaara game) {
+        isScreenReady = false;
+
         this.game = game;
         cam = new OrthographicCamera(Context.WIDTH, Context.HEIGHT);
         vp = new StretchViewport(Context.WIDTH, Context.HEIGHT, cam);
@@ -52,5 +63,10 @@ public class ScreenRules extends ScreenAdapter {
         vp.update(width, height, true);
     }
 
+    public ScreenRules nextScreenAssestsChecker(ScreenRules Screen) {
+        //Overridden if Loading is done
+        return this;
+    }
 
+    public void loadAssets(){};
 }

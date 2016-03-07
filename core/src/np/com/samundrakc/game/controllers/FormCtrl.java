@@ -1,8 +1,6 @@
 package np.com.samundrakc.game.controllers;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -11,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,6 +20,7 @@ import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Utils;
 import np.com.samundrakc.game.screens.Form;
 import np.com.samundrakc.game.screens.MenuScreen;
+import np.com.samundrakc.game.screens.LoadingScreen;
 
 /**
  * Created by samundra on 2/3/2016.
@@ -127,6 +125,8 @@ public class FormCtrl {
     public void cardShareProcess(final Callback callback) {
         if (!isCardShareProcessDone) {
             autoHideMessage("Please wait while card is distributed").autoHide(2, null);
+            getView().getMenu().setTouchable(Touchable.disabled);
+            getView().getMenu().setDisabled(true);
             isCardShareProcessDone = true;
         }
         final int[] xx = {3};
@@ -141,6 +141,8 @@ public class FormCtrl {
                     timer.cancel();
                     if (!isAllCardShareProcessDone) {
                         autoHideMessage("You can select any card now").autoHide(2, null);
+                        getView().getMenu().setTouchable(Touchable.enabled);
+                        getView().getMenu().setDisabled(false);
                         isAllCardShareProcessDone = true;
                     }
                     view.getStacks().setTouchable(Touchable.enabled);
@@ -243,7 +245,11 @@ public class FormCtrl {
         return new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                view.getDailaMaara().setScreen(new MenuScreen(view.getDailaMaara()));
+//                view.getDailaMaara().setScreen(new MenuScreen(view.getDailaMaara()));
+                view.getDailaMaara().setScreen(new LoadingScreen(view.getDailaMaara()).otherScreen(new MenuScreen(view.getDailaMaara())));
+//                LoadingScreen splashScreen = new LoadingScreen(view.getDailaMaara());
+//                view.getDailaMaara().setScreen(splashScreen);
+//                splashScreen.nextScreenAssestsChecker(new MenuScreen(view.getDailaMaara()));
                 return super.touchDown(event, x, y, pointer, button);
             }
         };

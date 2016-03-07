@@ -18,6 +18,15 @@ public abstract class Audio {
         GAME_LOST, GAME_MUSIC, SPALSH_TEN, SPLASH_TURUP,FIRE_WORKS,SMALL_CARD,
         TEN_GONE,CARD_WON,ROTATE_CARDS,NEW_MESSAGE ;
     }
+
+    public boolean isAssetsLoaded() {
+        return assetsLoaded;
+    }
+
+    public void setAssetsLoaded(boolean assetsLoaded) {
+        this.assetsLoaded = assetsLoaded;
+    }
+
     protected boolean assetsLoaded = false;
 
     protected HashMap<AUDIO, com.badlogic.gdx.audio.Sound> sounds = new HashMap<AUDIO, com.badlogic.gdx.audio.Sound>();

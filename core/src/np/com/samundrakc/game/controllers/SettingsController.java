@@ -1,11 +1,11 @@
 package np.com.samundrakc.game.controllers;
 
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.misc.Prefs;
+import np.com.samundrakc.game.screens.LoadingScreen;
 import np.com.samundrakc.game.screens.MenuScreen;
 import np.com.samundrakc.game.screens.Settings;
 
@@ -13,7 +13,7 @@ import np.com.samundrakc.game.screens.Settings;
  * Created by samundra on 2/28/2016.
  */
 public class SettingsController {
-    private final Prefs prefs;
+    private Prefs prefs;
     DailaMaara game;
     Settings view;
 
@@ -28,7 +28,9 @@ public class SettingsController {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new MenuScreen(game));
+                game.setScreen(new LoadingScreen(game).otherScreen(new MenuScreen(game)));
+                view.dispose();
+                prefs = null;
                 return super.touchDown(event, x, y, pointer, button);
             }
         };
@@ -72,4 +74,6 @@ public class SettingsController {
             }
         };
     }
+
+
 }

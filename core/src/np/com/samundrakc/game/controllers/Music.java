@@ -16,10 +16,7 @@ public class Music extends Audio {
 
 
     public static Music getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Music();
-        }
-        return INSTANCE;
+        return SingletonHolder.INSTANCE;
     }
 
     private static Music INSTANCE = null;
@@ -30,6 +27,7 @@ public class Music extends Audio {
 
     @Override
     public Audio loadAudio() {
+        if (assetsLoaded) return this;
         if (prefs.getInt("music") == 0) return this;
         music.put(AUDIO.GAME_MUSIC, Gdx.audio.newMusic(Gdx.files.internal("musics/music.mp3")));
         music.put(AUDIO.GAME_LOST, Gdx.audio.newMusic(Gdx.files.internal("musics/gameLost.mp3")));
@@ -50,5 +48,9 @@ public class Music extends Audio {
         if (prefs.getInt("music") == 0) return null;
         music.get(audio).play();
         return music.get(audio);
+    }
+
+    private static class SingletonHolder {
+        private static final Music INSTANCE = new Music();
     }
 }

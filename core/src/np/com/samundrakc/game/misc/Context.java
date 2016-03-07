@@ -22,7 +22,7 @@ public class Context {
     public static final int WIDTH = 700, HEIGHT = 400;
     private Skin skin;
 
-    public void setSkin( ) {
+    public void setSkin() {
         this.skin = new Skin(Gdx.files.internal("uiskin.json"));
     }
 
@@ -46,10 +46,7 @@ public class Context {
     }
 
     public static Context getInstance() {
-        if (context == null) {
-            context = new Context();
-        }
-        return context;
+        return SingletonHolder.INSTANCE;
     }
 
     public static enum RESOLUTION_TYPES {SMALL, MEDIUM, LARGE}
@@ -71,5 +68,9 @@ public class Context {
                 Context.RESOLUTION = RESOLUTION_TYPES.MEDIUM;
                 break;
         }
+    }
+
+    private static class SingletonHolder {
+        private static final Context INSTANCE = new Context();
     }
 }
