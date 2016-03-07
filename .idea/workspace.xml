@@ -4,49 +4,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df2bfccd-359a-4bb0-9da1-970780cf817a" name="Default" comment="static to object proporties created">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\android_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\core_core_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\desktop_desktop_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\engine_io_client_0_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_android_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_gwt_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_gwt_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_headless_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_lwjgl_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_gwt_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_platform_1_8_0_natives_desktop.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_freetype_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_platform_1_8_0_natives_desktop.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_tools_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gwt_servlet_2_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gwt_user_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_2_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_linux.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_osx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_windows.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jlayer_1_0_1_gdx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jorbis_0_0_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\json_20090211.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jutils_1_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_2_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_linux.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_osx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_windows.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_util_2_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okhttp_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okhttp_ws_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okio_1_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\socket_io_client_0_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\validation_api_1_0_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\validation_api_1_0_0_GA_sources.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Animation.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Animation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1.class" />
+    <list default="true" id="df2bfccd-359a-4bb0-9da1-970780cf817a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" />
@@ -55,74 +14,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$CardSelectedPlayer.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$CardSelectedPlayer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context$RESOLUTION_TYPES.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context$RESOLUTION_TYPES.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/DailaMaara.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/DailaMaara.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/DailaMaara.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/DailaMaara.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Form.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Form.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$3$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$3.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$4.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$5.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$6.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$7.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$BackCover.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl$BackCover.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/FormCtrl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$3.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$PlayButtonController.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$PlayButtonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Settings.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Settings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$3.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/Sound.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/Sound.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug-unaligned.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/bg.png" afterPath="$PROJECT_DIR$/android/assets/bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/bg.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/bg.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/pre-dexed/debug/core-1.0_697fb0696e41ed70b8de051258e8a009f129301a.jar" afterPath="$PROJECT_DIR$/android/build/intermediates/pre-dexed/debug/core-1.0_697fb0696e41ed70b8de051258e8a009f129301a.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Animation.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Animation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Audio.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Audio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/DailaMaara.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/DailaMaara.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Music.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Music.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/SettingsController.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/SettingsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f9bcc978-8498-4c1a-ad2e-bfc0d606f31a" name="Rejected commit: Default" comment="Screen section modified&#10;" />
@@ -196,13 +94,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardSelection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CardSelection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state vertical-scroll-proportion="3.148148">
+              <caret line="109" column="83" selection-start-line="109" selection-start-column="83" selection-end-line="109" selection-end-column="83" />
               <folding>
                 <element signature="e#1181#1188#0" expanded="true" />
+                <element signature="e#1253#1273#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -218,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardDistribution.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CardDistribution.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.5555553">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -3013,7 +2912,6 @@
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/DailamaaraListener.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MasterMind.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Animation.java" />
@@ -3032,8 +2930,9 @@
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
       </list>
     </option>
   </component>
@@ -3666,7 +3565,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457347869913</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Splash,Loading Screen with resource manage and  game restart done">
+      <created>1457380446594</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1457380446594</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3776,7 +3681,8 @@
     <MESSAGE value="alot of improvements" />
     <MESSAGE value="sounds,music and gameover conecpt changed" />
     <MESSAGE value="static to object proporties created" />
-    <option name="LAST_COMMIT_MESSAGE" value="static to object proporties created" />
+    <MESSAGE value="Splash,Loading Screen with resource manage and  game restart done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Splash,Loading Screen with resource manage and  game restart done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4196,21 +4102,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="e#1181#1188#0" expanded="true" />
-          </folding>
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5555553">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="42" />
-          <folding />
+        <state vertical-scroll-proportion="3.148148">
+          <caret line="109" column="83" selection-start-line="109" selection-start-column="83" selection-end-line="109" selection-end-column="83" />
+          <folding>
+            <element signature="e#1181#1188#0" expanded="true" />
+            <element signature="e#1253#1273#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

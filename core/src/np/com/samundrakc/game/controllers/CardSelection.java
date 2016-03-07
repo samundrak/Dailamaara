@@ -32,8 +32,8 @@ public class CardSelection {
 
     private final FormCtrl form;
     private ArrayList<Actor> selectedCards = new ArrayList<Actor>();
-//    static ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
-      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+    static ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+//      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
     private boolean playerHasPlayed = false;
 
     public CardSelection(FormCtrl form) {
@@ -107,6 +107,7 @@ public class CardSelection {
                                             }
                                         }
                                         Const.TOTAL_NUMBER_OF_PLAYERS = 4;
+                                        dups = new ArrayList<CardSelectedPlayer>();
                                         form.getView().getStacks().clearListeners();
 //                                        form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().getDailaMaara()

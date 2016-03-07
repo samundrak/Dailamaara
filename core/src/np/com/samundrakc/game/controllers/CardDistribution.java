@@ -41,7 +41,7 @@ public class CardDistribution {
         int count = 0;
         for (int i = 0; i < 52; i++) {
             Card c = game.getMainGame().getCards().get(i);
-            if (game.getSortPlayer().get(count).getCards().size() == 13) {
+            if (game.getSortPlayer().get(count).getCards().size() >= 13) {
 
                 count++;
             }
