@@ -95,21 +95,20 @@ public class Form extends ScreenRules {
 
     public Form(DailaMaara game) {
         super(game);
-        System.out.println("lets see");
         this.dailaMaara = game;
         Const.loadColorsActor();
         Context.getInstance().setCARDS_BACK_COVER();
         Sound.getInstance().loadAudio();
         Game mainGame = new Game();
         mainGame.createCards();
-        mainGame.shuffleCardsOFGame(Game.cards);
+        mainGame.setGAME_STAGE(stage);
+        mainGame.shuffleCardsOFGame(mainGame.getCards());
         pref = new Prefs("form");
         formCtrl = new FormCtrl(this, mainGame);
         initWidgets();
         selectPlayerForm();
         selectCardForDistrubutor();
         Gdx.input.setInputProcessor(stage);
-        System.out.println("Loading done");
     }
 
     @Override

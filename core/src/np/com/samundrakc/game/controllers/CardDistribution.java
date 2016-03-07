@@ -40,7 +40,7 @@ public class CardDistribution {
         game.getCards().setZIndex(1);
         int count = 0;
         for (int i = 0; i < 52; i++) {
-            Card c = Game.cards.get(i);
+            Card c = game.getMainGame().getCards().get(i);
             if (game.getSortPlayer().get(count).getCards().size() == 13) {
 
                 count++;
@@ -60,8 +60,8 @@ public class CardDistribution {
         timer.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
-                if (Game.TALK_TURN.getCardsActor().size() >= 5) {
-                    if (Game.TURUP == null) {
+                if (game.getMainGame().getTALK_TURN().getCardsActor().size() >= 5) {
+                    if (game.getMainGame().getTURUP() == null) {
                         return;
                     }
                 }
@@ -69,7 +69,7 @@ public class CardDistribution {
                 if (!proceed[0]) return;
                 proceed[0] = false;
                 if (cardCounter[0] == numberOfCardsToThrow) {
-                    Game.THROWN_CARDS = numberOfCardsToThrow;
+                    game.getMainGame().setTHROWN_CARDS(numberOfCardsToThrow);
                 }
 
 
@@ -78,7 +78,7 @@ public class CardDistribution {
                 final Player p = game.getSortPlayer().get(player[0]);
                 final Player turn = game.getMainGame().getPlayers().get(Game.turn);
                 p.setBackCards(cards);
-                p.setCardsActor(Game.cards.get(cardCounter[0]).getActor());
+                p.setCardsActor(game.getMainGame().getCards().get(cardCounter[0]).getActor());
                 float x = p.getActor().getX() - (game.getCards().getX());
                 float y = p.getActor().getY() - (game.getCards().getY());
                 float[] cords;
@@ -117,7 +117,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
-                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this));
+                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this, game.getMainGame()));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             } else {
                                 index = p.getCardsActor().size() - 1;
@@ -126,7 +126,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().clearListeners();
                                 p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
-                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this));
+                                p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this, game.getMainGame()));
                                 p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
                             }
@@ -137,18 +137,18 @@ public class CardDistribution {
                 }));
                 int counter = sum;
                 if (p.getCardsActor().size() == 5) {
-                    if (Game.TURUP == null) {
-                        if (p.getId() == Game.TALK_TURN.getId()) {
-                            if (p.getId() == Game.PLAYER.getId()) {
+                    if (game.getMainGame().getTURUP() == null) {
+                        if (p.getId() == game.getMainGame().getTALK_TURN().getId()) {
+                            if (p.getId() == game.getMainGame().getPLAYER().getId()) {
                                 //Player will himself select
                                 game.autoHideMessage("Please select turup from your cards").autoHide(5, null);
                             } else {
-                                Turup turup = new Turup(Game.TALK_TURN);
+                                Turup turup = new Turup(game.getMainGame().getTALK_TURN());
                                 turup.sortFromFewCards();
                                 turup.viewMax();
-                                Game.TURUP_STRING = turup.getTurupString();
-                                Game.TURUP = turup.getTurup();
-                                game.autoHideMessage(p.getName() + " has selected " + Game.TURUP_STRING + " as Turup").autoHide(5, null);
+                                game.getMainGame().setTURUP_STRING(turup.getTurupString());
+                                game.getMainGame().setTURUP(turup.getTurup());
+                                game.autoHideMessage(p.getName() + " has selected " + game.getMainGame().getTURUP_STRING() + " as Turup").autoHide(5, null);
                             }
                             game.getMainGame().turupMove();
                         }
@@ -161,7 +161,7 @@ public class CardDistribution {
                     p.setSortedCards(ps.getCards());
                     ps.arrangeCards();
                     p.setCards(ps.getSortedCards());
-                    if (p.getId() != Game.PLAYER.getId()) {
+                    if (p.getId() != game.getMainGame().getPLAYER().getId()) {
                         System.out.println("--------------------");
                         System.out.println("Player is " + p.getName());
                         for (int i = 0; i < Const.COLORS_NAME.length; i++) {
@@ -180,7 +180,7 @@ public class CardDistribution {
                         }
 
                     }
-                    if (p.getId() == Game.PLAYER.getId()) {
+                    if (p.getId() == game.getMainGame().getPLAYER().getId()) {
 
                         for (int i = 0; i < p.getCards().size(); i++) {
                             p.getCards().get(i).getActor().clearActions();
@@ -193,7 +193,7 @@ public class CardDistribution {
                                 p.getCards().get(i).getActor().setPosition(p.getCards().get(i - 1).getActor().getX() + 50, 0);
                             }
                             p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
-                            p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this));
+                            p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this, game.getMainGame()));
                             p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i), p));
                             game.getStage().addActor(p.getCards().get(i).getActor());
                         }
@@ -202,9 +202,9 @@ public class CardDistribution {
                     if (player[0] >= game.getMainGame().players.size()) {
                         timer.clear();
                         game.autoHideMessage("Game is started. Let's Play").autoHide(3, null);
-                        Game.STARTED = true;
+                        game.getMainGame().setSTARTED(true);
                         for (Player players : game.getMainGame().getPlayers()) {
-                            if (players.getId() != Game.PLAYER.getId())
+                            if (players.getId() != game.getMainGame().getPLAYER().getId())
                                 players.play();
                         }
 

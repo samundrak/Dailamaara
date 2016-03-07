@@ -37,7 +37,6 @@ public class ScreenRules extends ScreenAdapter {
         stage = new Stage(vp);
         Gdx.input.setInputProcessor(stage);
         Image img = new Image(new Texture("bg.png"));
-        Game.GAME_STAGE = stage;
         stage.addActor(img);
     }
 

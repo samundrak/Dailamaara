@@ -63,7 +63,7 @@ public class CardSelection {
                         if (csp.getCardNumber() == selectCardsNumber.get(min)) {
 
                             dups.add(csp);
-                            if (csp.getPlayer().getId() == Game.mineId) {
+                            if (csp.getPlayer().getId() == form.getGame().getMineId()) {
                                 playerHasPlayed = false;
                                 form.setIsCardSelected(false);
                                 form.setIsAllCardShareProcessDone(false);
@@ -96,27 +96,26 @@ public class CardSelection {
                                             if (form.getView().getStacks().getChildren().get(i) instanceof Button) {
                                                 form.getView().getStacks().getChildren().get(i).clear();
                                                 form.getView().getStacks().getChildren().get(i).remove();
-                                               break;
+                                                break;
                                             }
                                             if (i < Const.TOTAL_NUMBER_OF_CARDS) {
                                                 form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
                                                 form.getView().getStacks().getChildren().get(i).clearListeners();
-                                                Game.getCards().get(i).getActor().setVisible(true);
-                                                Game.getCards().get(i).getActor().setSize(50, 70);
+                                                form.getGame().getCards().get(i).getActor().setVisible(true);
+                                                form.getGame().getCards().get(i).getActor().setSize(50, 70);
                                             } else {
                                                 form.getView().getStacks().getChildren().get(i).remove();
                                             }
                                         }
                                         Const.TOTAL_NUMBER_OF_PLAYERS = 4;
                                         form.getView().getStacks().clearListeners();
-                                        System.out.println(form.getView().getStacks().getChildren().size);
                                         form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().dispose();
                                     }
                                 });
                             }
                         });
-                        form.getGame().turn = dups.get(0).getPlayer().getId();
+                        Game.turn = dups.get(0).getPlayer().getId();
                         Sound.getInstance().play(Audio.AUDIO.SMALL_CARD);
                         selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 0.5f)));
                         return;
@@ -204,16 +203,16 @@ public class CardSelection {
     private void cardSelectionProcess(Actor actor, int index) {
         Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
         actor.setVisible(false);
-        final Image image = Game.cards.get(index).getActor(actor.getX(), actor.getY());
+        final Image image = form.getGame().getCards().get(index).getActor(actor.getX(), actor.getY());
         image.addAction(Actions.sequence(Animation.sizeActionPlus(150, 200, 0.5f)));
         selectedCards.add(image);
-        selectCardsNumber.add(Game.cards.get(index).getNumber());
+        selectCardsNumber.add(form.getGame().getCards().get(index).getNumber());
         selectedCardsIndex.add(index);
         float x, y;
         if (selectedCards.size() < 2 && !playerHasPlayed) {
             x = Utils.getXDiffToPin(50, actor.getX());
             y = Utils.getXDiffToPin(300, actor.getY()) - 200;
-            image.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), captionsLabelsOfSelectedCards(form.getGame().players.get(Game.mineId).getName(), image, x, y)));
+            image.addAction(Actions.sequence(Animation.moveBy(x, y, 0.5f), captionsLabelsOfSelectedCards(form.getGame().players.get(form.getGame().getMineId()).getName(), image, x, y)));
         } else {
             String name;
             if (selectedCards.size() < 2) {
@@ -233,7 +232,7 @@ public class CardSelection {
 
         }
         CardSelectedPlayer csp = new CardSelectedPlayer();
-        csp.setCard(Game.cards.get(index));
+        csp.setCard(form.getGame().getCards().get(index));
         csp.setCardNumber(csp.getCard().getNumber());
         if (dups.size() > 0) {
             csp.setPlayer(dups.get(selectedCards.size() - 1).getPlayer());

@@ -199,26 +199,26 @@ public class Player {
         active.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
-                if (Game.STATE == Const.STATE.GAME_OVER) {
+                if (getGame().getSTATE() == Const.STATE.GAME_OVER) {
                     active.clear();
                     System.out.println("Player game over state");
                     return;
                 }
-                if (!Game.STARTED) return;
-                if (Game.PLAY_TURN == null) return;
-                if (Game.STATE == Const.STATE.WAIT || Game.STATE == Const.STATE.PAUSE || Game.STATE == Const.STATE.STOP) {
+                if (!getGame().isSTARTED()) return;
+                if (game.getPLAY_TURN() == null) return;
+                if (getGame().getSTATE() == Const.STATE.WAIT || getGame().getSTATE() == Const.STATE.PAUSE || getGame().getSTATE() == Const.STATE.STOP) {
                     return;
                 }
-                if (Game.PLAY_TURN.getId() == getId()) {
-                    if (Game.history.size() < 1) {
-                        Game.history.add(new ArrayList<Card>());
-                        Game.itihaas.add(new History());
+                if (getGame().getPLAY_TURN().getId() == getId()) {
+                    if (getGame().getHistory().size() < 1) {
+                        getGame().getHistory().add(new ArrayList<Card>());
+                        getGame().getItihaas().add(new History());
                     }
                     //Do the Playing Task Here
                     final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
                     if (c == null) {
                         System.out.println("Card not found");
-                        Game.STATE = Const.STATE.GAME_OVER;
+                        getGame().setSTATE(Const.STATE.GAME_OVER);
                         active.clear();
                         return;
                     }
@@ -230,8 +230,8 @@ public class Player {
                             Animation.moveBy(getCardToThrowLocations()[0] - getActor().getX(), getCardToThrowLocations()[1] - getActor().getY(), 0.3f), new RunnableAction() {
                                 @Override
                                 public void run() {
-                                    Game.history.get(Game.history.size() - 1).add(c);
-                                    Game.itihaas.get(Game.itihaas.size() - 1).addPlayerWithCards(new History.PlayerHistory(c, Player.this));
+                                    getGame().getHistory().get(getGame().getHistory().size() - 1).add(c);
+                                    getGame().getItihaas().get(getGame().getItihaas().size() - 1).addPlayerWithCards(new History.PlayerHistory(c, Player.this));
                                     //End
                                     doExtraStuff();
                                     //Choose next player to be played
@@ -239,7 +239,7 @@ public class Player {
                                 }
                             }));
                     c.getActor().setSize(100, 120);
-                    Game.GAME_STAGE.addActor(c.getActor());
+                    game.getGAME_STAGE().addActor(c.getActor());
 
                 }
             }
@@ -254,7 +254,7 @@ public class Player {
     }
 
     public void updateThrown() {
-        Game.THROWN++;
+        getGame().setTHROWN(getGame().getTHROWN() + 1);
     }
 
 

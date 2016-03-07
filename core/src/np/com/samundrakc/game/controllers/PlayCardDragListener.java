@@ -29,8 +29,8 @@ public class PlayCardDragListener extends DragListener {
     @Override
     public void drag(InputEvent event, float x, float y, int pointer) {
         super.drag(event, x, y, pointer);
-        if (!Game.STARTED) return;
-        switch (Game.STATE) {
+        if (!player.getGame().isSTARTED()) return;
+        switch (player.getGame().getSTATE()) {
             case GAME_OVER:
                 player.active.clear();
                 return;
@@ -46,8 +46,8 @@ public class PlayCardDragListener extends DragListener {
     @Override
     public void dragStop(InputEvent event, float x, float y, int pointer) {
         super.dragStop(event, x, y, pointer);
-        if (!Game.STARTED) return;
-        switch (Game.STATE) {
+        if (!player.getGame().isSTARTED()) return;
+        switch (player.getGame().getSTATE()) {
             case GAME_OVER:
                 player.active.clear();
                 return;
@@ -69,10 +69,10 @@ public class PlayCardDragListener extends DragListener {
             return;
         }
 
-        if (Game.CARD_PLAYED != null) {
-            if (card.getCardType() != Game.CARD_PLAYED) {
+        if (player.getGame().getCARD_PLAYED() != null) {
+            if (card.getCardType() != player.getGame().getCARD_PLAYED()) {
                 Query query = new Query(player);
-                if (query.isThisCardTypeAvailable(Game.CARD_PLAYED)) {
+                if (query.isThisCardTypeAvailable(player.getGame().getCARD_PLAYED())) {
                     card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
                     Sound.getInstance().play(Sound.AUDIO.INVALID);
                     return;
@@ -80,15 +80,15 @@ public class PlayCardDragListener extends DragListener {
 
             }
         }
-        if (Game.PLAY_TURN.getId() == player.getId() && (Game.PLAY_TURN != null)) {
-            if (Game.history.size() < 1) {
-                Game.history.add(new ArrayList<Card>());
-                Game.itihaas.add(new History());
+        if (player.getGame().getPLAY_TURN().getId() == player.getId() && (player.getGame().getPLAY_TURN() != null)) {
+            if (player.getGame().getHistory().size() < 1) {
+                player.getGame().getHistory().add(new ArrayList<Card>());
+                player.getGame().getItihaas().add(new History());
             }
 
             Sound.getInstance().play(Sound.AUDIO.SELECTED);
-            Game.history.get(Game.history.size() - 1).add(player.removeCardFromMyIndex(card));
-            Game.itihaas.get(Game.itihaas.size() - 1).addPlayerWithCards(new History.PlayerHistory(card, player));
+            player.getGame().getHistory().get(player.getGame().getHistory().size() - 1).add(player.removeCardFromMyIndex(card));
+            player.getGame().getItihaas().get(player.getGame().getItihaas().size() - 1).addPlayerWithCards(new History.PlayerHistory(card, player));
             player.getGame().selectPlayOfTurup(player, card);
             player.setThrownCard(card);
             player.doExtraStuff();

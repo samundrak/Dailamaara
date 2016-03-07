@@ -104,6 +104,7 @@ public class DailaMaara extends ScreenRules {
         parentGame = game;
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         this.mainGame = mainGame;
+        mainGame.setGAME_STAGE(stage);
         msg = new MessageBox(stage, "Pop up message");
         msg.setInMiddle(true);
         mainGame.setView(this);
@@ -137,6 +138,10 @@ public class DailaMaara extends ScreenRules {
     public DailaMaara setCardsStacks(com.badlogic.gdx.scenes.scene2d.Group cards) {
         this.cards = cards;
         return this;
+    }
+
+    public com.badlogic.gdx.scenes.scene2d.Group getCardsStacks() {
+        return this.cards;
     }
 
     Table hudTable;
@@ -309,8 +314,8 @@ public class DailaMaara extends ScreenRules {
     private void playerSeats() {
         Player[] temp = new Player[4];
 
-        Player my = mainGame.getPlayers().get(Game.mineId);
-        System.out.println(my.getGroup().getName());
+        Player my = mainGame.getPlayers().get(getMainGame().getMineId());
+
         for (Group g : mainGame.getGroup()) {
             if (g.getName().equals(my.getGroup().getName())) {
                 TextButton me = new TextButton(my.getName(), Context.getInstance().getSkin());
@@ -460,9 +465,9 @@ public class DailaMaara extends ScreenRules {
         this.sortPlayer = sortPlayer;
     }
 
-    private void setPositionOfCards() {
+    public void setPositionOfCards() {
         hasToRotate = true;
-        Group mine = mainGame.getPlayers().get(Game.mineId).getGroup();
+        Group mine = mainGame.getPlayers().get(getMainGame().getMineId()).getGroup();
         for (Player p : mine.getPlayerList()) {
             if (p.getId() == Game.turn) {
                 hasToRotate = false;
@@ -486,12 +491,12 @@ public class DailaMaara extends ScreenRules {
                 break;
             }
         }
-        Game.PLAYER_ORDER = sortPlayer;
-        Game.CURRENT_TURN = sortPlayer.get(sortPlayer.size() - 1);
-        Game.PLAYER = mainGame.getPlayers().get(Game.mineId);
-        Game.TALK_TURN = sortPlayer.get(0);
-        Game.PLAY_TURN = sortPlayer.get(0);
-        DailaMaara.TURN_LABEL.setText(Game.PLAY_TURN.getName());
+        getMainGame().setPLAYER_ORDER(sortPlayer);
+        getMainGame().setCURRENT_TURN(sortPlayer.get(sortPlayer.size() - 1));
+        getMainGame().setPLAYER(mainGame.getPlayers().get(getMainGame().getMineId()));
+        getMainGame().setTALK_TURN(sortPlayer.get(0));
+        getMainGame().setPLAY_TURN(sortPlayer.get(0));
+        DailaMaara.TURN_LABEL.setText(getMainGame().getPLAY_TURN().getName());
         new CardDistribution(this).shareProcessFirst().startShare(0, 51, 13);
     }
 

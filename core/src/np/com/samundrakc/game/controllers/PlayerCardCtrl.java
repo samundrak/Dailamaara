@@ -1,6 +1,7 @@
 package np.com.samundrakc.game.controllers;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -17,9 +18,11 @@ public class PlayerCardCtrl extends InputListener {
     private Card card;
     private CardDistribution context;
     private float x, y;
+    private Game mainGame;
 
-    public PlayerCardCtrl(Card card, CardDistribution context) {
+    public PlayerCardCtrl(Card card, CardDistribution context, Game mainGame) {
         this.card = card;
+        this.mainGame = mainGame;
         this.context = context;
         this.x = card.getActor().getX();
         this.y = card.getActor().getY();
@@ -40,17 +43,17 @@ public class PlayerCardCtrl extends InputListener {
     @Override
     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 
-        if (Game.TURUP == null) {
-            if (Game.TALK_TURN.getId() == Game.PLAYER.getId()) {
+        if (mainGame.getTURUP() == null) {
+            if (mainGame.getTALK_TURN().getId() == mainGame.getPLAYER().getId()) {
                 Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
-                Game.TURUP = card.getCardType();
-                Game.TURUP_STRING = card.getType();
+                mainGame.setTURUP(card.getCardType());
+                mainGame.setTURUP_STRING(card.getType());
                 context.getGame().getMainGame().turupMove();
             }
             return super.touchDown(event, x, y, pointer, button);
         }
 
-        if (!Game.STARTED) return false;
+        if (!mainGame.isSTARTED()) return false;
         Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
         card.getActor().moveBy(x - card.getActor().getWidth() / 2, y - card.getActor().getHeight() / 2);
         return super.touchDown(event, x, y, pointer, button);
@@ -91,14 +94,16 @@ public class PlayerCardCtrl extends InputListener {
     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
         super.touchUp(event, x, y, pointer, button);
         System.out.println("relesed1");
-        if (!Game.STARTED) return;
+        if (!mainGame.isSTARTED()) return;
         card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
     }
 
     @Override
     public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
         super.exit(event, x, y, pointer, toActor);
-        if (!Game.STARTED) return;
+        if (!mainGame.isSTARTED()) return;
         card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
     }
+
+
 }
