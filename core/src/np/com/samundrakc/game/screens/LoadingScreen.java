@@ -1,7 +1,9 @@
 package np.com.samundrakc.game.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Timer;
@@ -21,8 +23,9 @@ public class LoadingScreen extends ScreenRules {
     public LoadingScreen(np.com.samundrakc.game.DailaMaara game) {
         super(game);
         this.game = game;
-        splashScreen = new Image(new Texture("splash.png"));
-        splashScreen.setPosition(0, 0);
+        splashScreen = new Image(new Texture("splash-logo.png"));
+        splashScreen.setPosition(Context.WIDTH / 2 - (splashScreen.getWidth() / 2), Context.HEIGHT);
+        splashScreen.addAction(Animation.simpleAnimation(splashScreen.getX(), Context.HEIGHT / 2 - (splashScreen.getHeight() / 2)));
         splashScreen.addAction(Animation.repeatAction(Actions.sequence(
                 Actions.fadeIn(2),
                 Actions.fadeOut(1)
@@ -45,7 +48,7 @@ public class LoadingScreen extends ScreenRules {
 
     public LoadingScreen otherScreen(final ScreenRules Screen) {
         Label label = new Label("Loading...", Context.getInstance().getSkin());
-        label.setPosition(Context.WIDTH / 2 - (label.getWidth() / 2), 80);
+        label.setPosition(Context.WIDTH / 2 - (label.getWidth() / 2), Context.HEIGHT / 2 - ((splashScreen.getHeight() / 2) + 10));
         label.addAction(Animation.repeatAction(
                 Actions.sequence(
                         Animation.moveByAnime(20, 0, 2f),
@@ -74,6 +77,7 @@ public class LoadingScreen extends ScreenRules {
                     screen.loadAssets();
                     loadOnce[0] = true;
                 }
+                Gdx.app.log("Assets Ready", screen.isScreenReady() + " +  " + counter[0]);
                 if (screen.isScreenReady() && counter[0] > 2) {
                     if (cb != null) {
                         cb.run();

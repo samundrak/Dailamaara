@@ -32,8 +32,8 @@ public class CardSelection {
 
     private final FormCtrl form;
     private ArrayList<Actor> selectedCards = new ArrayList<Actor>();
-    static ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
-//      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+    ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
+    //      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
     private boolean playerHasPlayed = false;
 
     public CardSelection(FormCtrl form) {
@@ -128,7 +128,7 @@ public class CardSelection {
                                 });
                             }
                         });
-                        Game.turn = dups.get(0).getPlayer().getId();
+                        form.getGame().setTurn(dups.get(0).getPlayer().getId());
                         Sound.getInstance().play(Audio.AUDIO.SMALL_CARD);
                         selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 0.5f)));
                         return;

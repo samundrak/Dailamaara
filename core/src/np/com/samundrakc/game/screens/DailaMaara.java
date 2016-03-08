@@ -106,7 +106,10 @@ public class DailaMaara extends ScreenRules {
     @Override
     public void loadAssets() {
         super.loadAssets();
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        if(np.com.samundrakc.game.DailaMaara.GAME_MUSIC  != null){
+
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        }
         parentGame = game;
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         mainGame.setGAME_STAGE(stage);
@@ -348,10 +351,10 @@ public class DailaMaara extends ScreenRules {
                 my.getFriend().setCardToThrowLocations(new float[]{355, 155});
                 temp[0] = my;
                 temp[2] = my.getFriend();
-                if (Game.turn == my.getId()) {
+                if (mainGame.getTurn() == my.getId()) {
                     cards.setPosition(Context.WIDTH / 2, me.getHeight() + 10);
                     my.setMyCardPosition(cards.getX(), cards.getY());
-                } else if (Game.turn == my.getFriend().getId()) {
+                } else if (mainGame.getTurn()== my.getFriend().getId()) {
                     my.getFriend().setMyCardPosition(cards.getX(), cards.getY());
                     cards.setPosition(Context.WIDTH / 2, Context.HEIGHT - (friend.getHeight() + cards.getHeight() + 10));
                 }
@@ -392,10 +395,10 @@ public class DailaMaara extends ScreenRules {
                 stage.addActor(g2);
                 temp[3] = c1;
                 temp[1] = c2;
-                if (Game.turn == c1.getId()) {
+                if (mainGame.getTurn() == c1.getId()) {
                     cards.setPosition(g1.getX() + leftPlayer.getHeight() + cards.getHeight(), g1.getY());
                     c1.setMyCardPosition(cards.getX(), cards.getY());
-                } else if (Game.turn == c2.getId()) {
+                } else if (mainGame.getTurn() == c2.getId()) {
                     cards.setPosition(g2.getX() - cards.getHeight(), g2.getY());
                     c2.setMyCardPosition(cards.getX(), cards.getY());
                 }
@@ -475,7 +478,7 @@ public class DailaMaara extends ScreenRules {
         hasToRotate = true;
         Group mine = mainGame.getPlayers().get(getMainGame().getMineId()).getGroup();
         for (Player p : mine.getPlayerList()) {
-            if (p.getId() == Game.turn) {
+            if (p.getId() == mainGame.getTurn()) {
                 hasToRotate = false;
             }
         }
@@ -487,7 +490,7 @@ public class DailaMaara extends ScreenRules {
 
 
         for (int i = 0; i < PlayerOnSide.size(); i++) {
-            if (PlayerOnSide.get(i).getId() == Game.turn) {
+            if (PlayerOnSide.get(i).getId() ==mainGame.getTurn()) {
                 int index = i + 1;
                 if (i == PlayerOnSide.size() - 1) {
                     index = 0;

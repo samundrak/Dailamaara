@@ -70,7 +70,7 @@ public class Game {
 
     final ArrayList<Group> group;
     HashMap<String, Group> winner;
-    public static int turn;
+    public int turn;
     public int mineId;
     public HashMap<Const.CARDS, Image> COLORS;
     public Player TALK_TURN;
@@ -514,7 +514,7 @@ public class Game {
 
     public void turupMove() {
         if (TURUP == null) return;
-        Image turup = COLORS.get(TURUP);
+        final Image turup = COLORS.get(TURUP);
         turup.setPosition(Context.WIDTH / 2, (Context.HEIGHT / 2) + 50);
         Sound.getInstance().play(Audio.AUDIO.SPLASH_TURUP);
         getView().getPfx().getEffectHashMap().get(TURUP.toString()).setPosition(turup.getX(), turup.getY());
@@ -528,7 +528,10 @@ public class Game {
                     @Override
                     public void run() {
                         getView().getNonTururp().remove();
-
+//                        turup.addAction(Animation.repeatAction(Actions.sequence(
+//                                Animation.sizeActionPlusWithAnime(40, 55, 5f),
+//                                Animation.sizeActionPlusWithAnime(50, 60, 5f)
+//                        )));
                     }
                 }));
         getView().getStage().addActor(turup);
@@ -606,12 +609,12 @@ public class Game {
         this.winner = winner;
     }
 
-    public static int getTurn() {
+    public int getTurn() {
         return turn;
     }
 
-    public static void setTurn(int turn) {
-        Game.turn = turn;
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
 
     public int getMineId() {

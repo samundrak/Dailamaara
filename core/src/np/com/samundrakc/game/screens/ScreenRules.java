@@ -15,6 +15,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.anchors.Game;
+import np.com.samundrakc.game.controllers.Music;
+import np.com.samundrakc.game.controllers.Sound;
 import np.com.samundrakc.game.misc.Context;
 
 /**
@@ -68,5 +70,17 @@ public abstract class ScreenRules extends ScreenAdapter {
         return this;
     }
 
-    public void loadAssets(){};
+    @Override
+    public void pause() {
+        super.pause();
+        System.out.println("On Poz mode");
+        DailaMaara.GAME_MUSIC = null;
+        Music.getInstance().setAssetsLoaded(false);
+        Sound.getInstance().setAssetsLoaded(false);}
+
+    public void loadAssets() {
+
+    }
+
+
 }

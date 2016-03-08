@@ -21,9 +21,10 @@ public class Context {
     public static final String GAME_NAME = "DailaMaara";
     public static final int WIDTH = 700, HEIGHT = 400;
     private Skin skin;
+    private static Context INSTANCE;
 
     public void setSkin() {
-        this.skin = new Skin(Gdx.files.internal("uiskin.json"));
+        this.skin = new Skin(Gdx.files.internal("uiskins/uiskin.json"));
     }
 
     public void setCARDS_BACK_COVER() {
@@ -46,7 +47,10 @@ public class Context {
     }
 
     public static Context getInstance() {
-        return SingletonHolder.INSTANCE;
+        if (INSTANCE == null) {
+            INSTANCE = new Context();
+        }
+        return INSTANCE;
     }
 
     public static enum RESOLUTION_TYPES {SMALL, MEDIUM, LARGE}
@@ -70,7 +74,5 @@ public class Context {
         }
     }
 
-    private static class SingletonHolder {
-        private static final Context INSTANCE = new Context();
-    }
+
 }

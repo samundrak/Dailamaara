@@ -11,11 +11,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * @author samundra
  */
-public class Card   {
+public class Card {
 
     private String type;
 
@@ -73,26 +74,52 @@ public class Card   {
     private Image image;
 
     public void setActor() {
-        String name = "red_joker";
-        switch (this.number) {
-            case 1:
-                name = "ace_of_" + this.type;
-                break;
-            case 11:
-                name = "jack_of_" + this.type;
-                break;
-            case 12:
-                name = "queen_of_" + this.type;
-                //
-                break;
-            case 13:
-                name = "king_of_" + this.type;
-                break;
-            default:
-                name = this.number + "_of_" + this.type;
-                break;
+        int type = 1;
+        Image image;
+        if (type == 0) {
+
+            String name = "red_joker";
+            switch (this.number) {
+                case 1:
+                    name = this.type + "/ace";
+                    break;
+                case 11:
+                    name = this.type + "/jack";
+                    break;
+                case 12:
+                    name = this.type + "/queen";
+                    //
+                    break;
+                case 13:
+                    name = this.type + "/king";
+                    break;
+                default:
+                    name = this.type + "/" + this.number;
+                    break;
+            }
+            image = new Image(new Texture("cards2/" + name + ".png"));
+        } else {
+            String name = "red_joker";
+            switch (this.number) {
+                case 1:
+                    name = "ace_of_" + this.type;
+                    break;
+                case 11:
+                    name = "jack_of_" + this.type + "2";
+                    break;
+                case 12:
+                    name = "queen_of_" + this.type + "2";
+                    //
+                    break;
+                case 13:
+                    name = "king_of_" + this.type + "2";
+                    break;
+                default:
+                    name = this.number + "_of_" + this.type;
+                    break;
+            }
+            image = new Image(new Texture("cards/" + name + ".png"));
         }
-        Image image = new Image(new Texture("cards/" + name + ".png"));
         image.setSize(50, 70);
         this.image = image;
     }

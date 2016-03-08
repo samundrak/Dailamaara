@@ -45,12 +45,12 @@ public class MenuScreen extends ScreenRules {
         super(dailaMaara);
         this.dailaMaara = dailaMaara;
         setIsScreenReady(false);
-        System.out.println(Music.getInstance().isAssetsLoaded());
     }
 
     @Override
     public void loadAssets() {
         super.loadAssets();
+        Context.getInstance().setSkin();
         if (DailaMaara.GAME_MUSIC != null) {
             DailaMaara.GAME_MUSIC.setVolume(0.5f);
             DailaMaara.GAME_MUSIC.setLooping(true);
@@ -58,7 +58,6 @@ public class MenuScreen extends ScreenRules {
             System.out.println("Played Again");
             Music.getInstance().loadAudio();
             DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
-            Context.getInstance().setSkin();
             Sound.getInstance().loadAudio();
         }
         playButton = new TextButton("Play", Context.getInstance().getSkin());

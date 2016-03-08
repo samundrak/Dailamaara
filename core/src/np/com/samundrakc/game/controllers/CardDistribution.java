@@ -76,7 +76,7 @@ public class CardDistribution {
                 final Actor cards = game.getCards().getChildren().get(cardCounter[0]);
                 cards.clearActions();
                 final Player p = game.getSortPlayer().get(player[0]);
-                final Player turn = game.getMainGame().getPlayers().get(Game.turn);
+                final Player turn = game.getMainGame().getPlayers().get(game.getMainGame().getTurn());
                 p.setBackCards(cards);
                 p.setCardsActor(game.getMainGame().getCards().get(cardCounter[0]).getActor());
                 float x = p.getActor().getX() - (game.getCards().getX());
