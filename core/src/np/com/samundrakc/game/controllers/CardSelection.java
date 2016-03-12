@@ -100,6 +100,7 @@ public class CardSelection {
                                             if (i < Const.TOTAL_NUMBER_OF_CARDS) {
                                                 form.getView().getStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
                                                 form.getView().getStacks().getChildren().get(i).clearListeners();
+                                                form.getView().getStacks().getChildren().get(i).setSize(40, 60);
                                                 form.getGame().getCards().get(i).getActor().setVisible(true);
                                                 form.getGame().getCards().get(i).getActor().setSize(50, 70);
                                             } else {
@@ -134,7 +135,7 @@ public class CardSelection {
                         return;
                     }
                     Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
-                    form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(0.5f, new MessageBox.OnOkButtonClicked() {
+                    form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(1f, new MessageBox.OnOkButtonClicked() {
                         @Override
                         public void run() {
 //                            Card drawer has to be choosen as two or many player choosed same cards

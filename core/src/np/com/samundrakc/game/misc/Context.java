@@ -29,7 +29,7 @@ public class Context {
 
     public void setCARDS_BACK_COVER() {
         try {
-            this.CARDS_BACK_COVER = new Texture("cards/backs/back_" + new Random().nextInt(10) + ".png");
+            this.CARDS_BACK_COVER = new Texture("cards/backs/back_" + new Random().nextInt(3) + ".png");
         } catch (Exception e) {
             this.CARDS_BACK_COVER = new Texture("cards/backs/back_" + 1 + ".png");
         }

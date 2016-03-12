@@ -93,6 +93,7 @@ public class PlayCardDragListener extends DragListener {
             player.setThrownCard(card);
             player.doExtraStuff();
             card.getActor().clearListeners();
+            card.getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.5f));
             card.getActor().addAction(Animation.simpleAnimation(player.getCardToThrowLocations()[0], player.getCardToThrowLocations()[1]));
             player.getGame().chooseNextPlayerToBePlayed(player);
             return;

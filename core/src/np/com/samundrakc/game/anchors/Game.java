@@ -454,14 +454,19 @@ public class Game {
 //                );
         getView().getParentGame().setScreen(new LoadingScreen(getView().getParentGame()).otherScreen(new Form(getView().getParentGame())));
 //        getView().getParentGame().setScreen(new DailaMaara());
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
-        setView(null);
-        setGAME_STAGE(null);
+        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+                    np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+                    np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+                }
+            }
+            setView(null);
+            setGAME_STAGE(null);
 //        for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
 //            getView().getCardsStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
 //            getView().getCardsStacks().getChildren().get(i).clearListeners();
@@ -479,7 +484,7 @@ public class Game {
 //        Game.THROWN = 0;
 //        Game.CARD_PLAYED = null;
 //        Game.STATE = Const.STATE.PLAY;
-    }
+        }
 
     public void selectPlayOfTurup(Player player, Card card) {
         if (THROWN == 0) {

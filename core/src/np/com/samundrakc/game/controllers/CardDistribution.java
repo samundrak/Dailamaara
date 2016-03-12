@@ -114,7 +114,7 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().clearActions();
                                 p.getCards().get(index).getActor().clearListeners();
                                 p.getCards().get(index).getActor().setVisible(true);
-                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(70, 100, 0.2f));
                                 p.getCards().get(index).getActor().setPosition(0, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(0), CardDistribution.this, game.getMainGame()));
@@ -124,8 +124,8 @@ public class CardDistribution {
                                 p.getCards().get(index).getActor().setVisible(true);
                                 p.getCards().get(index).getActor().clearActions();
                                 p.getCards().get(index).getActor().clearListeners();
-                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
-                                p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 50, 0);
+                                p.getCards().get(index).getActor().addAction(Animation.sizeActionPlusWithAnime(70, 100, 0.2f));
+                                p.getCards().get(index).getActor().setPosition(p.getCards().get(index - 1).getActor().getX() + 55, 0);
                                 p.getCards().get(index).getActor().addListener(new PlayerCardCtrl(p.getCards().get(index), CardDistribution.this, game.getMainGame()));
                                 p.getCards().get(index).getActor().addListener(new PlayCardDragListener(p.getCards().get(index), p));
                                 game.getStage().addActor(p.getCards().get(index).getActor());
@@ -190,9 +190,9 @@ public class CardDistribution {
                             if (i == 0) {
                                 p.getCards().get(i).getActor().setPosition(0, 0);
                             } else {
-                                p.getCards().get(i).getActor().setPosition(p.getCards().get(i - 1).getActor().getX() + 50, 0);
+                                p.getCards().get(i).getActor().setPosition(p.getCards().get(i - 1).getActor().getX() + 55, 0);
                             }
-                            p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(100, 120, 0.2f));
+                            p.getCards().get(i).getActor().addAction(Animation.sizeActionPlusWithAnime(70, 100, 0.2f));
                             p.getCards().get(i).getActor().addListener(new PlayerCardCtrl(p.getCards().get(i), CardDistribution.this, game.getMainGame()));
                             p.getCards().get(i).getActor().addListener(new PlayCardDragListener(p.getCards().get(i), p));
                             game.getStage().addActor(p.getCards().get(i).getActor());
