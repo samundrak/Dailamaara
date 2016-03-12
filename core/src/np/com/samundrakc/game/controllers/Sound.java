@@ -22,6 +22,7 @@ public class Sound extends Audio {
     @Override
     public com.badlogic.gdx.audio.Sound playWithInstance(Audio.AUDIO audio) {
         if (!assetsLoaded) return null;
+        if (prefs.getInt("sound") == 0) return null;
         return sounds.get(audio);
     }
 

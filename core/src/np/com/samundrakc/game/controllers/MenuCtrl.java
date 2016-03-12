@@ -1,6 +1,7 @@
 package np.com.samundrakc.game.controllers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
@@ -55,11 +56,9 @@ public class MenuCtrl {
         @Override
         public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
             Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
-//            game.setScreen(new Form(game));
-//            view.dispose();
             game.setScreen(new LoadingScreen(game).otherScreen(new Form(game)));
-//            Sound.getInstance().dispose();
             return super.touchDown(event, x, y, pointer, button);
         }
+
     }
 }

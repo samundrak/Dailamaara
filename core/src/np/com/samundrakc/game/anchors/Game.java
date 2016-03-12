@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -50,6 +51,7 @@ public class Game {
     public ArrayList<ArrayList<Card>> history;
     public ArrayList<Player> historyOfPlayerWon;
     public ArrayList<History> itihaas;
+    public ArrayList<ArrayList<History>> bigHistory;
 
     public ArrayList<Card> getCards() {
         return cards;
@@ -128,6 +130,7 @@ public class Game {
         CARD_PLAYED = null;
         PLAYER_ORDER = new ArrayList<Player>();
         GAME_STAGE = null;
+        bigHistory = new ArrayList<ArrayList<History>>();
     }
 
     /**
@@ -309,6 +312,8 @@ public class Game {
                                                     Animation.moveByAnime(-5, 0, 0.5f)
                                             ));
                                             turn.getView().getGroupTensStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getTens() + "");
+
+
                                         }
                                         c.getActor().addAction(Animation.sizeActionPlus(30, 50, 1));
                                         c.getActor().addAction(Actions.sequence(Animation.moveBy(
@@ -366,8 +371,24 @@ public class Game {
         }
     }
 
+    private void coatAnimation() {
+        getView().getPfx().getEffectHashMap().get("onCoat").setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
+        getView().getPfx().getEffectHashMap().get("onCoat").start();
+        getView().getOnCoat().setSize(250, 200);
+        getView().getOnCoat().setPosition((Context.WIDTH / 2) - (getView().getOnCoat().getWidth() / 2), Context.HEIGHT );
+        getView().getOnCoat().addAction(Actions.sequence(
+                Animation.moveByAnime(0, ((Context.HEIGHT / 2) - (getView().getOnCoat().getHeight() / 2))  -(getView().getOnCoat().getY()), 1f),
+                Animation.repeatAction(Actions.sequence(
+                        Actions.fadeIn(1),
+                        Actions.fadeOut(1)
+                ))
+        ));
+        getGAME_STAGE().addActor(getView().getOnCoat());
+    }
+
     public void gameOver() {
         STATE = Const.STATE.GAME_OVER;
+        getView().getCards().setTouchable(Touchable.disabled);
         DailaMaara.TURN_LABEL.setText("Game Over");
         int won = 0;
         Group g = null;
@@ -406,9 +427,11 @@ public class Game {
         if (g.getTens() == 4) {
             g.setCoat(g.getCoat() + 1);
             getView().getGroupCoatStatusLabel().get(g.getName()).setText(g.getCoat() + "");
+            coatAnimation();
+
         }
         g.setWon(g.getWon() + 1);
-        final com.badlogic.gdx.audio.Sound fw;
+
         if (g.getName() == PLAYER.getGroup().getName()) {
             fw = Sound.getInstance().playWithInstance(Audio.AUDIO.FIRE_WORKS);
             if (fw != null)
@@ -419,26 +442,92 @@ public class Game {
         } else {
             fw = null;
         }
-        final Timer timer = new Timer();
         getView().getGroupWonStatusLabel().get(g.getName()).setText(g.getWon() + "");
+        final Group finalG = g;
         new MessageBox(GAME_STAGE, g.getName() + " won the game with " + won + " " + type + " ! Play Again?", new MessageBox.OnOkButtonClicked() {
+            @Override
+            public void run() {
+
+                continueCurrentGame(finalG);
+
+            }
+        }).setInMiddle(true).setOkButtonText("Continue").show();
+
+    }
+
+    com.badlogic.gdx.audio.Sound fw;
+    private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
+
+    public void continueCurrentGame(Group winnerGroup) {
+
+        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+            }
+        }
+
+        itihaas.clear();
+        bigHistory.add(itihaas);
+        history.clear();
+        PLAYER_ORDER.clear();
+        winner.clear();
+        historyOfPlayerWon.clear();
+        setTHROWN(0);
+        setSTATE(Const.STATE.PLAY);
+        Utils.log("Winner", "Winner is " + winnerGroup.getName());
+        if (getTALK_TURN().getGroup().getName() == winnerGroup.getName()) {
+            Utils.log("Winner is same group who have talked now");
+            String nameOfNextCardThrowingPlayer = getPlayers().get(getTurn()).getFriend().getName();
+            if (winnerGroup.getTens() >= 4) {
+                Utils.log("Here is coat happend coat, Card will be shared in next game by " + nameOfNextCardThrowingPlayer);
+                setTurn(getPlayers().get(getTurn()).getFriend().getId());
+                smallAlert("Its Coat!!, You got all 4 TENS. Next Game will be played by " + nameOfNextCardThrowingPlayer);
+                return;
+            } else if (winnerGroup.getHands() >= 13) {
+                Utils.log("Its Boll Coat now");
+                setTurn(getPlayers().get(getTurn()).getFriend().getId());
+                smallAlert("Its BolCoat!!, You got all 13 Hands also 4 Tens. Next Game will be played by " + nameOfNextCardThrowingPlayer);
+                return;
+            } else {
+                smallAlert("Next Game will be Played by " + getCURRENT_TURN().getName());
+                return;
+            }
+        } else {
+            Utils.log("Current Talked team has lost");
+            setTurn(getTALK_TURN().getId());
+            smallAlert("Card Will be shared by " + getTALK_TURN().getName());
+            return;
+        }
+
+    }
+
+    private void smallAlert(String message) {
+        final Timer timer = new Timer();
+        new MessageBox(GAME_STAGE, message, new MessageBox.OnOkButtonClicked() {
             @Override
             public void run() {
                 try {
 //                    continueCurrentGame();
-                    if (timer != null) timer.clear();
                     if (fw != null) fw.stop();
+                    timer.clear();
                     getView().getPfx().getEffectHashMap().get("win").dispose();
-
                 } catch (NullPointerException ne) {
-
+                    Gdx.app.log("Error", ne.getLocalizedMessage());
+                    Gdx.app.exit();
                 } catch (Exception e) {
-
+                    Gdx.app.log("Error", e.getLocalizedMessage());
+                    Gdx.app.exit();
                 } finally {
-                    continueCurrentGame();
+                    nextScreenSetup();
                 }
             }
-        }).setInMiddle(true).setOkButtonText("Continue").show();
+        }).setInMiddle(true).setOkButtonText("Start").show();
+
         timer.scheduleTask(new Timer.Task() {
 
             @Override
@@ -451,45 +540,28 @@ public class Game {
         }, 1, 1);
     }
 
-    private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
-
-    public void continueCurrentGame() {
-
-        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
-            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
-            }
-        }
-
-        itihaas.clear();
-        history.clear();
-        PLAYER_ORDER.clear();
-        winner.clear();
-        historyOfPlayerWon.clear();
-        setTHROWN(0);
-        setSTATE(Const.STATE.PLAY);
+    private void nextScreenSetup() {
         for (Player player : getPlayers()) {
             player.getCards().clear();
             player.getCardsActor().clear();
             player.getBackCards().clear();
             player.getSortedCards().clear();
+            player.stopPlay();
         }
         setTHROWN_CARDS(0);
         setTURUP(null);
         setTURUP_STRING("");
+        try {
+            getView().setOnCoat(null);
+            getView().getPfx().getEffectHashMap().get("onCoat").dispose();
+        } catch (Exception e) {
+            Utils.log(e.getMessage());
+        }
         shuffleCardsOFGame(getCards());
         for (Group g : getGroup()) {
-            g.setCoat(0);
             g.setTens(0);
             g.setHands(0);
             g.setThrown(0);
-            g.setWon(0);
         }
         for (Card card : getCards()) {
             card.getActor().clearActions();

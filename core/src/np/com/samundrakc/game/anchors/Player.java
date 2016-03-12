@@ -257,8 +257,11 @@ public class Player {
     }
 
     public void stopPlay() {
-        if (!active.isEmpty()) {
-            active.clear();
+        if (active != null) {
+            if (!active.isEmpty()) {
+                active.clear();
+                active = null;
+            }
         }
     }
 

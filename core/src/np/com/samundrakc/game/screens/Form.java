@@ -94,7 +94,7 @@ public class Form extends ScreenRules {
     }
 
     public Form(DailaMaara game) {
-        super(game,null);
+        super(game, null);
         this.dailaMaara = game;
 
     }
@@ -198,13 +198,18 @@ public class Form extends ScreenRules {
         return stacks;
     }
 
-    final Group stacks = new Group();
+    public void setStacks(Group g) {
+        this.stacksChild = g;
+        this.stacks = g;
+    }
+
+    Group stacks = new Group();
 
     public Group getStacksChild() {
         return stacksChild;
     }
 
-    final Group stacksChild = new Group();
+    Group stacksChild = new Group();
 
     public void selectCardForDistrubutor() {
         final int[] gap = {3};

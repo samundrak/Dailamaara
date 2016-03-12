@@ -110,6 +110,7 @@ public class CardSelection {
                                         Const.TOTAL_NUMBER_OF_PLAYERS = 4;
                                         dups = new ArrayList<CardSelectedPlayer>();
                                         form.getView().getStacks().clearListeners();
+                                        form.getView().setStacks(null);
 //                                        form.getView().getDailaMaara().setScreen(new DailaMaara(form.getView().getDailaMaara(), form.getGame()).setCardsStacks(form.getView().getStacks()));
                                         form.getView().getDailaMaara()
                                                 .setScreen(

@@ -23,7 +23,7 @@ import np.com.samundrakc.game.misc.Context;
  * Created by samundra on 1/29/2016.
  */
 public abstract class ScreenRules extends ScreenAdapter {
-    protected final DailaMaara game;
+    protected   DailaMaara game;
     protected Stage stage;
     StretchViewport vp;
     OrthographicCamera cam;
@@ -55,6 +55,9 @@ public abstract class ScreenRules extends ScreenAdapter {
             img = new Image(new Texture("table.png"));
         }
         stage.addActor(img);
+    }
+
+    public ScreenRules() {
     }
 
     @Override

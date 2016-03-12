@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- *
  * @author samundra
  */
 public class Utils {
@@ -24,7 +23,11 @@ public class Utils {
     }
 
 
-    public static void log(String tag,String message){
-        Gdx.app.log(tag,message);
+    public static void log(String tag, String message) {
+        Gdx.app.log(tag, message);
+    }
+
+    public static void log(String message) {
+        Gdx.app.log("Info", message);
     }
 }

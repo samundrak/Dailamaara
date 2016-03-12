@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
 import np.com.samundrakc.game.anchors.Card;
+import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -42,7 +43,7 @@ public class PlayerCardCtrl extends InputListener {
      */
     @Override
     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-
+        if (mainGame.getSTATE() == Const.STATE.GAME_OVER) return false;
         if (mainGame.getTURUP() == null) {
             if (mainGame.getTALK_TURN().getId() == mainGame.getPLAYER().getId()) {
                 Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
@@ -93,7 +94,8 @@ public class PlayerCardCtrl extends InputListener {
     @Override
     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
         super.touchUp(event, x, y, pointer, button);
-        System.out.println("relesed1");
+        if (mainGame.getSTATE() == Const.STATE.GAME_OVER) return  ;
+
         if (!mainGame.isSTARTED()) return;
         card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
     }
@@ -101,6 +103,7 @@ public class PlayerCardCtrl extends InputListener {
     @Override
     public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
         super.exit(event, x, y, pointer, toActor);
+        if (mainGame.getSTATE() == Const.STATE.GAME_OVER) return  ;
         if (!mainGame.isSTARTED()) return;
         card.getActor().addAction(Animation.simpleAnimation(this.x, this.y));
     }

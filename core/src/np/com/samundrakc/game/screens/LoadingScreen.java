@@ -21,8 +21,12 @@ public class LoadingScreen extends ScreenRules {
     Image splashScreen;
 
     public LoadingScreen(np.com.samundrakc.game.DailaMaara game) {
-        super(game,null);
+        super(game, null);
         this.game = game;
+        stage.addActor(logoFile());
+    }
+
+    public Image logoFile() {
         splashScreen = new Image(new Texture("splash-logo.png"));
         splashScreen.setPosition(Context.WIDTH / 2 - (splashScreen.getWidth() / 2), Context.HEIGHT);
         splashScreen.addAction(Animation.simpleAnimation(splashScreen.getX(), Context.HEIGHT / 2 - (splashScreen.getHeight() / 2)));
@@ -31,9 +35,10 @@ public class LoadingScreen extends ScreenRules {
                 Actions.fadeOut(1)
 
         )));
+        return splashScreen;
+    }
 
-        stage.addActor(splashScreen);
-
+    public LoadingScreen() {
     }
 
     public LoadingScreen nextScreenAssestsChecker(final ScreenRules Screen) {

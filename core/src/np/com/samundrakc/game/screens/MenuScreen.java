@@ -42,7 +42,7 @@ public class MenuScreen extends ScreenRules {
     private DailaMaara dailaMaara;
 
     public MenuScreen(DailaMaara dailaMaara) {
-        super(dailaMaara,null);
+        super(dailaMaara, null);
         this.dailaMaara = dailaMaara;
         setIsScreenReady(false);
     }
@@ -64,9 +64,11 @@ public class MenuScreen extends ScreenRules {
         settings = new TextButton("Settings", Context.getInstance().getSkin());
         howToPlay = new TextButton("How To Play", Context.getInstance().getSkin());
         controller = new MenuCtrl(dailaMaara, this);
+        logo = new LoadingScreen().logoFile();
         setIsScreenReady(true);
     }
 
+    Image logo;
     SpriteBatch sb = new SpriteBatch();
 
     @Override
@@ -88,8 +90,10 @@ public class MenuScreen extends ScreenRules {
         table.add(settings).padTop(5).row();
         table.add(howToPlay).padTop(5).row();
         table.add(exit).padTop(5).row();
-        table.center();
+        table.left();
         table.setFillParent(true);
+        logo.addAction(np.com.samundrakc.game.misc.Animation.simpleAnimation(Context.WIDTH - logo.getWidth(), (Context.HEIGHT / 2) - (logo.getHeight() / 2)));
+        stage.addActor(logo);
         stage.addActor(table);
     }
 

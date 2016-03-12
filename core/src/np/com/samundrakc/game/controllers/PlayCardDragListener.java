@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import java.util.ArrayList;
 
 import np.com.samundrakc.game.anchors.Card;
+import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.misc.Animation;
@@ -29,6 +30,7 @@ public class PlayCardDragListener extends DragListener {
     @Override
     public void drag(InputEvent event, float x, float y, int pointer) {
         super.drag(event, x, y, pointer);
+
         if (!player.getGame().isSTARTED()) return;
         switch (player.getGame().getSTATE()) {
             case GAME_OVER:
@@ -38,6 +40,14 @@ public class PlayCardDragListener extends DragListener {
             case STOP:
             case WAIT:
                 return;
+        }
+        if (player.getGame().getSTATE() == Const.STATE.GAME_OVER) {
+            if (player.active != null) {
+                if (!player.active.isEmpty()) {
+                    player.active.clear();
+                }
+            }
+            return;
         }
         if (player.getCardsActor().size() < 13) return;
         card.getActor().moveBy(x - card.getActor().getWidth() / 2, y - card.getActor().getHeight() / 2);
@@ -55,6 +65,14 @@ public class PlayCardDragListener extends DragListener {
             case STOP:
             case WAIT:
                 return;
+        }
+        if (player.getGame().getSTATE() == Const.STATE.GAME_OVER) {
+            if (player.active != null) {
+                if (!player.active.isEmpty()) {
+                    player.active.clear();
+                }
+            }
+            return;
         }
         if (player.getCardsActor().size() < 13) return;
         if (card.getActor().getY() < 70 || card.getActor().getY() > 270) {

@@ -33,6 +33,9 @@ public class PFX {
 
         effectHashMap.put("win", new ParticleEffect());
         effectHashMap.get("win").load(Gdx.files.internal("particle/won.pfx"), Gdx.files.internal("particle/images"));
+
+        effectHashMap.put("onCoat", new ParticleEffect());
+        effectHashMap.get("onCoat").load(Gdx.files.internal("particle/flower.pfx"), Gdx.files.internal("particle/images"));
     }
 
     public HashMap<String, ParticleEffect> getEffectHashMap() {
