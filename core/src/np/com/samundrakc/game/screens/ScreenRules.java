@@ -41,15 +41,19 @@ public abstract class ScreenRules extends ScreenAdapter {
         this.isScreenReady = isScreenReady;
     }
 
-    public ScreenRules(DailaMaara game) {
+    public ScreenRules(DailaMaara game, Texture background) {
         isScreenReady = false;
-
         this.game = game;
         cam = new OrthographicCamera(Context.WIDTH, Context.HEIGHT);
         vp = new StretchViewport(Context.WIDTH, Context.HEIGHT, cam);
         stage = new Stage(vp);
         Gdx.input.setInputProcessor(stage);
-        Image img = new Image(new Texture("bg.png"));
+        Image img;
+        if (background == null) {
+            img = new Image(new Texture("bg.png"));
+        } else {
+            img = new Image(new Texture("table.png"));
+        }
         stage.addActor(img);
     }
 
@@ -76,7 +80,8 @@ public abstract class ScreenRules extends ScreenAdapter {
         System.out.println("On Poz mode");
         DailaMaara.GAME_MUSIC = null;
         Music.getInstance().setAssetsLoaded(false);
-        Sound.getInstance().setAssetsLoaded(false);}
+        Sound.getInstance().setAssetsLoaded(false);
+    }
 
     public void loadAssets() {
 

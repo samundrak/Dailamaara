@@ -25,7 +25,7 @@ public class Settings extends ScreenRules {
     private Prefs prefs;
 
     public Settings(np.com.samundrakc.game.DailaMaara game) {
-        super(game);
+        super(game,null);
         prefs = new Prefs("settings");
         controller = new SettingsController(game, this);
         if (prefs.getInt("sound") == -1)

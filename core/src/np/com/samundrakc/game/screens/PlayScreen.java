@@ -10,7 +10,7 @@ import np.com.samundrakc.game.DailaMaara;
  */
 public class PlayScreen extends ScreenRules {
     public PlayScreen(DailaMaara game) {
-        super(game);
+        super(game,null);
     }
 
     @Override

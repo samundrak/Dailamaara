@@ -99,7 +99,7 @@ public class DailaMaara extends ScreenRules {
     }
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
-        super(game);
+        super(game,new Texture("table.png"));
         this.mainGame = mainGame;
     }
 

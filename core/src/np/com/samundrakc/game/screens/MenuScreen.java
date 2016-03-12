@@ -42,7 +42,7 @@ public class MenuScreen extends ScreenRules {
     private DailaMaara dailaMaara;
 
     public MenuScreen(DailaMaara dailaMaara) {
-        super(dailaMaara);
+        super(dailaMaara,null);
         this.dailaMaara = dailaMaara;
         setIsScreenReady(false);
     }

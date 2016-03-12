@@ -162,9 +162,9 @@ public class Game {
         myGroup.addPlayer(me);
         this.players.clear();
         this.players.add(me);
-        this.players.add(new Player("Computer 1"));
-        this.players.add(new Player("Computer 2"));
-        this.players.add(new Player("Computer 3"));
+        this.players.add(new Player("Bot 1"));
+        this.players.add(new Player("Bot 2"));
+        this.players.add(new Player("Bot 3"));
 
         System.out.println("Enter number to select friend");
         for (int i = 0; i < this.players.size(); i++) {

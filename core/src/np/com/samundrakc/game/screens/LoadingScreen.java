@@ -21,7 +21,7 @@ public class LoadingScreen extends ScreenRules {
     Image splashScreen;
 
     public LoadingScreen(np.com.samundrakc.game.DailaMaara game) {
-        super(game);
+        super(game,null);
         this.game = game;
         splashScreen = new Image(new Texture("splash-logo.png"));
         splashScreen.setPosition(Context.WIDTH / 2 - (splashScreen.getWidth() / 2), Context.HEIGHT);

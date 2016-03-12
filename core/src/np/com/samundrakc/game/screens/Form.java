@@ -94,7 +94,7 @@ public class Form extends ScreenRules {
     }
 
     public Form(DailaMaara game) {
-        super(game);
+        super(game,null);
         this.dailaMaara = game;
 
     }
@@ -174,7 +174,7 @@ public class Form extends ScreenRules {
         Label nameLabel = new Label("Select your friend", Context.getInstance().getSkin());
         selectPlayerTable.add(nameLabel).colspan(5).expandX().padBottom(10).row();
         for (int i = 0; i < computer.length; i++) {
-            computer[i] = new TextButton("Computer " + (i + 1), Context.getInstance().getSkin());
+            computer[i] = new TextButton("Bot " + (i + 1), Context.getInstance().getSkin());
             computer[i].setBounds(0, 0, computer[i].getWidth(), computer[i].getHeight());
             computer[i].addListener(formCtrl.computerCtrl(i));
             selectPlayerTable.add(computer[i]).pad(5).expandX();

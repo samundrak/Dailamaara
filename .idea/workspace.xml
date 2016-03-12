@@ -4,91 +4,27 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df2bfccd-359a-4bb0-9da1-970780cf817a" name="Default" comment="Object type to static in CardSelection">
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\android_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\core_core_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\desktop_desktop_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\engine_io_client_0_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_android_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_gwt_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_gwt_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_headless_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_backend_lwjgl_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_gwt_1_8_0_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_box2d_platform_1_8_0_natives_desktop.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_freetype_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_platform_1_8_0_natives_desktop.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gdx_tools_1_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gwt_servlet_2_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\gwt_user_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_2_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_linux.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_osx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jinput_platform_2_0_5_natives_windows.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jlayer_1_0_1_gdx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jorbis_0_0_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\json_20090211.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\jutils_1_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_2_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_linux.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_osx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_platform_2_9_2_natives_windows.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\lwjgl_util_2_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okhttp_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okhttp_ws_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\okio_1_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\socket_io_client_0_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\validation_api_1_0_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\.idea\libraries\validation_api_1_0_0_GA_sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_0.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_3.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_4.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_5.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_6.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_7.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_8.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\cards\backs\back_9.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardDistribution$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$CardSelectedPlayer.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$CardSelectedPlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/Context.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" />
+    <list default="true" id="df2bfccd-359a-4bb0-9da1-970780cf817a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/DailaMaara.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/DailaMaara.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Form.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Form.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/backs/back_1.png" afterPath="$PROJECT_DIR$/android/assets/cards/backs/back_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/backs/back_2.png" afterPath="$PROJECT_DIR$/android/assets/cards/backs/back_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/PlayScreen.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/PlayScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Settings.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/Settings.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/clubs.png" afterPath="$PROJECT_DIR$/android/assets/cards/clubs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/particle/images/clubs.png" afterPath="$PROJECT_DIR$/android/assets/particle/images/clubs.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/diamonds.png" afterPath="$PROJECT_DIR$/android/assets/cards/diamonds.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/particle/images/diamonds.png" afterPath="$PROJECT_DIR$/android/assets/particle/images/diamonds.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/hearts.png" afterPath="$PROJECT_DIR$/android/assets/cards/hearts.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/particle/images/hearts.png" afterPath="$PROJECT_DIR$/android/assets/particle/images/hearts.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/cards/spades.png" afterPath="$PROJECT_DIR$/android/assets/cards/spades.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/particle/images/spades.png" afterPath="$PROJECT_DIR$/android/assets/particle/images/spades.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f9bcc978-8498-4c1a-ad2e-bfc0d606f31a" name="Rejected commit: Default" comment="Screen section modified&#10;" />
@@ -120,35 +56,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Card.java">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Context.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="92" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
+              <caret line="166" column="40" selection-start-line="166" selection-start-column="40" selection-end-line="166" selection-end-column="40" />
               <folding>
-                <element signature="e#845#846#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
+                <element signature="e#2503#2504#0" expanded="true" />
+                <element signature="e#2530#2531#0" expanded="true" />
+                <element signature="e#24678#24679#0" expanded="true" />
+                <element signature="e#24713#24714#0" expanded="true" />
+                <element signature="e#24766#24767#0" expanded="true" />
+                <element signature="e#24814#24815#0" expanded="true" />
+                <element signature="e#24848#24849#0" expanded="true" />
+                <element signature="e#24878#24879#0" expanded="true" />
+                <element signature="e#24925#24926#0" expanded="true" />
+                <element signature="e#24963#24964#0" expanded="true" />
+                <element signature="e#24999#25000#0" expanded="true" />
+                <element signature="e#25031#25032#0" expanded="true" />
+                <element signature="e#25081#25082#0" expanded="true" />
+                <element signature="e#25123#25124#0" expanded="true" />
+                <element signature="e#25153#25154#0" expanded="true" />
+                <element signature="e#25182#25183#0" expanded="true" />
+                <element signature="e#25223#25224#0" expanded="true" />
+                <element signature="e#25259#25260#0" expanded="true" />
+                <element signature="e#25296#25297#0" expanded="true" />
+                <element signature="e#25324#25325#0" expanded="true" />
+                <element signature="e#25371#25372#0" expanded="true" />
+                <element signature="e#25405#25406#0" expanded="true" />
+                <element signature="e#25459#25460#0" expanded="true" />
+                <element signature="e#25489#25490#0" expanded="true" />
+                <element signature="e#25555#25556#0" expanded="true" />
+                <element signature="e#25593#25594#0" expanded="true" />
+                <element signature="e#25649#25650#0" expanded="true" />
+                <element signature="e#25690#25691#0" expanded="true" />
+                <element signature="e#25875#25876#0" expanded="true" />
+                <element signature="e#25905#25906#0" expanded="true" />
+                <element signature="e#25963#25964#0" expanded="true" />
+                <element signature="e#26001#26002#0" expanded="true" />
+                <element signature="e#26050#26051#0" expanded="true" />
+                <element signature="e#26079#26080#0" expanded="true" />
+                <element signature="e#26139#26140#0" expanded="true" />
+                <element signature="e#26175#26176#0" expanded="true" />
+                <element signature="e#26203#26204#0" expanded="true" />
+                <element signature="e#26230#26231#0" expanded="true" />
+                <element signature="e#26267#26268#0" expanded="true" />
+                <element signature="e#26299#26300#0" expanded="true" />
+                <element signature="e#26329#26330#0" expanded="true" />
+                <element signature="e#26358#26359#0" expanded="true" />
+                <element signature="e#26399#26400#0" expanded="true" />
+                <element signature="e#26435#26436#0" expanded="true" />
+                <element signature="e#26489#26490#0" expanded="true" />
+                <element signature="e#26518#26519#0" expanded="true" />
+                <element signature="e#26583#26584#0" expanded="true" />
+                <element signature="e#26619#26620#0" expanded="true" />
+                <element signature="e#26655#26656#0" expanded="true" />
+                <element signature="e#26687#26688#0" expanded="true" />
+                <element signature="e#26737#26738#0" expanded="true" />
+                <element signature="e#26779#26780#0" expanded="true" />
+                <element signature="e#26818#26819#0" expanded="true" />
+                <element signature="e#26853#26854#0" expanded="true" />
+                <element signature="e#26909#26910#0" expanded="true" />
+                <element signature="e#26957#26958#0" expanded="true" />
+                <element signature="e#26990#26991#0" expanded="true" />
+                <element signature="e#27019#27020#0" expanded="true" />
+                <element signature="e#27063#27064#0" expanded="true" />
+                <element signature="e#27099#27100#0" expanded="true" />
+                <element signature="e#27136#27137#0" expanded="true" />
+                <element signature="e#27164#27165#0" expanded="true" />
+                <element signature="e#27211#27212#0" expanded="true" />
+                <element signature="e#27245#27246#0" expanded="true" />
+                <element signature="e#27284#27285#0" expanded="true" />
+                <element signature="e#27319#27320#0" expanded="true" />
+                <element signature="e#27375#27376#0" expanded="true" />
+                <element signature="e#27423#27424#0" expanded="true" />
+                <element signature="e#27466#27467#0" expanded="true" />
+                <element signature="e#27500#27501#0" expanded="true" />
+                <element signature="e#27559#27560#0" expanded="true" />
+                <element signature="e#27605#27606#0" expanded="true" />
+                <element signature="e#27655#27656#0" expanded="true" />
+                <element signature="e#27690#27691#0" expanded="true" />
+                <element signature="e#27841#27842#0" expanded="true" />
+                <element signature="e#27874#27875#0" expanded="true" />
+                <element signature="e#27925#27926#0" expanded="true" />
+                <element signature="e#27969#27970#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageBox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="140" column="42" selection-start-line="140" selection-start-column="42" selection-end-line="140" selection-end-column="42" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -157,101 +149,18 @@
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1231#1232#0" expanded="false" />
-                <element signature="e#1264#1265#0" expanded="false" />
-              </folding>
+              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java">
+      <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5185185">
-              <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
-              <folding>
-                <element signature="e#2503#2504#0" expanded="true" />
-                <element signature="e#2530#2531#0" expanded="true" />
-                <element signature="e#24693#24694#0" expanded="true" />
-                <element signature="e#24728#24729#0" expanded="true" />
-                <element signature="e#24781#24782#0" expanded="true" />
-                <element signature="e#24829#24830#0" expanded="true" />
-                <element signature="e#24863#24864#0" expanded="true" />
-                <element signature="e#24893#24894#0" expanded="true" />
-                <element signature="e#24940#24941#0" expanded="true" />
-                <element signature="e#24978#24979#0" expanded="true" />
-                <element signature="e#25014#25015#0" expanded="true" />
-                <element signature="e#25046#25047#0" expanded="true" />
-                <element signature="e#25096#25097#0" expanded="true" />
-                <element signature="e#25138#25139#0" expanded="true" />
-                <element signature="e#25168#25169#0" expanded="true" />
-                <element signature="e#25197#25198#0" expanded="true" />
-                <element signature="e#25238#25239#0" expanded="true" />
-                <element signature="e#25274#25275#0" expanded="true" />
-                <element signature="e#25311#25312#0" expanded="true" />
-                <element signature="e#25339#25340#0" expanded="true" />
-                <element signature="e#25386#25387#0" expanded="true" />
-                <element signature="e#25420#25421#0" expanded="true" />
-                <element signature="e#25474#25475#0" expanded="true" />
-                <element signature="e#25504#25505#0" expanded="true" />
-                <element signature="e#25570#25571#0" expanded="true" />
-                <element signature="e#25608#25609#0" expanded="true" />
-                <element signature="e#25664#25665#0" expanded="true" />
-                <element signature="e#25705#25706#0" expanded="true" />
-                <element signature="e#25890#25891#0" expanded="true" />
-                <element signature="e#25920#25921#0" expanded="true" />
-                <element signature="e#25978#25979#0" expanded="true" />
-                <element signature="e#26016#26017#0" expanded="true" />
-                <element signature="e#26065#26066#0" expanded="true" />
-                <element signature="e#26094#26095#0" expanded="true" />
-                <element signature="e#26154#26155#0" expanded="true" />
-                <element signature="e#26190#26191#0" expanded="true" />
-                <element signature="e#26218#26219#0" expanded="true" />
-                <element signature="e#26245#26246#0" expanded="true" />
-                <element signature="e#26282#26283#0" expanded="true" />
-                <element signature="e#26314#26315#0" expanded="true" />
-                <element signature="e#26344#26345#0" expanded="true" />
-                <element signature="e#26373#26374#0" expanded="true" />
-                <element signature="e#26414#26415#0" expanded="true" />
-                <element signature="e#26450#26451#0" expanded="true" />
-                <element signature="e#26504#26505#0" expanded="true" />
-                <element signature="e#26533#26534#0" expanded="true" />
-                <element signature="e#26598#26599#0" expanded="true" />
-                <element signature="e#26634#26635#0" expanded="true" />
-                <element signature="e#26670#26671#0" expanded="true" />
-                <element signature="e#26702#26703#0" expanded="true" />
-                <element signature="e#26752#26753#0" expanded="true" />
-                <element signature="e#26794#26795#0" expanded="true" />
-                <element signature="e#26833#26834#0" expanded="true" />
-                <element signature="e#26868#26869#0" expanded="true" />
-                <element signature="e#26924#26925#0" expanded="true" />
-                <element signature="e#26972#26973#0" expanded="true" />
-                <element signature="e#27005#27006#0" expanded="true" />
-                <element signature="e#27034#27035#0" expanded="true" />
-                <element signature="e#27078#27079#0" expanded="true" />
-                <element signature="e#27114#27115#0" expanded="true" />
-                <element signature="e#27151#27152#0" expanded="true" />
-                <element signature="e#27179#27180#0" expanded="true" />
-                <element signature="e#27226#27227#0" expanded="true" />
-                <element signature="e#27260#27261#0" expanded="true" />
-                <element signature="e#27299#27300#0" expanded="true" />
-                <element signature="e#27334#27335#0" expanded="true" />
-                <element signature="e#27390#27391#0" expanded="true" />
-                <element signature="e#27438#27439#0" expanded="true" />
-                <element signature="e#27481#27482#0" expanded="true" />
-                <element signature="e#27515#27516#0" expanded="true" />
-                <element signature="e#27574#27575#0" expanded="true" />
-                <element signature="e#27620#27621#0" expanded="true" />
-                <element signature="e#27670#27671#0" expanded="true" />
-                <element signature="e#27705#27706#0" expanded="true" />
-                <element signature="e#27856#27857#0" expanded="true" />
-                <element signature="e#27889#27890#0" expanded="true" />
-                <element signature="e#27940#27941#0" expanded="true" />
-                <element signature="e#27984#27985#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -270,18 +179,58 @@
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="492" column="64" selection-start-line="492" selection-start-column="64" selection-end-line="492" selection-end-column="64" />
+              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayCardDragListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java">
+      <file leaf-file-name="ScreenRules.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="86" selection-start-line="95" selection-start-column="86" selection-end-line="95" selection-end-column="86" />
+              <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+              <folding>
+                <element signature="e#2051#2052#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Form.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.9629629">
+              <caret line="176" column="45" selection-start-line="176" selection-start-column="45" selection-end-line="176" selection-end-column="45" />
+              <folding>
+                <element signature="e#7961#7962#0" expanded="true" />
+                <element signature="e#7988#7989#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2557#3245#0" expanded="true" />
+                <element signature="e#3244#3245#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -296,18 +245,6 @@
                 <element signature="e#11431#11443#0" expanded="true" />
                 <element signature="e#11590#11997#0" expanded="true" />
                 <element signature="e#11996#11997#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3046,7 +2983,6 @@
       <list>
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Distrubutor.java" />
         <option value="$PROJECT_DIR$/android/assets/uiskin.json" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/DailaMaara.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardCompare.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardSort.java" />
@@ -3080,21 +3016,22 @@
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Music.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Audio.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/SettingsController.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Card.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Context.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
       </list>
     </option>
   </component>
@@ -3745,7 +3682,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457440806889</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Turup selection images and card size changed">
+      <created>1457768951744</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1457768951744</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3857,7 +3800,8 @@
     <MESSAGE value="static to object proporties created" />
     <MESSAGE value="Splash,Loading Screen with resource manage and  game restart done" />
     <MESSAGE value="Object type to static in CardSelection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Object type to static in CardSelection" />
+    <MESSAGE value="Turup selection images and card size changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Turup selection images and card size changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3965,34 +3909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="33" selection-start-line="224" selection-start-column="33" selection-end-line="224" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -4176,28 +4092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1231#1232#0" expanded="false" />
-            <element signature="e#1264#1265#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4238,14 +4132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="492" column="64" selection-start-line="492" selection-start-column="64" selection-end-line="492" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4254,89 +4140,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2557#3245#0" expanded="true" />
+            <element signature="e#3244#3245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/PlayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+          <folding>
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5185185">
-          <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="40" selection-start-line="166" selection-start-column="40" selection-end-line="166" selection-end-column="40" />
           <folding>
             <element signature="e#2503#2504#0" expanded="true" />
             <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#24693#24694#0" expanded="true" />
-            <element signature="e#24728#24729#0" expanded="true" />
-            <element signature="e#24781#24782#0" expanded="true" />
-            <element signature="e#24829#24830#0" expanded="true" />
-            <element signature="e#24863#24864#0" expanded="true" />
-            <element signature="e#24893#24894#0" expanded="true" />
-            <element signature="e#24940#24941#0" expanded="true" />
-            <element signature="e#24978#24979#0" expanded="true" />
-            <element signature="e#25014#25015#0" expanded="true" />
-            <element signature="e#25046#25047#0" expanded="true" />
-            <element signature="e#25096#25097#0" expanded="true" />
-            <element signature="e#25138#25139#0" expanded="true" />
-            <element signature="e#25168#25169#0" expanded="true" />
-            <element signature="e#25197#25198#0" expanded="true" />
-            <element signature="e#25238#25239#0" expanded="true" />
-            <element signature="e#25274#25275#0" expanded="true" />
-            <element signature="e#25311#25312#0" expanded="true" />
-            <element signature="e#25339#25340#0" expanded="true" />
-            <element signature="e#25386#25387#0" expanded="true" />
-            <element signature="e#25420#25421#0" expanded="true" />
-            <element signature="e#25474#25475#0" expanded="true" />
-            <element signature="e#25504#25505#0" expanded="true" />
-            <element signature="e#25570#25571#0" expanded="true" />
-            <element signature="e#25608#25609#0" expanded="true" />
-            <element signature="e#25664#25665#0" expanded="true" />
-            <element signature="e#25705#25706#0" expanded="true" />
-            <element signature="e#25890#25891#0" expanded="true" />
-            <element signature="e#25920#25921#0" expanded="true" />
-            <element signature="e#25978#25979#0" expanded="true" />
-            <element signature="e#26016#26017#0" expanded="true" />
-            <element signature="e#26065#26066#0" expanded="true" />
-            <element signature="e#26094#26095#0" expanded="true" />
-            <element signature="e#26154#26155#0" expanded="true" />
-            <element signature="e#26190#26191#0" expanded="true" />
-            <element signature="e#26218#26219#0" expanded="true" />
-            <element signature="e#26245#26246#0" expanded="true" />
-            <element signature="e#26282#26283#0" expanded="true" />
-            <element signature="e#26314#26315#0" expanded="true" />
-            <element signature="e#26344#26345#0" expanded="true" />
-            <element signature="e#26373#26374#0" expanded="true" />
-            <element signature="e#26414#26415#0" expanded="true" />
-            <element signature="e#26450#26451#0" expanded="true" />
-            <element signature="e#26504#26505#0" expanded="true" />
-            <element signature="e#26533#26534#0" expanded="true" />
-            <element signature="e#26598#26599#0" expanded="true" />
-            <element signature="e#26634#26635#0" expanded="true" />
-            <element signature="e#26670#26671#0" expanded="true" />
-            <element signature="e#26702#26703#0" expanded="true" />
-            <element signature="e#26752#26753#0" expanded="true" />
-            <element signature="e#26794#26795#0" expanded="true" />
-            <element signature="e#26833#26834#0" expanded="true" />
-            <element signature="e#26868#26869#0" expanded="true" />
-            <element signature="e#26924#26925#0" expanded="true" />
-            <element signature="e#26972#26973#0" expanded="true" />
-            <element signature="e#27005#27006#0" expanded="true" />
-            <element signature="e#27034#27035#0" expanded="true" />
-            <element signature="e#27078#27079#0" expanded="true" />
-            <element signature="e#27114#27115#0" expanded="true" />
-            <element signature="e#27151#27152#0" expanded="true" />
-            <element signature="e#27179#27180#0" expanded="true" />
-            <element signature="e#27226#27227#0" expanded="true" />
-            <element signature="e#27260#27261#0" expanded="true" />
-            <element signature="e#27299#27300#0" expanded="true" />
-            <element signature="e#27334#27335#0" expanded="true" />
-            <element signature="e#27390#27391#0" expanded="true" />
-            <element signature="e#27438#27439#0" expanded="true" />
-            <element signature="e#27481#27482#0" expanded="true" />
-            <element signature="e#27515#27516#0" expanded="true" />
-            <element signature="e#27574#27575#0" expanded="true" />
-            <element signature="e#27620#27621#0" expanded="true" />
-            <element signature="e#27670#27671#0" expanded="true" />
-            <element signature="e#27705#27706#0" expanded="true" />
-            <element signature="e#27856#27857#0" expanded="true" />
-            <element signature="e#27889#27890#0" expanded="true" />
-            <element signature="e#27940#27941#0" expanded="true" />
-            <element signature="e#27984#27985#0" expanded="true" />
+            <element signature="e#24678#24679#0" expanded="true" />
+            <element signature="e#24713#24714#0" expanded="true" />
+            <element signature="e#24766#24767#0" expanded="true" />
+            <element signature="e#24814#24815#0" expanded="true" />
+            <element signature="e#24848#24849#0" expanded="true" />
+            <element signature="e#24878#24879#0" expanded="true" />
+            <element signature="e#24925#24926#0" expanded="true" />
+            <element signature="e#24963#24964#0" expanded="true" />
+            <element signature="e#24999#25000#0" expanded="true" />
+            <element signature="e#25031#25032#0" expanded="true" />
+            <element signature="e#25081#25082#0" expanded="true" />
+            <element signature="e#25123#25124#0" expanded="true" />
+            <element signature="e#25153#25154#0" expanded="true" />
+            <element signature="e#25182#25183#0" expanded="true" />
+            <element signature="e#25223#25224#0" expanded="true" />
+            <element signature="e#25259#25260#0" expanded="true" />
+            <element signature="e#25296#25297#0" expanded="true" />
+            <element signature="e#25324#25325#0" expanded="true" />
+            <element signature="e#25371#25372#0" expanded="true" />
+            <element signature="e#25405#25406#0" expanded="true" />
+            <element signature="e#25459#25460#0" expanded="true" />
+            <element signature="e#25489#25490#0" expanded="true" />
+            <element signature="e#25555#25556#0" expanded="true" />
+            <element signature="e#25593#25594#0" expanded="true" />
+            <element signature="e#25649#25650#0" expanded="true" />
+            <element signature="e#25690#25691#0" expanded="true" />
+            <element signature="e#25875#25876#0" expanded="true" />
+            <element signature="e#25905#25906#0" expanded="true" />
+            <element signature="e#25963#25964#0" expanded="true" />
+            <element signature="e#26001#26002#0" expanded="true" />
+            <element signature="e#26050#26051#0" expanded="true" />
+            <element signature="e#26079#26080#0" expanded="true" />
+            <element signature="e#26139#26140#0" expanded="true" />
+            <element signature="e#26175#26176#0" expanded="true" />
+            <element signature="e#26203#26204#0" expanded="true" />
+            <element signature="e#26230#26231#0" expanded="true" />
+            <element signature="e#26267#26268#0" expanded="true" />
+            <element signature="e#26299#26300#0" expanded="true" />
+            <element signature="e#26329#26330#0" expanded="true" />
+            <element signature="e#26358#26359#0" expanded="true" />
+            <element signature="e#26399#26400#0" expanded="true" />
+            <element signature="e#26435#26436#0" expanded="true" />
+            <element signature="e#26489#26490#0" expanded="true" />
+            <element signature="e#26518#26519#0" expanded="true" />
+            <element signature="e#26583#26584#0" expanded="true" />
+            <element signature="e#26619#26620#0" expanded="true" />
+            <element signature="e#26655#26656#0" expanded="true" />
+            <element signature="e#26687#26688#0" expanded="true" />
+            <element signature="e#26737#26738#0" expanded="true" />
+            <element signature="e#26779#26780#0" expanded="true" />
+            <element signature="e#26818#26819#0" expanded="true" />
+            <element signature="e#26853#26854#0" expanded="true" />
+            <element signature="e#26909#26910#0" expanded="true" />
+            <element signature="e#26957#26958#0" expanded="true" />
+            <element signature="e#26990#26991#0" expanded="true" />
+            <element signature="e#27019#27020#0" expanded="true" />
+            <element signature="e#27063#27064#0" expanded="true" />
+            <element signature="e#27099#27100#0" expanded="true" />
+            <element signature="e#27136#27137#0" expanded="true" />
+            <element signature="e#27164#27165#0" expanded="true" />
+            <element signature="e#27211#27212#0" expanded="true" />
+            <element signature="e#27245#27246#0" expanded="true" />
+            <element signature="e#27284#27285#0" expanded="true" />
+            <element signature="e#27319#27320#0" expanded="true" />
+            <element signature="e#27375#27376#0" expanded="true" />
+            <element signature="e#27423#27424#0" expanded="true" />
+            <element signature="e#27466#27467#0" expanded="true" />
+            <element signature="e#27500#27501#0" expanded="true" />
+            <element signature="e#27559#27560#0" expanded="true" />
+            <element signature="e#27605#27606#0" expanded="true" />
+            <element signature="e#27655#27656#0" expanded="true" />
+            <element signature="e#27690#27691#0" expanded="true" />
+            <element signature="e#27841#27842#0" expanded="true" />
+            <element signature="e#27874#27875#0" expanded="true" />
+            <element signature="e#27925#27926#0" expanded="true" />
+            <element signature="e#27969#27970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.9629629">
+          <caret line="176" column="45" selection-start-line="176" selection-start-column="45" selection-end-line="176" selection-end-column="45" />
+          <folding>
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#7988#7989#0" expanded="true" />
           </folding>
         </state>
       </provider>
