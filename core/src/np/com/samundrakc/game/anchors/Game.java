@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import javax.rmi.CORBA.Util;
@@ -62,13 +63,13 @@ public class Game {
         return players;
     }
 
-    public final ArrayList<Player> players;
+    public ArrayList<Player> players;
 
     public ArrayList<Group> getGroup() {
         return group;
     }
 
-    final ArrayList<Group> group;
+    ArrayList<Group> group;
     HashMap<String, Group> winner;
     public int turn;
     public int mineId;
@@ -83,6 +84,14 @@ public class Game {
     public Stage GAME_STAGE;
     private DailaMaara view;
     private int name = 1;
+
+    public void setGroup(ArrayList<Group> group) {
+        this.group = group;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
 
     public DailaMaara getView() {
         return view;
@@ -270,7 +279,7 @@ public class Game {
                                     ));
                                     turn.getView().getGroupHandsStatusLabel().get(turn.getGroup().getName()).setText(turn.getGroup().getHands() + "");
                                     float x = Context.WIDTH / 2, y = Context.HEIGHT + 100;
-                                    switch (turn.DIRECTION) {
+                                    switch (turn.getDIRECTION()) {
                                         case EAST:
                                         case WEST:
                                             x = Context.WIDTH / 2;
@@ -327,7 +336,7 @@ public class Game {
                                     if (turn.getGroup().getName() == PLAYER.getGroup().getName()) {
                                         Sound.getInstance().play(Audio.AUDIO.CARD_WON);
                                     }
-                                    if (totalTens == 4) {
+                                    if (totalTens >= 4) {
                                         if (PLAYER.getGroup().getTens() != 2) {
                                             if (Const.STATE.GAME_OVER != STATE) {
                                                 gameOver();
@@ -365,12 +374,16 @@ public class Game {
         if (!getView().getGoUp().isVisible()) {
             getView().setToggle();
         }
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_LOST);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-        np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
+            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_LOST);
+            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+            }
+        }
         String type = "Hands";
         if (PLAYER.getGroup().getTens() == 2) {
             for (Group group : getGroup()) {
@@ -398,7 +411,8 @@ public class Game {
         final com.badlogic.gdx.audio.Sound fw;
         if (g.getName() == PLAYER.getGroup().getName()) {
             fw = Sound.getInstance().playWithInstance(Audio.AUDIO.FIRE_WORKS);
-            fw.loop();
+            if (fw != null)
+                fw.loop();
             getView().getPfx().getEffectHashMap().get("win").setPosition(Context.WIDTH / 2, 0);
             getView().getPfx().getEffectHashMap().get("win").start();
 
@@ -440,20 +454,7 @@ public class Game {
     private ArrayList<Actor> indexOfPlayOfTurups = new ArrayList<Actor>();
 
     public void continueCurrentGame() {
-//        getView().getParentGame()
-//                .setScreen(
-//                        new LoadingScreen(
-//                                getView().getParentGame()
-//                        )
-//                                .otherScreen(
-//                                        new DailaMaara(
-//                                                getView().getParentGame(),
-//                                                this).setCardsStacks(getView().getCardsStacks()
-//                                        )
-//                                )
-//                );
-        getView().getParentGame().setScreen(new LoadingScreen(getView().getParentGame()).otherScreen(new Form(getView().getParentGame())));
-//        getView().getParentGame().setScreen(new DailaMaara());
+
         if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
 
             np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
@@ -461,44 +462,64 @@ public class Game {
             np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
             np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
             if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-                    np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-                    np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
-                }
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
+                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
             }
-            setView(null);
-            setGAME_STAGE(null);
-//        for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
-//            getView().getCardsStacks().getChildren().get(i).addAction(Animation.simpleAnimation(3, 3));
-//            getView().getCardsStacks().getChildren().get(i).clearListeners();
-//            Game.getCards().get(i).getActor().setVisible(true);
-//            Game.getCards().get(i).getActor().setSize(50, 70);
-//        }
-//        for (Group g : getGroup()) {
-//            getView().getGroupThrownStatusLabel().get(g.getName()).setText("0");
-//            getView().getGroupTensStatusLabel().get(g.getName()).setText("0");
-//            getView().getGroupHandsStatusLabel().get(g.getName()).setText("0");
-//        }
-//        getView().setPositionOfCards();
-//        Game.history.clear();
-//        Game.itihaas.clear();
-//        Game.THROWN = 0;
-//        Game.CARD_PLAYED = null;
-//        Game.STATE = Const.STATE.PLAY;
         }
+
+        itihaas.clear();
+        history.clear();
+        PLAYER_ORDER.clear();
+        winner.clear();
+        historyOfPlayerWon.clear();
+        setTHROWN(0);
+        setSTATE(Const.STATE.PLAY);
+        for (Player player : getPlayers()) {
+            player.getCards().clear();
+            player.getCardsActor().clear();
+            player.getBackCards().clear();
+            player.getSortedCards().clear();
+        }
+        setTHROWN_CARDS(0);
+        setTURUP(null);
+        setTURUP_STRING("");
+        shuffleCardsOFGame(getCards());
+        for (Group g : getGroup()) {
+            g.setCoat(0);
+            g.setTens(0);
+            g.setHands(0);
+            g.setThrown(0);
+            g.setWon(0);
+        }
+        for (Card card : getCards()) {
+            card.getActor().clearActions();
+            card.getActor().clearListeners();
+            card.getActor().clear();
+            card.getActor().setVisible(true);
+        }
+        clearIndexOfPlayOfTurups();
+        getView().getParentGame()
+                .setScreen(
+                        new LoadingScreen(
+                                getView().getParentGame()
+                        )
+                                .otherScreen(
+                                        new DailaMaara(
+                                                getView().getParentGame(),
+                                                this)
+                                )
+                );
+        setView(null);
+        setGAME_STAGE(null);
+    }
 
     public void selectPlayOfTurup(Player player, Card card) {
         if (THROWN == 0) {
             if (indexOfPlayOfTurups.size() > 0) {
-                for (int i = 0; i < indexOfPlayOfTurups.size(); i++) {
-                    indexOfPlayOfTurups.get(i).clearActions();
-                    indexOfPlayOfTurups.get(i).clearListeners();
-                    indexOfPlayOfTurups.get(i).clear();
-                    indexOfPlayOfTurups.get(i).remove();
-                }
-            } else {
-                if (player.getView().getPlayOfTable().getCells().size > 1) {
-                    player.getView().getPlayOfTable().getCells().get(1).clearActor();
-                }
+                clearIndexOfPlayOfTurups();
+            }
+            if (getView().getPlayOfActor().isVisible()) {
+                getView().getPlayOfActor().setVisible(false);
             }
             Actor c = new Image(Const.COLORS_ACTOR.get(card.getCardType()));
             c.setSize(10, 10);
@@ -508,6 +529,15 @@ public class Game {
             CARD_PLAYED = card.getCardType();
             GAME_STAGE.addActor(c);
             itihaas.get(itihaas.size() - 1).setPlayOf(card.getCardType());
+        }
+    }
+
+    private void clearIndexOfPlayOfTurups() {
+        for (int i = 0; i < indexOfPlayOfTurups.size(); i++) {
+            indexOfPlayOfTurups.get(i).clearActions();
+            indexOfPlayOfTurups.get(i).clearListeners();
+            indexOfPlayOfTurups.get(i).clear();
+            indexOfPlayOfTurups.get(i).remove();
         }
     }
 

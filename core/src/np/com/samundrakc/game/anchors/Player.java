@@ -104,7 +104,15 @@ public class Player {
         this.locationY = locationY;
     }
 
-    public Const.DIRECTION DIRECTION;
+    public Const.DIRECTION getDIRECTION() {
+        return DIRECTION;
+    }
+
+    public void setDIRECTION(Const.DIRECTION DIRECTION) {
+        this.DIRECTION = DIRECTION;
+    }
+
+    private Const.DIRECTION DIRECTION;
     private float locationX = 0;
     private float locationY = 0;
 
@@ -196,12 +204,13 @@ public class Player {
     public Timer active = new Timer();
 
     public void play() {
+        final Player currentPlayer = this;
         active.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
                 if (getGame().getSTATE() == Const.STATE.GAME_OVER) {
                     active.clear();
-                    System.out.println("Player game over state");
+                    System.out.println(currentPlayer.getName() + " : Player game over state");
                     return;
                 }
                 if (!getGame().isSTARTED()) return;
@@ -215,7 +224,7 @@ public class Player {
                         getGame().getItihaas().add(new History());
                     }
                     //Do the Playing Task Here
-                    final Card c = removeCardFromMyIndex(new MasterMind(Player.this).getCard());
+                    final Card c = removeCardFromMyIndex(new MasterMind(currentPlayer).getCard());
                     if (c == null) {
                         System.out.println("Card not found");
                         getGame().setSTATE(Const.STATE.GAME_OVER);
@@ -267,6 +276,7 @@ public class Player {
 
     public Card getCardToThrow() {
         //This is just Random
+        System.out.println(getName() + " card size is " + cards.size());
         if (this.cards.size() > 0) {
             int index = this.cards.size() - 1;
             Card c = this.cards.get(index);

@@ -119,7 +119,7 @@ public class CardSelection {
                                                                 .otherScreen(
                                                                         new DailaMaara(
                                                                                 form.getView().getDailaMaara(),
-                                                                                form.getGame()).setCardsStacks(form.getView().getStacks()
+                                                                                form.getGame()
                                                                         )
                                                                 )
                                                 );

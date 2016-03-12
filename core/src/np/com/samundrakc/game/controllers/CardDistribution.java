@@ -1,5 +1,7 @@
 package np.com.samundrakc.game.controllers;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
@@ -29,16 +31,21 @@ public class CardDistribution {
     }
 
     private final DailaMaara game;
-    private boolean cardShareDone = false;
+    private boolean cardShareDone;
 
     public CardDistribution(DailaMaara game) {
         this.game = game;
+        cardShareDone = false;
     }
 
 
     public CardDistribution shareProcessFirst() {
         game.getCards().setZIndex(1);
         int count = 0;
+        for (Player p : game.getSortPlayer()) {
+            p.getCards().clear();
+            p.getCardsActor().clear();
+        }
         for (int i = 0; i < 52; i++) {
             Card c = game.getMainGame().getCards().get(i);
             if (game.getSortPlayer().get(count).getCards().size() >= 13) {
@@ -57,16 +64,30 @@ public class CardDistribution {
         final int[] player = {0};
         final Timer timer = new Timer();
         final boolean[] proceed = {true};
+        game.getMainGame().getTALK_TURN().getCardsActor().clear();
+        for (Player p : game.getMainGame().getPlayers()) {
+            p.getCardsActor().clear();
+        }
         timer.scheduleTask(new Timer.Task() {
             @Override
             public void run() {
                 if (game.getMainGame().getTALK_TURN().getCardsActor().size() >= 5) {
+//                    Gdx.app.log("Info", "Talk Turn has cards Actor high then 5");
                     if (game.getMainGame().getTURUP() == null) {
+                        Gdx.app.log("Info", "Turup is null");
                         return;
                     }
+                } else {
+//                    Gdx.app.log("Info", "Talk Turn has cards Actor  not high then 5");
                 }
-                if (!cardShareDone) return;
-                if (!proceed[0]) return;
+                if (!cardShareDone) {
+//                    System.out.println("card share done");
+                    return;
+                }
+                if (!proceed[0]) {
+//                    System.out.println("unable to proced");
+                    return;
+                }
                 proceed[0] = false;
                 if (cardCounter[0] == numberOfCardsToThrow) {
                     game.getMainGame().setTHROWN_CARDS(numberOfCardsToThrow);
@@ -78,11 +99,15 @@ public class CardDistribution {
                 final Player p = game.getSortPlayer().get(player[0]);
                 final Player turn = game.getMainGame().getPlayers().get(game.getMainGame().getTurn());
                 p.setBackCards(cards);
+//                Gdx.app.log(p.getName(), "Cards set to ");
                 p.setCardsActor(game.getMainGame().getCards().get(cardCounter[0]).getActor());
                 float x = p.getActor().getX() - (game.getCards().getX());
                 float y = p.getActor().getY() - (game.getCards().getY());
                 float[] cords;
-                switch (turn.DIRECTION) {
+//                Gdx.app.log("Talking Turn", game.getMainGame().getTurn() + "");
+//                System.out.println(turn);
+//                Gdx.app.log("Turn is of Player", turn.getDIRECTION().toString());
+                switch (turn.getDIRECTION()) {
                     case EAST:
                         cords = ifCardForEast(p, cards, x, y);
                         x = cords[0];
@@ -108,7 +133,7 @@ public class CardDistribution {
                 cards.addAction(Actions.sequence(Animation.moveBy(x, y, Const.CARD_DISTRUBUTION_SECONDS_PER_PLAYER), new RunnableAction() {
                     @Override
                     public void run() {
-                        if (p.DIRECTION == Const.DIRECTION.WEST) {
+                        if (p.getDIRECTION() == Const.DIRECTION.WEST) {
                             int index = 0;
                             if (p.getCardsActor().size() < 2) {
                                 p.getCards().get(index).getActor().clearActions();
@@ -220,7 +245,7 @@ public class CardDistribution {
     }
 
     private float[] ifCardForEast(Player p, Actor cards, float x, float y) {
-        switch (p.DIRECTION) {
+        switch (p.getDIRECTION()) {
             case EAST:
                 cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
@@ -246,7 +271,7 @@ public class CardDistribution {
     }
 
     private float[] ifCardForWest(Player p, Actor cards, float x, float y) {
-        switch (p.DIRECTION) {
+        switch (p.getDIRECTION()) {
             case EAST:
                 cards.addAction(Animation.rotate(180, Const.CARD_ROTATE_ANIMATION));
                 x = 0;
@@ -271,7 +296,7 @@ public class CardDistribution {
     }
 
     private float[] ifCardFromNorth(Player p, Actor cards, float x, float y) {
-        switch (p.DIRECTION) {
+        switch (p.getDIRECTION()) {
             case EAST:
                 cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x = p.getActor().getY() - (game.getCards().getY() + 7);
@@ -305,7 +330,7 @@ public class CardDistribution {
     }
 
     private float[] ifCardFromSouth(Player p, Actor cards, float x, float y) {
-        switch (p.DIRECTION) {
+        switch (p.getDIRECTION()) {
             case EAST:
                 cards.addAction(Animation.rotate(90, Const.CARD_ROTATE_ANIMATION));
                 x = p.getActor().getY() - (game.getCards().getY() + 7);

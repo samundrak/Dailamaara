@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -27,6 +28,7 @@ import np.com.samundrakc.game.anchors.Group;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.controllers.CardDistribution;
 import np.com.samundrakc.game.controllers.DailamaaraListener;
+import np.com.samundrakc.game.controllers.FormCtrl;
 import np.com.samundrakc.game.controllers.PFX;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -99,14 +101,30 @@ public class DailaMaara extends ScreenRules {
     }
 
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
-        super(game,new Texture("table.png"));
+        super(game, new Texture("table.png"));
         this.mainGame = mainGame;
+    }
+
+    public void initTheCardsAgain() {
+        this.cards = new com.badlogic.gdx.scenes.scene2d.Group();
+        cards.setSize(40, 60);
+        final int[] gap = {3};
+        cards.setPosition(gap[0], (50));
+        for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
+            cards.addActor(new FormCtrl.BackCover(i));
+            cards.getChildren().get(i).setPosition(gap[0], gap[0]);
+            cards.getChildren().get(i).setZIndex(0);
+        }
+        cards.setZIndex(0);
+        cards.setTouchable(Touchable.disabled);
     }
 
     @Override
     public void loadAssets() {
         super.loadAssets();
-        if(np.com.samundrakc.game.DailaMaara.GAME_MUSIC  != null){
+        initTheCardsAgain();
+        sortPlayer = new ArrayList<Player>();
+        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
 
             np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
         }
@@ -132,6 +150,8 @@ public class DailaMaara extends ScreenRules {
         HUD();
         playerSeats();
         setPositionOfCards();
+        stage.addActor(cards);
+
         stage.addActor(goUp);
         stage.addActor(goDown);
     }
@@ -145,7 +165,7 @@ public class DailaMaara extends ScreenRules {
     }
 
     public DailaMaara setCardsStacks(com.badlogic.gdx.scenes.scene2d.Group cards) {
-        this.cards = cards;
+
         return this;
     }
 
@@ -300,10 +320,15 @@ public class DailaMaara extends ScreenRules {
     }
 
     private Table playOfTable;
+    Image playOfActor;
+
+    public Image getPlayOfActor() {
+        return playOfActor;
+    }
 
     private Actor playOfTable() {
         Label playOf = new Label("Play Of", Context.getInstance().getSkin());
-        Image playOfActor = new Image(Context.getInstance().getCARDS_BACK_COVER());
+        playOfActor = new Image(Context.getInstance().getCARDS_BACK_COVER());
         playOfActor.setSize(70, 100);
         playOfTable = new Table();
         playOfTable.add(playOf);
@@ -321,6 +346,7 @@ public class DailaMaara extends ScreenRules {
     boolean hasToRotate = false;
 
     private void playerSeats() {
+        cards.setZIndex(0);
         Player[] temp = new Player[4];
 
         Player my = mainGame.getPlayers().get(getMainGame().getMineId());
@@ -328,15 +354,19 @@ public class DailaMaara extends ScreenRules {
         for (Group g : mainGame.getGroup()) {
             if (g.getName().equals(my.getGroup().getName())) {
                 TextButton me = new TextButton(my.getName(), Context.getInstance().getSkin());
+                me.setZIndex(9999);
                 me.setPosition(Context.WIDTH / 2, 0);
                 playerPosition.put(my, me);
                 TextButton friend = new TextButton(my.getFriend().getName(), Context.getInstance().getSkin());
                 friend.setPosition(Context.WIDTH / 2, Context.HEIGHT - (friend.getHeight()));
+                friend.setZIndex(9999);
                 playerPosition.put(my.getFriend(), friend);
-                my.DIRECTION = Const.DIRECTION.WEST;
+                my.setDIRECTION(Const.DIRECTION.WEST);
+                Gdx.app.log(my.getName() + " Direction", my.getDIRECTION().toString());
                 my.setActor(me);
                 my.getFriend().setActor(friend);
-                my.getFriend().DIRECTION = Const.DIRECTION.EAST;
+                my.getFriend().setDIRECTION(Const.DIRECTION.EAST);
+                Gdx.app.log(my.getFriend().getName() + " Direction", my.getFriend().getDIRECTION().toString());
                 my.setCardToThrowLocations(new float[]{245, 155});
                 stage.addActor(me);
                 stage.addActor(friend);
@@ -354,7 +384,7 @@ public class DailaMaara extends ScreenRules {
                 if (mainGame.getTurn() == my.getId()) {
                     cards.setPosition(Context.WIDTH / 2, me.getHeight() + 10);
                     my.setMyCardPosition(cards.getX(), cards.getY());
-                } else if (mainGame.getTurn()== my.getFriend().getId()) {
+                } else if (mainGame.getTurn() == my.getFriend().getId()) {
                     my.getFriend().setMyCardPosition(cards.getX(), cards.getY());
                     cards.setPosition(Context.WIDTH / 2, Context.HEIGHT - (friend.getHeight() + cards.getHeight() + 10));
                 }
@@ -369,20 +399,25 @@ public class DailaMaara extends ScreenRules {
                 Player c2 = g.getPlayerList().get(1);
                 TextButton leftPlayer = new TextButton(c1.getName(), Context.getInstance().getSkin());
                 TextButton rightPlayer = new TextButton(c2.getName(), Context.getInstance().getSkin());
+                leftPlayer.setZIndex(9999);
+                rightPlayer.setZIndex(9999);
                 g1.setPosition(leftPlayer.getHeight(), Context.HEIGHT / 2);
                 g2.setPosition(Context.WIDTH, Context.HEIGHT / 2);
                 g1.addActor(leftPlayer);
                 g2.addActor(rightPlayer);
                 g1.setRotation(90);
                 g2.setRotation(90);
-                c1.DIRECTION = Const.DIRECTION.NORTH;
+                c1.setDIRECTION(Const.DIRECTION.NORTH);
+                Gdx.app.log(c1.getName() + " Direction", c1.getDIRECTION().toString());
+
                 c1.setLocationX(70);
                 c1.setLocationY(1);
                 c1.setActor(g1);
                 c1.setGame(mainGame);
                 c1.setView(this);
                 c1.setCardToThrowLocations(new float[]{135, 155});
-                c2.DIRECTION = Const.DIRECTION.SOUTH;
+                c2.setDIRECTION(Const.DIRECTION.SOUTH);
+                Gdx.app.log(c2.getName() + " Direction", c2.getDIRECTION().toString());
                 c2.setLocationX(700);
                 c2.setLocationY(1);
                 c2.setActor(g2);
@@ -488,9 +523,9 @@ public class DailaMaara extends ScreenRules {
             cards.setRotation(0);
         }
 
-
+        getSortPlayer().clear();
         for (int i = 0; i < PlayerOnSide.size(); i++) {
-            if (PlayerOnSide.get(i).getId() ==mainGame.getTurn()) {
+            if (PlayerOnSide.get(i).getId() == mainGame.getTurn()) {
                 int index = i + 1;
                 if (i == PlayerOnSide.size() - 1) {
                     index = 0;
@@ -519,5 +554,5 @@ public class DailaMaara extends ScreenRules {
         return index;
     }
 
-    ArrayList<Player> sortPlayer = new ArrayList<Player>();
+    ArrayList<Player> sortPlayer;
 }

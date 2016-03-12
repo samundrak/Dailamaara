@@ -62,6 +62,7 @@ public class MasterMind {
         if (card == null) {
             card = player.getCardToThrow();
         }
+        System.out.println(card);
         return card;
     }
 
