@@ -245,7 +245,6 @@ public class Player {
                                 }
                             }));
                     c.getActor().setSize(100, 120);
-                    c.getActor().setZIndex(0);
                     game.getGAME_STAGE().addActor(c.getActor());
 
                 }

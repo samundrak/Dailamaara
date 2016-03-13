@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import np.com.samundrakc.game.anchors.Const;
+import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.controllers.subControllers.Audio;
 import np.com.samundrakc.game.controllers.subControllers.PauseScreen;
 import np.com.samundrakc.game.controllers.subControllers.Sound;
@@ -24,6 +25,24 @@ public class Windows {
     Window window;
     Image close;
     Stage stage;
+    boolean isOpen;
+    Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(boolean isOpen) {
+        this.isOpen = isOpen;
+    }
 
     public Windows(String title, Stage stage) {
         window = new Window(title, Context.getInstance().getSkin());
@@ -37,7 +56,7 @@ public class Windows {
 
     public Windows getPauseScreen(PauseScreen.GamePauseScreen controller) {
         window.setWidth(350);
-        window.setHeight(200);
+        window.setHeight(250);
         this.controller = controller;
         window.setPosition(((Context.WIDTH / 2) - (window.getWidth() / 2)), ((Context.HEIGHT / 2) - (window.getHeight() / 2)));
         Table table = new Table();
@@ -51,33 +70,35 @@ public class Windows {
         menu.addListener(controller.gotoMenu(menu));
         exit.addListener(controller.exitGame(exit));
         table.add(continueGame).padTop(10).row();
-        table.add(restartGame).pad(1).row();
-        table.add(menu).pad(2).row();
-        table.add(exit).pad(1).row();
+        table.add(restartGame).pad(8).row();
+        table.add(menu).pad(8).row();
+        table.add(exit).pad(8).row();
         window.add(table);
         close.addListener(selfHide());
-        stage.addActor(window);
-//        stage.addActor(close);
+
         window.setVisible(false);
         close.setVisible(false);
         window.setMovable(false);
         window.setModal(true);
-
         return this;
     }
 
     public Windows show() {
         if (window.isVisible()) return this;
+        setIsOpen(true);
         controller.getGame().setSTATE(Const.STATE.PAUSE);
-        System.out.println("Showing..window");
         Sound.getInstance().play(Audio.AUDIO.BUTTON_TOUCH);
         window.setVisible(true);
         close.setVisible(true);
         window.addAction(Actions.fadeOut(0));
-        window.addAction(Actions.fadeIn(0.4f));
+        window.addAction(Actions.fadeIn(0.2f));
         close.addAction(Actions.fadeOut(0));
-        close.addAction(Actions.fadeIn(0.4f));
-        window.setZIndex(1);
+        close.addAction(Actions.fadeIn(0.2f));
+        stage.addActor(window);
+        if (getGame().getView().getParentGame().getGAME_MUSIC() != null) {
+            getGame().getView().getParentGame().getGAME_MUSIC().pause();
+        }
+//        stage.addActor(close);
         return this;
     }
 
@@ -93,11 +114,16 @@ public class Windows {
 
     public void hide() {
         if (!window.isVisible()) return;
+        setIsOpen(false);
+        if (getGame().getView().getParentGame().getGAME_MUSIC() != null) {
+            getGame().getView().getParentGame().getGAME_MUSIC().play();
+        }
         controller.getGame().setSTATE(Const.STATE.PLAY);
         window.addAction(Actions.sequence(Actions.fadeOut(0.2f), new RunnableAction() {
                     @Override
                     public void run() {
                         window.setVisible(false);
+                        window.remove();
                     }
                 })
         );
@@ -108,6 +134,7 @@ public class Windows {
                             @Override
                             public void run() {
                                 close.setVisible(false);
+//                                close.remove();
                             }
                         }
                 ));

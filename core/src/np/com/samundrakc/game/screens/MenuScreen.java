@@ -40,13 +40,14 @@ public class MenuScreen extends ScreenRules {
     public void loadAssets() {
         super.loadAssets();
         Context.getInstance().setSkin();
-        if (DailaMaara.GAME_MUSIC != null) {
-            DailaMaara.GAME_MUSIC.setVolume(0.5f);
-            DailaMaara.GAME_MUSIC.setLooping(true);
+        if (dailaMaara.getGAME_MUSIC() != null) {
+            dailaMaara.getGAME_MUSIC().setVolume(0.5f);
+            dailaMaara.getGAME_MUSIC().setLooping(true);
         } else {
             System.out.println("Played Again");
             Music.getInstance().loadAudio();
-            DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+            dailaMaara.setGAME_MUSIC(Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC));
+
             Sound.getInstance().loadAudio();
         }
         buttonsAtlas = new TextureAtlas("texture/buttons.atlas");

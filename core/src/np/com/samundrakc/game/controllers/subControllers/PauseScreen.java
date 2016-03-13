@@ -36,7 +36,7 @@ public class PauseScreen {
                     label.setColor(Color.GREEN);
                     Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                     game.getView().getParentGame().setScreen(new LoadingScreen(game.getView().getParentGame()).otherScreen(new Form(game.getView().getParentGame())));
-                    game.setView(null);
+                    game.dispose();
                     game = null;
                 }
             };
@@ -50,7 +50,7 @@ public class PauseScreen {
                     label.setColor(Color.GREEN);
                     Sound.getInstance().play(Sound.AUDIO.BUTTON_TOUCH);
                     Gdx.app.exit();
-                    game.setView(null);
+                    game.dispose();
                     game = null;
                 }
 
@@ -75,7 +75,7 @@ public class PauseScreen {
                                             game.
                                                     getView().
                                                     getParentGame())));
-                    game.setView(null);
+                    game.dispose();
                     game = null;
 
                 }

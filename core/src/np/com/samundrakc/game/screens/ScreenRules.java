@@ -17,7 +17,7 @@ import np.com.samundrakc.game.misc.Context;
  * Created by samundra on 1/29/2016.
  */
 public abstract class ScreenRules extends ScreenAdapter {
-    protected   DailaMaara game;
+    protected DailaMaara game;
     protected Stage stage;
     StretchViewport vp;
     OrthographicCamera cam;
@@ -74,15 +74,30 @@ public abstract class ScreenRules extends ScreenAdapter {
     @Override
     public void pause() {
         super.pause();
-        System.out.println("On Poz mode");
-        DailaMaara.GAME_MUSIC = null;
-        Music.getInstance().setAssetsLoaded(false);
-        Sound.getInstance().setAssetsLoaded(false);
+        if (game.getGAME_MUSIC() != null) {
+            game.getGAME_MUSIC().pause();
+        }
+
     }
 
     public void loadAssets() {
 
     }
 
+    @Override
+    public void resume() {
+        super.resume();
+        if (game.getGAME_MUSIC() != null) {
+            game.getGAME_MUSIC().play();
+        }
+    }
 
+    @Override
+    public void dispose() {
+        super.dispose();
+        Music.getInstance().setAssetsLoaded(false);
+        Music.getInstance().dispose();
+        Sound.getInstance().setAssetsLoaded(false);
+        Sound.getInstance().dispose();
+    }
 }

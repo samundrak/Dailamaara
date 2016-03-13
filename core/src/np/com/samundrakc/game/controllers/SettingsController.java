@@ -56,16 +56,17 @@ public class SettingsController {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (!view.getMusic().isChecked()) {
                     prefs.setInt("music", 1);
-                    if (DailaMaara.GAME_MUSIC == null) {
+                    if (game.getGAME_MUSIC() == null) {
                         np.com.samundrakc.game.controllers.subControllers.Music.getInstance().loadAudio();
-                        DailaMaara.GAME_MUSIC = np.com.samundrakc.game.controllers.subControllers.Music.getInstance().playMusic(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO.GAME_MUSIC);
+                        game.setGAME_MUSIC( np.com.samundrakc.game.controllers.subControllers.Music.getInstance().playMusic(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO.GAME_MUSIC));
                     }
-                    DailaMaara.GAME_MUSIC.play();
-                    DailaMaara.GAME_MUSIC.setVolume(0.5f);
-                    DailaMaara.GAME_MUSIC.setLooping(true);
+                    game.getGAME_MUSIC().play();
+                    game.getGAME_MUSIC().setVolume(0.5f);
+                     game.getGAME_MUSIC().setLooping(true);
                 } else {
-                    if (DailaMaara.GAME_MUSIC != null) {
-                        DailaMaara.GAME_MUSIC.stop();
+                    if (game.getGAME_MUSIC() != null) {
+                        game.getGAME_MUSIC().stop();
+                        game.setGAME_MUSIC(null);
                         np.com.samundrakc.game.controllers.subControllers.Music.getInstance().dispose();
                     }
                     prefs.setInt("music", 0);

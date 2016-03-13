@@ -126,6 +126,7 @@ public class DailaMaara extends ScreenRules {
         cards.setPosition(gap[0], (50));
         for (int i = 0; i < Const.TOTAL_NUMBER_OF_CARDS; i++) {
             cards.addActor(new FormCtrl.BackCover(i));
+            cards.getChildren().get(i).setSize(40, 60);
             cards.getChildren().get(i).setPosition(gap[0], gap[0]);
             cards.getChildren().get(i).setZIndex(0);
         }
@@ -140,13 +141,13 @@ public class DailaMaara extends ScreenRules {
         initTheCardsAgain();
         TURN_LABEL = new Label("None", Context.getInstance().getSkin());
         sortPlayer = new ArrayList<Player>();
-        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
-        }
         parentGame = game;
+        if (getParentGame().getGAME_MUSIC() != null) {
+            getParentGame().getGAME_MUSIC().setVolume(0.2f);
+        }
         gamePauseScreenCtrl = new PauseScreen.GamePauseScreen(getMainGame());
         gamePauseScreen = new Windows("Pause", getStage()).getPauseScreen(gamePauseScreenCtrl);
+        gamePauseScreen.setGame(getMainGame());
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         mainGame.setGAME_STAGE(stage);
         msg = new MessageBox(stage, "Pop up message");
@@ -154,9 +155,6 @@ public class DailaMaara extends ScreenRules {
         mainGame.setView(this);
         pfx = new PFX();
         pfx.loadEffects();
-//        Texture texture = new Texture(Gdx.files.internal("texture/turup_anime.png"));
-//        birdAnimation = new SpriteAnimation(new TextureRegion(texture), 4, 0.5f);
-//        bounds = new Rectangle(0, 0, texture.getWidth() / 4, 100);
         goUp = new Image(new Texture("up.png"));
         goDown = new Image(new Texture("down.png"));
         onCoat = new Image(new Texture("coats.png"));

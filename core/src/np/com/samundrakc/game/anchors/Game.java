@@ -43,6 +43,7 @@ public class Game {
     public ArrayList<Player> historyOfPlayerWon;
     public ArrayList<History> itihaas;
     public ArrayList<ArrayList<History>> bigHistory;
+    public ArrayList<com.badlogic.gdx.audio.Sound> soundPools;
 
     public ArrayList<Card> getCards() {
         return cards;
@@ -122,6 +123,7 @@ public class Game {
         PLAYER_ORDER = new ArrayList<Player>();
         GAME_STAGE = null;
         bigHistory = new ArrayList<ArrayList<History>>();
+        soundPools = new ArrayList<com.badlogic.gdx.audio.Sound>();
     }
 
     /**
@@ -292,7 +294,7 @@ public class Game {
                                     boolean isThereTen = false;
                                     float tenX = 0, tenY = 0;
                                     for (final Card c : history.get(history.size() - 1)) {
-                                        Sound.getInstance().play(Sound.AUDIO.COLLAPSED);
+                                        soundPools.add(Sound.getInstance().playWithInstance(Sound.AUDIO.COLLAPSED));
                                         if (c.getNumber() == 10) {
                                             isThereTen = true;
                                             tenY = c.getActor().getY() + c.getActor().getHeight() / 2;
@@ -324,13 +326,13 @@ public class Game {
                                         if (turn.getGroup().getName() == PLAYER.getGroup().getName()) {
                                             view.getTensEffects().setPosition(tenX, tenY);
                                             view.getTensEffects().start();
-                                            Sound.getInstance().play(Audio.AUDIO.SPALSH_TEN);
+                                            soundPools.add(Sound.getInstance().playWithInstance(Audio.AUDIO.SPALSH_TEN));
                                         } else {
-                                            Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
+                                            soundPools.add(Sound.getInstance().playWithInstance(Audio.AUDIO.TEN_GONE));
                                         }
                                     }
                                     if (turn.getGroup().getName() == PLAYER.getGroup().getName()) {
-                                        Sound.getInstance().play(Audio.AUDIO.CARD_WON);
+                                        soundPools.add(Sound.getInstance().playWithInstance(Audio.AUDIO.CARD_WON));
                                     }
                                     if (totalTens >= 4) {
                                         if (PLAYER.getGroup().getTens() != 2) {
@@ -386,14 +388,14 @@ public class Game {
         if (!getView().getGoUp().isVisible()) {
             getView().setToggle();
         }
-        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_LOST);
-            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        if (getView().getParentGame().getGAME_MUSIC() != null) {
+            getView().getParentGame().getGAME_MUSIC().setVolume(0.1f);
+            getView().getParentGame().getGAME_MUSIC().stop();
+            getView().getParentGame().getGAME_MUSIC().dispose();
+            getView().getParentGame().setGAME_MUSIC(Music.getInstance().playMusic(Audio.AUDIO.GAME_LOST));
+            if ( getView().getParentGame().getGAME_MUSIC()!= null) {
+                getView().getParentGame().getGAME_MUSIC().setLooping(true);
+                getView().getParentGame().getGAME_MUSIC().setVolume(0.2f);
             }
         }
         String type = "Hands";
@@ -433,6 +435,7 @@ public class Game {
         } else {
             fw = null;
         }
+        soundPools.add(fw);
         getView().getGroupWonStatusLabel().get(g.getName()).setText(g.getWon() + "");
         final Group finalG = g;
         new MessageBox(GAME_STAGE, g.getName() + " won the game with " + won + " " + type + " ! Play Again?", new MessageBox.OnOkButtonClicked() {
@@ -451,14 +454,14 @@ public class Game {
 
     public void continueCurrentGame(Group winnerGroup) {
 
-        if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.1f);
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.stop();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC.dispose();
-            np.com.samundrakc.game.DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
-            if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setLooping(true);
-                np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
+        if ( getView().getParentGame().getGAME_MUSIC() != null) {
+            getView().getParentGame().getGAME_MUSIC().setVolume(0.1f);
+            getView().getParentGame().getGAME_MUSIC().stop();
+            getView().getParentGame().getGAME_MUSIC().dispose();
+            getView().getParentGame().setGAME_MUSIC(Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC))   ;
+            if ( getView().getParentGame().getGAME_MUSIC() != null) {
+                getView().getParentGame().getGAME_MUSIC().setLooping(true);
+                getView().getParentGame().getGAME_MUSIC().setVolume(0.2f);
             }
         }
 
@@ -615,7 +618,7 @@ public class Game {
         if (TURUP == null) return;
         final Image turup = COLORS.get(TURUP);
         turup.setPosition(Context.WIDTH / 2, (Context.HEIGHT / 2) + 50);
-        Sound.getInstance().play(Audio.AUDIO.SPLASH_TURUP);
+        soundPools.add(Sound.getInstance().playWithInstance(Audio.AUDIO.SPLASH_TURUP));
         getView().getPfx().getEffectHashMap().get(TURUP.toString()).setPosition(turup.getX(), turup.getY());
         getView().getPfx().getEffectHashMap().get(TURUP.toString()).start();
         turup.addAction(Actions.sequence(Animation.sizeActionPlusWithAnime(50, 60, 1),
@@ -794,5 +797,27 @@ public class Game {
 
     public void setGAME_STAGE(Stage GAME_STAGE) {
         this.GAME_STAGE = GAME_STAGE;
+    }
+
+    public void dispose() {
+        for (com.badlogic.gdx.audio.Sound sounds : soundPools) {
+            if (soundPools != null) {
+                sounds.stop();
+                sounds.dispose();
+            }
+        }
+        soundPools.clear();
+        getCards().clear();
+        getPlayers().clear();
+        getGroup().clear();
+        setView(null);
+        getHistory().clear();
+        getHistoryOfPlayerWon().clear();
+        getItihaas().clear();
+        getWinner().clear();
+        getCOLORS().clear();
+        setCards(null);
+        setGroup(null);
+        setGAME_STAGE(null);
     }
 }

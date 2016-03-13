@@ -2,6 +2,8 @@ package np.com.samundrakc.game.controllers.subControllers;
 
 import com.badlogic.gdx.Gdx;
 
+import java.util.Set;
+
 /**
  * Created by samundra on 2/28/2016.
  */
@@ -23,6 +25,7 @@ public class Sound extends np.com.samundrakc.game.controllers.subControllers.Aud
     public com.badlogic.gdx.audio.Sound playWithInstance(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO audio) {
         if (!assetsLoaded) return null;
         if (prefs.getInt("sound") == 0) return null;
+        sounds.get(audio).play();
         return sounds.get(audio);
     }
 
@@ -50,8 +53,16 @@ public class Sound extends np.com.samundrakc.game.controllers.subControllers.Aud
 
     public void dispose() {
         if (!assetsLoaded) return;
+        if (prefs.getInt("sound") == 0) return;
         sounds.get(AUDIO.BUTTON_TOUCH).dispose();
         sounds.get(AUDIO.CARD_SHARE).dispose();
+        Set<AUDIO> audioSet = sounds.keySet();
+        for (AUDIO audio : audioSet) {
+            if (sounds.get(audio) != null) {
+                sounds.get(audio).stop();
+                sounds.get(audio).dispose();
+            }
+        }
     }
 
     @Override
