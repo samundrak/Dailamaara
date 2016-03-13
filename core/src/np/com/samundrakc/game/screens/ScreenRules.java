@@ -1,22 +1,16 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 import np.com.samundrakc.game.DailaMaara;
-import np.com.samundrakc.game.anchors.Game;
-import np.com.samundrakc.game.controllers.Music;
-import np.com.samundrakc.game.controllers.Sound;
+import np.com.samundrakc.game.controllers.subControllers.Music;
+import np.com.samundrakc.game.controllers.subControllers.Sound;
 import np.com.samundrakc.game.misc.Context;
 
 /**

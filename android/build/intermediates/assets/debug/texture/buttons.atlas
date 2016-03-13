@@ -1,0 +1,40 @@
+
+buttons.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+multiplayer
+  rotate: false
+  xy: 1, 55
+  size: 314, 52
+  orig: 314, 52
+  offset: 0, 0
+  index: -1
+exit
+  rotate: false
+  xy: 1, 1
+  size: 250, 52
+  orig: 250, 52
+  offset: 0, 0
+  index: -1
+howtoplay
+  rotate: false
+  xy: 317, 55
+  size: 250, 52
+  orig: 250, 52
+  offset: 0, 0
+  index: -1
+playButton
+  rotate: false
+  xy: 253, 1
+  size: 250, 52
+  orig: 250, 52
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 569, 55
+  size: 250, 52
+  orig: 250, 52
+  offset: 0, 0
+  index: -1

@@ -57,8 +57,8 @@ public class SettingsController {
                 if (!view.getMusic().isChecked()) {
                     prefs.setInt("music", 1);
                     if (DailaMaara.GAME_MUSIC == null) {
-                        Music.getInstance().loadAudio();
-                        DailaMaara.GAME_MUSIC = Music.getInstance().playMusic(Audio.AUDIO.GAME_MUSIC);
+                        np.com.samundrakc.game.controllers.subControllers.Music.getInstance().loadAudio();
+                        DailaMaara.GAME_MUSIC = np.com.samundrakc.game.controllers.subControllers.Music.getInstance().playMusic(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO.GAME_MUSIC);
                     }
                     DailaMaara.GAME_MUSIC.play();
                     DailaMaara.GAME_MUSIC.setVolume(0.5f);
@@ -66,7 +66,7 @@ public class SettingsController {
                 } else {
                     if (DailaMaara.GAME_MUSIC != null) {
                         DailaMaara.GAME_MUSIC.stop();
-                        Music.getInstance().dispose();
+                        np.com.samundrakc.game.controllers.subControllers.Music.getInstance().dispose();
                     }
                     prefs.setInt("music", 0);
                 }

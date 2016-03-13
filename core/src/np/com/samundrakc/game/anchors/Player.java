@@ -5,21 +5,17 @@
  */
 package np.com.samundrakc.game.anchors;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
-import np.com.samundrakc.game.controllers.History;
-import np.com.samundrakc.game.controllers.MasterMind;
-import np.com.samundrakc.game.controllers.Sound;
+import np.com.samundrakc.game.controllers.dailamaara.History;
+import np.com.samundrakc.game.controllers.subControllers.MasterMind;
+import np.com.samundrakc.game.controllers.subControllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.screens.DailaMaara;
 
@@ -215,6 +211,7 @@ public class Player {
                 }
                 if (!getGame().isSTARTED()) return;
                 if (game.getPLAY_TURN() == null) return;
+                if (getGame().getSTATE() == Const.STATE.PAUSE) return;
                 if (getGame().getSTATE() == Const.STATE.WAIT || getGame().getSTATE() == Const.STATE.PAUSE || getGame().getSTATE() == Const.STATE.STOP) {
                     return;
                 }
@@ -248,6 +245,7 @@ public class Player {
                                 }
                             }));
                     c.getActor().setSize(100, 120);
+                    c.getActor().setZIndex(0);
                     game.getGAME_STAGE().addActor(c.getActor());
 
                 }

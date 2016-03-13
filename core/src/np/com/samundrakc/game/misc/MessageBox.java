@@ -1,14 +1,12 @@
 package np.com.samundrakc.game.misc;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -17,8 +15,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import np.com.samundrakc.game.controllers.Audio;
-import np.com.samundrakc.game.controllers.Sound;
+import np.com.samundrakc.game.controllers.subControllers.Audio;
+import np.com.samundrakc.game.controllers.subControllers.Sound;
 
 /**
  * Created by samundra on 2/10/2016.

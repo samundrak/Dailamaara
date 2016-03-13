@@ -1,40 +1,21 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
-import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import np.com.samundrakc.game.DailaMaara;
 import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
-import np.com.samundrakc.game.controllers.FormCtrl;
-import np.com.samundrakc.game.controllers.Sound;
-import np.com.samundrakc.game.misc.Animation;
+import np.com.samundrakc.game.controllers.form.FormCtrl;
+import np.com.samundrakc.game.controllers.subControllers.Sound;
 import np.com.samundrakc.game.misc.Context;
-import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.Prefs;
 import np.com.samundrakc.game.misc.Utils;
 

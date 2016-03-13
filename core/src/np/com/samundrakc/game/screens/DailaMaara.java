@@ -1,39 +1,36 @@
 package np.com.samundrakc.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
-import np.com.samundrakc.game.anchors.Card;
 import np.com.samundrakc.game.anchors.Const;
 import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Group;
 import np.com.samundrakc.game.anchors.Player;
-import np.com.samundrakc.game.controllers.CardDistribution;
-import np.com.samundrakc.game.controllers.DailamaaraListener;
-import np.com.samundrakc.game.controllers.FormCtrl;
-import np.com.samundrakc.game.controllers.PFX;
+import np.com.samundrakc.game.controllers.dailamaara.CardDistribution;
+import np.com.samundrakc.game.controllers.dailamaara.DailamaaraListener;
+import np.com.samundrakc.game.controllers.form.FormCtrl;
+import np.com.samundrakc.game.controllers.subControllers.PFX;
+import np.com.samundrakc.game.controllers.subControllers.PauseScreen;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
 import np.com.samundrakc.game.misc.SpriteAnimation;
+import np.com.samundrakc.game.screens.subScreens.Windows;
 
 /**
  * Created by samundra on 2/10/2016.
@@ -48,6 +45,8 @@ public class DailaMaara extends ScreenRules {
     PFX pfx;
     private SpriteAnimation birdAnimation;
     Rectangle bounds;
+    PauseScreen.GamePauseScreen gamePauseScreenCtrl;
+    Windows gamePauseScreen;
 
     public Image getOnCoat() {
         return onCoat;
@@ -103,6 +102,10 @@ public class DailaMaara extends ScreenRules {
         pfx.getEffectHashMap().get("onCoat").draw(sb, delta);
 //        birdAnimation.update(delta);
 //        sb.draw(birdAnimation.getFrame(), 0, 0);
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+            gamePauseScreen.show();
+        }
+
         sb.end();
 
     }
@@ -114,6 +117,7 @@ public class DailaMaara extends ScreenRules {
     public DailaMaara(np.com.samundrakc.game.DailaMaara game, Game mainGame) {
         super(game, new Texture("table.png"));
         this.mainGame = mainGame;
+        Gdx.input.setCatchBackKey(true);
     }
 
     public void initTheCardsAgain() {
@@ -134,12 +138,15 @@ public class DailaMaara extends ScreenRules {
     public void loadAssets() {
         super.loadAssets();
         initTheCardsAgain();
+        TURN_LABEL = new Label("None", Context.getInstance().getSkin());
         sortPlayer = new ArrayList<Player>();
         if (np.com.samundrakc.game.DailaMaara.GAME_MUSIC != null) {
 
             np.com.samundrakc.game.DailaMaara.GAME_MUSIC.setVolume(0.2f);
         }
         parentGame = game;
+        gamePauseScreenCtrl = new PauseScreen.GamePauseScreen(getMainGame());
+        gamePauseScreen = new Windows("Pause", getStage()).getPauseScreen(gamePauseScreenCtrl);
         tensEffects.load(Gdx.files.internal("particle/tens.pfx"), Gdx.files.internal("particle/images"));
         mainGame.setGAME_STAGE(stage);
         msg = new MessageBox(stage, "Pop up message");
@@ -204,7 +211,11 @@ public class DailaMaara extends ScreenRules {
         return mainGame;
     }
 
-    public static Label TURN_LABEL = new Label("None", Context.getInstance().getSkin());
+    public Label getTURN_LABEL() {
+        return TURN_LABEL;
+    }
+
+    private Label TURN_LABEL;
 
 
     public HashMap<String, Label> getGroupThrownStatusLabel() {
@@ -553,7 +564,7 @@ public class DailaMaara extends ScreenRules {
         getMainGame().setPLAYER(mainGame.getPlayers().get(getMainGame().getMineId()));
         getMainGame().setTALK_TURN(sortPlayer.get(0));
         getMainGame().setPLAY_TURN(sortPlayer.get(0));
-        DailaMaara.TURN_LABEL.setText(getMainGame().getPLAY_TURN().getName());
+        getTURN_LABEL().setText(getMainGame().getPLAY_TURN().getName());
         new CardDistribution(this).shareProcessFirst().startShare(0, 51, 13);
     }
 

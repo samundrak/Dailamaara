@@ -6,7 +6,6 @@
 package np.com.samundrakc.game.anchors;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -15,22 +14,14 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Timer;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
 
-import javax.rmi.CORBA.Util;
-
-import np.com.samundrakc.game.*;
-import np.com.samundrakc.game.controllers.Audio;
-import np.com.samundrakc.game.controllers.Callback;
-import np.com.samundrakc.game.controllers.History;
-import np.com.samundrakc.game.controllers.Music;
-import np.com.samundrakc.game.controllers.Sound;
+import np.com.samundrakc.game.controllers.subControllers.Audio;
+import np.com.samundrakc.game.controllers.dailamaara.History;
+import np.com.samundrakc.game.controllers.subControllers.Music;
+import np.com.samundrakc.game.controllers.subControllers.Sound;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
 import np.com.samundrakc.game.misc.MessageBox;
@@ -219,7 +210,7 @@ public class Game {
                     index = 0;
                 }
                 PLAY_TURN = PLAYER_ORDER.get(index);
-                DailaMaara.TURN_LABEL.setText(PLAY_TURN.getName());
+                getView().getTURN_LABEL().setText(PLAY_TURN.getName());
                 break;
             }
         }
@@ -272,7 +263,7 @@ public class Game {
                                     PLAYER_ORDER.clear();
                                     PLAYER_ORDER = pl;
                                     PLAY_TURN = turn;
-                                    DailaMaara.TURN_LABEL.setText(PLAY_TURN.getName());
+                                    getView().getTURN_LABEL().setText(PLAY_TURN.getName());
                                     historyOfPlayerWon.add(turn);
                                     turn.getGroup().setHands(turn.getGroup().getHands() + 1);
                                     itihaas.get(itihaas.size() - 1).setWinner(turn);
@@ -375,9 +366,9 @@ public class Game {
         getView().getPfx().getEffectHashMap().get("onCoat").setPosition(Context.WIDTH / 2, Context.HEIGHT / 2);
         getView().getPfx().getEffectHashMap().get("onCoat").start();
         getView().getOnCoat().setSize(250, 200);
-        getView().getOnCoat().setPosition((Context.WIDTH / 2) - (getView().getOnCoat().getWidth() / 2), Context.HEIGHT );
+        getView().getOnCoat().setPosition((Context.WIDTH / 2) - (getView().getOnCoat().getWidth() / 2), Context.HEIGHT);
         getView().getOnCoat().addAction(Actions.sequence(
-                Animation.moveByAnime(0, ((Context.HEIGHT / 2) - (getView().getOnCoat().getHeight() / 2))  -(getView().getOnCoat().getY()), 1f),
+                Animation.moveByAnime(0, ((Context.HEIGHT / 2) - (getView().getOnCoat().getHeight() / 2)) - (getView().getOnCoat().getY()), 1f),
                 Animation.repeatAction(Actions.sequence(
                         Actions.fadeIn(1),
                         Actions.fadeOut(1)
@@ -389,7 +380,7 @@ public class Game {
     public void gameOver() {
         STATE = Const.STATE.GAME_OVER;
         getView().getCards().setTouchable(Touchable.disabled);
-        DailaMaara.TURN_LABEL.setText("Game Over");
+        getView().getTURN_LABEL().setText("Game Over");
         int won = 0;
         Group g = null;
         if (!getView().getGoUp().isVisible()) {
@@ -551,6 +542,7 @@ public class Game {
         setTHROWN_CARDS(0);
         setTURUP(null);
         setTURUP_STRING("");
+        setCARD_PLAYED(null);
         try {
             getView().setOnCoat(null);
             getView().getPfx().getEffectHashMap().get("onCoat").dispose();

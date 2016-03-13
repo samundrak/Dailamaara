@@ -5,16 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df2bfccd-359a-4bb0-9da1-970780cf817a" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_0.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_3.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_4.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_5.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_6.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_7.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_8.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\cards\backs\back_9.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/particle/images/10.png" afterPath="$PROJECT_DIR$/android/assets/particle/images/10.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/10.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PauseScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Windows.java" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\texture\turup_anime.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\assets\texture\ud.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\texture\turup_anime.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\android\build\intermediates\assets\debug\texture\ud.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Callback.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\CardCompare.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\CardDistribution$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\CardDistribution$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\CardDistribution$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\CardDistribution.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\DailamaaraListener$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\DailamaaraListener.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$3$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$5.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$6.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$7.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$BackCover.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl$Callback.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\FormCtrl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\History$PlayerHistory.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\History.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\MasterMind.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\MenuCtrl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\MenuCtrl$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\MenuCtrl$PlayButtonController.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\MenuCtrl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\PFX.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\PlayCardDragListener$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\PlayCardDragListener.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\PlayerCardCtrl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Query.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Sort$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Sort.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Sound.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Turup$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\samundra\DailaMaara\core\build\classes\main\np\com\samundrakc\game\controllers\Turup.class" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Audio.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Audio.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Callback.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Callback.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\CardCompare.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardCompare.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\CardDistribution.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardDistribution.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\DailamaaraListener.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/DailamaaraListener.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\FormCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/form/FormCtrl.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\History.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/History.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\MasterMind.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/MasterMind.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\MenuCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/menu/MenuCtrl.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Music.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Music.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\PFX.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PFX.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\PlayCardDragListener.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayCardDragListener.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\PlayerCardCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayerCardCtrl.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Query.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Query.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Sort.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Sort.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Sound.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Sound.java" />
+      <change type="MOVED" beforePath="C:\Users\samundra\DailaMaara\core\src\np\com\samundrakc\game\controllers\Turup.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Turup.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/CardSelection$1$2$1.class" />
@@ -31,70 +80,40 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$3.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$PlayButtonController.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl$PlayButtonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/MenuCtrl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/MenuScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PFX.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PFX.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayCardDragListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$2.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/misc/MessageBox.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player$1$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayerCardCtrl.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/PlayerCardCtrl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/screens/ScreenRules.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/Sound.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/Sound.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Utils.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/anchors/Utils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$3.class" afterPath="$PROJECT_DIR$/core/build/classes/main/np/com/samundrakc/game/controllers/SettingsController$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug-unaligned.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/backs/back_1.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/backs/back_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/backs/back_2.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/backs/back_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/bg.png" afterPath="$PROJECT_DIR$/android/assets/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/bg.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/bg.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/clubs.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/clubs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/clubs.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/clubs.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/pre-dexed/debug/core-1.0_697fb0696e41ed70b8de051258e8a009f129301a.jar" afterPath="$PROJECT_DIR$/android/build/intermediates/pre-dexed/debug/core-1.0_697fb0696e41ed70b8de051258e8a009f129301a.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/diamonds.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/diamonds.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/diamonds.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/diamonds.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/hearts.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/hearts.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/hearts.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/hearts.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/ic_launcher-web.png" afterPath="$PROJECT_DIR$/android/ic_launcher-web.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png" afterPath="$PROJECT_DIR$/android/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/assets/ng.9.png" afterPath="$PROJECT_DIR$/android/assets/ng.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/ng.9.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/ng.9.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/spades.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/cards/spades.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/spades.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/particle/images/spades.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PFX.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PFX.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Utils.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/SettingsController.java" afterPath="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/SettingsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/android/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -127,192 +146,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.271605">
-              <caret line="382" column="42" selection-start-line="382" selection-start-column="42" selection-end-line="382" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#31423#0" expanded="true" />
-                <element signature="e#2634#2635#0" expanded="true" />
-                <element signature="e#2668#2669#0" expanded="true" />
-                <element signature="e#2725#2726#0" expanded="true" />
-                <element signature="e#2763#2764#0" expanded="true" />
-                <element signature="e#2798#2799#0" expanded="true" />
-                <element signature="e#2825#2826#0" expanded="true" />
-                <element signature="e#2869#2870#0" expanded="true" />
-                <element signature="e#2901#2902#0" expanded="true" />
-                <element signature="e#8167#16700#0" expanded="true" />
-                <element signature="e#14102#14556#0" expanded="true" />
-                <element signature="e#14555#14556#0" expanded="true" />
-                <element signature="e#16699#16700#0" expanded="true" />
-                <element signature="e#19996#20157#0" expanded="true" />
-                <element signature="e#20156#20157#0" expanded="true" />
-                <element signature="e#20322#20329#0" expanded="true" />
-                <element signature="e#22823#23550#0" expanded="true" />
-                <element signature="e#23549#23550#0" expanded="true" />
-                <element signature="e#23631#23913#0" expanded="true" />
-                <element signature="e#23912#23913#0" expanded="true" />
-                <element signature="e#27473#28038#0" expanded="true" />
-                <element signature="e#28037#28038#0" expanded="true" />
-                <element signature="e#28128#28129#0" expanded="true" />
-                <element signature="e#28163#28164#0" expanded="true" />
-                <element signature="e#28216#28217#0" expanded="true" />
-                <element signature="e#28264#28265#0" expanded="true" />
-                <element signature="e#28298#28299#0" expanded="true" />
-                <element signature="e#28328#28329#0" expanded="true" />
-                <element signature="e#28375#28376#0" expanded="true" />
-                <element signature="e#28413#28414#0" expanded="true" />
-                <element signature="e#28449#28450#0" expanded="true" />
-                <element signature="e#28481#28482#0" expanded="true" />
-                <element signature="e#28531#28532#0" expanded="true" />
-                <element signature="e#28573#28574#0" expanded="true" />
-                <element signature="e#28603#28604#0" expanded="true" />
-                <element signature="e#28632#28633#0" expanded="true" />
-                <element signature="e#28673#28674#0" expanded="true" />
-                <element signature="e#28709#28710#0" expanded="true" />
-                <element signature="e#28746#28747#0" expanded="true" />
-                <element signature="e#28774#28775#0" expanded="true" />
-                <element signature="e#28821#28822#0" expanded="true" />
-                <element signature="e#28855#28856#0" expanded="true" />
-                <element signature="e#28909#28910#0" expanded="true" />
-                <element signature="e#28939#28940#0" expanded="true" />
-                <element signature="e#29005#29006#0" expanded="true" />
-                <element signature="e#29043#29044#0" expanded="true" />
-                <element signature="e#29099#29100#0" expanded="true" />
-                <element signature="e#29140#29141#0" expanded="true" />
-                <element signature="e#29325#29326#0" expanded="true" />
-                <element signature="e#29355#29356#0" expanded="true" />
-                <element signature="e#29413#29414#0" expanded="true" />
-                <element signature="e#29451#29452#0" expanded="true" />
-                <element signature="e#29500#29501#0" expanded="true" />
-                <element signature="e#29529#29530#0" expanded="true" />
-                <element signature="e#29589#29590#0" expanded="true" />
-                <element signature="e#29625#29626#0" expanded="true" />
-                <element signature="e#29653#29654#0" expanded="true" />
-                <element signature="e#29680#29681#0" expanded="true" />
-                <element signature="e#29717#29718#0" expanded="true" />
-                <element signature="e#29749#29750#0" expanded="true" />
-                <element signature="e#29779#29780#0" expanded="true" />
-                <element signature="e#29808#29809#0" expanded="true" />
-                <element signature="e#29849#29850#0" expanded="true" />
-                <element signature="e#29885#29886#0" expanded="true" />
-                <element signature="e#29939#29940#0" expanded="true" />
-                <element signature="e#29968#29969#0" expanded="true" />
-                <element signature="e#30033#30034#0" expanded="true" />
-                <element signature="e#30069#30070#0" expanded="true" />
-                <element signature="e#30105#30106#0" expanded="true" />
-                <element signature="e#30137#30138#0" expanded="true" />
-                <element signature="e#30187#30188#0" expanded="true" />
-                <element signature="e#30229#30230#0" expanded="true" />
-                <element signature="e#30268#30269#0" expanded="true" />
-                <element signature="e#30303#30304#0" expanded="true" />
-                <element signature="e#30359#30360#0" expanded="true" />
-                <element signature="e#30407#30408#0" expanded="true" />
-                <element signature="e#30440#30441#0" expanded="true" />
-                <element signature="e#30469#30470#0" expanded="true" />
-                <element signature="e#30513#30514#0" expanded="true" />
-                <element signature="e#30549#30550#0" expanded="true" />
-                <element signature="e#30586#30587#0" expanded="true" />
-                <element signature="e#30614#30615#0" expanded="true" />
-                <element signature="e#30661#30662#0" expanded="true" />
-                <element signature="e#30695#30696#0" expanded="true" />
-                <element signature="e#30734#30735#0" expanded="true" />
-                <element signature="e#30769#30770#0" expanded="true" />
-                <element signature="e#30825#30826#0" expanded="true" />
-                <element signature="e#30873#30874#0" expanded="true" />
-                <element signature="e#30916#30917#0" expanded="true" />
-                <element signature="e#30950#30951#0" expanded="true" />
-                <element signature="e#31009#31010#0" expanded="true" />
-                <element signature="e#31055#31056#0" expanded="true" />
-                <element signature="e#31105#31106#0" expanded="true" />
-                <element signature="e#31140#31141#0" expanded="true" />
-                <element signature="e#31291#31292#0" expanded="true" />
-                <element signature="e#31324#31325#0" expanded="true" />
-                <element signature="e#31375#31376#0" expanded="true" />
-                <element signature="e#31419#31420#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="34" selection-start-line="33" selection-start-column="15" selection-end-line="34" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerCardCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="7" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScreenRules.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MenuScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java">
+      <file leaf-file-name="CardDistribution.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardDistribution.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
-                <element signature="e#755#1044#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1102#1371#0" expanded="true" />
-                <element signature="e#1370#1371#0" expanded="true" />
+                <element signature="e#2114#12154#0" expanded="true" />
+                <element signature="e#12153#12154#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FormCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
+              <caret line="247" column="44" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
               <folding>
-                <element signature="e#1643#2772#0" expanded="true" />
-                <element signature="e#2771#2772#0" expanded="true" />
-                <element signature="e#2959#4093#0" expanded="true" />
-                <element signature="e#4092#4093#0" expanded="true" />
-                <element signature="e#5254#7574#0" expanded="true" />
-                <element signature="e#6090#6744#0" expanded="true" />
-                <element signature="e#6743#6744#0" expanded="true" />
-                <element signature="e#7573#7574#0" expanded="true" />
-                <element signature="e#7649#8203#0" expanded="true" />
-                <element signature="e#9501#10003#0" expanded="true" />
-                <element signature="e#10002#10003#0" expanded="true" />
-                <element signature="e#10065#10776#0" expanded="true" />
-                <element signature="e#10775#10776#0" expanded="true" />
+                <element signature="e#4609#7381#0" expanded="true" />
+                <element signature="e#7380#7381#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayCardDragListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayCardDragListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.0154638">
+              <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -321,27 +196,94 @@
         <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+              <caret line="105" column="34" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1935#1936#0" expanded="true" />
-                <element signature="e#1978#1979#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
-                <element signature="e#3527#3528#0" expanded="true" />
-                <element signature="e#3553#3554#0" expanded="true" />
+                <element signature="e#1934#1935#0" expanded="true" />
+                <element signature="e#1963#1964#0" expanded="true" />
+                <element signature="e#2177#2178#0" expanded="true" />
+                <element signature="e#2219#2220#0" expanded="true" />
+                <element signature="e#2371#2372#0" expanded="true" />
+                <element signature="e#2404#2405#0" expanded="true" />
+                <element signature="e#2637#2638#0" expanded="true" />
+                <element signature="e#2671#2672#0" expanded="true" />
+                <element signature="e#2733#2734#0" expanded="true" />
+                <element signature="e#2779#2780#0" expanded="true" />
+                <element signature="e#19300#19301#0" expanded="true" />
+                <element signature="e#19335#19336#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Windows.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Windows.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3401#3606#0" expanded="true" />
+                <element signature="e#3605#3606#0" expanded="true" />
+                <element signature="e#3803#3985#0" expanded="true" />
+                <element signature="e#3984#3985#0" expanded="true" />
+                <element signature="e#4128#4349#0" expanded="true" />
+                <element signature="e#4348#4349#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuCtrl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/menu/MenuCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="76" column="29" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PauseScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PauseScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#821#822#0" expanded="true" />
+                <element signature="e#905#1467#0" expanded="true" />
+                <element signature="e#1466#1467#0" expanded="true" />
+                <element signature="e#1558#1990#0" expanded="true" />
+                <element signature="e#1989#1990#0" expanded="true" />
+                <element signature="e#2081#3052#0" expanded="true" />
+                <element signature="e#3051#3052#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PFX.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PFX.java">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PFX.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormCtrl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/form/FormCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="250" column="138" selection-start-line="250" selection-start-column="138" selection-end-line="250" selection-end-column="138" />
               <folding>
-                <element signature="e#334#335#0" expanded="true" />
-                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#7775#8329#0" expanded="true" />
+                <element signature="e#8328#8329#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3078,14 +3020,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Distrubutor.java" />
-        <option value="$PROJECT_DIR$/android/assets/uiskin.json" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/DailaMaara.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardCompare.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardSort.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Callback.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/Utils.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Turup.java" />
         <option value="$PROJECT_DIR$/desktop/src/np/com/samundrakc/game/desktop/test/Test.java" />
         <option value="$PROJECT_DIR$/desktop/src/np/com/samundrakc/game/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/GameProcess.java" />
@@ -3116,19 +3050,27 @@
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/History.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Utils.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/Form.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PFX.java" />
-        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Pause.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Window.java" />
         <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/DailamaaraListener.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Turup.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardDistribution.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PauseScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Windows.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java" />
+        <option value="$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayCardDragListener.java" />
       </list>
     </option>
   </component>
@@ -3148,7 +3090,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -3257,7 +3199,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="misc" />
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subScreens" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3301,27 +3247,111 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="anchors" />
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subControllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="DailaMaara" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="DailaMaara" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DailaMaara" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dailamaara" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailaMaara" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anchors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3343,6 +3373,26 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailaMaara" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailaMaara" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DailaMaara" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3810,8 +3860,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34170854" sideWeight="0.49394855" order="12" side_tool="false" content_ui="tabs" />
@@ -3821,15 +3871,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63316584" sideWeight="0.5182094" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6281407" sideWeight="0.48940998" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.8174204" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6281407" sideWeight="0.48940998" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8174204" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63316584" sideWeight="0.4817906" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.319933" sideWeight="0.49167928" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.319933" sideWeight="0.50832075" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19954476" sideWeight="0.47403684" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19894099" sideWeight="0.47403684" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19954476" sideWeight="0.5259631" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -3841,7 +3892,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3912,14 +3962,15 @@
     <MESSAGE value="Turup selection images and card size changed" />
     <MESSAGE value="Some UI improvements,new background on play ground" />
     <MESSAGE value="game continue process done" />
-    <option name="LAST_COMMIT_MESSAGE" value="game continue process done" />
+    <MESSAGE value="Coat animation,Sprite with some bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Coat animation,Sprite with some bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java</url>
-          <line>111</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -3929,47 +3980,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android/assets/cards/diamonds.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.8.0/8277330a2b704388b9e941994a146aa48b79664c/gdx-1.8.0-sources.jar!/com/badlogic/gdx/scenes/scene2d/ui/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32864675">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.8.0/8277330a2b704388b9e941994a146aa48b79664c/gdx-1.8.0-sources.jar!/com/badlogic/gdx/ScreenAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17926186">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libgdxWiki/Texture-packer.md">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/texture/ud.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/down.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3983,26 +3993,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libgdxWiki/Scene2d.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libgdxWiki/Scene2d.ui.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Audio.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Audio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
@@ -4013,7 +4023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4031,35 +4040,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Callback.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Callback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/DailamaaraListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Music.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Music.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Query.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Query.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
@@ -4073,25 +4068,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sort.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Turup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="42" selection-start-line="140" selection-start-column="42" selection-end-line="140" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4110,7 +4090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4118,14 +4097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -4138,26 +4109,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28295255">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MasterMind.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/MasterMind.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -4178,7 +4133,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/Sound.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Sound.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42179263">
           <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
@@ -4186,52 +4141,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/History.java">
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/History.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="260" column="0" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
-          <folding>
-            <element signature="e#3746#3747#0" expanded="true" />
-            <element signature="e#3782#3783#0" expanded="true" />
-            <element signature="e#4529#4530#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -4241,8 +4154,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
           <folding>
-            <element signature="e#7063#7064#0" expanded="true" />
-            <element signature="e#7092#7093#0" expanded="true" />
+            <element signature="e#6225#6226#0" expanded="true" />
+            <element signature="e#6254#6255#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4258,99 +4171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/FormCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
-          <folding>
-            <element signature="e#1643#2772#0" expanded="true" />
-            <element signature="e#2771#2772#0" expanded="true" />
-            <element signature="e#2959#4093#0" expanded="true" />
-            <element signature="e#4092#4093#0" expanded="true" />
-            <element signature="e#5254#7574#0" expanded="true" />
-            <element signature="e#6090#6744#0" expanded="true" />
-            <element signature="e#6743#6744#0" expanded="true" />
-            <element signature="e#7573#7574#0" expanded="true" />
-            <element signature="e#7649#8203#0" expanded="true" />
-            <element signature="e#9501#10003#0" expanded="true" />
-            <element signature="e#10002#10003#0" expanded="true" />
-            <element signature="e#10065#10776#0" expanded="true" />
-            <element signature="e#10775#10776#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/MenuCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#755#1044#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1102#1371#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayCardDragListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PlayerCardCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="7" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/PFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
-          <folding>
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1935#1936#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-            <element signature="e#2014#2015#0" expanded="true" />
-            <element signature="e#3527#3528#0" expanded="true" />
-            <element signature="e#3553#3554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/LoadingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4361,110 +4181,268 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/misc/MessageBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="160" column="40" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libgdxWiki/Taking-a-Screenshot.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libgdxWiki/Texture-Compression.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libgdxWiki/Textures,-textureregion-and-spritebatch.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libgdxWiki/Texture-packer.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayerCardCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="7" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/ScreenRules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardCompare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/CardSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.271605">
-          <caret line="382" column="42" selection-start-line="382" selection-start-column="42" selection-end-line="382" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="769" column="0" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31423#0" expanded="true" />
-            <element signature="e#2634#2635#0" expanded="true" />
-            <element signature="e#2668#2669#0" expanded="true" />
-            <element signature="e#2725#2726#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
-            <element signature="e#2869#2870#0" expanded="true" />
-            <element signature="e#2901#2902#0" expanded="true" />
-            <element signature="e#8167#16700#0" expanded="true" />
-            <element signature="e#14102#14556#0" expanded="true" />
-            <element signature="e#14555#14556#0" expanded="true" />
-            <element signature="e#16699#16700#0" expanded="true" />
-            <element signature="e#19996#20157#0" expanded="true" />
-            <element signature="e#20156#20157#0" expanded="true" />
-            <element signature="e#20322#20329#0" expanded="true" />
-            <element signature="e#22823#23550#0" expanded="true" />
-            <element signature="e#23549#23550#0" expanded="true" />
-            <element signature="e#23631#23913#0" expanded="true" />
-            <element signature="e#23912#23913#0" expanded="true" />
-            <element signature="e#27473#28038#0" expanded="true" />
-            <element signature="e#28037#28038#0" expanded="true" />
-            <element signature="e#28128#28129#0" expanded="true" />
-            <element signature="e#28163#28164#0" expanded="true" />
-            <element signature="e#28216#28217#0" expanded="true" />
-            <element signature="e#28264#28265#0" expanded="true" />
-            <element signature="e#28298#28299#0" expanded="true" />
-            <element signature="e#28328#28329#0" expanded="true" />
-            <element signature="e#28375#28376#0" expanded="true" />
-            <element signature="e#28413#28414#0" expanded="true" />
-            <element signature="e#28449#28450#0" expanded="true" />
-            <element signature="e#28481#28482#0" expanded="true" />
-            <element signature="e#28531#28532#0" expanded="true" />
-            <element signature="e#28573#28574#0" expanded="true" />
-            <element signature="e#28603#28604#0" expanded="true" />
-            <element signature="e#28632#28633#0" expanded="true" />
-            <element signature="e#28673#28674#0" expanded="true" />
-            <element signature="e#28709#28710#0" expanded="true" />
-            <element signature="e#28746#28747#0" expanded="true" />
-            <element signature="e#28774#28775#0" expanded="true" />
-            <element signature="e#28821#28822#0" expanded="true" />
-            <element signature="e#28855#28856#0" expanded="true" />
-            <element signature="e#28909#28910#0" expanded="true" />
-            <element signature="e#28939#28940#0" expanded="true" />
-            <element signature="e#29005#29006#0" expanded="true" />
-            <element signature="e#29043#29044#0" expanded="true" />
-            <element signature="e#29099#29100#0" expanded="true" />
-            <element signature="e#29140#29141#0" expanded="true" />
-            <element signature="e#29325#29326#0" expanded="true" />
-            <element signature="e#29355#29356#0" expanded="true" />
-            <element signature="e#29413#29414#0" expanded="true" />
-            <element signature="e#29451#29452#0" expanded="true" />
-            <element signature="e#29500#29501#0" expanded="true" />
-            <element signature="e#29529#29530#0" expanded="true" />
-            <element signature="e#29589#29590#0" expanded="true" />
-            <element signature="e#29625#29626#0" expanded="true" />
-            <element signature="e#29653#29654#0" expanded="true" />
-            <element signature="e#29680#29681#0" expanded="true" />
-            <element signature="e#29717#29718#0" expanded="true" />
-            <element signature="e#29749#29750#0" expanded="true" />
-            <element signature="e#29779#29780#0" expanded="true" />
-            <element signature="e#29808#29809#0" expanded="true" />
-            <element signature="e#29849#29850#0" expanded="true" />
-            <element signature="e#29885#29886#0" expanded="true" />
-            <element signature="e#29939#29940#0" expanded="true" />
-            <element signature="e#29968#29969#0" expanded="true" />
-            <element signature="e#30033#30034#0" expanded="true" />
-            <element signature="e#30069#30070#0" expanded="true" />
-            <element signature="e#30105#30106#0" expanded="true" />
-            <element signature="e#30137#30138#0" expanded="true" />
-            <element signature="e#30187#30188#0" expanded="true" />
-            <element signature="e#30229#30230#0" expanded="true" />
-            <element signature="e#30268#30269#0" expanded="true" />
-            <element signature="e#30303#30304#0" expanded="true" />
-            <element signature="e#30359#30360#0" expanded="true" />
-            <element signature="e#30407#30408#0" expanded="true" />
-            <element signature="e#30440#30441#0" expanded="true" />
-            <element signature="e#30469#30470#0" expanded="true" />
-            <element signature="e#30513#30514#0" expanded="true" />
-            <element signature="e#30549#30550#0" expanded="true" />
-            <element signature="e#30586#30587#0" expanded="true" />
-            <element signature="e#30614#30615#0" expanded="true" />
-            <element signature="e#30661#30662#0" expanded="true" />
-            <element signature="e#30695#30696#0" expanded="true" />
-            <element signature="e#30734#30735#0" expanded="true" />
-            <element signature="e#30769#30770#0" expanded="true" />
-            <element signature="e#30825#30826#0" expanded="true" />
-            <element signature="e#30873#30874#0" expanded="true" />
-            <element signature="e#30916#30917#0" expanded="true" />
-            <element signature="e#30950#30951#0" expanded="true" />
-            <element signature="e#31009#31010#0" expanded="true" />
-            <element signature="e#31055#31056#0" expanded="true" />
-            <element signature="e#31105#31106#0" expanded="true" />
-            <element signature="e#31140#31141#0" expanded="true" />
-            <element signature="e#31291#31292#0" expanded="true" />
-            <element signature="e#31324#31325#0" expanded="true" />
-            <element signature="e#31375#31376#0" expanded="true" />
-            <element signature="e#31419#31420#0" expanded="true" />
+            <element signature="e#0#31261#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/DailamaaraListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/Turup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/MenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/form/FormCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="138" selection-start-line="250" selection-start-column="138" selection-end-line="250" selection-end-column="138" />
+          <folding>
+            <element signature="e#7775#8329#0" expanded="true" />
+            <element signature="e#8328#8329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/menu/MenuCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="29" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/DailaMaara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="34" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1934#1935#0" expanded="true" />
+            <element signature="e#1963#1964#0" expanded="true" />
+            <element signature="e#2177#2178#0" expanded="true" />
+            <element signature="e#2219#2220#0" expanded="true" />
+            <element signature="e#2371#2372#0" expanded="true" />
+            <element signature="e#2404#2405#0" expanded="true" />
+            <element signature="e#2637#2638#0" expanded="true" />
+            <element signature="e#2671#2672#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#19300#19301#0" expanded="true" />
+            <element signature="e#19335#19336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/CardDistribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <element signature="e#2114#12154#0" expanded="true" />
+            <element signature="e#12153#12154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/subControllers/PauseScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#905#1467#0" expanded="true" />
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1558#1990#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2081#3052#0" expanded="true" />
+            <element signature="e#3051#3052#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/screens/subScreens/Windows.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3401#3606#0" expanded="true" />
+            <element signature="e#3605#3606#0" expanded="true" />
+            <element signature="e#3803#3985#0" expanded="true" />
+            <element signature="e#3984#3985#0" expanded="true" />
+            <element signature="e#4128#4349#0" expanded="true" />
+            <element signature="e#4348#4349#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/anchors/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="247" column="44" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
+          <folding>
+            <element signature="e#4609#7381#0" expanded="true" />
+            <element signature="e#7380#7381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/np/com/samundrakc/game/controllers/dailamaara/PlayCardDragListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0154638">
+          <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

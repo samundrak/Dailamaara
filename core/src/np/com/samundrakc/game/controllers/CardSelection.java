@@ -16,7 +16,6 @@ import java.util.TimerTask;
 
 import np.com.samundrakc.game.anchors.Card;
 import np.com.samundrakc.game.anchors.Const;
-import np.com.samundrakc.game.anchors.Game;
 import np.com.samundrakc.game.anchors.Player;
 import np.com.samundrakc.game.misc.Animation;
 import np.com.samundrakc.game.misc.Context;
@@ -30,13 +29,13 @@ import np.com.samundrakc.game.screens.LoadingScreen;
  */
 public class CardSelection {
 
-    private final FormCtrl form;
+    private final np.com.samundrakc.game.controllers.form.FormCtrl form;
     private ArrayList<Actor> selectedCards = new ArrayList<Actor>();
     ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
     //      ArrayList<CardSelectedPlayer> dups = new ArrayList<CardSelectedPlayer>();
     private boolean playerHasPlayed = false;
 
-    public CardSelection(FormCtrl form) {
+    public CardSelection(np.com.samundrakc.game.controllers.form.FormCtrl form) {
         this.form = form;
     }
 
@@ -131,11 +130,11 @@ public class CardSelection {
                             }
                         });
                         form.getGame().setTurn(dups.get(0).getPlayer().getId());
-                        Sound.getInstance().play(Audio.AUDIO.SMALL_CARD);
+                        np.com.samundrakc.game.controllers.subControllers.Sound.getInstance().play(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO.SMALL_CARD);
                         selectedCards.get(min).addAction(Actions.sequence(Animation.sizeActionPlus(110, 160, 0.5f)));
                         return;
                     }
-                    Sound.getInstance().play(Audio.AUDIO.TEN_GONE);
+                    np.com.samundrakc.game.controllers.subControllers.Sound.getInstance().play(np.com.samundrakc.game.controllers.subControllers.Audio.AUDIO.TEN_GONE);
                     form.autoHideMessage(sb.toString().substring(0, sb.toString().length() - 1) + " have to select card again").autoHide(1f, new MessageBox.OnOkButtonClicked() {
                         @Override
                         public void run() {
@@ -159,7 +158,7 @@ public class CardSelection {
                             selectedCardsIndex.clear();
                             cardSelectedPlayers.clear();
                             form.getView().getStacks().setTouchable(Touchable.disabled);
-                            form.cardShareProcess(new FormCtrl.Callback() {
+                            form.cardShareProcess(new np.com.samundrakc.game.controllers.form.FormCtrl.Callback() {
                                 @Override
                                 public void run() {
                                     if (playerHasPlayed) {
@@ -217,7 +216,7 @@ public class CardSelection {
     private ArrayList<CardSelectedPlayer> cardSelectedPlayers = new ArrayList<CardSelectedPlayer>();
 
     private void cardSelectionProcess(Actor actor, int index) {
-        Sound.getInstance().play(Sound.AUDIO.CARD_TOUCHED);
+        np.com.samundrakc.game.controllers.subControllers.Sound.getInstance().play(np.com.samundrakc.game.controllers.subControllers.Sound.AUDIO.CARD_TOUCHED);
         actor.setVisible(false);
         final Image image = form.getGame().getCards().get(index).getActor(actor.getX(), actor.getY());
         image.addAction(Actions.sequence(Animation.sizeActionPlus(150, 200, 0.5f)));
