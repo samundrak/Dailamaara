@@ -77,6 +77,8 @@ public abstract class ScreenRules extends ScreenAdapter {
         if (game.getGAME_MUSIC() != null) {
             game.getGAME_MUSIC().pause();
         }
+        Music.getInstance().setAssetsLoaded(false);
+        Sound.getInstance().setAssetsLoaded(false);
 
     }
 
@@ -95,9 +97,7 @@ public abstract class ScreenRules extends ScreenAdapter {
     @Override
     public void dispose() {
         super.dispose();
-        Music.getInstance().setAssetsLoaded(false);
         Music.getInstance().dispose();
-        Sound.getInstance().setAssetsLoaded(false);
         Sound.getInstance().dispose();
     }
 }
